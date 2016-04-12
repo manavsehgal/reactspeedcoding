@@ -42,9 +42,9 @@ Their [Github repo][4] documents install and usage.
 
 To install NVM:
 
-```
+~~~~~~~
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-```
+~~~~~~~
 
 Now you can install a Node release by choosing one from Node [releases][5] page.
 
@@ -55,7 +55,7 @@ node releases you may have on your system.
 
 Here's what our terminal looks like when using ```nvm ls``` to list installed node releases.
 
-```guess
+~~~~~~~
 v4.2.3
 v5.3.0
 v5.10.0
@@ -65,7 +65,7 @@ default -> 5.3.0 (-> v5.3.0)
 node -> stable (-> v5.10.1) (default)
 stable -> 5.10 (-> v5.10.1) (default)
 iojs -> iojs- (-> system) (default)
-```
+~~~~~~~
 
 Using ```nvm use x.x.x``` command we can switch to ```x.x.x``` installed node release.
 
@@ -79,7 +79,7 @@ This is what our ```package.json``` looks like as we start off. Note that we add
 the ```private``` flag to avoid accidental publishing of the project to NPM repo,
 and also to stop any warnings for missing flags like project repo.
 
-```json
+~~~~~~~
 {
   "name": "react-speed-coding-code",
   "version": "1.0.0",
@@ -92,7 +92,7 @@ and also to stop any warnings for missing flags like project repo.
   "author": "Manav Sehgal",
   "license": "MIT"
 }
-```
+~~~~~~~
 
 Dependencies section will start showing up as we add npm dependencies.
 
@@ -104,20 +104,20 @@ read the book.
 
 You can clone a specific branch like so.
 
-```
+~~~~~~~
 git clone -b <branch-name> --single-branch --depth=1 https://github.com/manavsehgal/reactspeedcoding.git
-```
+~~~~~~~
 
 Replace ```<branch-name>``` with actual branch name from the repo.
 For example ```c01-setup-react-webpack``` for first chapter's init code.
 This will clone the code and along with relevant chapter content for the book.
 The ```--depth=1``` flag ensures that only the latest commit is cloned.
 
-```text
+~~~~~~~
 - reactspeedcoding
 -- manuscript # chapter content
 -- code # sample code
-```
+~~~~~~~
 
 Now cd to the code directory and install dependencies using ```npm install``` command.
 Run sample app using ```npm start``` command.
@@ -128,24 +128,32 @@ React > ES6 > Babel > Webpack.
 
 React is available via NPM and this is the recommended way of using React in a project.
 
-```
+~~~~~~~
 npm install --save react
 npm install --save react-dom
-```
+~~~~~~~
 
 Webpack is used for module packaging, development, and production pipeline automation.
 
-```
+~~~~~~~
 npm install --save-dev webpack
 npm install --save-dev webpack-dev-server
-```
+~~~~~~~
+
+You can add functionality to Webpack using plugins. We will use automatic HTML
+generation plugins for creating ```index.html``` for your app.
+
+~~~~~~~
+npm install --save-dev html-webpack-plugin
+npm install --save-dev html-webpack-template
+~~~~~~~
 
 Webpack requires loaders to process specific file types.
 
-```
+~~~~~~~
 npm install --save-dev css-loader
 npm install --save-dev style-loader
-```
+~~~~~~~
 
 Babel transpiles React JSX and ES6 to ES5 JavaScript. We need ```babel-loader```
 as Webpack Babel loader for JSX file types.
@@ -156,20 +164,20 @@ without losing current state of your app.
 
 ES6 support requires ```babel-preset-es2015``` Babel preset.
 
-```
+~~~~~~~
 npm install --save-dev babel-core
 npm install --save-dev babel-loader
 npm install --save-dev babel-preset-es2015
 npm install --save-dev babel-preset-react
 npm install --save-dev babel-preset-react-hmre
-```
+~~~~~~~
 
 ## Configuring Babel
 
 Babel configuration is specified in ```.babelrc``` file. React Hot Loading is
 required only during development.
 
-```json
+~~~~~~~
 {
   "presets": ["react", "es2015"],
   "env": {
@@ -178,9 +186,18 @@ required only during development.
     }
   }
 }
-```
+~~~~~~~
 
 ## Creating Webpack configuration
+
+Webpack configuration drives your development pipeline, so this is a really
+important file to understand. We will split various sections of the config
+file to aid step-by-step learning.
+
+To start off, you need to initialize the config file with dependencies.
+There are only two in case of development config, webpack and HTML generation plugin.
+
+Next we initialize the APP, BUILD, and STYLE paths.
 
 {title="webpack.config.js initialization", lang=javascript}
 ~~~~~~~
@@ -191,6 +208,27 @@ const APP = __dirname + '/app';
 const BUILD = __dirname + '/build';
 const STYLE = __dirname + '/app/main.css';
 ~~~~~~~
+
+Next section defines your app entry, output, and extensions.
+
+{title="webpack.config.js paths and extensions", lang=javascript}
+~~~~~~~
+module.exports = {
+  entry: {
+    app: APP,
+    style: STYLE
+  },
+  output: {
+    path: BUILD,
+    filename: '[name].js'
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+~~~~~~~
+
+We follow this by defining the loaders for processing various file types
+used within our app.
 
 
 [1]: https://atom.io/

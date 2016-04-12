@@ -1,3 +1,4 @@
+// Initialization
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -6,17 +7,19 @@ const BUILD = __dirname + '/build';
 const STYLE = __dirname + '/app/main.css';
 
 module.exports = {
+  // Paths and extensions
   entry: {
     app: APP,
     style: STYLE
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
   },
   output: {
     path: BUILD,
     filename: '[name].js'
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+  // Loaders for processing different file types
   module: {
     loaders: [
       {
