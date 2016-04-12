@@ -1,0 +1,8 @@
+body {
+  background: lightblue;
+}
+
+.hello-message {
+  font-size: 2em;
+  font-weight: bolder;
+}

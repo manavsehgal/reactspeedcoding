@@ -6,7 +6,11 @@ as fast as possible.
 The world of React is constantly evolving and changing at a fast pace. This book
 equips you to take the right decisions matching your project requirements.
 
-You will learn in this chapter how to setup React development environment from scratch.
+You will learn in this chapter how to setup React development environment starting
+from scratch. By the end of this chapter we will have a starter boilerplate to
+develop React apps.
+
+We will cover following topics.
 
 - How to install Node.js and use Node Version Manager.
 - Setup package.json to manage your NPM dependencies.
@@ -105,20 +109,22 @@ git clone -b <branch-name> --single-branch --depth=1 https://github.com/manavseh
 ```
 
 Replace ```<branch-name>``` with actual branch name from the repo.
-For example ```c01-init``` for first chapter's init code.
+For example ```c01-setup-react-webpack``` for first chapter's init code.
 This will clone the code and along with relevant chapter content for the book.
 The ```--depth=1``` flag ensures that only the latest commit is cloned.
 
-```
+```text
 - reactspeedcoding
--- manuscript
---- code
+-- manuscript # chapter content
+-- code # sample code
 ```
 
 Now cd to the code directory and install dependencies using ```npm install``` command.
 Run sample app using ```npm start``` command.
 
-## Installing React and Webpack
+## Installing Starter Dependencies
+
+React > ES6 > Babel > Webpack.
 
 React is available via NPM and this is the recommended way of using React in a project.
 
@@ -141,7 +147,14 @@ npm install --save-dev css-loader
 npm install --save-dev style-loader
 ```
 
-Babel transpiles React JSX and ES6 to ES5 JavaScript.
+Babel transpiles React JSX and ES6 to ES5 JavaScript. We need ```babel-loader```
+as Webpack Babel loader for JSX file types.
+
+Hot loading using ```babel-preset-react-hmre``` makes
+your browser update automatically when there are changes to code,
+without losing current state of your app.
+
+ES6 support requires ```babel-preset-es2015``` Babel preset.
 
 ```
 npm install --save-dev babel-core
@@ -150,6 +163,34 @@ npm install --save-dev babel-preset-es2015
 npm install --save-dev babel-preset-react
 npm install --save-dev babel-preset-react-hmre
 ```
+
+## Configuring Babel
+
+Babel configuration is specified in ```.babelrc``` file. React Hot Loading is
+required only during development.
+
+```json
+{
+  "presets": ["react", "es2015"],
+  "env": {
+    "development": {
+      "presets": ["react-hmre"]
+    }
+  }
+}
+```
+
+## Creating Webpack configuration
+
+{title="webpack.config.js initialization", lang=javascript}
+~~~~~~~
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const APP = __dirname + '/app';
+const BUILD = __dirname + '/build';
+const STYLE = __dirname + '/app/main.css';
+~~~~~~~
 
 
 [1]: https://atom.io/
