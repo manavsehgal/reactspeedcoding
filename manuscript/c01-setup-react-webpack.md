@@ -42,9 +42,9 @@ Their [Github repo][4] documents install and usage.
 
 To install NVM:
 
-~~~~~~~
+```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-~~~~~~~
+```
 
 Now you can install a Node release by choosing one from Node [releases][5] page.
 
@@ -55,6 +55,7 @@ node releases you may have on your system.
 
 Here's what our terminal looks like when using ```nvm ls``` to list installed node releases.
 
+{title="nvm ls terminal output", lang=text}
 ~~~~~~~
 v4.2.3
 v5.3.0
@@ -79,6 +80,7 @@ This is what our ```package.json``` looks like as we start off. Note that we add
 the ```private``` flag to avoid accidental publishing of the project to NPM repo,
 and also to stop any warnings for missing flags like project repo.
 
+{title="package.json", lang=json}
 ~~~~~~~
 {
   "name": "react-speed-coding-code",
@@ -104,15 +106,16 @@ read the book.
 
 You can clone a specific branch like so.
 
-~~~~~~~
+```
 git clone -b <branch-name> --single-branch --depth=1 https://github.com/manavsehgal/reactspeedcoding.git
-~~~~~~~
+```
 
 Replace ```<branch-name>``` with actual branch name from the repo.
 For example ```c01-setup-react-webpack``` for first chapter's init code.
 This will clone the code and along with relevant chapter content for the book.
 The ```--depth=1``` flag ensures that only the latest commit is cloned.
 
+{title="reactspeedcoding repo file structure", lang=text}
 ~~~~~~~
 - reactspeedcoding
 -- manuscript # chapter content
@@ -128,6 +131,7 @@ React > ES6 > Babel > Webpack.
 
 React is available via NPM and this is the recommended way of using React in a project.
 
+{title="Install React dependencies", lang=text}
 ~~~~~~~
 npm install --save react
 npm install --save react-dom
@@ -135,6 +139,7 @@ npm install --save react-dom
 
 Webpack is used for module packaging, development, and production pipeline automation.
 
+{title="Install Webpack dependencies", lang=text}
 ~~~~~~~
 npm install --save-dev webpack
 npm install --save-dev webpack-dev-server
@@ -143,6 +148,7 @@ npm install --save-dev webpack-dev-server
 You can add functionality to Webpack using plugins. We will use automatic HTML
 generation plugins for creating ```index.html``` for your app.
 
+{title="Install Webpack plugins", lang=text}
 ~~~~~~~
 npm install --save-dev html-webpack-plugin
 npm install --save-dev html-webpack-template
@@ -150,6 +156,7 @@ npm install --save-dev html-webpack-template
 
 Webpack requires loaders to process specific file types.
 
+{title="Install Webpack loaders", lang=text}
 ~~~~~~~
 npm install --save-dev css-loader
 npm install --save-dev style-loader
@@ -164,6 +171,7 @@ without losing current state of your app.
 
 ES6 support requires ```babel-preset-es2015``` Babel preset.
 
+{title="Install Babel dependencies", lang=text}
 ~~~~~~~
 npm install --save-dev babel-core
 npm install --save-dev babel-loader
@@ -177,6 +185,7 @@ npm install --save-dev babel-preset-react-hmre
 Babel configuration is specified in ```.babelrc``` file. React Hot Loading is
 required only during development.
 
+{title=".babelrc", lang=json}
 ~~~~~~~
 {
   "presets": ["react", "es2015"],
