@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const APP = __dirname + '/app';
 const BUILD = __dirname + '/build';
-const STYLE = __dirname + '/app/main.css';
+const STYLE = __dirname + '/app/style.css';
 
 module.exports = {
   // Paths and extensions
@@ -34,7 +34,9 @@ module.exports = {
       }
     ]
   },
+  // Source maps used for debugging information
   devtool: 'eval-source-map',
+  // webpack-dev-server configuration
   devServer: {
     historyApiFallback: true,
     hot: true,
@@ -46,6 +48,7 @@ module.exports = {
     host: process.env.HOST,
     port: process.env.PORT
   },
+  // Webpack plugins
   plugins: [
     new HtmlWebpackPlugin({
       template: 'node_modules/html-webpack-template/index.ejs',

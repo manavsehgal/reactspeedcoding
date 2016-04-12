@@ -80,7 +80,7 @@ This is what our ```package.json``` looks like as we start off. Note that we add
 the ```private``` flag to avoid accidental publishing of the project to NPM repo,
 and also to stop any warnings for missing flags like project repo.
 
-{title="package.json", lang=json}
+{title="/package.json", lang=json}
 ~~~~~~~
 {
   "name": "react-speed-coding-code",
@@ -185,7 +185,7 @@ npm install --save-dev babel-preset-react-hmre
 Babel configuration is specified in ```.babelrc``` file. React Hot Loading is
 required only during development.
 
-{title=".babelrc", lang=json}
+{title="/.babelrc", lang=json}
 ~~~~~~~
 {
   "presets": ["react", "es2015"],
@@ -208,19 +208,19 @@ There are only two in case of development config, webpack and HTML generation pl
 
 Next we initialize the APP, BUILD, and STYLE paths.
 
-{title="webpack.config.js initialization", lang=javascript}
+{title="/webpack.config.js initialization", lang=javascript}
 ~~~~~~~
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const APP = __dirname + '/app';
 const BUILD = __dirname + '/build';
-const STYLE = __dirname + '/app/main.css';
+const STYLE = __dirname + '/app/style.css';
 ~~~~~~~
 
 Next section defines your app entry, output, and extensions.
 
-{title="webpack.config.js paths and extensions", lang=javascript}
+{title="/webpack.config.js paths and extensions", lang=javascript}
 ~~~~~~~
 module.exports = {
   entry: {
@@ -238,6 +238,214 @@ module.exports = {
 
 We follow this by defining the loaders for processing various file types
 used within our app.
+
+{title="/webpack.config.js loaders", lang=javascript}
+~~~~~~~
+module: {
+  loaders: [
+    {
+      test: /\.jsx?$/,
+      loaders: ['babel?cacheDirectory'],
+      include: APP
+    },
+    {
+      test: /\.css$/,
+      loaders: ['style', 'css'],
+      include: APP
+    }
+  ]
+},
+~~~~~~~
+
+Now that we have loaders configured, let us add settings for our development
+server. Source maps are used for debugging information. The ```devServer```
+settings are picked up by ```webpack-dev-server``` as it runs.
+
+{title="/webpack.config.js dev server settings", lang=javascript}
+~~~~~~~
+devtool: 'eval-source-map',
+
+devServer: {
+  historyApiFallback: true,
+  hot: true,
+  inline: true,
+  progress: true,
+
+  stats: 'errors-only',
+
+  host: process.env.HOST,
+  port: process.env.PORT
+},
+~~~~~~~
+
+We now wrap up by adding plugins needed during our development.
+
+{title="/webpack.config.js plugins", lang=javascript}
+~~~~~~~
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'node_modules/html-webpack-template/index.ejs',
+      title: 'React Speed Coding',
+      appMountId: 'app',
+      inject: false
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ]
+};
+~~~~~~~
+
+## Configuring startup scripts
+
+We can configure startup scripts in ```package.json``` to speed up our development
+even further.
+
+{title="/package.json startup scripts", lang=json}
+~~~~~~~
+"scripts": {
+  "start": "NODE_ENV=development webpack-dev-server",
+  "build": "NODE_ENV=production webpack"
+},
+~~~~~~~
+
+Both webpack and the webpack-dev-server will pick up webpack.config.js file
+configuration.
+
+## Hello World React
+
+Now that we have our development environment setup, it is time to write some React!
+
+We start by writing the entry point to our React app. This is the root component
+which imports the ```App``` component.
+
+{title="/app/index.jsx app entry", lang=javascript}
+~~~~~~~
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/app.jsx';
+
+ReactDOM.render(<App />, document.getElementById('app'));
+~~~~~~~
+
+Now we write the ```App``` component which calls the ```Hello``` component
+with a message.
+
+{title="/app/components/app.jsx App component", lang=javascript}
+~~~~~~~
+import React, {Component} from 'react';
+import Hello from './hello.jsx';
+
+export default class App extends Component {
+  render() {
+    return <Hello message="World!" />;
+  }
+}
+~~~~~~~
+
+The ```Hello``` component renders Hello World message based on how ```App```
+component calls it.
+
+{title="/app/components/hello.jsx Hello component", lang=javascript}
+~~~~~~~
+import React, {Component} from 'react';
+
+export default class Hello extends Component {
+  render() {
+    return <div className="hello-message">Hello {this.props.message}</div>;
+  }
+}
+~~~~~~~
+
+We can add some styles to our app.
+
+{title="/app/style.css Main Styles", lang=css}
+~~~~~~~
+body {
+  background: lightblue;
+}
+
+.hello-message {
+  font-size: 2em;
+  font-weight: bolder;
+}
+~~~~~~~
+
+This completes our first React app. Now run the app using the development server.
+
+```
+npm start
+```
+
+Once the app runs you should see following message from webpack-dev-server in
+your terminal window.
+
+{title="npm start webpack-dev-server output", lang=text}
+~~~~~~~
+> react-speed-coding-code@1.0.0 start ...
+> NODE_ENV=development webpack-dev-server
+
+http://localhost:8080/
+webpack result is served from /
+content is served from ...
+404s will fallback to /index.html
+Child html-webpack-plugin for "index.html":
+
+webpack: bundle is now VALID.
+~~~~~~~
+
+Browse to your app on the url mentioned in webpack output. Now try changing
+some code like the style background or the Hello World message and hit save. Your
+browser should update the app without refreshing state.
+
+When this hot loading update happens you will see following output in the browser
+console.
+
+{title="browser console output", lang=text}
+~~~~~~~
+[HMR] App is up to date.
+[React Transform HMR] Patching Hello
+[HMR] Updated modules:
+[HMR]  - 379
+[HMR] App is up to date.
+~~~~~~~
+
+You can also build your app to serve it using any web server. First add a file server like so.
+
+```
+npm install -g serve
+```
+
+Now build and serve.
+
+```
+npm run build
+serve build
+```
+
+You will see a different webpack output on your terminal this time.
+
+{title="webpack output", lang=text}
+~~~~~~~
+> react-speed-coding-code@1.0.0 build ...
+> NODE_ENV=production webpack
+
+Hash: 004066b58d647f69ee8f
+Version: webpack 1.12.15
+Time: 1880ms
+     Asset       Size  Chunks             Chunk Names
+    app.js    1.82 MB       0  [emitted]  app
+  style.js      52 kB       1  [emitted]  style
+index.html  555 bytes          [emitted]  
+    + 172 hidden modules
+Child html-webpack-plugin for "index.html":
+        + 3 hidden modules
+~~~~~~~
+
+Congratulations... You just built one of the most modern development environments
+on the planet!
+
+As you may have noticed the build is not highly optimized. The ```app.js``` file is
+a huge ~2MB and css turned into JavaScript! In the next chapter, Optimize Webpack Pipeline,
+we will discuss various techniques to optimize for a production environment.
 
 
 [1]: https://atom.io/
