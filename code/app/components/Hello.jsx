@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Hello({ greet, message }) {
+export default function Hello(props) {
   return (
     <div className="title-shadow">
-      {greet} {message}
+      {props.greet} {props.message}
     </div>
   );
 }
