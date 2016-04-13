@@ -23,10 +23,10 @@ We will cover following topics in this chapter.
 
 This book assumes you have access to a Mac or Linux environment.
 
-I> ## Are you on Windows?
-I> You can try any of the Cloud based code editors which offer Linux Development
-I> environment within the convenience of your web browser.
-I> [Cloud9][1] is our favorite, other options include [Nitrous][2].
+A> ## Are you on Windows?
+A> You can try any of the Cloud based code editors which offer Linux Development
+A> environment within the convenience of your web browser.
+A> [Cloud9][1] is our favorite, other options include [Nitrous][2].
 
 On Mac or Linux you can use your favorite code editor. This book is written using [Atom][1].
 Atom gets you started coding by just dragging and dropping a folder onto the editor.
@@ -344,9 +344,9 @@ ReactDOM.render(
 Now we write the ```World``` component which renders the ```Hello``` component
 with a message.
 
-I> ## ES6 React Guide
-I> Do not worry about the new syntax that you may notice here. We will explain
-I> each section in the chapter titled **ES6 React Guide**
+A> ## ES6 React Guide
+A> Do not worry about the new syntax that you may notice here. We will explain
+A> each section in the chapter titled **ES6 React Guide**
 
 {title="/app/components/World.jsx World component", lang=javascript}
 ~~~~~~~
