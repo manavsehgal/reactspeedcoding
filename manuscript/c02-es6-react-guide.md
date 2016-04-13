@@ -15,13 +15,13 @@ React app folders and files are organized.
 **Component Hierarchy.** React has parent components which import other child components.
 This parent-child relationship continues across all components building a tree-like hierarchy.
 
-In case of our Hello World example, ```index.js``` represents
+**Root Component.** In case of our Hello World example, ```index.js``` represents
 the root parent component (one that does not have a parent).
 The root component renders ```World``` component.
 The ```World``` component is parent to ```Hello``` child component.
 
-Root component inside a folder is named ```index.jsx```. Components other than root are
-named same as the component class names, including camel case.
+**Component File Naming.** Root component inside a folder is named ```index.jsx```.
+Components other than root are named same as the component class names, including camel case.
 
 {title="Hello World files and folders", lang=text}
 ~~~~~~~
@@ -60,16 +60,24 @@ import Hello from './Hello.jsx';
 export default class World extends React.Component {
 ~~~~~~~
 
+## Constructor, State, Props, and Events
+
 The constructor of our ```World``` component highlights three most important
 features of how components talk to each other and the user.
 
 **State.** Changing UI or internal state of a component is maintained using ```this.state```
-object.
+JSON object.
 
 **Props.** Properties are the mechanism to pass data from parent to child components.
 
-**Events.** Methods are bound to UI events (like onClick) to perform actions when the
+**Events.** Functions are bound to UI events (like onClick) to perform actions when the
 event takes place.
+
+Constructor is called when component is created, so it is the right place for following three objectives.
+
+1. Setting initial state. Using ```this.state``` JSON object.
+2. Binding events. Using ```bind(this)``` method.
+3. Passing props up within the inheritance tree. Using ```super(props)``` keyword.
 
 {title="Constructor, state, props, event binding", lang=javascript}
 ~~~~~~~
@@ -81,6 +89,13 @@ constructor(props) {
 }
 ~~~~~~~
 
+Here is a simple cheatsheet to remember these important concepts.
+
+**Properties:** Propagate from Root/Patent component to Child. Parent defines a property=value which is used within Child component. Parent child relationship can exist without property passing, as in parent rendering a child component.
+
+**Event functions:** Bind, define, UI association within event generating component. Components can exist with no events defined.
+
+**State:** Defined within component whose state changes. Can represent internal (logic driven) or external (UI driven) state. Components can be stateless.
 
 ## Recommended reading list
 
