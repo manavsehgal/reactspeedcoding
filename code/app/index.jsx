@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import World from './components/World.jsx';
 
 ReactDOM.render(
-  <World greet="Hello" />,
+  <World />,
   document.getElementById('app')
 );
