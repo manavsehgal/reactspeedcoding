@@ -367,15 +367,12 @@ export default class World extends React.Component {
     this.slangGreet = this.slangGreet.bind(this);
     this.hindiGreet = this.hindiGreet.bind(this);
   }
-
   slangGreet() {
     this.setState({currentGreeting: 'Yo!'});
   }
-
   hindiGreet() {
     this.setState({currentGreeting: 'Namaste'});
   }
-
   render() {
     return (
       <div>
@@ -389,11 +386,9 @@ export default class World extends React.Component {
     );
   }
 }
-
 World.propTypes = {
   greet: React.PropTypes.string.isRequired,
 }
-
 World.defaultProps = {
   greet: 'Hello',
 }
