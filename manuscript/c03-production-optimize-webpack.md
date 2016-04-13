@@ -10,6 +10,7 @@ We will cover following topics in this chapter.
 - Separate CSS for static or CDN serving.
 - Bundle dependencies separately.
 - Minify JavaScript code.
+- Profiling Webpack generated build.
 
 ## Recommended Reading List
 
@@ -209,6 +210,25 @@ Your app also benefits from caching (separate files) and much smaller initial lo
 Wow! That is a lot of work. Fortunately you will not change this pipeline too often.
 Worthwhile as a one-off investment as you build your React app to conquer the world!
 
+## Profiling Webpack build
+
+Webpack has developed a powerful tool to profile and analyze your build for further optimization.
+
+Add following run script to ```package.json``` file.
+
+```
+"profile": "NODE_ENV=production webpack --config webpack.prod.config.js --profile --json > profile.json"
+```
+
+Now ```npm run profile``` to generate ```profile.json``` file with data on your build. You can pass this
+file to [webpack analysis tool][8] for analyzing your build.
+
+![Webpack module analysis](images/webpack-analysis.png)
+
+Using the analysis tool you can drill down into warnings, errors, hints on how to improve your code, and analyze
+module chunks to further optimize your code.
+
+
 [1]: http://survivejs.com/webpack_react/building_kanban/
 [2]: http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup
 [3]: http://webpack.github.io/docs/build-performance.html
@@ -216,3 +236,4 @@ Worthwhile as a one-off investment as you build your React app to conquer the wo
 [5]: http://moduscreate.com/optimizing-react-es6-webpack-production-build/
 [6]: https://github.com/ampedandwired/html-webpack-plugin
 [7]: http://blog.getsentry.com/2015/10/29/debuggable-javascript-with-source-maps.html
+[8]: http://webpack.github.io/analyse
