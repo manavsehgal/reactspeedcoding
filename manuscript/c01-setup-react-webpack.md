@@ -104,18 +104,13 @@ Dependencies section will start showing up as we add npm dependencies.
 ## Companion code
 
 Companion code and manuscript of this book are available at [reactspeedcoding Github repo][6].
-Chapter and section level branches are available if you want to "code along" as you
-read the book.
 
-You can clone a specific branch like so.
+Clone the repo like so.
 
 ```
-git clone -b <branch-name> --single-branch --depth=1 https://github.com/manavsehgal/reactspeedcoding.git
+git clone --depth=1 https://github.com/manavsehgal/reactspeedcoding.git
 ```
 
-Replace ```<branch-name>``` with actual branch name from the repo.
-For example ```c01-setup-react-webpack``` for first chapter's init code.
-This will clone the code and along with relevant chapter content for the book.
 The ```--depth=1``` flag ensures that only the latest commit is cloned.
 
 {title="reactspeedcoding repo file structure", lang=text}
