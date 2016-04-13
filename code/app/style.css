@@ -1,0 +1,11 @@
+body {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 100%;
+  background: ghostwhite;
+}
+
+.title-shadow {
+  font-size: 2em;
+  text-shadow: 2px 2px darkgray;
+  font-weight: bold;
+}
