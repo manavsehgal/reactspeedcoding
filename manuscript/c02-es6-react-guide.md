@@ -186,11 +186,12 @@ export default function Hello(props) {
 
 ## Recommended reading list
 
-- **Facebook on Old vs. New React.** Get started with Facebook's perspective on using [ES6 in reusable components][1]. You can compare with ES5 style components within the same article.
 - **Style Guide.** Review [Airbnb React/JSX Style Guide][2] for recommendations on using ES6 vs ES5 style.
-- **Babel.** Babel has a post on [React on ES6+][3] which goes through various ES6 features relevant for coding in React.
 - **Mozilla Hacks.** Mozilla Hacks blog has [ES6 in depth][4] series, if you want to stay updated on latest features.
 - **Language Docs.** One of the most comprehensive language docs on ES6 are available at [ES6 support in Mozilla][5].
+- **Facebook on Old vs. New React.** Get started with Facebook's perspective on using [ES6 in reusable components][1]. You can compare with ES5 style components within the same article.
+- **Facebook on ES6 Classes in React.** Compares [ES6 classes][9] with proposed ES7 syntax.
+- **Babel.** Babel has a post on [React on ES6+][3] which goes through various ES6/7 features relevant for coding in React.
 
 
 [1]: https://facebook.github.io/react/docs/reusable-components.html#es6-classes
@@ -201,3 +202,4 @@ export default function Hello(props) {
 [6]: https://github.com/airbnb/javascript/tree/master/react#naming
 [7]: http://webpack.github.io/docs/code-splitting.html#es6-modules
 [8]: https://github.com/airbnb/javascript/tree/master/react#class-vs-reactcreateclass-vs-stateless
+[9]: http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#es6-classes
