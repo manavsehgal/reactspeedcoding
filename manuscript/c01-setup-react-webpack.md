@@ -503,7 +503,7 @@ Congratulations... You just built one of the most modern development environment
 on the planet!
 
 As you may have noticed the build is not highly optimized. The ```app.js``` file is
-a huge ~2MB and css turned into JavaScript! In the next chapter, Optimize Webpack Pipeline,
+a huge ~2MB and css turned into JavaScript! In the chapter **Production Optimize Webpack**
 we will discuss various techniques to optimize for a production environment.
 
 
