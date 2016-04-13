@@ -171,7 +171,7 @@ Once you have created your production webpack config. You can update the ```npm 
 
 {title="/package.json script", lang=json}
 ~~~~~~~
-"build": "NODE_ENV=production webpack --progress --colors --config webpack.prod.config.js"
+"build": "NODE_ENV=production webpack --config webpack.prod.config.js"
 ~~~~~~~
 
 Run the build using ```npm run build``` command.
