@@ -102,24 +102,23 @@ module: {
 In the next and final section on adding plugins is where our production pipeline
 actually kicks in.
 
-We start by cleaning our build directory of any past builds.
+**Clean build.** We start by cleaning our build directory of any past builds.
 
-Then we continue with HTML webpack plugin to generate ```index.html```. We add
+**Optimize HTML.** Then we continue with HTML webpack plugin to generate ```index.html```. We add
 HTML minifying capability.
 
-Next the CSS is extracted as a separate file.
+**Extract CSS.** Next the CSS is extracted as a separate file.
 
-Larger projects may have dependency trees with duplicate files. Dedupe plugin removes such duplications.
-This option is commented out in the starter project as it has few dependencies and has no affect
+**Optionally Dedupe.** Larger projects may have dependency trees with duplicate files. Dedupe plugin removes such duplications. This option is commented out in the starter project as it has few dependencies and has no affect
 on the build size.
 
-Vendor and manifest JavaScript files are bundled separately. This also helps in browser/CDN
+**Separate JS bundles.** Vendor and manifest JavaScript files are bundled separately. This also helps in browser/CDN
 caching as you may only do a release where one of them is updated, the other does not
 need to be downloaded again to the client.
 
-Facebook recommends React production settings to optimize the React library payload.
+**React for production.** Facebook recommends React production settings to optimize the React library payload.
 
-Finally we minify the JavaScript.
+**Minify JS.** Finally we minify the JavaScript.
 
 {title="/webpack.prod.config.js plugins", lang=javascript}
 ~~~~~~~
@@ -196,6 +195,8 @@ Your app also benefits from caching (separate files) and much smaller initial lo
 
 Wow! That is a lot of work. Fortunately you will not change this pipeline too often.
 Worthwhile as a one-off investment as you build your React app to conquer the world!
+
+{pagebreak}
 
 ## Profiling Webpack build
 

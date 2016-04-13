@@ -394,6 +394,8 @@ World.defaultProps = {
 }
 ~~~~~~~
 
+{pagebreak}
+
 The ```Hello``` component renders Hello World message based on how ```World```
 component calls it and current UI state. Current UI state changes as user clicks
 on greeting language links.
