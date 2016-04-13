@@ -100,23 +100,73 @@ Constructor is called when component is created, so it is the right place for fo
 2. Binding events. Using ```bind(this)``` method.
 3. Passing props up within the inheritance tree. Using ```super(props)``` keyword.
 
-{title="Constructor, state, props, event binding", lang=javascript}
+{title="Constructor, state, event binding", lang=javascript}
 ~~~~~~~
 constructor(props) {
   super(props);
-  this.state = {greet: props.greet};
+  this.state = {
+    currentGreeting: props.greet
+  };
   this.slangGreet = this.slangGreet.bind(this);
   this.hindiGreet = this.hindiGreet.bind(this);
 }
 ~~~~~~~
 
+At the end of the class definition we define default properties and property types.
+
+{title="Default properties and types", lang=javascript}
+~~~~~~~
+World.propTypes = {
+  greet: React.PropTypes.string.isRequired,
+}
+
+World.defaultProps = {
+  greet: 'Hello',
+}
+~~~~~~~
+
 Here is a simple cheatsheet to remember these important concepts.
 
-**Properties:** Propagate input data from Root/Patent component to Child. Parent defines a property=value which is used within Child component. Parent child relationship can exist without property passing, as in parent rendering a child component.
+**Properties:** Passing input data from Root/Patent component to Child. Parent defines a property=value which is used within Child component. Parent child relationship can exist without property passing, as in parent rendering a child component.
+
+{title="Parent component passing property to child", lang=javascript}
+~~~~~~~
+<Hello greet={ this.state.currentGreeting } message="World!" />
+~~~~~~~
 
 **State:** Defined within component whose state changes. State change updates rendered markup. Components can be stateless.
 
+{title="Default state", lang=javascript}
+~~~~~~~
+this.state = {
+  currentGreeting: props.greet
+};
+~~~~~~~
+
 **Event functions:** Bind, define, UI association within event generating component. Components can exist with no events defined.
+
+{title="Event function definition", lang=javascript}
+~~~~~~~
+slangGreet() {
+  this.setState({currentGreeting: 'Yo!'});
+}
+
+hindiGreet() {
+  this.setState({currentGreeting: 'Namaste'});
+}
+~~~~~~~
+
+Associate event functions with UI.
+
+{title="UI association with event function", lang=javascript}
+~~~~~~~
+<a href="#" onClick={ this.slangGreet }>
+  Slang greeting
+</a> OR <a href="#" onClick={ this.hindiGreet }>
+  Hindi greeting
+</a>
+~~~~~~~
+
 
 
 ## Recommended reading list
