@@ -12,20 +12,6 @@ We will cover following topics in this chapter.
 - Minify JavaScript code.
 - Profiling Webpack generated build.
 
-## Recommended Reading List
-
-We will refer to following excellent articles and posts in order to build our understanding
-around production optimization when it relates to Webpack, React, and other components of our toolchain.
-
-- **Webpack Examples.** [Webpack Github repo][9] has several examples that relate to build optimization.
-- **Developer Workflow.** Webpack's "sparse" documentation on [build optimization][3] is more relevant for development workflow than production code.
-- **Production Optimization.** Webpack [docs cover optimization][4] topics around chunking, minifying, and de-duplication.
-- **Source Maps.** Article on [Optimizing React + ES6 + Webpack Production Build][5] discusses source maps optimization, repeats most of the recommendations from this list.
-- **HTML Minifying.** The [HTML Webpack Plugin documentation][6] has options to generate index.html and minify HTML.
-- **Production Source Maps.** This [article by Sentry][7] crash reporting tool makes a case for production source maps.
-- **Webpack Setup.** Post on [The Ultimate Webpack Setup][2] by Christian Alfoni.
-- **Build Optimization.** SurviveJS has excellent coverage on Webpack and specific chapter on [build optimization using Webpack][1].
-
 ## Add production plugins and supporting dependencies
 
 For production following plugins add functionality to Webpack.
@@ -228,6 +214,20 @@ file to [webpack analysis tool][8] for analyzing your build.
 
 Using the analysis tool you can drill down into warnings, errors, hints on how to improve your code, and analyze
 module chunks to further optimize your code.
+
+## Recommended Reading List
+
+We will refer to following excellent articles and posts in order to build our understanding
+around production optimization when it relates to Webpack, React, and other components of our toolchain.
+
+- **Webpack Examples.** [Webpack Github repo][9] has several examples that relate to build optimization.
+- **Production Optimization.** Webpack [docs cover optimization][4] topics around chunking, minifying, and de-duplication.
+- **Source Maps.** Article on [Optimizing React + ES6 + Webpack Production Build][5] discusses source maps optimization, repeats most of the recommendations from this list.
+- **HTML Minifying.** The [HTML Webpack Plugin documentation][6] has options to generate index.html and minify HTML.
+- **Production Source Maps.** This [article by Sentry][7] crash reporting tool makes a case for production source maps.
+- **Build Optimization.** SurviveJS has excellent coverage on Webpack and specific chapter on [build optimization using Webpack][1].
+- **Webpack Setup.** Post on [The Ultimate Webpack Setup][2] by Christian Alfoni.
+- **Developer Workflow.** Webpack's "sparse" documentation on [build optimization][3] is more relevant for development workflow than production code.
 
 
 [1]: http://survivejs.com/webpack_react/building_kanban/
