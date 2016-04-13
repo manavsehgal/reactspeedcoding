@@ -45,6 +45,7 @@ module.exports = {
   plugins: [
     // Clean build directory
     new CleanPlugin([BUILD]),
+    
     // Auto generate index.html
     new HtmlWebpackPlugin({
       template: 'node_modules/html-webpack-template/index.ejs',
@@ -56,18 +57,25 @@ module.exports = {
         collapseWhitespace: true
       }
     }),
+
     // Extract CSS to a separate file
     new ExtractTextPlugin('[name].[chunkhash].css'),
+
+    // Remove comment to dedupe duplicating dependencies for larger projects
+    // new webpack.optimize.DedupePlugin(),
+
     // Separate vendor and manifest files
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
+
     // Optimizes React for use in production mode
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
+
     // Minify JavaScript
     new webpack.optimize.UglifyJsPlugin({
       compress: {

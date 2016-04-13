@@ -121,6 +121,10 @@ HTML minifying capability.
 
 Next the CSS is extracted as a separate file.
 
+Larger projects may have dependency trees with duplicate files. Dedupe plugin removes such duplications.
+This option is commented out in the starter project as it has few dependencies and has no affect
+on the build size.
+
 Vendor and manifest JavaScript files are bundled separately. This also helps in browser/CDN
 caching as you may only do a release where one of them is updated, the other does not
 need to be downloaded again to the client.
@@ -144,6 +148,7 @@ plugins: [
     }
   }),
   new ExtractTextPlugin('[name].[chunkhash].css'),
+  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.CommonsChunkPlugin({
     names: ['vendor', 'manifest']
   }),
@@ -196,7 +201,10 @@ Child extract-text-webpack-plugin:
 ~~~~~~~
 
 You will notice in the terminal window that the overall size of your build is
-reduced significantly when compared with the development release.
+reduced significantly when compared with the development release. The total size of optimized build is
+~140 KB when compared with ~1,900 KB of development build. That is 92% reduction in size!
+
+Your app also benefits from caching (separate files) and much smaller initial load time payload.
 
 Wow! That is a lot of work. Fortunately you will not change this pipeline too often.
 Worthwhile as a one-off investment as you build your React app to conquer the world!
