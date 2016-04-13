@@ -167,7 +167,22 @@ Associate event functions with UI.
 </a>
 ~~~~~~~
 
+## Stateless components
 
+Our ```Hello``` component is stateless. It does not define or change any state. According to [Airbnb style guide][8],
+it is best to define stateless components as normal JavaScript functions. Results in fewer lines of code.
+Easier to understand code.
+
+{title="Stateless component definition", lang=javascript}
+~~~~~~~
+export default function Hello(props) {
+  return (
+    <div className="title-shadow">
+      {props.greet} {props.message}
+    </div>
+  );
+}
+~~~~~~~
 
 ## Recommended reading list
 
@@ -185,3 +200,4 @@ Associate event functions with UI.
 [5]: https://developer.mozilla.org/en/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla
 [6]: https://github.com/airbnb/javascript/tree/master/react#naming
 [7]: http://webpack.github.io/docs/code-splitting.html#es6-modules
+[8]: https://github.com/airbnb/javascript/tree/master/react#class-vs-reactcreateclass-vs-stateless
