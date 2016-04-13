@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app.jsx';
+import World from './components/World.jsx';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <World greet="Hello" />,
+  document.getElementById('app')
+);

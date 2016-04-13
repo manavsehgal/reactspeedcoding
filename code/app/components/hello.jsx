@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class Hello extends Component {
-  render() {
-    return <div className="hello-message">Hello {this.props.message}</div>;
-  }
+export default function Hello({ greet, message }) {
+  return (
+    <div className="title-shadow">
+      {greet} {message}
+    </div>
+  );
 }

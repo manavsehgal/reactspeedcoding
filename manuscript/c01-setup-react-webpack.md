@@ -127,7 +127,10 @@ Run sample app using ```npm start``` command.
 
 ## Installing Starter Dependencies
 
-React > ES6 > Babel > Webpack.
+In summary, for our React environment, we have a dependency stack that
+follows React > ES6 > Babel > Webpack. React recommends ES6 for latest features
+and best practices. ES6 needs Babel for transpiling to ES5 and maintain browser compatibility.
+Babel integrates with Webpack to stitch it all together for our app.
 
 React is available via NPM and this is the recommended way of using React in a project.
 
@@ -138,6 +141,7 @@ npm install --save react-dom
 ~~~~~~~
 
 Webpack is used for module packaging, development, and production pipeline automation.
+We will get into more benefits of Webpack in the **Production Optimize Webpack** chapter.
 
 {title="Install Webpack dependencies", lang=text}
 ~~~~~~~
@@ -169,7 +173,8 @@ Hot loading using ```babel-preset-react-hmre``` makes
 your browser update automatically when there are changes to code,
 without losing current state of your app.
 
-ES6 support requires ```babel-preset-es2015``` Babel preset.
+ES6 support requires ```babel-preset-es2015``` Babel preset. We will discuss ES6 advantages
+over ES5 and React specific best practices in chapter titled **ES6 React Guide**.
 
 {title="Install Babel dependencies", lang=text}
 ~~~~~~~
@@ -314,44 +319,85 @@ configuration.
 
 Now that we have our development environment setup, it is time to write some React!
 
+A> ## React Naming Conventions
+A> We are following React naming conventions from [Airbnb React/JSX Style Guide][7].
+A> The style guide refers to naming, declaration, props, methods, among others.
+
 We start by writing the entry point to our React app. This is the root component
-which imports the ```App``` component.
+which imports and renders the ```World``` component.
 
 {title="/app/index.jsx app entry", lang=javascript}
 ~~~~~~~
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app.jsx';
+import World from './components/World.jsx';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <World greet="Hello" />,
+  document.getElementById('app')
+);
 ~~~~~~~
 
-Now we write the ```App``` component which calls the ```Hello``` component
+Now we write the ```World``` component which renders the ```Hello``` component
 with a message.
 
-{title="/app/components/app.jsx App component", lang=javascript}
-~~~~~~~
-import React, {Component} from 'react';
-import Hello from './hello.jsx';
+I> ## ES6 React Guide
+I> Do not worry about the new syntax that you may notice here. We will explain
+I> each section in the chapter titled **ES6 React Guide**
 
-export default class App extends Component {
+{title="/app/components/World.jsx World component", lang=javascript}
+~~~~~~~
+import React from 'react';
+import Hello from './Hello.jsx';
+
+export default class World extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {greet: props.greet};
+    this.slangGreet = this.slangGreet.bind(this);
+    this.hindiGreet = this.hindiGreet.bind(this);
+  }
+
+  slangGreet() {
+    this.setState({greet: 'Yo!'});
+  }
+
+  hindiGreet() {
+    this.setState({greet: 'Namaste'});
+  }
+
   render() {
-    return <Hello message="World!" />;
+    return (
+      <div>
+        <Hello greet={ this.state.greet } message="World!" />
+        <a href="#" onClick={ this.slangGreet }>
+          Slang greeting
+        </a> OR <a href="#" onClick={ this.hindiGreet }>
+          Hindi greeting
+        </a>
+      </div>
+    );
   }
 }
 ~~~~~~~
 
-The ```Hello``` component renders Hello World message based on how ```App```
-component calls it.
+The ```Hello``` component renders Hello World message based on how ```World```
+component calls it and current UI state. Current UI state changes as user clicks
+on greeting language links.
 
-{title="/app/components/hello.jsx Hello component", lang=javascript}
+Again, do not worry why we use a function here and not a class. All this will be
+covered in the **ES6 React Guide** chapter.
+
+{title="/app/components/Hello.jsx Hello component", lang=javascript}
 ~~~~~~~
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class Hello extends Component {
-  render() {
-    return <div className="hello-message">Hello {this.props.message}</div>;
-  }
+export default function Hello({ greet, message }) {
+  return (
+    <div className="title-shadow">
+      {greet} {message}
+    </div>
+  );
 }
 ~~~~~~~
 
@@ -360,14 +406,22 @@ We can add some styles to our app.
 {title="/app/style.css Main Styles", lang=css}
 ~~~~~~~
 body {
-  background: lightblue;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 100%;
+  background: ghostwhite;
 }
 
-.hello-message {
+.title-shadow {
   font-size: 2em;
-  font-weight: bolder;
+  text-shadow: 2px 2px darkgray;
+  font-weight: bold;
 }
 ~~~~~~~
+
+A> ### Colors in CSS
+A> You can pick colors in CSS using [W3Schools Color Names][8] table.
+A> The table lists 140 colors, their HEX values, and also provides
+A> really useful shading (gradients) and color mixing tools.
 
 This completes our first React app. Now run the app using the development server.
 
@@ -395,6 +449,8 @@ webpack: bundle is now VALID.
 Browse to your app on the url mentioned in webpack output. Now try changing
 some code like the style background or the Hello World message and hit save. Your
 browser should update the app without refreshing state.
+
+![Hello World app in your browser](images/hello-world.png)
 
 When this hot loading update happens you will see following output in the browser
 console.
@@ -454,3 +510,5 @@ we will discuss various techniques to optimize for a production environment.
 [4]: https://github.com/creationix/nvm
 [5]: https://nodejs.org/en/download/releases/
 [6]: https://github.com/manavsehgal/reactspeedcoding
+[7]: https://github.com/airbnb/javascript/tree/master/react
+[8]: http://www.w3schools.com/colors/colors_names.asp
