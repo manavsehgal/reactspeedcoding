@@ -40,7 +40,8 @@ module.exports = {
       }
     ]
   },
-  devtool: 'cheap-module-source-map',
+  // Remove comment if you require sourcemaps for your production code
+  // devtool: 'cheap-module-source-map',
   plugins: [
     // Clean build directory
     new CleanPlugin([BUILD]),
