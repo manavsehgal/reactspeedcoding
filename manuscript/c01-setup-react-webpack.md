@@ -187,6 +187,10 @@ npm install --save-dev babel-preset-react
 npm install --save-dev babel-preset-react-hmre
 ~~~~~~~
 
+A> ## Presets in Babel
+A> Presets in Babel are a collection of plugins as npm dependencies which help transform
+A> source to target code using Babel. For [full list of such plugins][9] visit Babel's website.
+
 ## Configuring Babel
 
 Babel configuration is specified in ```.babelrc``` file. React Hot Loading is
@@ -527,3 +531,4 @@ we will discuss various techniques to optimize for a production environment.
 [6]: https://github.com/manavsehgal/reactspeedcoding
 [7]: https://github.com/airbnb/javascript/tree/master/react
 [8]: http://www.w3schools.com/colors/colors_names.asp
+[9]: http://babeljs.io/docs/plugins/
