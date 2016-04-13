@@ -3,18 +3,21 @@
 The aim of this book is to get you from concept to coding real world React apps,
 as fast as possible.
 
-The world of React is constantly evolving and changing at a fast pace. This book
+React ecosystem is constantly evolving and changing at a fast pace. This book
 equips you to take the right decisions matching your project requirements.
 
 You will learn in this chapter how to setup React development environment starting
 from scratch. By the end of this chapter we will have a starter boilerplate to
 develop React apps.
 
-We will cover following topics.
+We will cover following topics in this chapter.
 
 - How to install Node.js and use Node Version Manager.
 - Setup package.json to manage your NPM dependencies.
 - Quick access companion code for this book using Github.
+- Install starter dependencies for React, Webpack, and Babel.
+- Create Webpack configuration for development pipeline automation.
+- Write and run your first Hello World React app.
 
 ## Development Environment
 
