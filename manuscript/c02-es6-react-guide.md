@@ -24,7 +24,7 @@ the React and ES6 features used so far.
 ## File and folder structure
 
 React apps follow component based development. So understanding how components are organized,
-how they relate to each other, simplifies several aspects of you React learning path.
+how they relate to each other, simplifies several aspects of your React learning path.
 This includes how React app folders and files are organized.
 
 **Component Hierarchy.** React has parent components which import other child components.
@@ -78,7 +78,7 @@ export default class World extends React.Component {
 A> ## Webpack and ES6 Modules
 A> Thinking in modules is central to how Webpack bundles your code and traces
 A> dependencies while creating chunks. However, Webpack 1.x does not natively support ES6 modules,
-A> thought this is on 2.x roadmap. This is where Babel steps in. Read more about [Webpack ES6 support][7]
+A> though this is on their 2.x roadmap. This is where Babel steps in. Read more about [Webpack ES6 support][7]
 A> on the Webpack official docs.
 
 ## Constructor, state, props, and events
@@ -96,9 +96,9 @@ event takes place.
 
 Constructor is called when component is created, so it is the right place for following three objectives.
 
-1. Setting initial state. Using ```this.state``` JSON object.
-2. Binding events. Using ```bind(this)``` method.
-3. Passing props up within the inheritance tree. Using ```super(props)``` keyword.
+1. Passing props up within the inheritance tree. Using ```super(props)``` keyword.
+2. Setting initial state. Using ```this.state``` JSON object.
+3. Binding events. Using ```bind(this)``` method.
 
 {title="Constructor, state, event binding", lang=javascript}
 ~~~~~~~

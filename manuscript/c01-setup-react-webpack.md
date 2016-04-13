@@ -73,6 +73,8 @@ iojs -> iojs- (-> system) (default)
 
 Using ```nvm use x.x.x``` command we can switch to ```x.x.x``` installed node release.
 
+{pagebreak}
+
 ### Setting up package.json
 
 You will require ```package.json``` to manage your NPM dependencies and scripts.
@@ -122,6 +124,8 @@ The ```--depth=1``` flag ensures that only the latest commit is cloned.
 
 Now cd to the code directory and install dependencies using ```npm install``` command.
 Run sample app using ```npm start``` command.
+
+{pagebreak}
 
 ## Installing Starter Dependencies
 
@@ -199,6 +203,8 @@ required only during development.
   }
 }
 ~~~~~~~
+
+{pagebreak}
 
 ## Creating Webpack configuration
 
@@ -313,6 +319,8 @@ even further.
 Both webpack and the webpack-dev-server will pick up webpack.config.js file
 configuration.
 
+{pagebreak}
+
 ## Hello World React
 
 Now that we have our development environment setup, it is time to write some React!
@@ -336,12 +344,14 @@ ReactDOM.render(
 );
 ~~~~~~~
 
-Now we write the ```World``` component which renders the ```Hello``` component
-with a message.
-
 A> ## ES6 React Guide
 A> Do not worry about the new syntax that you may notice here. We will explain
 A> each section in the chapter titled **ES6 React Guide**
+
+{pagebreak}
+
+Now we write the ```World``` component which renders the ```Hello``` component
+with a message.
 
 {title="/app/components/World.jsx World component", lang=javascript}
 ~~~~~~~
