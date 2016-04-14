@@ -2,22 +2,22 @@
   "errors": [],
   "warnings": [],
   "version": "1.12.15",
-  "hash": "3adfa1f966a9163f13ae",
-  "time": 3754,
+  "hash": "4e8ca7a7c577c2097b18",
+  "time": 3451,
   "publicPath": "",
   "assetsByChunkName": {
-    "app": "app.72579f5463b4f31d58bb.js",
+    "app": "app.98f2eb3a87b1d872a056.js",
     "style": [
       "style.aa6472f39918066a1d46.js",
       "style.aa6472f39918066a1d46.css"
     ],
     "vendor": "vendor.d1a30b7942a4285bf9cf.js",
-    "manifest": "manifest.ac5db0c8ee575afd5ff1.js"
+    "manifest": "manifest.cbbf5d2b3dce405b0627.js"
   },
   "assets": [
     {
-      "name": "app.72579f5463b4f31d58bb.js",
-      "size": 2252,
+      "name": "app.98f2eb3a87b1d872a056.js",
+      "size": 2373,
       "chunks": [
         0,
         3
@@ -52,7 +52,7 @@
       "emitted": true
     },
     {
-      "name": "manifest.ac5db0c8ee575afd5ff1.js",
+      "name": "manifest.cbbf5d2b3dce405b0627.js",
       "size": 788,
       "chunks": [
         3
@@ -89,14 +89,14 @@
       "initial": true,
       "entry": false,
       "extraAsync": false,
-      "size": 4031,
+      "size": 4189,
       "names": [
         "app"
       ],
       "files": [
-        "app.72579f5463b4f31d58bb.js"
+        "app.98f2eb3a87b1d872a056.js"
       ],
-      "hash": "72579f5463b4f31d58bb",
+      "hash": "98f2eb3a87b1d872a056",
       "parents": [
         2
       ],
@@ -107,7 +107,7 @@
           "name": "./app/index.jsx",
           "index": 0,
           "index2": 162,
-          "size": 505,
+          "size": 491,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -118,15 +118,15 @@
           "assets": [],
           "issuer": null,
           "profile": {
-            "factory": 339,
-            "building": 555,
-            "dependencies": 4
+            "factory": 49,
+            "building": 798,
+            "dependencies": 47
           },
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [],
-          "source": "'use strict';\n\nvar _react = require('react');\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = require('react-dom');\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _World = require('./components/World.jsx');\n\nvar _World2 = _interopRequireDefault(_World);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_reactDom2.default.render(_react2.default.createElement(_World2.default, { greet: 'Hello' }), document.getElementById('app'));"
+          "source": "'use strict';\n\nvar _react = require('react');\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = require('react-dom');\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _World = require('./components/World.jsx');\n\nvar _World2 = _interopRequireDefault(_World);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_reactDom2.default.render(_react2.default.createElement(_World2.default, null), document.getElementById('app'));"
         },
         {
           "id": 161,
@@ -134,7 +134,7 @@
           "name": "./app/components/World.jsx",
           "index": 161,
           "index2": 161,
-          "size": 3084,
+          "size": 3256,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -145,9 +145,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/babel-loader/index.js?cacheDirectory!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/app/index.jsx",
           "profile": {
-            "factory": 116,
-            "building": 253,
-            "dependencies": 5
+            "factory": 107,
+            "building": 232,
+            "dependencies": 2
           },
           "failed": false,
           "errors": 0,
@@ -163,7 +163,7 @@
               "loc": "11:13-46"
             }
           ],
-          "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = require('react');\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _Hello = require('./Hello.jsx');\n\nvar _Hello2 = _interopRequireDefault(_Hello);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar World = function (_React$Component) {\n  _inherits(World, _React$Component);\n\n  function World(props) {\n    _classCallCheck(this, World);\n\n    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(World).call(this, props));\n\n    _this.state = { greet: props.greet };\n    _this.slangGreet = _this.slangGreet.bind(_this);\n    _this.hindiGreet = _this.hindiGreet.bind(_this);\n    return _this;\n  }\n\n  _createClass(World, [{\n    key: 'slangGreet',\n    value: function slangGreet() {\n      this.setState({ greet: 'Yo!' });\n    }\n  }, {\n    key: 'hindiGreet',\n    value: function hindiGreet() {\n      this.setState({ greet: 'Namaste' });\n    }\n  }, {\n    key: 'render',\n    value: function render() {\n      return _react2.default.createElement(\n        'div',\n        null,\n        _react2.default.createElement(_Hello2.default, { greet: this.state.greet, message: 'World!' }),\n        _react2.default.createElement(\n          'a',\n          { href: '#', onClick: this.slangGreet },\n          'Slang greeting'\n        ),\n        ' OR ',\n        _react2.default.createElement(\n          'a',\n          { href: '#', onClick: this.hindiGreet },\n          'Hindi greeting'\n        )\n      );\n    }\n  }]);\n\n  return World;\n}(_react2.default.Component);\n\nexports.default = World;"
+          "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = require('react');\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _Hello = require('./Hello.jsx');\n\nvar _Hello2 = _interopRequireDefault(_Hello);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar World = function (_React$Component) {\n  _inherits(World, _React$Component);\n\n  function World(props) {\n    _classCallCheck(this, World);\n\n    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(World).call(this, props));\n\n    _this.state = {\n      currentGreeting: props.greet\n    };\n    _this.slangGreet = _this.slangGreet.bind(_this);\n    _this.hindiGreet = _this.hindiGreet.bind(_this);\n    return _this;\n  }\n\n  _createClass(World, [{\n    key: 'slangGreet',\n    value: function slangGreet() {\n      this.setState({ currentGreeting: 'Yo!' });\n    }\n  }, {\n    key: 'hindiGreet',\n    value: function hindiGreet() {\n      this.setState({ currentGreeting: 'Namaste' });\n    }\n  }, {\n    key: 'render',\n    value: function render() {\n      return _react2.default.createElement(\n        'div',\n        null,\n        _react2.default.createElement(_Hello2.default, { greet: this.state.currentGreeting, message: 'World!' }),\n        _react2.default.createElement(\n          'a',\n          { href: '#', onClick: this.slangGreet },\n          'Slang greeting'\n        ),\n        ' OR ',\n        _react2.default.createElement(\n          'a',\n          { href: '#', onClick: this.hindiGreet },\n          'Hindi greeting'\n        )\n      );\n    }\n  }]);\n\n  return World;\n}(_react2.default.Component);\n\nexports.default = World;\n\n\nWorld.propTypes = {\n  greet: _react2.default.PropTypes.string.isRequired\n};\n\nWorld.defaultProps = {\n  greet: 'Hello'\n};"
         },
         {
           "id": 162,
@@ -182,8 +182,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/babel-loader/index.js?cacheDirectory!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/app/components/World.jsx",
           "profile": {
-            "factory": 7,
-            "building": 39,
+            "factory": 4,
+            "building": 30,
             "dependencies": 0
           },
           "failed": false,
@@ -252,8 +252,8 @@
           "assets": [],
           "issuer": null,
           "profile": {
-            "factory": 52,
-            "building": 6
+            "factory": 233,
+            "building": 5
           },
           "failed": false,
           "errors": 0,
@@ -335,8 +335,8 @@
           "assets": [],
           "issuer": "multi vendor",
           "profile": {
-            "factory": 25,
-            "building": 490
+            "factory": 23,
+            "building": 468
           },
           "failed": false,
           "errors": 0,
@@ -397,9 +397,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/react.js",
           "profile": {
-            "factory": 71,
-            "building": 28,
-            "dependencies": 348
+            "factory": 61,
+            "building": 27,
+            "dependencies": 323
           },
           "failed": false,
           "errors": 0,
@@ -434,8 +434,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
           "profile": {
-            "factory": 333,
-            "building": 82
+            "factory": 312,
+            "building": 72
           },
           "failed": false,
           "errors": 0,
@@ -659,9 +659,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
           "profile": {
-            "factory": 272,
-            "building": 79,
-            "dependencies": 53
+            "factory": 261,
+            "building": 66,
+            "dependencies": 44
           },
           "failed": false,
           "errors": 0,
@@ -705,8 +705,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactUpdates.js",
           "profile": {
-            "factory": 81,
-            "building": 131,
+            "factory": 67,
+            "building": 125,
             "dependencies": 0
           },
           "failed": false,
@@ -796,8 +796,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponentTree.js",
           "profile": {
-            "factory": 109,
-            "building": 69
+            "factory": 93,
+            "building": 63
           },
           "failed": false,
           "errors": 0,
@@ -1156,9 +1156,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
           "profile": {
-            "factory": 273,
-            "building": 103,
-            "dependencies": 34
+            "factory": 262,
+            "building": 84,
+            "dependencies": 31
           },
           "failed": false,
           "errors": 0,
@@ -1283,8 +1283,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 94,
-            "building": 123
+            "factory": 74,
+            "building": 118
           },
           "failed": false,
           "errors": 0,
@@ -1382,9 +1382,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 359,
-            "building": 69,
-            "dependencies": 0
+            "factory": 331,
+            "building": 62,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -1698,8 +1698,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactChildren.js",
           "profile": {
-            "factory": 58,
-            "building": 144
+            "factory": 49,
+            "building": 139
           },
           "failed": false,
           "errors": 0,
@@ -1806,8 +1806,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactComponent.js",
           "profile": {
-            "factory": 56,
-            "building": 146
+            "factory": 48,
+            "building": 139
           },
           "failed": false,
           "errors": 0,
@@ -1860,9 +1860,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactChildren.js",
           "profile": {
-            "factory": 59,
-            "building": 145,
-            "dependencies": 1
+            "factory": 49,
+            "building": 138,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -1915,8 +1915,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactElementValidator.js",
           "profile": {
-            "factory": 31,
-            "building": 145
+            "factory": 32,
+            "building": 134
           },
           "failed": false,
           "errors": 0,
@@ -1969,9 +1969,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
           "profile": {
-            "factory": 272,
-            "building": 82,
-            "dependencies": 49
+            "factory": 261,
+            "building": 68,
+            "dependencies": 41
           },
           "failed": false,
           "errors": 0,
@@ -2015,8 +2015,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactComponent.js",
           "profile": {
-            "factory": 56,
-            "building": 143,
+            "factory": 47,
+            "building": 139,
             "dependencies": 0
           },
           "failed": false,
@@ -2059,10 +2059,10 @@
             2
           ],
           "assets": [],
-          "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
+          "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactReconciler.js",
           "profile": {
-            "factory": 95,
-            "building": 122
+            "factory": 83,
+            "building": 111
           },
           "failed": false,
           "errors": 0,
@@ -2124,9 +2124,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInstrumentation.js",
           "profile": {
-            "factory": 44,
-            "building": 61,
-            "dependencies": 1
+            "factory": 48,
+            "building": 56,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -2161,8 +2161,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDebugTool.js",
           "profile": {
-            "factory": 22,
-            "building": 29,
+            "factory": 20,
+            "building": 25,
             "dependencies": 0
           },
           "failed": false,
@@ -2198,8 +2198,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 96,
-            "building": 122
+            "factory": 75,
+            "building": 120
           },
           "failed": false,
           "errors": 0,
@@ -2261,9 +2261,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
           "profile": {
-            "factory": 272,
-            "building": 94,
-            "dependencies": 44
+            "factory": 261,
+            "building": 78,
+            "dependencies": 38
           },
           "failed": false,
           "errors": 0,
@@ -2307,8 +2307,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactClass.js",
           "profile": {
-            "factory": 45,
-            "building": 146,
+            "factory": 39,
+            "building": 138,
             "dependencies": 0
           },
           "failed": false,
@@ -2371,8 +2371,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactClass.js",
           "profile": {
-            "factory": 47,
-            "building": 144,
+            "factory": 43,
+            "building": 135,
             "dependencies": 0
           },
           "failed": false,
@@ -2435,8 +2435,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactClass.js",
           "profile": {
-            "factory": 46,
-            "building": 145
+            "factory": 43,
+            "building": 134
           },
           "failed": false,
           "errors": 0,
@@ -2498,8 +2498,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactClass.js",
           "profile": {
-            "factory": 47,
-            "building": 145
+            "factory": 43,
+            "building": 135
           },
           "failed": false,
           "errors": 0,
@@ -2597,8 +2597,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
           "profile": {
-            "factory": 273,
-            "building": 84,
+            "factory": 262,
+            "building": 69,
             "dependencies": 1
           },
           "failed": false,
@@ -2634,8 +2634,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
           "profile": {
-            "factory": 273,
-            "building": 109,
+            "factory": 262,
+            "building": 89,
             "dependencies": 31
           },
           "failed": false,
@@ -2680,8 +2680,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMFactories.js",
           "profile": {
-            "factory": 54,
-            "building": 145
+            "factory": 46,
+            "building": 139
           },
           "failed": false,
           "errors": 0,
@@ -2716,9 +2716,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
           "profile": {
-            "factory": 273,
-            "building": 118,
-            "dependencies": 23
+            "factory": 262,
+            "building": 99,
+            "dependencies": 22
           },
           "failed": false,
           "errors": 0,
@@ -2762,8 +2762,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 275,
-            "building": 64
+            "factory": 262,
+            "building": 53
           },
           "failed": false,
           "errors": 0,
@@ -2807,9 +2807,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
           "profile": {
-            "factory": 273,
-            "building": 119,
-            "dependencies": 4
+            "factory": 262,
+            "building": 100,
+            "dependencies": 3
           },
           "failed": false,
           "errors": 0,
@@ -2844,8 +2844,8 @@
           "assets": [],
           "issuer": "multi vendor",
           "profile": {
-            "factory": 24,
-            "building": 490
+            "factory": 22,
+            "building": 468
           },
           "failed": false,
           "errors": 0,
@@ -2889,7 +2889,7 @@
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react-dom/index.js",
           "profile": {
             "factory": 2,
-            "building": 87
+            "building": 80
           },
           "failed": false,
           "errors": 0,
@@ -2924,8 +2924,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 273,
-            "building": 24
+            "factory": 261,
+            "building": 18
           },
           "failed": false,
           "errors": 0,
@@ -3113,8 +3113,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponentTree.js",
           "profile": {
-            "factory": 108,
-            "building": 69,
+            "factory": 92,
+            "building": 25,
             "dependencies": 0
           },
           "failed": false,
@@ -3204,8 +3204,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponentTree.js",
           "profile": {
-            "factory": 109,
-            "building": 68
+            "factory": 93,
+            "building": 67
           },
           "failed": false,
           "errors": 0,
@@ -3249,9 +3249,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 274,
-            "building": 28,
-            "dependencies": 2
+            "factory": 261,
+            "building": 22,
+            "dependencies": 3
           },
           "failed": false,
           "errors": 0,
@@ -3286,8 +3286,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 106,
-            "building": 69,
+            "factory": 90,
+            "building": 65,
             "dependencies": 1
           },
           "failed": false,
@@ -3323,8 +3323,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
           "profile": {
-            "factory": 92,
-            "building": 14,
+            "factory": 88,
+            "building": 13,
             "dependencies": 0
           },
           "failed": false,
@@ -3432,7 +3432,7 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
           "profile": {
-            "factory": 93,
+            "factory": 88,
             "building": 14,
             "dependencies": 1
           },
@@ -3505,9 +3505,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
           "profile": {
-            "factory": 90,
-            "building": 17,
-            "dependencies": 70
+            "factory": 86,
+            "building": 18,
+            "dependencies": 63
           },
           "failed": false,
           "errors": 0,
@@ -3578,8 +3578,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 73,
-            "building": 32,
+            "factory": 71,
+            "building": 31,
             "dependencies": 0
           },
           "failed": false,
@@ -3642,9 +3642,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInjection.js",
           "profile": {
-            "factory": 61,
-            "building": 52,
-            "dependencies": 32
+            "factory": 60,
+            "building": 49,
+            "dependencies": 27
           },
           "failed": false,
           "errors": 0,
@@ -3697,8 +3697,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/EventPluginHub.js",
           "profile": {
-            "factory": 71,
-            "building": 7
+            "factory": 63,
+            "building": 9
           },
           "failed": false,
           "errors": 0,
@@ -3751,9 +3751,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/EventPropagators.js",
           "profile": {
-            "factory": 74,
-            "building": 7,
-            "dependencies": 0
+            "factory": 67,
+            "building": 9,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -3797,8 +3797,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/EventPropagators.js",
           "profile": {
-            "factory": 74,
-            "building": 7
+            "factory": 68,
+            "building": 9
           },
           "failed": false,
           "errors": 0,
@@ -3842,8 +3842,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 107,
-            "building": 78
+            "factory": 91,
+            "building": 73
           },
           "failed": false,
           "errors": 0,
@@ -4004,9 +4004,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
           "profile": {
-            "factory": 93,
-            "building": 16,
-            "dependencies": 0
+            "factory": 88,
+            "building": 15,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -4041,8 +4041,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/FallbackCompositionState.js",
           "profile": {
-            "factory": 73,
-            "building": 7,
+            "factory": 67,
+            "building": 9,
             "dependencies": 0
           },
           "failed": false,
@@ -4087,8 +4087,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
           "profile": {
-            "factory": 93,
-            "building": 16,
+            "factory": 89,
+            "building": 15,
             "dependencies": 0
           },
           "failed": false,
@@ -4124,9 +4124,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
           "profile": {
-            "factory": 90,
+            "factory": 86,
             "building": 21,
-            "dependencies": 0
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -4233,8 +4233,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
           "profile": {
-            "factory": 93,
-            "building": 17,
+            "factory": 89,
+            "building": 15,
             "dependencies": 0
           },
           "failed": false,
@@ -4270,9 +4270,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 106,
-            "building": 73,
-            "dependencies": 89
+            "factory": 90,
+            "building": 68,
+            "dependencies": 85
           },
           "failed": false,
           "errors": 0,
@@ -4307,9 +4307,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 275,
-            "building": 59,
-            "dependencies": 79
+            "factory": 262,
+            "building": 50,
+            "dependencies": 66
           },
           "failed": false,
           "errors": 0,
@@ -4425,9 +4425,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactUpdates.js",
           "profile": {
-            "factory": 81,
-            "building": 130,
-            "dependencies": 0
+            "factory": 67,
+            "building": 123,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -4471,8 +4471,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 95,
-            "building": 122
+            "factory": 74,
+            "building": 119
           },
           "failed": false,
           "errors": 0,
@@ -4516,8 +4516,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 274,
-            "building": 53
+            "factory": 261,
+            "building": 54
           },
           "failed": false,
           "errors": 0,
@@ -4651,9 +4651,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 275,
-            "building": 64,
-            "dependencies": 74
+            "factory": 261,
+            "building": 32
           },
           "failed": false,
           "errors": 0,
@@ -4733,8 +4732,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactReconciler.js",
           "profile": {
-            "factory": 77,
-            "building": 132
+            "factory": 83,
+            "building": 111
           },
           "failed": false,
           "errors": 0,
@@ -4769,8 +4768,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactRef.js",
           "profile": {
-            "factory": 32,
-            "building": 70,
+            "factory": 47,
+            "building": 56,
             "dependencies": 0
           },
           "failed": false,
@@ -4806,9 +4805,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactUpdates.js",
           "profile": {
-            "factory": 81,
-            "building": 132,
-            "dependencies": 1
+            "factory": 67,
+            "building": 127,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -4861,8 +4860,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
           "profile": {
-            "factory": 90,
-            "building": 18
+            "factory": 86,
+            "building": 22
           },
           "failed": false,
           "errors": 0,
@@ -4915,9 +4914,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
           "profile": {
-            "factory": 90,
-            "building": 23,
-            "dependencies": 0
+            "factory": 87,
+            "building": 21,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -4970,7 +4969,7 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
           "profile": {
-            "factory": 90,
+            "factory": 87,
             "building": 22
           },
           "failed": false,
@@ -5015,9 +5014,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 106,
-            "building": 76,
-            "dependencies": 1
+            "factory": 90,
+            "building": 71,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -5052,9 +5051,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 107,
-            "building": 77,
-            "dependencies": 84
+            "factory": 90,
+            "building": 72,
+            "dependencies": 81
           },
           "failed": false,
           "errors": 0,
@@ -5089,8 +5088,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/EnterLeaveEventPlugin.js",
           "profile": {
-            "factory": 86,
-            "building": 21,
+            "factory": 83,
+            "building": 22,
             "dependencies": 0
           },
           "failed": false,
@@ -5153,9 +5152,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
-            "factory": 50,
-            "building": 58,
-            "dependencies": 0
+            "factory": 51,
+            "building": 54,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -5226,8 +5225,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactBrowserEventEmitter.js",
           "profile": {
-            "factory": 45,
-            "building": 59
+            "factory": 46,
+            "building": 57
           },
           "failed": false,
           "errors": 0,
@@ -5271,8 +5270,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SyntheticMouseEvent.js",
           "profile": {
-            "factory": 66,
-            "building": 7
+            "factory": 58,
+            "building": 10
           },
           "failed": false,
           "errors": 0,
@@ -5325,9 +5324,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 107,
-            "building": 78,
-            "dependencies": 1
+            "factory": 91,
+            "building": 73,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -5362,9 +5361,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 107,
-            "building": 79,
-            "dependencies": 1
+            "factory": 91,
+            "building": 72,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -5408,9 +5407,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactComponentBrowserEnvironment.js",
           "profile": {
-            "factory": 84,
+            "factory": 82,
             "building": 24,
-            "dependencies": 1
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -5463,8 +5462,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 94,
-            "building": 119
+            "factory": 73,
+            "building": 112
           },
           "failed": false,
           "errors": 0,
@@ -5545,7 +5544,7 @@
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMLazyTree.js",
           "profile": {
             "factory": 47,
-            "building": 58
+            "building": 57
           },
           "failed": false,
           "errors": 0,
@@ -5599,8 +5598,8 @@
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMLazyTree.js",
           "profile": {
             "factory": 47,
-            "building": 59,
-            "dependencies": 0
+            "building": 57,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -5644,8 +5643,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 74,
-            "building": 48
+            "factory": 72,
+            "building": 46
           },
           "failed": false,
           "errors": 0,
@@ -5707,9 +5706,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 97,
-            "building": 125,
-            "dependencies": 38
+            "factory": 76,
+            "building": 122,
+            "dependencies": 34
           },
           "failed": false,
           "errors": 0,
@@ -5762,8 +5761,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMChildrenOperations.js",
           "profile": {
-            "factory": 63,
-            "building": 10,
+            "factory": 56,
+            "building": 16,
             "dependencies": 1
           },
           "failed": false,
@@ -5799,8 +5798,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/Danger.js",
           "profile": {
-            "factory": 24,
-            "building": 4,
+            "factory": 14,
+            "building": 3,
             "dependencies": 1
           },
           "failed": false,
@@ -5836,7 +5835,7 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/fbjs/lib/createNodesFromMarkup.js",
           "profile": {
-            "factory": 5,
+            "factory": 4,
             "building": 2,
             "dependencies": 0
           },
@@ -5873,8 +5872,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/Danger.js",
           "profile": {
-            "factory": 24,
-            "building": 6,
+            "factory": 14,
+            "building": 5,
             "dependencies": 0
           },
           "failed": false,
@@ -5919,8 +5918,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMChildrenOperations.js",
           "profile": {
-            "factory": 63,
-            "building": 8,
+            "factory": 56,
+            "building": 10,
             "dependencies": 0
           },
           "failed": false,
@@ -5965,9 +5964,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactComponentBrowserEnvironment.js",
           "profile": {
-            "factory": 84,
-            "building": 22,
-            "dependencies": 1
+            "factory": 82,
+            "building": 25,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -6002,9 +6001,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 108,
-            "building": 89,
-            "dependencies": 71
+            "factory": 91,
+            "building": 84,
+            "dependencies": 70
           },
           "failed": false,
           "errors": 0,
@@ -6039,7 +6038,7 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 72,
+            "factory": 70,
             "building": 25,
             "dependencies": 0
           },
@@ -6076,8 +6075,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/AutoFocusUtils.js",
           "profile": {
-            "factory": 63,
-            "building": 11
+            "factory": 56,
+            "building": 16
           },
           "failed": false,
           "errors": 0,
@@ -6121,8 +6120,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 72,
-            "building": 27,
+            "factory": 71,
+            "building": 26,
             "dependencies": 2
           },
           "failed": false,
@@ -6158,8 +6157,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
           "profile": {
-            "factory": 61,
-            "building": 11
+            "factory": 54,
+            "building": 17
           },
           "failed": false,
           "errors": 0,
@@ -6203,8 +6202,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
           "profile": {
-            "factory": 61,
-            "building": 11
+            "factory": 54,
+            "building": 17
           },
           "failed": false,
           "errors": 0,
@@ -6239,8 +6238,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/fbjs/lib/camelizeStyleName.js",
           "profile": {
-            "factory": 22,
-            "building": 6
+            "factory": 12,
+            "building": 5
           },
           "failed": false,
           "errors": 0,
@@ -6275,9 +6274,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
           "profile": {
-            "factory": 61,
-            "building": 13,
-            "dependencies": 0
+            "factory": 54,
+            "building": 18,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -6312,8 +6311,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
           "profile": {
-            "factory": 62,
-            "building": 12
+            "factory": 54,
+            "building": 18
           },
           "failed": false,
           "errors": 0,
@@ -6348,8 +6347,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/fbjs/lib/hyphenateStyleName.js",
           "profile": {
-            "factory": 20,
-            "building": 6
+            "factory": 11,
+            "building": 5
           },
           "failed": false,
           "errors": 0,
@@ -6384,8 +6383,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
           "profile": {
-            "factory": 62,
-            "building": 12
+            "factory": 55,
+            "building": 18
           },
           "failed": false,
           "errors": 0,
@@ -6420,7 +6419,7 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 73,
+            "factory": 71,
             "building": 28
           },
           "failed": false,
@@ -6456,8 +6455,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 73,
-            "building": 30,
+            "factory": 71,
+            "building": 29,
             "dependencies": 1
           },
           "failed": false,
@@ -6511,8 +6510,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMPropertyOperations.js",
           "profile": {
-            "factory": 58,
-            "building": 13
+            "factory": 52,
+            "building": 18
           },
           "failed": false,
           "errors": 0,
@@ -6547,8 +6546,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMInstrumentation.js",
           "profile": {
-            "factory": 19,
-            "building": 7,
+            "factory": 10,
+            "building": 6,
             "dependencies": 0
           },
           "failed": false,
@@ -6584,8 +6583,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMDebugTool.js",
           "profile": {
-            "factory": 2,
-            "building": 2,
+            "factory": 1,
+            "building": 3,
             "dependencies": 0
           },
           "failed": false,
@@ -6621,8 +6620,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMPropertyOperations.js",
           "profile": {
-            "factory": 58,
-            "building": 13,
+            "factory": 52,
+            "building": 19,
             "dependencies": 0
           },
           "failed": false,
@@ -6658,9 +6657,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 94,
-            "building": 121,
-            "dependencies": 40
+            "factory": 74,
+            "building": 113,
+            "dependencies": 39
           },
           "failed": false,
           "errors": 0,
@@ -6722,8 +6721,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactBrowserEventEmitter.js",
           "profile": {
-            "factory": 45,
-            "building": 60,
+            "factory": 46,
+            "building": 57,
             "dependencies": 0
           },
           "failed": false,
@@ -6760,7 +6759,7 @@
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactBrowserEventEmitter.js",
           "profile": {
             "factory": 46,
-            "building": 60,
+            "building": 58,
             "dependencies": 0
           },
           "failed": false,
@@ -6796,8 +6795,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 73,
-            "building": 33
+            "factory": 71,
+            "building": 32
           },
           "failed": false,
           "errors": 0,
@@ -6832,8 +6831,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 73,
-            "building": 35,
+            "factory": 71,
+            "building": 39,
             "dependencies": 0
           },
           "failed": false,
@@ -6869,8 +6868,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMInput.js",
           "profile": {
-            "factory": 53,
-            "building": 22,
+            "factory": 42,
+            "building": 20,
             "dependencies": 1
           },
           "failed": false,
@@ -6924,8 +6923,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 73,
-            "building": 36,
+            "factory": 72,
+            "building": 39,
             "dependencies": 1
           },
           "failed": false,
@@ -6961,9 +6960,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 73,
-            "building": 44,
-            "dependencies": 45
+            "factory": 72,
+            "building": 41,
+            "dependencies": 39
           },
           "failed": false,
           "errors": 0,
@@ -7007,9 +7006,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 74,
-            "building": 44,
-            "dependencies": 44
+            "factory": 72,
+            "building": 43,
+            "dependencies": 37
           },
           "failed": false,
           "errors": 0,
@@ -7044,9 +7043,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 74,
-            "building": 47,
-            "dependencies": 39
+            "factory": 72,
+            "building": 46,
+            "dependencies": 33
           },
           "failed": false,
           "errors": 0,
@@ -7081,9 +7080,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInjection.js",
           "profile": {
-            "factory": 61,
-            "building": 53,
-            "dependencies": 0
+            "factory": 60,
+            "building": 49,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -7136,9 +7135,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMultiChild.js",
           "profile": {
-            "factory": 41,
-            "building": 23,
-            "dependencies": 1
+            "factory": 34,
+            "building": 22,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -7173,9 +7172,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 97,
-            "building": 124,
-            "dependencies": 37
+            "factory": 75,
+            "building": 122,
+            "dependencies": 33
           },
           "failed": false,
           "errors": 0,
@@ -7219,9 +7218,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/instantiateReactComponent.js",
           "profile": {
-            "factory": 41,
-            "building": 68,
-            "dependencies": 11
+            "factory": 36,
+            "building": 65,
+            "dependencies": 7
           },
           "failed": false,
           "errors": 0,
@@ -7256,8 +7255,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/findDOMNode.js",
           "profile": {
-            "factory": 75,
-            "building": 133
+            "factory": 63,
+            "building": 127
           },
           "failed": false,
           "errors": 0,
@@ -7310,8 +7309,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/getNativeComponentFromComposite.js",
           "profile": {
-            "factory": 73,
-            "building": 134,
+            "factory": 61,
+            "building": 127,
             "dependencies": 0
           },
           "failed": false,
@@ -7356,8 +7355,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 96,
-            "building": 124,
+            "factory": 75,
+            "building": 119,
             "dependencies": 0
           },
           "failed": false,
@@ -7402,8 +7401,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 97,
-            "building": 126
+            "factory": 76,
+            "building": 123
           },
           "failed": false,
           "errors": 0,
@@ -7456,8 +7455,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInjection.js",
           "profile": {
-            "factory": 61,
-            "building": 54
+            "factory": 60,
+            "building": 50
           },
           "failed": false,
           "errors": 0,
@@ -7501,8 +7500,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInjection.js",
           "profile": {
-            "factory": 62,
-            "building": 53,
+            "factory": 61,
+            "building": 49,
             "dependencies": 1
           },
           "failed": false,
@@ -7547,9 +7546,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMultiChild.js",
           "profile": {
-            "factory": 41,
-            "building": 24,
-            "dependencies": 1
+            "factory": 35,
+            "building": 22,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -7584,8 +7583,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 74,
-            "building": 49
+            "factory": 72,
+            "building": 47
           },
           "failed": false,
           "errors": 0,
@@ -7629,8 +7628,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
           "profile": {
-            "factory": 75,
-            "building": 49,
+            "factory": 73,
+            "building": 47,
             "dependencies": 0
           },
           "failed": false,
@@ -7684,9 +7683,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 108,
-            "building": 94,
-            "dependencies": 0
+            "factory": 91,
+            "building": 88,
+            "dependencies": 1
           },
           "failed": false,
           "errors": 0,
@@ -7721,8 +7720,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 108,
-            "building": 96,
+            "factory": 92,
+            "building": 92,
             "dependencies": 0
           },
           "failed": false,
@@ -7758,9 +7757,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 109,
-            "building": 97,
-            "dependencies": 67
+            "factory": 92,
+            "building": 90,
+            "dependencies": 66
           },
           "failed": false,
           "errors": 0,
@@ -7795,9 +7794,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 109,
-            "building": 98,
-            "dependencies": 1
+            "factory": 92,
+            "building": 93,
+            "dependencies": 0
           },
           "failed": false,
           "errors": 0,
@@ -7832,9 +7831,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 109,
-            "building": 100,
-            "dependencies": 60
+            "factory": 92,
+            "building": 95,
+            "dependencies": 57
           },
           "failed": false,
           "errors": 0,
@@ -7869,8 +7868,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactEventListener.js",
           "profile": {
-            "factory": 64,
-            "building": 49,
+            "factory": 62,
+            "building": 45,
             "dependencies": 0
           },
           "failed": false,
@@ -7915,8 +7914,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactEventListener.js",
           "profile": {
-            "factory": 64,
-            "building": 50
+            "factory": 62,
+            "building": 47
           },
           "failed": false,
           "errors": 0,
@@ -7951,9 +7950,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 109,
-            "building": 103,
-            "dependencies": 57
+            "factory": 92,
+            "building": 97,
+            "dependencies": 55
           },
           "failed": false,
           "errors": 0,
@@ -7988,8 +7987,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 109,
-            "building": 105,
+            "factory": 92,
+            "building": 99,
             "dependencies": 1
           },
           "failed": false,
@@ -8025,9 +8024,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactReconcileTransaction.js",
           "profile": {
-            "factory": 60,
-            "building": 55,
-            "dependencies": 29
+            "factory": 59,
+            "building": 51,
+            "dependencies": 25
           },
           "failed": false,
           "errors": 0,
@@ -8071,8 +8070,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInputSelection.js",
           "profile": {
-            "factory": 31,
-            "building": 26,
+            "factory": 27,
+            "building": 23,
             "dependencies": 1
           },
           "failed": false,
@@ -8108,8 +8107,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMSelection.js",
           "profile": {
-            "factory": 5,
-            "building": 7
+            "factory": 4,
+            "building": 6
           },
           "failed": false,
           "errors": 0,
@@ -8144,8 +8143,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInputSelection.js",
           "profile": {
-            "factory": 31,
-            "building": 27
+            "factory": 27,
+            "building": 24
           },
           "failed": false,
           "errors": 0,
@@ -8180,8 +8179,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/fbjs/lib/containsNode.js",
           "profile": {
-            "factory": 5,
-            "building": 7
+            "factory": 4,
+            "building": 5
           },
           "failed": false,
           "errors": 0,
@@ -8252,8 +8251,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SelectEventPlugin.js",
           "profile": {
-            "factory": 56,
-            "building": 56
+            "factory": 55,
+            "building": 52
           },
           "failed": false,
           "errors": 0,
@@ -8297,8 +8296,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 109,
-            "building": 107
+            "factory": 93,
+            "building": 100
           },
           "failed": false,
           "errors": 0,
@@ -8333,9 +8332,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 110,
-            "building": 108,
-            "dependencies": 56
+            "factory": 93,
+            "building": 102,
+            "dependencies": 55
           },
           "failed": false,
           "errors": 0,
@@ -8370,9 +8369,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
           "profile": {
-            "factory": 110,
-            "building": 115,
-            "dependencies": 48
+            "factory": 93,
+            "building": 107,
+            "dependencies": 49
           },
           "failed": false,
           "errors": 0,
@@ -8407,8 +8406,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
-            "factory": 49,
-            "building": 56,
+            "factory": 50,
+            "building": 53,
             "dependencies": 0
           },
           "failed": false,
@@ -8444,8 +8443,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
-            "factory": 49,
-            "building": 56,
+            "factory": 50,
+            "building": 53,
             "dependencies": 0
           },
           "failed": false,
@@ -8482,7 +8481,7 @@
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
             "factory": 50,
-            "building": 56,
+            "building": 53,
             "dependencies": 0
           },
           "failed": false,
@@ -8518,9 +8517,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
-            "factory": 50,
-            "building": 56,
-            "dependencies": 26
+            "factory": 51,
+            "building": 53,
+            "dependencies": 21
           },
           "failed": false,
           "errors": 0,
@@ -8555,8 +8554,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
-            "factory": 50,
-            "building": 59
+            "factory": 51,
+            "building": 55
           },
           "failed": false,
           "errors": 0,
@@ -8609,8 +8608,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SyntheticKeyboardEvent.js",
           "profile": {
-            "factory": 29,
-            "building": 28,
+            "factory": 24,
+            "building": 25,
             "dependencies": 0
           },
           "failed": false,
@@ -8646,8 +8645,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
-            "factory": 50,
-            "building": 57,
+            "factory": 51,
+            "building": 53,
             "dependencies": 0
           },
           "failed": false,
@@ -8683,9 +8682,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
-            "factory": 50,
-            "building": 57,
-            "dependencies": 25
+            "factory": 51,
+            "building": 54,
+            "dependencies": 20
           },
           "failed": false,
           "errors": 0,
@@ -8720,8 +8719,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
-            "factory": 50,
-            "building": 58,
+            "factory": 51,
+            "building": 54,
             "dependencies": 0
           },
           "failed": false,
@@ -8757,8 +8756,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
           "profile": {
-            "factory": 50,
-            "building": 59,
+            "factory": 51,
+            "building": 55,
             "dependencies": 0
           },
           "failed": false,
@@ -8794,9 +8793,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 274,
-            "building": 44,
-            "dependencies": 88
+            "factory": 261,
+            "building": 42,
+            "dependencies": 73
           },
           "failed": false,
           "errors": 0,
@@ -8840,9 +8839,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 95,
-            "building": 122,
-            "dependencies": 40
+            "factory": 74,
+            "building": 118,
+            "dependencies": 37
           },
           "failed": false,
           "errors": 0,
@@ -8877,8 +8876,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 95,
-            "building": 122
+            "factory": 74,
+            "building": 118
           },
           "failed": false,
           "errors": 0,
@@ -8913,8 +8912,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
           "profile": {
-            "factory": 96,
-            "building": 122
+            "factory": 75,
+            "building": 120
           },
           "failed": false,
           "errors": 0,
@@ -8949,8 +8948,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMarkupChecksum.js",
           "profile": {
-            "factory": 43,
-            "building": 62
+            "factory": 38,
+            "building": 59
           },
           "failed": false,
           "errors": 0,
@@ -8985,9 +8984,9 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 275,
-            "building": 66,
-            "dependencies": 71
+            "factory": 262,
+            "building": 54,
+            "dependencies": 61
           },
           "failed": false,
           "errors": 0,
@@ -9022,8 +9021,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 276,
-            "building": 67
+            "factory": 262,
+            "building": 57
           },
           "failed": false,
           "errors": 0,
@@ -9067,8 +9066,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
           "profile": {
-            "factory": 276,
-            "building": 67,
+            "factory": 263,
+            "building": 56,
             "dependencies": 1
           },
           "failed": false,
@@ -9112,9 +9111,9 @@
         "manifest"
       ],
       "files": [
-        "manifest.ac5db0c8ee575afd5ff1.js"
+        "manifest.cbbf5d2b3dce405b0627.js"
       ],
-      "hash": "ac5db0c8ee575afd5ff1",
+      "hash": "cbbf5d2b3dce405b0627",
       "parents": [],
       "modules": [],
       "filteredModules": 0,
@@ -9128,7 +9127,7 @@
       "name": "./app/index.jsx",
       "index": 0,
       "index2": 162,
-      "size": 505,
+      "size": 491,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -9139,15 +9138,15 @@
       "assets": [],
       "issuer": null,
       "profile": {
-        "factory": 339,
-        "building": 555,
-        "dependencies": 4
+        "factory": 49,
+        "building": 798,
+        "dependencies": 47
       },
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [],
-      "source": "'use strict';\n\nvar _react = require('react');\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = require('react-dom');\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _World = require('./components/World.jsx');\n\nvar _World2 = _interopRequireDefault(_World);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_reactDom2.default.render(_react2.default.createElement(_World2.default, { greet: 'Hello' }), document.getElementById('app'));"
+      "source": "'use strict';\n\nvar _react = require('react');\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = require('react-dom');\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _World = require('./components/World.jsx');\n\nvar _World2 = _interopRequireDefault(_World);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_reactDom2.default.render(_react2.default.createElement(_World2.default, null), document.getElementById('app'));"
     },
     {
       "id": 0,
@@ -9191,8 +9190,8 @@
       "assets": [],
       "issuer": null,
       "profile": {
-        "factory": 52,
-        "building": 6
+        "factory": 233,
+        "building": 5
       },
       "failed": false,
       "errors": 0,
@@ -9217,8 +9216,8 @@
       "assets": [],
       "issuer": "multi vendor",
       "profile": {
-        "factory": 25,
-        "building": 490
+        "factory": 23,
+        "building": 468
       },
       "failed": false,
       "errors": 0,
@@ -9279,9 +9278,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/react.js",
       "profile": {
-        "factory": 71,
-        "building": 28,
-        "dependencies": 348
+        "factory": 61,
+        "building": 27,
+        "dependencies": 323
       },
       "failed": false,
       "errors": 0,
@@ -9316,8 +9315,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
       "profile": {
-        "factory": 333,
-        "building": 82
+        "factory": 312,
+        "building": 72
       },
       "failed": false,
       "errors": 0,
@@ -9541,9 +9540,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
       "profile": {
-        "factory": 272,
-        "building": 79,
-        "dependencies": 53
+        "factory": 261,
+        "building": 66,
+        "dependencies": 44
       },
       "failed": false,
       "errors": 0,
@@ -9587,8 +9586,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactUpdates.js",
       "profile": {
-        "factory": 81,
-        "building": 131,
+        "factory": 67,
+        "building": 125,
         "dependencies": 0
       },
       "failed": false,
@@ -9678,8 +9677,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponentTree.js",
       "profile": {
-        "factory": 109,
-        "building": 69
+        "factory": 93,
+        "building": 63
       },
       "failed": false,
       "errors": 0,
@@ -10038,9 +10037,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
       "profile": {
-        "factory": 273,
-        "building": 103,
-        "dependencies": 34
+        "factory": 262,
+        "building": 84,
+        "dependencies": 31
       },
       "failed": false,
       "errors": 0,
@@ -10165,8 +10164,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 94,
-        "building": 123
+        "factory": 74,
+        "building": 118
       },
       "failed": false,
       "errors": 0,
@@ -10264,9 +10263,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 359,
-        "building": 69,
-        "dependencies": 0
+        "factory": 331,
+        "building": 62,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -10580,8 +10579,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactChildren.js",
       "profile": {
-        "factory": 58,
-        "building": 144
+        "factory": 49,
+        "building": 139
       },
       "failed": false,
       "errors": 0,
@@ -10688,8 +10687,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactComponent.js",
       "profile": {
-        "factory": 56,
-        "building": 146
+        "factory": 48,
+        "building": 139
       },
       "failed": false,
       "errors": 0,
@@ -10742,9 +10741,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactChildren.js",
       "profile": {
-        "factory": 59,
-        "building": 145,
-        "dependencies": 1
+        "factory": 49,
+        "building": 138,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -10797,8 +10796,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactElementValidator.js",
       "profile": {
-        "factory": 31,
-        "building": 145
+        "factory": 32,
+        "building": 134
       },
       "failed": false,
       "errors": 0,
@@ -10851,9 +10850,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
       "profile": {
-        "factory": 272,
-        "building": 82,
-        "dependencies": 49
+        "factory": 261,
+        "building": 68,
+        "dependencies": 41
       },
       "failed": false,
       "errors": 0,
@@ -10897,8 +10896,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactComponent.js",
       "profile": {
-        "factory": 56,
-        "building": 143,
+        "factory": 47,
+        "building": 139,
         "dependencies": 0
       },
       "failed": false,
@@ -10941,10 +10940,10 @@
         2
       ],
       "assets": [],
-      "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
+      "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactReconciler.js",
       "profile": {
-        "factory": 95,
-        "building": 122
+        "factory": 83,
+        "building": 111
       },
       "failed": false,
       "errors": 0,
@@ -11006,9 +11005,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInstrumentation.js",
       "profile": {
-        "factory": 44,
-        "building": 61,
-        "dependencies": 1
+        "factory": 48,
+        "building": 56,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -11043,8 +11042,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDebugTool.js",
       "profile": {
-        "factory": 22,
-        "building": 29,
+        "factory": 20,
+        "building": 25,
         "dependencies": 0
       },
       "failed": false,
@@ -11080,8 +11079,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 96,
-        "building": 122
+        "factory": 75,
+        "building": 120
       },
       "failed": false,
       "errors": 0,
@@ -11143,9 +11142,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
       "profile": {
-        "factory": 272,
-        "building": 94,
-        "dependencies": 44
+        "factory": 261,
+        "building": 78,
+        "dependencies": 38
       },
       "failed": false,
       "errors": 0,
@@ -11189,8 +11188,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactClass.js",
       "profile": {
-        "factory": 45,
-        "building": 146,
+        "factory": 39,
+        "building": 138,
         "dependencies": 0
       },
       "failed": false,
@@ -11253,8 +11252,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactClass.js",
       "profile": {
-        "factory": 47,
-        "building": 144,
+        "factory": 43,
+        "building": 135,
         "dependencies": 0
       },
       "failed": false,
@@ -11317,8 +11316,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactClass.js",
       "profile": {
-        "factory": 46,
-        "building": 145
+        "factory": 43,
+        "building": 134
       },
       "failed": false,
       "errors": 0,
@@ -11380,8 +11379,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactClass.js",
       "profile": {
-        "factory": 47,
-        "building": 145
+        "factory": 43,
+        "building": 135
       },
       "failed": false,
       "errors": 0,
@@ -11479,8 +11478,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
       "profile": {
-        "factory": 273,
-        "building": 84,
+        "factory": 262,
+        "building": 69,
         "dependencies": 1
       },
       "failed": false,
@@ -11516,8 +11515,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
       "profile": {
-        "factory": 273,
-        "building": 109,
+        "factory": 262,
+        "building": 89,
         "dependencies": 31
       },
       "failed": false,
@@ -11562,8 +11561,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMFactories.js",
       "profile": {
-        "factory": 54,
-        "building": 145
+        "factory": 46,
+        "building": 139
       },
       "failed": false,
       "errors": 0,
@@ -11598,9 +11597,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
       "profile": {
-        "factory": 273,
-        "building": 118,
-        "dependencies": 23
+        "factory": 262,
+        "building": 99,
+        "dependencies": 22
       },
       "failed": false,
       "errors": 0,
@@ -11644,8 +11643,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 275,
-        "building": 64
+        "factory": 262,
+        "building": 53
       },
       "failed": false,
       "errors": 0,
@@ -11689,9 +11688,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/React.js",
       "profile": {
-        "factory": 273,
-        "building": 119,
-        "dependencies": 4
+        "factory": 262,
+        "building": 100,
+        "dependencies": 3
       },
       "failed": false,
       "errors": 0,
@@ -11726,8 +11725,8 @@
       "assets": [],
       "issuer": "multi vendor",
       "profile": {
-        "factory": 24,
-        "building": 490
+        "factory": 22,
+        "building": 468
       },
       "failed": false,
       "errors": 0,
@@ -11771,7 +11770,7 @@
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react-dom/index.js",
       "profile": {
         "factory": 2,
-        "building": 87
+        "building": 80
       },
       "failed": false,
       "errors": 0,
@@ -11806,8 +11805,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 273,
-        "building": 24
+        "factory": 261,
+        "building": 18
       },
       "failed": false,
       "errors": 0,
@@ -11995,8 +11994,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponentTree.js",
       "profile": {
-        "factory": 108,
-        "building": 69,
+        "factory": 92,
+        "building": 25,
         "dependencies": 0
       },
       "failed": false,
@@ -12086,8 +12085,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponentTree.js",
       "profile": {
-        "factory": 109,
-        "building": 68
+        "factory": 93,
+        "building": 67
       },
       "failed": false,
       "errors": 0,
@@ -12131,9 +12130,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 274,
-        "building": 28,
-        "dependencies": 2
+        "factory": 261,
+        "building": 22,
+        "dependencies": 3
       },
       "failed": false,
       "errors": 0,
@@ -12168,8 +12167,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 106,
-        "building": 69,
+        "factory": 90,
+        "building": 65,
         "dependencies": 1
       },
       "failed": false,
@@ -12205,8 +12204,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
       "profile": {
-        "factory": 92,
-        "building": 14,
+        "factory": 88,
+        "building": 13,
         "dependencies": 0
       },
       "failed": false,
@@ -12314,7 +12313,7 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
       "profile": {
-        "factory": 93,
+        "factory": 88,
         "building": 14,
         "dependencies": 1
       },
@@ -12387,9 +12386,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
       "profile": {
-        "factory": 90,
-        "building": 17,
-        "dependencies": 70
+        "factory": 86,
+        "building": 18,
+        "dependencies": 63
       },
       "failed": false,
       "errors": 0,
@@ -12460,8 +12459,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 73,
-        "building": 32,
+        "factory": 71,
+        "building": 31,
         "dependencies": 0
       },
       "failed": false,
@@ -12524,9 +12523,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInjection.js",
       "profile": {
-        "factory": 61,
-        "building": 52,
-        "dependencies": 32
+        "factory": 60,
+        "building": 49,
+        "dependencies": 27
       },
       "failed": false,
       "errors": 0,
@@ -12579,8 +12578,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/EventPluginHub.js",
       "profile": {
-        "factory": 71,
-        "building": 7
+        "factory": 63,
+        "building": 9
       },
       "failed": false,
       "errors": 0,
@@ -12633,9 +12632,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/EventPropagators.js",
       "profile": {
-        "factory": 74,
-        "building": 7,
-        "dependencies": 0
+        "factory": 67,
+        "building": 9,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -12679,8 +12678,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/EventPropagators.js",
       "profile": {
-        "factory": 74,
-        "building": 7
+        "factory": 68,
+        "building": 9
       },
       "failed": false,
       "errors": 0,
@@ -12724,8 +12723,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 107,
-        "building": 78
+        "factory": 91,
+        "building": 73
       },
       "failed": false,
       "errors": 0,
@@ -12886,9 +12885,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
       "profile": {
-        "factory": 93,
-        "building": 16,
-        "dependencies": 0
+        "factory": 88,
+        "building": 15,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -12923,8 +12922,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/FallbackCompositionState.js",
       "profile": {
-        "factory": 73,
-        "building": 7,
+        "factory": 67,
+        "building": 9,
         "dependencies": 0
       },
       "failed": false,
@@ -12969,8 +12968,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
       "profile": {
-        "factory": 93,
-        "building": 16,
+        "factory": 89,
+        "building": 15,
         "dependencies": 0
       },
       "failed": false,
@@ -13006,9 +13005,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
       "profile": {
-        "factory": 90,
+        "factory": 86,
         "building": 21,
-        "dependencies": 0
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -13115,8 +13114,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/BeforeInputEventPlugin.js",
       "profile": {
-        "factory": 93,
-        "building": 17,
+        "factory": 89,
+        "building": 15,
         "dependencies": 0
       },
       "failed": false,
@@ -13152,9 +13151,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 106,
-        "building": 73,
-        "dependencies": 89
+        "factory": 90,
+        "building": 68,
+        "dependencies": 85
       },
       "failed": false,
       "errors": 0,
@@ -13189,9 +13188,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 275,
-        "building": 59,
-        "dependencies": 79
+        "factory": 262,
+        "building": 50,
+        "dependencies": 66
       },
       "failed": false,
       "errors": 0,
@@ -13307,9 +13306,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactUpdates.js",
       "profile": {
-        "factory": 81,
-        "building": 130,
-        "dependencies": 0
+        "factory": 67,
+        "building": 123,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -13353,8 +13352,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 95,
-        "building": 122
+        "factory": 74,
+        "building": 119
       },
       "failed": false,
       "errors": 0,
@@ -13398,8 +13397,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 274,
-        "building": 53
+        "factory": 261,
+        "building": 54
       },
       "failed": false,
       "errors": 0,
@@ -13533,9 +13532,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 275,
-        "building": 64,
-        "dependencies": 74
+        "factory": 261,
+        "building": 32
       },
       "failed": false,
       "errors": 0,
@@ -13615,8 +13613,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactReconciler.js",
       "profile": {
-        "factory": 77,
-        "building": 132
+        "factory": 83,
+        "building": 111
       },
       "failed": false,
       "errors": 0,
@@ -13651,8 +13649,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactRef.js",
       "profile": {
-        "factory": 32,
-        "building": 70,
+        "factory": 47,
+        "building": 56,
         "dependencies": 0
       },
       "failed": false,
@@ -13688,9 +13686,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactUpdates.js",
       "profile": {
-        "factory": 81,
-        "building": 132,
-        "dependencies": 1
+        "factory": 67,
+        "building": 127,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -13743,8 +13741,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
       "profile": {
-        "factory": 90,
-        "building": 18
+        "factory": 86,
+        "building": 22
       },
       "failed": false,
       "errors": 0,
@@ -13797,9 +13795,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
       "profile": {
-        "factory": 90,
-        "building": 23,
-        "dependencies": 0
+        "factory": 87,
+        "building": 21,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -13852,7 +13850,7 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ChangeEventPlugin.js",
       "profile": {
-        "factory": 90,
+        "factory": 87,
         "building": 22
       },
       "failed": false,
@@ -13897,9 +13895,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 106,
-        "building": 76,
-        "dependencies": 1
+        "factory": 90,
+        "building": 71,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -13934,9 +13932,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 107,
-        "building": 77,
-        "dependencies": 84
+        "factory": 90,
+        "building": 72,
+        "dependencies": 81
       },
       "failed": false,
       "errors": 0,
@@ -13971,8 +13969,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/EnterLeaveEventPlugin.js",
       "profile": {
-        "factory": 86,
-        "building": 21,
+        "factory": 83,
+        "building": 22,
         "dependencies": 0
       },
       "failed": false,
@@ -14035,9 +14033,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
-        "factory": 50,
-        "building": 58,
-        "dependencies": 0
+        "factory": 51,
+        "building": 54,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -14108,8 +14106,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactBrowserEventEmitter.js",
       "profile": {
-        "factory": 45,
-        "building": 59
+        "factory": 46,
+        "building": 57
       },
       "failed": false,
       "errors": 0,
@@ -14153,8 +14151,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SyntheticMouseEvent.js",
       "profile": {
-        "factory": 66,
-        "building": 7
+        "factory": 58,
+        "building": 10
       },
       "failed": false,
       "errors": 0,
@@ -14207,9 +14205,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 107,
-        "building": 78,
-        "dependencies": 1
+        "factory": 91,
+        "building": 73,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -14244,9 +14242,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 107,
-        "building": 79,
-        "dependencies": 1
+        "factory": 91,
+        "building": 72,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -14290,9 +14288,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactComponentBrowserEnvironment.js",
       "profile": {
-        "factory": 84,
+        "factory": 82,
         "building": 24,
-        "dependencies": 1
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -14345,8 +14343,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 94,
-        "building": 119
+        "factory": 73,
+        "building": 112
       },
       "failed": false,
       "errors": 0,
@@ -14427,7 +14425,7 @@
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMLazyTree.js",
       "profile": {
         "factory": 47,
-        "building": 58
+        "building": 57
       },
       "failed": false,
       "errors": 0,
@@ -14481,8 +14479,8 @@
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMLazyTree.js",
       "profile": {
         "factory": 47,
-        "building": 59,
-        "dependencies": 0
+        "building": 57,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -14526,8 +14524,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 74,
-        "building": 48
+        "factory": 72,
+        "building": 46
       },
       "failed": false,
       "errors": 0,
@@ -14589,9 +14587,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 97,
-        "building": 125,
-        "dependencies": 38
+        "factory": 76,
+        "building": 122,
+        "dependencies": 34
       },
       "failed": false,
       "errors": 0,
@@ -14644,8 +14642,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMChildrenOperations.js",
       "profile": {
-        "factory": 63,
-        "building": 10,
+        "factory": 56,
+        "building": 16,
         "dependencies": 1
       },
       "failed": false,
@@ -14681,8 +14679,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/Danger.js",
       "profile": {
-        "factory": 24,
-        "building": 4,
+        "factory": 14,
+        "building": 3,
         "dependencies": 1
       },
       "failed": false,
@@ -14718,7 +14716,7 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/fbjs/lib/createNodesFromMarkup.js",
       "profile": {
-        "factory": 5,
+        "factory": 4,
         "building": 2,
         "dependencies": 0
       },
@@ -14755,8 +14753,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/Danger.js",
       "profile": {
-        "factory": 24,
-        "building": 6,
+        "factory": 14,
+        "building": 5,
         "dependencies": 0
       },
       "failed": false,
@@ -14801,8 +14799,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMChildrenOperations.js",
       "profile": {
-        "factory": 63,
-        "building": 8,
+        "factory": 56,
+        "building": 10,
         "dependencies": 0
       },
       "failed": false,
@@ -14847,9 +14845,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactComponentBrowserEnvironment.js",
       "profile": {
-        "factory": 84,
-        "building": 22,
-        "dependencies": 1
+        "factory": 82,
+        "building": 25,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -14884,9 +14882,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 108,
-        "building": 89,
-        "dependencies": 71
+        "factory": 91,
+        "building": 84,
+        "dependencies": 70
       },
       "failed": false,
       "errors": 0,
@@ -14921,7 +14919,7 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 72,
+        "factory": 70,
         "building": 25,
         "dependencies": 0
       },
@@ -14958,8 +14956,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/AutoFocusUtils.js",
       "profile": {
-        "factory": 63,
-        "building": 11
+        "factory": 56,
+        "building": 16
       },
       "failed": false,
       "errors": 0,
@@ -15003,8 +15001,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 72,
-        "building": 27,
+        "factory": 71,
+        "building": 26,
         "dependencies": 2
       },
       "failed": false,
@@ -15040,8 +15038,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
       "profile": {
-        "factory": 61,
-        "building": 11
+        "factory": 54,
+        "building": 17
       },
       "failed": false,
       "errors": 0,
@@ -15085,8 +15083,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
       "profile": {
-        "factory": 61,
-        "building": 11
+        "factory": 54,
+        "building": 17
       },
       "failed": false,
       "errors": 0,
@@ -15121,8 +15119,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/fbjs/lib/camelizeStyleName.js",
       "profile": {
-        "factory": 22,
-        "building": 6
+        "factory": 12,
+        "building": 5
       },
       "failed": false,
       "errors": 0,
@@ -15157,9 +15155,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
       "profile": {
-        "factory": 61,
-        "building": 13,
-        "dependencies": 0
+        "factory": 54,
+        "building": 18,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -15194,8 +15192,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
       "profile": {
-        "factory": 62,
-        "building": 12
+        "factory": 54,
+        "building": 18
       },
       "failed": false,
       "errors": 0,
@@ -15230,8 +15228,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/fbjs/lib/hyphenateStyleName.js",
       "profile": {
-        "factory": 20,
-        "building": 6
+        "factory": 11,
+        "building": 5
       },
       "failed": false,
       "errors": 0,
@@ -15266,8 +15264,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/CSSPropertyOperations.js",
       "profile": {
-        "factory": 62,
-        "building": 12
+        "factory": 55,
+        "building": 18
       },
       "failed": false,
       "errors": 0,
@@ -15302,7 +15300,7 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 73,
+        "factory": 71,
         "building": 28
       },
       "failed": false,
@@ -15338,8 +15336,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 73,
-        "building": 30,
+        "factory": 71,
+        "building": 29,
         "dependencies": 1
       },
       "failed": false,
@@ -15393,8 +15391,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMPropertyOperations.js",
       "profile": {
-        "factory": 58,
-        "building": 13
+        "factory": 52,
+        "building": 18
       },
       "failed": false,
       "errors": 0,
@@ -15429,8 +15427,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMInstrumentation.js",
       "profile": {
-        "factory": 19,
-        "building": 7,
+        "factory": 10,
+        "building": 6,
         "dependencies": 0
       },
       "failed": false,
@@ -15466,8 +15464,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMDebugTool.js",
       "profile": {
-        "factory": 2,
-        "building": 2,
+        "factory": 1,
+        "building": 3,
         "dependencies": 0
       },
       "failed": false,
@@ -15503,8 +15501,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/DOMPropertyOperations.js",
       "profile": {
-        "factory": 58,
-        "building": 13,
+        "factory": 52,
+        "building": 19,
         "dependencies": 0
       },
       "failed": false,
@@ -15540,9 +15538,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 94,
-        "building": 121,
-        "dependencies": 40
+        "factory": 74,
+        "building": 113,
+        "dependencies": 39
       },
       "failed": false,
       "errors": 0,
@@ -15604,8 +15602,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactBrowserEventEmitter.js",
       "profile": {
-        "factory": 45,
-        "building": 60,
+        "factory": 46,
+        "building": 57,
         "dependencies": 0
       },
       "failed": false,
@@ -15642,7 +15640,7 @@
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactBrowserEventEmitter.js",
       "profile": {
         "factory": 46,
-        "building": 60,
+        "building": 58,
         "dependencies": 0
       },
       "failed": false,
@@ -15678,8 +15676,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 73,
-        "building": 33
+        "factory": 71,
+        "building": 32
       },
       "failed": false,
       "errors": 0,
@@ -15714,8 +15712,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 73,
-        "building": 35,
+        "factory": 71,
+        "building": 39,
         "dependencies": 0
       },
       "failed": false,
@@ -15751,8 +15749,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMInput.js",
       "profile": {
-        "factory": 53,
-        "building": 22,
+        "factory": 42,
+        "building": 20,
         "dependencies": 1
       },
       "failed": false,
@@ -15806,8 +15804,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 73,
-        "building": 36,
+        "factory": 72,
+        "building": 39,
         "dependencies": 1
       },
       "failed": false,
@@ -15843,9 +15841,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 73,
-        "building": 44,
-        "dependencies": 45
+        "factory": 72,
+        "building": 41,
+        "dependencies": 39
       },
       "failed": false,
       "errors": 0,
@@ -15889,9 +15887,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 74,
-        "building": 44,
-        "dependencies": 44
+        "factory": 72,
+        "building": 43,
+        "dependencies": 37
       },
       "failed": false,
       "errors": 0,
@@ -15926,9 +15924,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 74,
-        "building": 47,
-        "dependencies": 39
+        "factory": 72,
+        "building": 46,
+        "dependencies": 33
       },
       "failed": false,
       "errors": 0,
@@ -15963,9 +15961,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInjection.js",
       "profile": {
-        "factory": 61,
-        "building": 53,
-        "dependencies": 0
+        "factory": 60,
+        "building": 49,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -16018,9 +16016,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMultiChild.js",
       "profile": {
-        "factory": 41,
-        "building": 23,
-        "dependencies": 1
+        "factory": 34,
+        "building": 22,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -16055,9 +16053,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 97,
-        "building": 124,
-        "dependencies": 37
+        "factory": 75,
+        "building": 122,
+        "dependencies": 33
       },
       "failed": false,
       "errors": 0,
@@ -16101,9 +16099,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/instantiateReactComponent.js",
       "profile": {
-        "factory": 41,
-        "building": 68,
-        "dependencies": 11
+        "factory": 36,
+        "building": 65,
+        "dependencies": 7
       },
       "failed": false,
       "errors": 0,
@@ -16138,8 +16136,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/findDOMNode.js",
       "profile": {
-        "factory": 75,
-        "building": 133
+        "factory": 63,
+        "building": 127
       },
       "failed": false,
       "errors": 0,
@@ -16192,8 +16190,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/getNativeComponentFromComposite.js",
       "profile": {
-        "factory": 73,
-        "building": 134,
+        "factory": 61,
+        "building": 127,
         "dependencies": 0
       },
       "failed": false,
@@ -16238,8 +16236,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 96,
-        "building": 124,
+        "factory": 75,
+        "building": 119,
         "dependencies": 0
       },
       "failed": false,
@@ -16284,8 +16282,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 97,
-        "building": 126
+        "factory": 76,
+        "building": 123
       },
       "failed": false,
       "errors": 0,
@@ -16338,8 +16336,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInjection.js",
       "profile": {
-        "factory": 61,
-        "building": 54
+        "factory": 60,
+        "building": 50
       },
       "failed": false,
       "errors": 0,
@@ -16383,8 +16381,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInjection.js",
       "profile": {
-        "factory": 62,
-        "building": 53,
+        "factory": 61,
+        "building": 49,
         "dependencies": 1
       },
       "failed": false,
@@ -16429,9 +16427,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMultiChild.js",
       "profile": {
-        "factory": 41,
-        "building": 24,
-        "dependencies": 1
+        "factory": 35,
+        "building": 22,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -16466,8 +16464,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 74,
-        "building": 49
+        "factory": 72,
+        "building": 47
       },
       "failed": false,
       "errors": 0,
@@ -16511,8 +16509,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMComponent.js",
       "profile": {
-        "factory": 75,
-        "building": 49,
+        "factory": 73,
+        "building": 47,
         "dependencies": 0
       },
       "failed": false,
@@ -16566,9 +16564,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 108,
-        "building": 94,
-        "dependencies": 0
+        "factory": 91,
+        "building": 88,
+        "dependencies": 1
       },
       "failed": false,
       "errors": 0,
@@ -16603,8 +16601,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 108,
-        "building": 96,
+        "factory": 92,
+        "building": 92,
         "dependencies": 0
       },
       "failed": false,
@@ -16640,9 +16638,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 109,
-        "building": 97,
-        "dependencies": 67
+        "factory": 92,
+        "building": 90,
+        "dependencies": 66
       },
       "failed": false,
       "errors": 0,
@@ -16677,9 +16675,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 109,
-        "building": 98,
-        "dependencies": 1
+        "factory": 92,
+        "building": 93,
+        "dependencies": 0
       },
       "failed": false,
       "errors": 0,
@@ -16714,9 +16712,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 109,
-        "building": 100,
-        "dependencies": 60
+        "factory": 92,
+        "building": 95,
+        "dependencies": 57
       },
       "failed": false,
       "errors": 0,
@@ -16751,8 +16749,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactEventListener.js",
       "profile": {
-        "factory": 64,
-        "building": 49,
+        "factory": 62,
+        "building": 45,
         "dependencies": 0
       },
       "failed": false,
@@ -16797,8 +16795,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactEventListener.js",
       "profile": {
-        "factory": 64,
-        "building": 50
+        "factory": 62,
+        "building": 47
       },
       "failed": false,
       "errors": 0,
@@ -16833,9 +16831,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 109,
-        "building": 103,
-        "dependencies": 57
+        "factory": 92,
+        "building": 97,
+        "dependencies": 55
       },
       "failed": false,
       "errors": 0,
@@ -16870,8 +16868,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 109,
-        "building": 105,
+        "factory": 92,
+        "building": 99,
         "dependencies": 1
       },
       "failed": false,
@@ -16907,9 +16905,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactReconcileTransaction.js",
       "profile": {
-        "factory": 60,
-        "building": 55,
-        "dependencies": 29
+        "factory": 59,
+        "building": 51,
+        "dependencies": 25
       },
       "failed": false,
       "errors": 0,
@@ -16953,8 +16951,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInputSelection.js",
       "profile": {
-        "factory": 31,
-        "building": 26,
+        "factory": 27,
+        "building": 23,
         "dependencies": 1
       },
       "failed": false,
@@ -16990,8 +16988,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOMSelection.js",
       "profile": {
-        "factory": 5,
-        "building": 7
+        "factory": 4,
+        "building": 6
       },
       "failed": false,
       "errors": 0,
@@ -17026,8 +17024,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactInputSelection.js",
       "profile": {
-        "factory": 31,
-        "building": 27
+        "factory": 27,
+        "building": 24
       },
       "failed": false,
       "errors": 0,
@@ -17062,8 +17060,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/fbjs/lib/containsNode.js",
       "profile": {
-        "factory": 5,
-        "building": 7
+        "factory": 4,
+        "building": 5
       },
       "failed": false,
       "errors": 0,
@@ -17134,8 +17132,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SelectEventPlugin.js",
       "profile": {
-        "factory": 56,
-        "building": 56
+        "factory": 55,
+        "building": 52
       },
       "failed": false,
       "errors": 0,
@@ -17179,8 +17177,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 109,
-        "building": 107
+        "factory": 93,
+        "building": 100
       },
       "failed": false,
       "errors": 0,
@@ -17215,9 +17213,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 110,
-        "building": 108,
-        "dependencies": 56
+        "factory": 93,
+        "building": 102,
+        "dependencies": 55
       },
       "failed": false,
       "errors": 0,
@@ -17252,9 +17250,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDefaultInjection.js",
       "profile": {
-        "factory": 110,
-        "building": 115,
-        "dependencies": 48
+        "factory": 93,
+        "building": 107,
+        "dependencies": 49
       },
       "failed": false,
       "errors": 0,
@@ -17289,8 +17287,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
-        "factory": 49,
-        "building": 56,
+        "factory": 50,
+        "building": 53,
         "dependencies": 0
       },
       "failed": false,
@@ -17326,8 +17324,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
-        "factory": 49,
-        "building": 56,
+        "factory": 50,
+        "building": 53,
         "dependencies": 0
       },
       "failed": false,
@@ -17364,7 +17362,7 @@
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
         "factory": 50,
-        "building": 56,
+        "building": 53,
         "dependencies": 0
       },
       "failed": false,
@@ -17400,9 +17398,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
-        "factory": 50,
-        "building": 56,
-        "dependencies": 26
+        "factory": 51,
+        "building": 53,
+        "dependencies": 21
       },
       "failed": false,
       "errors": 0,
@@ -17437,8 +17435,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
-        "factory": 50,
-        "building": 59
+        "factory": 51,
+        "building": 55
       },
       "failed": false,
       "errors": 0,
@@ -17491,8 +17489,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SyntheticKeyboardEvent.js",
       "profile": {
-        "factory": 29,
-        "building": 28,
+        "factory": 24,
+        "building": 25,
         "dependencies": 0
       },
       "failed": false,
@@ -17528,8 +17526,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
-        "factory": 50,
-        "building": 57,
+        "factory": 51,
+        "building": 53,
         "dependencies": 0
       },
       "failed": false,
@@ -17565,9 +17563,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
-        "factory": 50,
-        "building": 57,
-        "dependencies": 25
+        "factory": 51,
+        "building": 54,
+        "dependencies": 20
       },
       "failed": false,
       "errors": 0,
@@ -17602,8 +17600,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
-        "factory": 50,
-        "building": 58,
+        "factory": 51,
+        "building": 54,
         "dependencies": 0
       },
       "failed": false,
@@ -17639,8 +17637,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/SimpleEventPlugin.js",
       "profile": {
-        "factory": 50,
-        "building": 59,
+        "factory": 51,
+        "building": 55,
         "dependencies": 0
       },
       "failed": false,
@@ -17676,9 +17674,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 274,
-        "building": 44,
-        "dependencies": 88
+        "factory": 261,
+        "building": 42,
+        "dependencies": 73
       },
       "failed": false,
       "errors": 0,
@@ -17722,9 +17720,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 95,
-        "building": 122,
-        "dependencies": 40
+        "factory": 74,
+        "building": 118,
+        "dependencies": 37
       },
       "failed": false,
       "errors": 0,
@@ -17759,8 +17757,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 95,
-        "building": 122
+        "factory": 74,
+        "building": 118
       },
       "failed": false,
       "errors": 0,
@@ -17795,8 +17793,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMount.js",
       "profile": {
-        "factory": 96,
-        "building": 122
+        "factory": 75,
+        "building": 120
       },
       "failed": false,
       "errors": 0,
@@ -17831,8 +17829,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactMarkupChecksum.js",
       "profile": {
-        "factory": 43,
-        "building": 62
+        "factory": 38,
+        "building": 59
       },
       "failed": false,
       "errors": 0,
@@ -17867,9 +17865,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 275,
-        "building": 66,
-        "dependencies": 71
+        "factory": 262,
+        "building": 54,
+        "dependencies": 61
       },
       "failed": false,
       "errors": 0,
@@ -17904,8 +17902,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 276,
-        "building": 67
+        "factory": 262,
+        "building": 57
       },
       "failed": false,
       "errors": 0,
@@ -17949,8 +17947,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/react/lib/ReactDOM.js",
       "profile": {
-        "factory": 276,
-        "building": 67,
+        "factory": 263,
+        "building": 56,
         "dependencies": 1
       },
       "failed": false,
@@ -17975,7 +17973,7 @@
       "name": "./app/components/World.jsx",
       "index": 161,
       "index2": 161,
-      "size": 3084,
+      "size": 3256,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -17986,9 +17984,9 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/babel-loader/index.js?cacheDirectory!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/app/index.jsx",
       "profile": {
-        "factory": 116,
-        "building": 253,
-        "dependencies": 5
+        "factory": 107,
+        "building": 232,
+        "dependencies": 2
       },
       "failed": false,
       "errors": 0,
@@ -18004,7 +18002,7 @@
           "loc": "11:13-46"
         }
       ],
-      "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = require('react');\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _Hello = require('./Hello.jsx');\n\nvar _Hello2 = _interopRequireDefault(_Hello);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar World = function (_React$Component) {\n  _inherits(World, _React$Component);\n\n  function World(props) {\n    _classCallCheck(this, World);\n\n    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(World).call(this, props));\n\n    _this.state = { greet: props.greet };\n    _this.slangGreet = _this.slangGreet.bind(_this);\n    _this.hindiGreet = _this.hindiGreet.bind(_this);\n    return _this;\n  }\n\n  _createClass(World, [{\n    key: 'slangGreet',\n    value: function slangGreet() {\n      this.setState({ greet: 'Yo!' });\n    }\n  }, {\n    key: 'hindiGreet',\n    value: function hindiGreet() {\n      this.setState({ greet: 'Namaste' });\n    }\n  }, {\n    key: 'render',\n    value: function render() {\n      return _react2.default.createElement(\n        'div',\n        null,\n        _react2.default.createElement(_Hello2.default, { greet: this.state.greet, message: 'World!' }),\n        _react2.default.createElement(\n          'a',\n          { href: '#', onClick: this.slangGreet },\n          'Slang greeting'\n        ),\n        ' OR ',\n        _react2.default.createElement(\n          'a',\n          { href: '#', onClick: this.hindiGreet },\n          'Hindi greeting'\n        )\n      );\n    }\n  }]);\n\n  return World;\n}(_react2.default.Component);\n\nexports.default = World;"
+      "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = require('react');\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _Hello = require('./Hello.jsx');\n\nvar _Hello2 = _interopRequireDefault(_Hello);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar World = function (_React$Component) {\n  _inherits(World, _React$Component);\n\n  function World(props) {\n    _classCallCheck(this, World);\n\n    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(World).call(this, props));\n\n    _this.state = {\n      currentGreeting: props.greet\n    };\n    _this.slangGreet = _this.slangGreet.bind(_this);\n    _this.hindiGreet = _this.hindiGreet.bind(_this);\n    return _this;\n  }\n\n  _createClass(World, [{\n    key: 'slangGreet',\n    value: function slangGreet() {\n      this.setState({ currentGreeting: 'Yo!' });\n    }\n  }, {\n    key: 'hindiGreet',\n    value: function hindiGreet() {\n      this.setState({ currentGreeting: 'Namaste' });\n    }\n  }, {\n    key: 'render',\n    value: function render() {\n      return _react2.default.createElement(\n        'div',\n        null,\n        _react2.default.createElement(_Hello2.default, { greet: this.state.currentGreeting, message: 'World!' }),\n        _react2.default.createElement(\n          'a',\n          { href: '#', onClick: this.slangGreet },\n          'Slang greeting'\n        ),\n        ' OR ',\n        _react2.default.createElement(\n          'a',\n          { href: '#', onClick: this.hindiGreet },\n          'Hindi greeting'\n        )\n      );\n    }\n  }]);\n\n  return World;\n}(_react2.default.Component);\n\nexports.default = World;\n\n\nWorld.propTypes = {\n  greet: _react2.default.PropTypes.string.isRequired\n};\n\nWorld.defaultProps = {\n  greet: 'Hello'\n};"
     },
     {
       "id": 162,
@@ -18023,8 +18021,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/babel-loader/index.js?cacheDirectory!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/app/components/World.jsx",
       "profile": {
-        "factory": 7,
-        "building": 39,
+        "factory": 4,
+        "building": 30,
         "dependencies": 0
       },
       "failed": false,
@@ -18059,7 +18057,7 @@
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/extract-text-webpack-plugin/loader.js?{\"omit\":1,\"extract\":true,\"remove\":true}!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/style-loader/index.js!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/css-loader/index.js!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/app/style.css",
       "profile": {
         "factory": 1,
-        "building": 524
+        "building": 310
       },
       "failed": false,
       "errors": 0,
@@ -18082,8 +18080,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/css-loader/index.js!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/app/style.css",
       "profile": {
-        "factory": 4,
-        "building": 298
+        "factory": 21,
+        "building": 268
       },
       "failed": false,
       "errors": 0,
@@ -18116,8 +18114,8 @@
       "assets": [],
       "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/extract-text-webpack-plugin/loader.js?{\"omit\":1,\"extract\":true,\"remove\":true}!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/style-loader/index.js!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/css-loader/index.js!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/app/style.css",
       "profile": {
-        "factory": 459,
-        "building": 84
+        "factory": 254,
+        "building": 78
       },
       "failed": false,
       "errors": 0,
@@ -18175,8 +18173,8 @@
               "assets": [],
               "issuer": null,
               "profile": {
-                "factory": 25,
-                "building": 33
+                "factory": 21,
+                "building": 32
               },
               "failed": false,
               "errors": 0,
@@ -18201,8 +18199,8 @@
               "assets": [],
               "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/html-webpack-plugin/lib/loader.js!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/html-webpack-template/index.ejs",
               "profile": {
-                "factory": 536,
-                "building": 290
+                "factory": 506,
+                "building": 280
               },
               "failed": false,
               "errors": 0,
@@ -18237,7 +18235,7 @@
               "assets": [],
               "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/html-webpack-plugin/node_modules/lodash/lodash.js",
               "profile": {
-                "factory": 132,
+                "factory": 111,
                 "building": 25
               },
               "failed": false,
@@ -18288,8 +18286,8 @@
           "assets": [],
           "issuer": null,
           "profile": {
-            "factory": 25,
-            "building": 33
+            "factory": 21,
+            "building": 32
           },
           "failed": false,
           "errors": 0,
@@ -18314,8 +18312,8 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/html-webpack-plugin/lib/loader.js!/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/html-webpack-template/index.ejs",
           "profile": {
-            "factory": 536,
-            "building": 290
+            "factory": 506,
+            "building": 280
           },
           "failed": false,
           "errors": 0,
@@ -18350,7 +18348,7 @@
           "assets": [],
           "issuer": "/Users/msehgal1/Google Drive/Books/reactspeedcoding/code/node_modules/html-webpack-plugin/node_modules/lodash/lodash.js",
           "profile": {
-            "factory": 132,
+            "factory": 111,
             "building": 25
           },
           "failed": false,
@@ -18412,7 +18410,7 @@
               "assets": [],
               "issuer": null,
               "profile": {
-                "factory": 1,
+                "factory": 0,
                 "building": 12
               },
               "failed": false,
@@ -18489,7 +18487,7 @@
           "assets": [],
           "issuer": null,
           "profile": {
-            "factory": 1,
+            "factory": 0,
             "building": 12
           },
           "failed": false,

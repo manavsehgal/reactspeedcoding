@@ -184,6 +184,13 @@ export default function Hello(props) {
 }
 ~~~~~~~
 
+A> ## Why stateless components are important
+A> According to Facebook, "In an ideal world, most of your components would be
+A> stateless functions because in the future we’ll also be able to make performance
+A> optimizations specific to these components by avoiding unnecessary checks and memory allocations.
+A> This is the recommended pattern, when possible."
+
+
 ## Recommended reading list
 
 - **Style Guide.** Review [Airbnb React/JSX Style Guide][2] for recommendations on using ES6 vs ES5 style.
