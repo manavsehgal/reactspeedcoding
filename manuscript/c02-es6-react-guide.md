@@ -206,6 +206,16 @@ A> stateless functions because in the future we'll also be able to make performa
 A> optimizations specific to these components by avoiding unnecessary checks and memory allocations.
 A> This is the recommended pattern, when possible."
 
+## React Chrome Extension
+
+In case you want to inspect how your components pass properties and how they are organized
+at runtime, you can install [React Chrome Extension][12].
+
+![React Chrome Extension in your browser](images/react-chrome.png)
+
+You can then select the code responsible for component UI and see the rendered UI highlighted.
+The extension will also update properties as they are passed along if you turn on the trace feature.
+
 ## Recommended reading list
 
 - **Style Guide.** Review [Airbnb React/JSX Style Guide][2] for recommendations on using ES6 vs ES5 syntax.
@@ -228,3 +238,4 @@ A> This is the recommended pattern, when possible."
 [9]: http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#es6-classes
 [10]: https://facebook.github.io/react/docs/multiple-components.html
 [11]: https://facebook.github.io/react/docs/reusable-components.html#prop-validation
+[12]: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
