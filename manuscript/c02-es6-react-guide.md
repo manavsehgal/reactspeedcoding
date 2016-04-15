@@ -23,19 +23,25 @@ the React and ES6 features used so far.
 
 ## File and folder structure
 
-React apps follow component based development. So understanding how components are organized,
+React apps follow component based development. So understanding how components are composed,
 how they relate to each other, simplifies several aspects of your React learning path.
-This includes how React app folders and files are organized.
+This includes understanding how React app folders and files are organized.
 
-**Component Hierarchy.** React has parent components which import other child components.
-This parent-child relationship continues across all components building a tree-like hierarchy.
+A> ## Ownership vs. Parent-Child
+A> According to Facebook React docs, "It's important to draw a distinction between
+A> the owner-ownee relationship and the parent-child relationship. The owner-ownee
+A> relationship is specific to React, while the parent-child relationship is
+A> simply the one you know and love from the DOM."
+
+**Component Hierarchy.** React has owner components which render or set properties on other components.
+This ownership continues across all components building a tree-like hierarchy.
 
 **Root Component.** In case of our Hello World example, ```index.js``` represents
-the root parent component (one that does not have a parent).
-The root component renders ```World``` component.
-The ```World``` component is parent to ```Hello``` child component.
+the root component (one that does not have an owner).
+The root component owns and renders ```World``` component.
+The ```World``` component is owner of ```Hello``` child component.
 
-**Component File Naming.** Root component inside a folder is named ```index.jsx```.
+**Component File Naming.** Root component inside a folder is named ```index.jsx``` and the component name takes on the name of the folder, ```app``` in this case.
 Components other than root are named same as the component class names, including PascalCase.
 Refer [naming conventions][6] in Airbnb style guide.
 
@@ -61,9 +67,9 @@ Any dependencies are imported using ```import``` statement. The statement specif
 component, constant, or function from the dependencies.
 
 Dependencies are then used within a component by ```extend``` keyword to indicate
-object-oriented inheritance. Dependencies are also used as child components
-within a parent. Like in our case ```Hello``` child component is imported
-by ```World``` parent component before it is rendered.
+object-oriented inheritance. Dependencies are also used as rendered components
+within an owner component. Like in our case ```Hello``` component is imported
+by ```World``` owner component before it is rendered.
 
 Similarly a module exports a component using ```export default``` keywords.
 
@@ -89,7 +95,7 @@ features of how components talk to each other and the user.
 **State.** Changing UI or internal state of a component is maintained using ```this.state```
 JSON object. When state changes, rendered markup is updated by re-invoking ```render()```.
 
-**Props.** Properties are the mechanism to pass input data from parent to child components.
+**Props.** Properties are the mechanism to pass input data from owner to rendered components.
 
 **Events.** Functions are bound to UI events (like onClick) to perform actions when the
 event takes place.
@@ -127,9 +133,9 @@ World.defaultProps = {
 
 Here is a simple cheatsheet to remember these important concepts.
 
-**Properties:** Passing input data from Root/Patent component to Child. Parent defines a property=value which is used within Child component. Parent child relationship can exist without property passing, as in parent rendering a child component.
+**Properties:** Passing input data from Root/Owner component to Child. Owner defines a property=value which is used within rendered component. The "Owner-ownee" relationship can exist without property passing, as in owner simply rendering a component.
 
-{title="Parent component passing property to child", lang=javascript}
+{title="Owner component passing property", lang=javascript}
 ~~~~~~~
 <Hello greet={ this.state.currentGreeting } message="World!" />
 ~~~~~~~
