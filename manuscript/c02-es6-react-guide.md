@@ -205,7 +205,7 @@ A> This is the recommended pattern, when possible."
 - **Facebook on Old vs. New React.** Get started with Facebook's perspective on using [ES6 in reusable components][1]. You can compare with ES5 style components within the same article.
 - **Facebook on ES6 Classes in React.** Compares [ES6 classes][9] with proposed ES7 syntax.
 - **Babel.** Babel has a post on [React on ES6+][3] which goes through various ES6/7 features relevant for coding in React. Note that some of the features, like Property Initializers, are NOT part of Babel presets for es2015 and react.
-- **Components and Composability.** Facebook post on [Multiple Components][10] is a good read to understand how multiple components are composed, differences between React Owner-Ownee relationship and DOM Parent-Child.
+- **Components and Composability.** Facebook post on [Multiple Components][10] is a good read to understand how multiple components are composed, differences between React Owner-Ownee relationship and DOM Parent-Child. Note in section on Dynamic Children, React v15 has dropped the need for ```data-reactid``` or ```key=id``` required for lists.
 
 
 [1]: https://facebook.github.io/react/docs/reusable-components.html#es6-classes
