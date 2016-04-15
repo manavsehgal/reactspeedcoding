@@ -21,9 +21,9 @@ Run sample app using ```npm start``` command.
 
 ## Setup React Webpack
 
-> Code: React Webpack [starter project][1].
+> Code: [React Webpack Starter Project][1].
 
-Chapter contents:
+### [Chapter 1][3] Contents
 
 - How to install Node.js and use Node Version Manager.
 - Setup package.json to manage your NPM dependencies.
@@ -34,7 +34,7 @@ Chapter contents:
 
 ## ES6 React Guide
 
-Chapter contents:
+### [Chapter 2][4] Contents
 
 - How to organize your React app in folders and files.
 - How to define a React component using ES6 syntax.
@@ -46,9 +46,9 @@ Chapter contents:
 
 ## Production Optimize Webpack
 
-> Code: Webpack [Production Optimized Config][2].
+> Code: [Production Optimized Webpack Config][2].
 
-Chapter contents:
+### [Chapter 3][5] Contents
 
 - Optimize React code for production bundle.
 - Separate CSS for static or CDN serving.
@@ -74,3 +74,6 @@ Topics planned: Kadira Storybook. Redux Dev Tools.
 
 [1]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code
 [2]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/webpack.prod.config.js
+[3]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-setup-react-webpack
+[4]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-es6-react-guide-1
+[5]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-production-optimize-webpack
