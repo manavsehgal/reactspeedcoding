@@ -3,6 +3,16 @@
 This chapter guides you through important React concepts and ES6 features
 for speeding up your React learning and development journey.
 
+You will learn following concepts in this chapter.
+
+- How to organize your React app in folders and files.
+- How to define a React component using ES6 syntax.
+- What are modules and how to import and export React components.
+- Why we need constructors.
+- How components talk to each other and the UI using events, props, and state.
+- Importance of stateless components.
+- Using React Chrome Extension to inspect your component hierarchy at runtime.
+
 While Facebook React website is a good start to learn about React concepts. The pace of
 change within React ecosystem means, most sample code on the website does not update to
 match latest best practices.
