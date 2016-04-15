@@ -19,7 +19,9 @@ you end up writing, ES6 also introduces language patterns for making your app be
 more stable, and performant.
 
 Let us revisit the Hello World code we wrote in the **Setup React Webpack** chapter, to understand
-the React and ES6 features used so far.
+the React and ES6 features used so far. Subsequent chapters introduce React and ES6 features
+based on the context of samples written for the chapter. This spreads your learning journey
+as you apply these concepts.
 
 ## File and folder structure
 
@@ -97,14 +99,14 @@ JSON object. When state changes, rendered markup is updated by re-invoking ```re
 
 **Props.** Properties are the mechanism to pass input data from owner to rendered components.
 
-**Events.** Functions are bound to UI events (like onClick) to perform actions when the
+**Events.** Functions or event handlers are bound to UI events (like onClick) to perform actions when the
 event takes place.
 
 Constructor is called when component is created, so it is the right place for following three objectives.
 
 1. Passing props up within the inheritance tree. Using ```super(props)``` keyword.
 2. Setting initial state. Using ```this.state``` JSON object.
-3. Binding events. Using ```bind(this)``` method.
+3. Binding event handlers. Using ```bind(this)``` method.
 
 {title="Constructor, state, event binding", lang=javascript}
 ~~~~~~~
@@ -149,7 +151,7 @@ this.state = {
 };
 ~~~~~~~
 
-**Event functions:** Bind, define, UI association within event generating component. Components can exist with no events defined.
+**Event Handlers:** Bind, define, UI association within event generating component. Components can exist with no events defined.
 
 {title="Event function definition", lang=javascript}
 ~~~~~~~
@@ -176,8 +178,7 @@ Associate event functions with UI.
 ## Stateless components
 
 Our ```Hello``` component is stateless. It does not define or change any state. According to [Airbnb style guide][8],
-it is best to define stateless components as normal JavaScript functions. Results in fewer lines of code.
-Easier to understand code.
+it is best to define stateless components as normal JavaScript functions. Results in fewer lines of easier to understand code.
 
 {title="Stateless component definition", lang=javascript}
 ~~~~~~~
@@ -196,15 +197,15 @@ A> stateless functions because in the future we'll also be able to make performa
 A> optimizations specific to these components by avoiding unnecessary checks and memory allocations.
 A> This is the recommended pattern, when possible."
 
-
 ## Recommended reading list
 
-- **Style Guide.** Review [Airbnb React/JSX Style Guide][2] for recommendations on using ES6 vs ES5 style.
-- **Mozilla Hacks.** Mozilla Hacks blog has [ES6 in depth][4] series, if you want to stay updated on latest features.
+- **Style Guide.** Review [Airbnb React/JSX Style Guide][2] for recommendations on using ES6 vs ES5 syntax.
+- **Mozilla Hacks.** Mozilla Hacks blog has [ES6 in depth][4] series, if you want to stay updated on the latest features.
 - **Language Docs.** One of the most comprehensive language docs on ES6 are available at [ES6 support in Mozilla][5].
 - **Facebook on Old vs. New React.** Get started with Facebook's perspective on using [ES6 in reusable components][1]. You can compare with ES5 style components within the same article.
 - **Facebook on ES6 Classes in React.** Compares [ES6 classes][9] with proposed ES7 syntax.
-- **Babel.** Babel has a post on [React on ES6+][3] which goes through various ES6/7 features relevant for coding in React.
+- **Babel.** Babel has a post on [React on ES6+][3] which goes through various ES6/7 features relevant for coding in React. Note that some of the features, like Property Initializers, are NOT part of Babel presets for es2015 and react.
+- **Components and Composability.** Facebook post on [Multiple Components][10] is a good read to understand how multiple components are composed, differences between React Owner-Ownee relationship and DOM Parent-Child.
 
 
 [1]: https://facebook.github.io/react/docs/reusable-components.html#es6-classes
@@ -216,3 +217,4 @@ A> This is the recommended pattern, when possible."
 [7]: http://webpack.github.io/docs/code-splitting.html#es6-modules
 [8]: https://github.com/airbnb/javascript/tree/master/react#class-vs-reactcreateclass-vs-stateless
 [9]: http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#es6-classes
+[10]: https://facebook.github.io/react/docs/multiple-components.html
