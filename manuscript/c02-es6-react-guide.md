@@ -121,6 +121,10 @@ constructor(props) {
 ~~~~~~~
 
 At the end of the class definition we define default properties and property types.
+The ```propTypes``` are used in property validation during development to throw warnings
+in the Browser's JavaScript console, if your code is not meeting the validation criteria.
+Read more on [Prop Validation][11] in Facebook post that lists various types,
+including custom validations.
 
 {title="Default properties and types", lang=javascript}
 ~~~~~~~
@@ -132,6 +136,11 @@ World.defaultProps = {
   greet: 'Hello',
 }
 ~~~~~~~
+
+So if you change the value of greet to any number, the app will run, however you will see following warning
+in your browser console.
+
+E> Warning: Failed propType: Invalid prop `greet` of type `number` supplied to `World`, expected `string`.
 
 Here is a simple cheatsheet to remember these important concepts.
 
@@ -218,3 +227,4 @@ A> This is the recommended pattern, when possible."
 [8]: https://github.com/airbnb/javascript/tree/master/react#class-vs-reactcreateclass-vs-stateless
 [9]: http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#es6-classes
 [10]: https://facebook.github.io/react/docs/multiple-components.html
+[11]: https://facebook.github.io/react/docs/reusable-components.html#prop-validation
