@@ -303,7 +303,7 @@ For component specific styles we follow the same principles as we learnt here.
 Let us apply the new styles to refactor an existing component, before we start
 creating new components.
 
-Let is recollect how we designed the ```Hello``` component in **Setup React Webpack** chapter.
+Let us recollect how we designed the ```Hello``` component in **Setup React Webpack** chapter.
 
 {title="/app/components/Hello.jsx Chapter 1 Hello component", lang=javascript}
 ~~~~~~~
