@@ -19,11 +19,9 @@ The ```--depth=1``` flag ensures that only the latest commit is cloned.
 Now cd to the ```code``` directory and install dependencies using ```npm install``` command.
 Run sample app using ```npm start``` command.
 
-## Setup React Webpack
+## [Setup React Webpack][3]
 
 > Code: [React Webpack Starter Project][1].
-
-### [Chapter 1][3] Contents
 
 - How to install Node.js and use Node Version Manager.
 - Setup package.json to manage your NPM dependencies.
@@ -32,9 +30,7 @@ Run sample app using ```npm start``` command.
 - Create Webpack configuration for development pipeline automation.
 - Write and run your first Hello World React app.
 
-## ES6 React Guide
-
-### [Chapter 2][4] Contents
+## [ES6 React Guide][4]
 
 - How to organize your React app in folders and files.
 - How to define a React component using ES6 syntax.
@@ -44,11 +40,9 @@ Run sample app using ```npm start``` command.
 - Importance of stateless components.
 - Using React Chrome Extension to inspect your component hierarchy at runtime.
 
-## Production Optimize Webpack
+## [Production Optimize Webpack][5]
 
 > Code: [Production Optimized Webpack Config][2].
-
-### [Chapter 3][5] Contents
 
 - Optimize React code for production bundle.
 - Separate CSS for static or CDN serving.
@@ -56,11 +50,9 @@ Run sample app using ```npm start``` command.
 - Minify JavaScript code.
 - Profiling Webpack generated build.
 
-## React Speed UI
+## [React Speed UI][7]
 
 > Code: [React Speed UI framework styles][6]
-
-### [Chapter 4][7] Contents
 
 In this chapter we will start designing our very own React Speed UI framework
 for your apps. We will do so using Flexbox, PostCSS, and custom React components.
@@ -96,11 +88,15 @@ however we will consider this goal as we design the framework.
 
 > Note: This chapter is TBD.
 
+## Firebase Platform Integration
+
+> Note: This chapter is TBD.
+
 ## Redux State Management
 
 > Note: This chapter is TBD.
 
-## React Development Experience
+## React Developer Experience
 
 > Note: This chapter is TBD.
 
