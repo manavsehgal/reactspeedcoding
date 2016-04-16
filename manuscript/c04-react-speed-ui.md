@@ -475,7 +475,7 @@ deceptively very few lines of CSS. In fact Flexbox magic is just in the last thr
 **Flow.** Next ```flex-flow``` sets the flow of contained elements by row or column, wrapping or nowrap,
 forward direction or reverse.
 
-**Justify.** Finally, ```justify-content``` decides of contained elements will be placed in relation to each other.
+**Justify.** Finally, ```justify-content``` decides how contained elements will be placed in relation to each other.
 Options include space around, align with start of container, align with end, center, and space in between.
 
 Also note that Flexbox styling only needs to be specified within the container.

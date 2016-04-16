@@ -60,7 +60,7 @@ Run sample app using ```npm start``` command.
 
 > Code: [React Speed UI framework styles][6]
 
-### Chapter 4 Contents
+### [Chapter 4][7] Contents
 
 In this chapter we will start designing our very own React Speed UI framework
 for your apps. We will do so using Flexbox, PostCSS, and custom React components.
@@ -112,3 +112,4 @@ Topics planned: Kadira Storybook. Redux Dev Tools.
 [4]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-es6-react-guide-1
 [5]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-production-optimize-webpack
 [6]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/styles
+[7]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-react-speed-ui
