@@ -27,8 +27,8 @@ landing page, buttons, forms, navigation menu, interactive content cards, and fo
 
 **Optimized.** Speed UI framework will be production ready and optimized for light payloads.
 
-**Reactive.** Thanks to React, our UI framework will be Reactive out of the box, with data
-and event binding.
+**Reactive.** This topic is TBD. We will see if using Microservices and Reactive architectural patterns
+can be in scope of this book.
 
 **State Machine.** Our UI framework will support state management. This is topic for an advanced chapter,
 however we will consider this goal as we design the framework.

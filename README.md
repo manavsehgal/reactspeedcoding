@@ -56,11 +56,45 @@ Run sample app using ```npm start``` command.
 - Minify JavaScript code.
 - Profiling Webpack generated build.
 
-## Flexbox User Experience
+## React Speed UI
+
+> Code: [React Speed UI framework styles][6]
+
+### Chapter 4 Contents
+
+In this chapter we will start designing our very own React Speed UI framework
+for your apps. We will do so using Flexbox, PostCSS, and custom React components.
+
+Designing a custom UI framework is an ambitious undertaking. Our task becomes achievable if we scope
+our design goals upfront.
+
+**Speed.** Like the name suggests, our UI framework is built for speed of development and
+creating performant apps.
+
+**Single Page App.** We will design various UI components required for a single page app including
+landing page, buttons, forms, navigation menu, interactive content cards, and footer.
+
+**Responsive.** Our app will be responsive and components will render according to target screen size.
+
+**Customizable.** We want our UI framework to be easily customizable using custom color themes.
+
+**Reusable.** The UI frameworks will be reusable across multiple apps.
+
+**Simple.** We will keep our UI framework simple to understand, extend, and reuse.
+
+**Optimized.** Speed UI framework will be production ready and optimized for light payloads.
+
+**Reactive.** This topic is TBD. We will see if using Microservices and Reactive architectural patterns
+can be in scope of this book.
+
+**State Machine.** Our UI framework will support state management. This is topic for an advanced chapter,
+however we will consider this goal as we design the framework.
+
+**Expressive.** Our UI framework will be reusable in expressive, English like statements.
+
+## Component Design Workflow
 
 > Note: This chapter is TBD.
-
-Topics planned: Flexbox. PostCSS.
 
 ## Redux State Management
 
@@ -77,3 +111,4 @@ Topics planned: Kadira Storybook. Redux Dev Tools.
 [3]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-setup-react-webpack
 [4]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-es6-react-guide-1
 [5]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-production-optimize-webpack
+[6]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/styles
