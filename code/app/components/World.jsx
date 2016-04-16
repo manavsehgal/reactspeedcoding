@@ -24,9 +24,9 @@ export default class World extends React.Component {
       <div>
         <Hello greet={ this.state.currentGreeting } message="World!" />
         <a href="#" onClick={ this.slangGreet }>
-          Slang greeting
+          Slang
         </a> OR <a href="#" onClick={ this.hindiGreet }>
-          Hindi greeting
+          Hindi
         </a>
       </div>
     );

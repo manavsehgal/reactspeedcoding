@@ -1,0 +1,44 @@
+.stack {
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.card {
+  color: $black;
+
+  width: 200px;
+  height: 150px;
+
+  padding: 5px;
+  margin-top: 10px;
+
+  font-weight: lighter;
+  line-height: $normal-line-height;
+  font-size: $normal-font-size;
+  text-align: center;
+}
+
+.message {
+  background: $yellow;
+}
+
+.demo {
+  background: $fadesand;
+}
+
+@media all and (max-width: 800px) {
+  .card {
+    width: 100%;
+  }
+}
+@media all and (max-width: 600px) {
+  .card {
+    width: 100%;
+  }
+}

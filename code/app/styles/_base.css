@@ -1,0 +1,7 @@
+body {
+  color: $normal-font-color;
+  background: $page-background;
+  font-family: $font-stack;
+  padding: $page-padding;
+  font-size: 100%;
+}

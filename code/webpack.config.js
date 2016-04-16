@@ -6,6 +6,10 @@ const APP = __dirname + '/app';
 const BUILD = __dirname + '/build';
 const STYLE = __dirname + '/app/style.css';
 
+// PostCSS support
+const precss       = require('precss');
+const autoprefixer = require('autoprefixer');
+
 module.exports = {
   // Paths and extensions
   entry: {
@@ -29,10 +33,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
+        loaders: ['style', 'css', 'postcss'],
         include: APP
       }
     ]
+  },
+  postcss: function () {
+      return [precss, autoprefixer({ browsers: ['last 2 versions'] })];
   },
   // Source maps used for debugging information
   devtool: 'eval-source-map',

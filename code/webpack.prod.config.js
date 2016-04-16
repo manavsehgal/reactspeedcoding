@@ -11,6 +11,10 @@ const PACKAGE = Object.keys(
   require('./package.json').dependencies
 );
 
+// PostCSS support
+const precss       = require('precss');
+const autoprefixer = require('autoprefixer');
+
 module.exports = {
   entry: {
     app: APP,
@@ -35,17 +39,20 @@ module.exports = {
       // Extract CSS during build
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css'),
+        loader: ExtractTextPlugin.extract('style', 'css!postcss'),
         include: APP
       }
     ]
+  },
+  postcss: function () {
+      return [precss, autoprefixer({ browsers: ['last 2 versions'] })];
   },
   // Remove comment if you require sourcemaps for your production code
   // devtool: 'cheap-module-source-map',
   plugins: [
     // Clean build directory
     new CleanPlugin([BUILD]),
-    
+
     // Auto generate index.html
     new HtmlWebpackPlugin({
       template: 'node_modules/html-webpack-template/index.ejs',
