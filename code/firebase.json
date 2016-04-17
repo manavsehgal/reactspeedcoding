@@ -1,0 +1,9 @@
+{
+  "firebase": "reactspeed",
+  "public": "build",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

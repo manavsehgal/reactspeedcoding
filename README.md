@@ -2,6 +2,8 @@
 
 Companion code and manuscript of React Speed Coding book is available here.
 
+[ReactSpeed Demo App][https://reactspeed.firebaseapp.com/] created using sample code from the book.
+
 Clone the repo like so.
 
 ```
