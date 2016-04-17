@@ -17,15 +17,24 @@
 
   padding: 5px;
   margin-top: 10px;
+  margin-bottom: 10px;
 
   font-weight: lighter;
   line-height: $normal-line-height;
   font-size: $normal-font-size;
   text-align: center;
+
+  box-shadow: 1px 1px 1px 0px rgba(87,87,87,1);
 }
 
 .message {
   background: $yellow;
+  cursor: pointer;
+
+  transition: background 2s;
+  &:hover {
+    background: $green;
+  }
 }
 
 .demo {

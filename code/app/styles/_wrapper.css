@@ -2,8 +2,6 @@
   display: flex;
 
   flex-flow: row wrap;
-  font-weight: bold;
-  text-align: center;
 }
 
 .wrapper > * {
@@ -26,10 +24,12 @@
 
 .aside-1 {
   background: $fadesand;
+  width: 200px;
 }
 
 .aside-2 {
   background: $sand;
+  width: 200px;
 }
 
 @media all and (min-width: 600px) {
@@ -39,7 +39,7 @@
 }
 @media all and (min-width: 800px) {
   .main {
-    flex: 3 0px;
+    flex: 6 0px;
   }
 
   .aside-1 {

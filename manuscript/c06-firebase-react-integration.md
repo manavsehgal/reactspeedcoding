@@ -14,6 +14,27 @@ Getting started with Firebase hosting is easy. Install their Command Line Interf
 npm install -g firebase-tools
 ```
 
-Next do ```firebase init``` to setup your deploy directory. In our case this is the ```build``` folder. Run ```npm run build``` and then ```firebase deploy```. You are done. You can then ```firebase open``` from the terminal to open your new or updated website in your favorite browser. It is that easy.
+Next do ```firebase init``` to setup your deploy directory. In our case this is the ```build``` folder. This creates ```firebase.json``` file in our root with selected configuration.
+
+{title="Firebase deploy terminal output", lang=text}
+~~~~~~~
+=== Deploying to 'reactspeed'...
+
+i  deploying hosting
+i  preparing build directory for upload...
+✔  6 files uploaded successfully
+
+✔  Deploy complete!
+
+URL: https://reactspeed.firebaseapp.com
+Dashboard: https://reactspeed.firebaseio.com
+
+Visit the URL above or run firebase open
+~~~~~~~
+
+Run ```npm run build``` and then ```firebase deploy```. You are done. You can then ```firebase open``` from the terminal to open your new or updated website in your favorite browser. It is that easy.
 
 ![Firebase Hosting Panel](images/firebase-hosting.png)
+
+I> ## Chapter In Progress
+I> We are still writing this chapter. Please watch this space for updates.
