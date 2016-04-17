@@ -500,11 +500,14 @@ code from this chapter's code commit.
 
 ## Recommended Reading List
 
+- Smashing magazine compiles the [Flexbox reading list][19].
 - CSS Tricks has an awesome [guide to Flexbox][1]. We will use the code samples
 in this guide as a starting point for our app.
 - [Mozilla documents Flexbox][2] in detail, explaining the concepts, with samples.
 - W3Schools explains [how Flexbox works][3] with code snippets.
 - [PostCSS Deep Dive][8] is an excellent resource if you want to delve deeper into this awesome library.
+- Tool for aiding creation of [CSS box-shadows][17].
+- Browse [trends in color palettes][18] as liked by thousands of users.
 
 [1]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes
@@ -520,3 +523,6 @@ in this guide as a starting point for our app.
 [14]: https://github.com/postcss/benchmark
 [15]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let
 [16]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+[17]: http://www.cssmatic.com/box-shadow
+[18]: http://www.colourlovers.com/palettes
+[19]: https://www.smashingmagazine.com/2016/02/the-flexbox-reading-list/
