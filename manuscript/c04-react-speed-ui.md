@@ -505,7 +505,9 @@ code from this chapter's code commit.
 in this guide as a starting point for our app.
 - [Mozilla documents Flexbox][2] in detail, explaining the concepts, with samples.
 - W3Schools explains [how Flexbox works][3] with code snippets.
+- [Solved by Flexbox][21] has plenty of examples for using Flexbox.
 - [PostCSS Deep Dive][8] is an excellent resource if you want to delve deeper into this awesome library.
+- Smashing Magazine has a detailed post on [using various PostCSS plugins][20] with examples.
 - Tool for aiding creation of [CSS box-shadows][17].
 - Browse [trends in color palettes][18] as liked by thousands of users.
 
@@ -526,3 +528,5 @@ in this guide as a starting point for our app.
 [17]: http://www.cssmatic.com/box-shadow
 [18]: http://www.colourlovers.com/palettes
 [19]: https://www.smashingmagazine.com/2016/02/the-flexbox-reading-list/
+[20]: https://www.smashingmagazine.com/2015/12/introduction-to-postcss/
+[21]: https://philipwalton.github.io/solved-by-flexbox/

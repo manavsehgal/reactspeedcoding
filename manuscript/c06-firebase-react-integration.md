@@ -38,3 +38,6 @@ Run ```npm run build``` and then ```firebase deploy```. You are done. You can th
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
+I> Plan is to add examples for wiring up our React Speed UI components with Firebase
+I> as real-time database, add user authentication, determine security rules,
+I> review hosting optimizations, among other actions.
