@@ -51,6 +51,8 @@ Run sample app using ```npm start``` command.
 - Bundle dependencies separately.
 - Minify JavaScript code.
 - Profiling Webpack generated build.
+- Adding public assets for your app.
+- Creating custom index template.
 
 ## [React Speed UI][7]
 

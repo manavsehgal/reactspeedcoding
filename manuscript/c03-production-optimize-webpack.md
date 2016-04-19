@@ -11,6 +11,8 @@ We will cover following topics in this chapter.
 - Bundle dependencies separately.
 - Minify JavaScript code.
 - Profiling Webpack generated build.
+- Adding public assets for your app.
+- Creating custom index template.
 
 ## Add production plugins and supporting dependencies
 
