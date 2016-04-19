@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Manav Sehgal -- Author -- @manavsehgal
+
+# THANKS
+
+    Github community
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    React, Firebase, JavaScript,
+    Webpack

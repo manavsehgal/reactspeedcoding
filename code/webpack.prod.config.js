@@ -2,10 +2,13 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const APP = __dirname + '/app';
 const BUILD = __dirname + '/build';
 const STYLE = __dirname + '/app/style.css';
+const PUBLIC = __dirname + '/app/public';
+const TEMPLATE =  __dirname + '/app/templates/index_default.html'
 
 const PACKAGE = Object.keys(
   require('./package.json').dependencies
@@ -41,24 +44,42 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style', 'css!postcss'),
         include: APP
+      },
+      {
+        test: /\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        loader: 'file'
+      },
+      {
+        test: /\.jpe?g$|\.gif$|\.png$|\.svg$/,
+        loaders: [
+          'url?limit=8192&hash=sha512&digest=hex&name=[hash].[ext]',
+          'image?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
       }
     ]
   },
   postcss: function () {
-      return [precss, autoprefixer({ browsers: ['last 2 versions'] })];
+      return [autoprefixer({ browsers: ['last 2 versions'] }), precss];
   },
   // Remove comment if you require sourcemaps for your production code
   // devtool: 'cheap-module-source-map',
   plugins: [
     // Clean build directory
     new CleanPlugin([BUILD]),
-
+    new CopyWebpackPlugin([
+        { from: PUBLIC, to: BUILD }
+      ],
+      {
+        ignore: [
+          // Doesn't copy Mac storage system files
+          '.DS_Store'
+        ]
+    }),
     // Auto generate index.html
     new HtmlWebpackPlugin({
-      template: 'node_modules/html-webpack-template/index.ejs',
-      title: 'React Speed Coding',
-      appMountId: 'app',
-      inject: false,
+      template: TEMPLATE,
+      // JS placed at the bottom of the body element
+      inject: 'body',
       // Use html-minifier
       minify: {
         collapseWhitespace: true

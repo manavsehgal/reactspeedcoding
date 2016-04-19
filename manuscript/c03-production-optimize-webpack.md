@@ -216,6 +216,121 @@ file to [webpack analysis tool][8] for analyzing your build.
 Using the analysis tool you can drill down into warnings, errors, hints on how to improve your code, and analyze
 module chunks to further optimize your code.
 
+## Public assets
+
+Your production app will have several public assets including images, icons, among others.
+We add ```/app/public``` folder and use this to store such public assets. During build we
+want to copy this folder over to ```build``` folder. We add [CopyWebpackPlugin][10] to our
+environment.
+
+```
+npm install --save-dev copy-webpack-plugin
+```
+
+We also reconfigure Webpack configs to add this copy task.
+
+{title="Update webpack config initialization", lang=javascript}
+~~~~~~~
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PUBLIC = __dirname + '/app/public';
+~~~~~~~
+
+We also add the plugin to our Webpack processing pipeline.
+
+{title="Update webpack config plugins", lang=javascript}
+~~~~~~~
+new CopyWebpackPlugin([
+  { from: PUBLIC, to: BUILD }
+],
+{
+  ignore: [
+    '.DS_Store'
+  ]
+}),
+~~~~~~~
+
+Now when we run ```npm run build```, our public assets are copied over to the ```build``` folder.
+
+We add other files recommended by HTML5 Boilerplate. Adding ```/app/styles/_normalize.css``` as an import to reset base styles. We also add ```Robots.txt```, ```humans.txt```, ```browserconfig.xml```, and ```crossdomain.xml``` files.
+
+## Custom index template
+
+We can now add a custom template to generate ```index.html``` using ```HtmlWebpackPlugin```.
+
+This enables us to add ```viewport``` tag to support mobile responsive scaling of our app. We also add icons for mobile devices. Following best practices from HTML5 Boilerplate, we add ```html5shiv``` to handle IE9 and upgrade warning for IE8 users.
+
+{title="/app/templates/index_default.html custom template", lang=html}
+~~~~~~~
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>React Speed Coding</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="/favicon.ico" />
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script>window.html5 || document.write('<script src="js/html5shiv.js"><\/script>')</script>
+    <![endif]-->
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div id="app"></div>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  </body>
+</html>
+~~~~~~~
+
+Once this is done we can safely remove ```html-webpack-template``` like so.
+
+```
+npm uninstall --save-dev html-webpack-template
+```
+
+Earlier we were using default template provided by this plugin, however not that
+we have a custom template, this plugin is no longer required.
+
+Updating webpack configs for ```HtmlWebpackPlugin```.
+
+Adding ```TEMPLATE``` constant to initialization section.
+
+```
+const TEMPLATE =  __dirname + '/app/templates/index_default.html'
+```
+
+Updating the plugins section for both configs.
+
+{title="Update webpack config plugins", lang=javascript}
+~~~~~~~
+new HtmlWebpackPlugin({
+  template: TEMPLATE,
+  inject: 'body'
+}),
+~~~~~~~
+
+Note that we have also enabled the ```inject``` flag to ```body```. This will inject
+the JavaScript resources at the end of the ```body``` tag as advised for improving
+page load time.
+
+## Issue using Hot Reloading with CSS imports
+
+Hot Reloading works just fine for any changes within React code (JSX). However, as we make changes
+to partials or CSS imports in ```/app/styles``` folder, these changes are not hot reloaded in the browser.
+It works fine for changes within ```style.css``` though.
+
+So, right now our workaround is to move frequently changing styles to base ```style.css``` during
+active development and then relocate these to a proper import once we are close to production.
+
+We are trying several possible solutions to this [know issue as PostCSS repo][12]. If you would like to contribute
+a solution please [respond to this issue on our Github repo][13].
+
 ## Recommended Reading List
 
 We will refer to following excellent articles and posts in order to build our understanding
@@ -240,3 +355,7 @@ around production optimization when it relates to Webpack, React, and other comp
 [7]: http://blog.getsentry.com/2015/10/29/debuggable-javascript-with-source-maps.html
 [8]: http://webpack.github.io/analyse
 [9]: https://github.com/webpack/webpack/tree/master/examples
+[10]: https://www.npmjs.com/package/copy-webpack-plugin
+[11]: https://github.com/hail2u/node-csswring
+[12]: https://github.com/postcss/postcss-loader/issues/8
+[13]: https://github.com/manavsehgal/reactspeedcoding/issues/1
