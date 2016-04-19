@@ -22,9 +22,9 @@ Next do ```firebase init``` to setup your deploy directory. In our case this is 
 
 i  deploying hosting
 i  preparing build directory for upload...
-✔  6 files uploaded successfully
+- 6 files uploaded successfully
 
-✔  Deploy complete!
+- Deploy complete!
 
 URL: https://reactspeed.firebaseapp.com
 Dashboard: https://reactspeed.firebaseio.com
