@@ -109,7 +109,7 @@ our reusable ```CardStack``` component instance.
 
 **Step 5:** We copy the CSS styles into two new partials for navigation and page wrapper.
 
-We further reduced the CSS code and make it more reusable by using nesting from ```PostCSS```
+We further reduce the CSS code and make it more reusable by using nesting from ```PostCSS```
 and variables from the ```_theme.css``` we defined earlier.
 
 {title="/app/styles/navigation.css Navigation styles", lang=css}
@@ -165,7 +165,7 @@ and variables from the ```_theme.css``` we defined earlier.
 ~~~~~~~
 
 Here is the code for page wrapper. Once you are done adding this partial, you can
-update ```/app/style.css``` by adding ```@import <new partial name>```.
+update ```/app/style.css``` by adding ```@import <new partial name>;```.
 
 {title="/app/styles/wrapper.css Page Wrapper styles", lang=css}
 ~~~~~~~
@@ -259,6 +259,62 @@ and addition of ```CardStack``` component capabilities.
 Many web platforms like Youtube, Flickr, and Twitter offer embed APIs to easily
 integrate their platform features into your app.
 
+Strategy for converting embed code to React component is straightforward.
+
+1. Customize the embed code within target platform to suit your site or app styles
+and placement.
+2. Optionally, parametrize the embed code attributes using React props.
+3. Use stateless component as you will most likely not maintain
+any UI state locally within your React app. Embed code will handle its own state.
+
+Let us create a reusable component which takes a YouTube video id and renders
+a YouTube video embed.
+
+**Step 1:** This is what a custom YouTube embed code looks like. We have reduced size
+to fit our ```Card``` component and customized controls, and other attributes
+on YouTube platform.
+
+{title="Custom YouTube embed code", lang=html}
+~~~~~~~
+<iframe width="200" height="113"
+  src="https://www.youtube.com/embed/MGuKhcnrqGA?rel=0&amp;controls=0&amp;showinfo=0"
+  frameborder="0" allowfullscreen>
+</iframe>
+~~~~~~~
+
+**Step 2:** Note that the video id is part of URL following ```/embed/```. This turns into
+our only property we pass on to the component.
+
+We also need to change the width and height attributes to achieve responsive sizing. So, as we view
+the card on different screens, the video viewer scales to card dimensions. A "quick win"
+solution is to change width to 100% and height to auto.
+
+**Step 3:** We create a stateless component using pure function definition. The component takes one
+property ```videoid``` and renders the embed code.
+
+{title="/app/components/YouTube.jsx YouTube component", lang=html}
+~~~~~~~
+import React from 'react';
+
+export default function YouTube(props) {
+  let source = `https://www.youtube.com/embed/${props.videoid}?rel=0&amp;controls=0&amp;showinfo=0`;
+  return (
+    <iframe width="100%" height="auto"
+      src={source}
+      frameborder="0" allowfullscreen>
+    </iframe>
+  );
+}
+~~~~~~~
+
+Notice that we are using another ES6 feature here called [Template Literals][2] for doing string
+manipulations. The string is wrapped in back ticks or grave accent characters
+(the key before !/1 key on your keyboard). We are also passing a JavaScript variable
+within the string using ```${props.videoid}``` syntax.
+
+Run your app and you will notice the video player takes shape and size of the card. It also
+scales when the card dimensions change on different screen sizes.
+
 ## API to React (Sa)
 
 You may want to integrate an existing API from the multitude of web service providers.
@@ -299,3 +355,4 @@ I> Plan is to add examples for each of the 10 different ways for speedily
 I> starting component design in React.
 
 [1]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+[2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals

@@ -1,6 +1,9 @@
 import React from 'react';
-import World from './World.jsx';
+
 import Card from './Card.jsx';
+
+import World from './World.jsx';
+import YouTube from './YouTube.jsx';
 
 export default class CardStack extends React.Component {
   render () {
@@ -13,6 +16,9 @@ export default class CardStack extends React.Component {
       <ul className="stack">
         <li key="world" className="card demo">
           <World />
+        </li>
+        <li key="youtube" className="card demo">
+          <YouTube videoid="MGuKhcnrqGA" />
         </li>
         {renderMessages}
       </ul>

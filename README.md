@@ -88,7 +88,7 @@ however we will consider this goal as we design the framework.
 
 **Expressive.** Our UI framework will be reusable in expressive, English like statements.
 
-## Starting Component Design
+## [Starting Component Design][9]
 
 > Code: [Page][8] component.
 
@@ -144,3 +144,4 @@ Topics planned: Kadira Storybook. Redux Dev Tools.
 [6]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/styles
 [7]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-react-speed-ui
 [8]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/components
+[9]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-starting-component-design-s
