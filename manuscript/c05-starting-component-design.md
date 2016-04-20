@@ -1,4 +1,4 @@
-## Starting React component design (S)
+# Starting React component design (S)
 
 If the blank, dark code editor window is staring back at you, do not despair. We will run through 10
 different ways you can get started building your components in React!
