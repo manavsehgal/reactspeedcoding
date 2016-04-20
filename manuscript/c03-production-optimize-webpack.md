@@ -213,7 +213,7 @@ Add following run script to ```package.json``` file.
 Now ```npm run profile``` to generate ```profile.json``` file with data on your build. You can pass this
 file to [webpack analysis tool][8] for analyzing your build.
 
-![Webpack module analysis](images/webpack-analysis.png)
+![Webpack module analysis](images/webpack-analysis.jpg)
 
 Using the analysis tool you can drill down into warnings, errors, hints on how to improve your code, and analyze
 module chunks to further optimize your code.

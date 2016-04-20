@@ -88,13 +88,43 @@ however we will consider this goal as we design the framework.
 
 **Expressive.** Our UI framework will be reusable in expressive, English like statements.
 
+## Starting Component Design
+
+> Code: [Page][8] component.
+
+The objective at this stage is to speedily "prototype" new features and code within your React project.
+Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Components**, and **Refactoring Existing Components** will go over best practices to create performant, reusable, and maintainable code.
+
+- Designing React components rapidly from samples available on the Web.
+- Using Web Embeds like YouTube, Flickr, Twitter, to create React components.
+- Integrating third-party REST APIs to start creating React components.
+- Moving from a wireframe to a React component.
+- Designing mock and converting it to a React component.
+- Creating a working prototype and translating this to a React component.
+- Starting with a data table and turing this into a React component.
+- How to handle real-time streams as a React component.
+- How to model documents as a React component.
+- How to enhance HTML elements as React components.
+
+## Designing Component Internals
+
+> Note: This chapter is TBD.
+
+## Wiring Multiple Components
+
+> Note: This chapter is TBD.
+
+## Refactoring Existing Components
+
+> Note: This chapter is TBD.
+
 ## Component Design Workflow
 
 > Note: This chapter is TBD.
 
-## Firebase Platform Integration
+## Firebase React Integration
 
-> Note: This chapter is TBD.
+> Note: This chapter is in progress.
 
 ## Redux State Management
 
@@ -113,3 +143,4 @@ Topics planned: Kadira Storybook. Redux Dev Tools.
 [5]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-production-optimize-webpack
 [6]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/styles
 [7]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-react-speed-ui
+[8]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/components

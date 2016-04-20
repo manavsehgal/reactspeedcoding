@@ -470,7 +470,7 @@ Browse to your app on the url mentioned in webpack output. Now try changing
 some code like the style background or the Hello World message and hit save. Your
 browser should update the app without refreshing state.
 
-![Hello World app in your browser](images/hello-world.png)
+![Hello World app in your browser](images/hello-world.jpg)
 
 When this hot loading update happens you will see following output in the browser
 console.

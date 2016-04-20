@@ -357,7 +357,7 @@ A collection of ```Card``` components will be contained within ```CardStack``` c
 We want a bunch of ```Card``` components to be placed fitting the size of a ```CardStack``` component.
 As the ```CardStack``` resizes for different screen sizes, we want the ```Card``` components to align, resize, and fit graciously and automatically.
 
-![CardStack and Card components](images/card-stack.png)
+![CardStack and Card components](images/card-stack.jpg)
 
 This time let us start with the simpler component and work upstream in our design. Note that our ```Card```
 component is a pure function or a stateless component. It receives a message text and returns a list item

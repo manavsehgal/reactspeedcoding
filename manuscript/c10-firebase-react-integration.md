@@ -34,7 +34,7 @@ Visit the URL above or run firebase open
 
 Run ```npm run build``` and then ```firebase deploy```. You are done. You can then ```firebase open``` from the terminal to open your new or updated website in your favorite browser. It is that easy.
 
-![Firebase Hosting Panel](images/firebase-hosting.png)
+![Firebase Hosting Panel](images/firebase-hosting.jpg)
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.

@@ -221,7 +221,7 @@ A> This is the recommended pattern, when possible."
 In case you want to inspect how your components pass properties and how they are organized
 at runtime, you can install [React Chrome Extension][12].
 
-![React Chrome Extension in your browser](images/react-chrome.png)
+![React Chrome Extension in your browser](images/react-chrome.jpg)
 
 You can then select the code responsible for component UI and see the rendered UI highlighted.
 The extension will also update properties as they are passed along if you turn on the trace feature.
