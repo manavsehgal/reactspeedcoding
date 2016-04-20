@@ -296,7 +296,7 @@ Once this is done we can safely remove ```html-webpack-template``` like so.
 npm uninstall --save-dev html-webpack-template
 ```
 
-Earlier we were using default template provided by this plugin, however not that
+Earlier we were using default template provided by this plugin, however now that
 we have a custom template, this plugin is no longer required.
 
 Updating webpack configs for ```HtmlWebpackPlugin```.

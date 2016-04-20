@@ -1,4 +1,4 @@
-# Starting React component design (S)
+# Starting Component Design (S)
 
 If the blank, dark code editor window is staring back at you, do not despair. We will run through 10
 different ways you can get started building your components in React!
@@ -107,10 +107,10 @@ render() {
 **Step 4:** Note that we replaced some of the sample HTML within ```<article>``` tag with
 our reusable ```CardStack``` component instance.
 
-**Step 5:** We copy the CSS styles into three new partials for navigation and page wrapper.
+**Step 5:** We copy the CSS styles into two new partials for navigation and page wrapper.
 
-We have further reduce the CSS code and make it more reusable, by using nesting and variables
-from the ```_theme.css``` we defined earlier.
+We further reduced the CSS code and make it more reusable by using nesting from ```PostCSS```
+and variables from the ```_theme.css``` we defined earlier.
 
 {title="/app/styles/navigation.css Navigation styles", lang=css}
 ~~~~~~~
