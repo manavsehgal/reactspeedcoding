@@ -498,6 +498,17 @@ We have added more sample code so you are able to run the components from this c
 chapter on **Component Design Workflow** we will design many more components and explain the remaining
 code from this chapter's code commit.
 
+## Code update 2016-04-20
+
+This change applies to the ```messages``` array and list item key attributes.
+
+We can simplify the key requirement for repeat elements by passing actual value from the array
+as long as we are certain that the array values will remain unique.
+
+So in our latest code update the ```messages``` array is just an array of unique strings as messages.
+We pass this on to key attribute as well as the value for the list items. This further simplifies
+our component code.
+
 ## Recommended Reading List
 
 - Smashing magazine compiles the [Flexbox reading list][19].

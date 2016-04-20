@@ -312,6 +312,35 @@ manipulations. The string is wrapped in back ticks or grave accent characters
 (the key before !/1 key on your keyboard). We are also passing a JavaScript variable
 within the string using ```${props.videoid}``` syntax.
 
+Now all we need to do is create an instance of this new component within our ```CardStack```, just
+like we did for the ```World``` component.
+
+The component is reusable, so if we want to add multiple videos we just create more instances
+and pass a different ```videoid```.
+
+{title="/app/components/CardStack.jsx import and render YouTube component", lang=html}
+~~~~~~~
+#leanpub-start-insert
+import YouTube from './YouTube.jsx';
+#leanpub-end-insert
+
+// some code ...
+
+return (
+  <ul className="stack">
+    <li key="world" className="card demo">
+      <World />
+    </li>
+    #leanpub-start-insert
+    <li key="youtube" className="card demo">
+      <YouTube videoid="MGuKhcnrqGA" />
+    </li>
+    #leanpub-end-insert
+    {renderMessages}
+  </ul>
+);
+~~~~~~~
+
 Run your app and you will notice the video player takes shape and size of the card. It also
 scales when the card dimensions change on different screen sizes.
 
