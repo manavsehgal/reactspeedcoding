@@ -71,6 +71,7 @@ export default class Page extends React.Component {
 easier for us to follow the above mentioned workflow.
 
 We quickly put together our new component, mostly copying over the HTML from the sample.
+Note that ```class``` attribute name is changed to ```className``` following JSX requirements.
 
 {title="/app/components/Page.jsx render() function", lang=javascript}
 ~~~~~~~
@@ -264,8 +265,8 @@ Strategy for converting embed code to React component is straightforward.
 1. Customize the embed code within target platform to suit your site or app styles
 and placement.
 2. Optionally, parametrize the embed code attributes using React props.
-3. Use stateless component as you will most likely not maintain
-any UI state locally within your React app. Embed code will handle its own state.
+3. Use stateless component as you will most likely not maintain embed UI state
+locally within your React component. Embed code will handle its own UI state.
 
 Let us create a reusable component which takes a YouTube video id and renders
 a YouTube video embed.
@@ -287,7 +288,7 @@ our only property we pass on to the component.
 
 We also need to change the width and height attributes to achieve responsive sizing. So, as we view
 the card on different screens, the video viewer scales to card dimensions. A "quick win"
-solution is to change width to 100% and height to auto.
+solution is to change width to ```100%``` and height to ```auto```.
 
 **Step 3:** We create a stateless component using pure function definition. The component takes one
 property ```videoid``` and renders the embed code.
