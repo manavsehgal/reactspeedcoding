@@ -226,6 +226,66 @@ at runtime, you can install [React Chrome Extension][12].
 You can then select the code responsible for component UI and see the rendered UI highlighted.
 The extension will also update properties as they are passed along if you turn on the trace feature.
 
+## ES7 Property Initializers (Code update 2016-04-21)
+
+[Property initializers][13] are an ES7 Stage 1 proposed feature.
+
+Earlier we were using class properties by defining ```CardStack.propTypes``` and ```CardStack.defaultProps``` outside
+of the class definition.
+
+Now using ```babel-plugin-transform-class-properties``` we can bring these within the class definition.
+
+Install the Babel plugin supporting this ES7 transform.
+
+```
+npm install --save-dev babel-plugin-transform-class-properties
+```
+
+Update ```.babelrc``` with this new plugin.
+
+{title="/.babelrc" update for new plugin, lang=json}
+~~~~~~~
+{
+  "presets": ["react", "es2015"],
+  "env": {
+    "development": {
+      "presets": ["react-hmre"]
+    }
+  },
+  #leanpub-start-insert
+  "plugins": ["transform-class-properties"]
+  #leanpub-end-insert
+}
+~~~~~~~
+
+Next we update our class definition like so.
+
+{title="/app/components/CardStack.jsx" update for class properties, lang=javascript}
+~~~~~~~
+export default class CardStack extends React.Component {
+
+  static propTypes = {
+    messages: React.PropTypes.array.isRequired,
+  }
+
+  static defaultProps = {
+    messages: [
+      'React Speed UI',
+      'Single Page Apps',
+      'Responsive Design',
+      'Customizable Theme',
+      'Reusable Components',
+      'Simple Structure',
+      'Production Optimized',
+      'State Machine',
+      'Expressive Syntax'
+    ],
+  }
+~~~~~~~
+
+Note the use of ```static``` statement before initializing ```propTypes```
+and ```defaultProps``` in our class definition.
+
 ## Recommended reading list
 
 - **Style Guide.** Review [Airbnb React/JSX Style Guide][2] for recommendations on using ES6 vs ES5 syntax.
@@ -249,3 +309,4 @@ The extension will also update properties as they are passed along if you turn o
 [10]: https://facebook.github.io/react/docs/multiple-components.html
 [11]: https://facebook.github.io/react/docs/reusable-components.html#prop-validation
 [12]: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+[13]: https://github.com/jeffmo/es-class-fields-and-static-properties

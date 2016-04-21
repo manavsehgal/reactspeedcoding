@@ -333,7 +333,7 @@ active development and then relocate these to a proper import once we are close 
 We are trying several possible solutions to this [know issue as PostCSS repo][12]. If you would like to contribute
 a solution please [respond to this issue on our Github repo][13].
 
-## Code update 2016-04-21
+## Normalize.css from NPM (Code update 2016-04-21)
 
 Normalize.css provides base styles and resets for our app. It is well maintained stylesheet and receives
 regular updates. Earlier solution of "hard copying" it in ```/app/styles``` meant we will need to track
