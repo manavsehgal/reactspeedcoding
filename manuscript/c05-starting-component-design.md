@@ -297,7 +297,7 @@ property ```videoid``` and renders the embed code.
 import React from 'react';
 
 export default function YouTube(props) {
-  let source = `https://www.youtube.com/embed/${props.videoid}?rel=0&amp;controls=0&amp;showinfo=0`;
+  const source = `https://www.youtube.com/embed/${props.videoid}?rel=0&amp;controls=0&amp;showinfo=0`;
   return (
     <iframe width="100%" height="auto"
       src={source}
@@ -307,10 +307,11 @@ export default function YouTube(props) {
 }
 ~~~~~~~
 
-Notice that we are using another ES6 feature here called [Template Literals][2] for doing string
-manipulations. The string is wrapped in back ticks or grave accent characters
-(the key before !/1 key on your keyboard). We are also passing a JavaScript variable
-within the string using ```${props.videoid}``` syntax.
+A> ## ES6 Template Literals
+A> Notice that we are using another ES6 feature here called [Template Literals][2] for
+A> doing string manipulations. The string is wrapped in back ticks or grave accent characters
+A> (the key before !/1 key on your keyboard). We are also passing a JavaScript variable
+A> within the string using ```${props.videoid}``` syntax.
 
 Now all we need to do is create an instance of this new component within our ```CardStack```, just
 like we did for the ```World``` component.

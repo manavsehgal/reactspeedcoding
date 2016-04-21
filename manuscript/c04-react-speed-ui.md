@@ -431,15 +431,20 @@ CardStack.defaultProps = {
 }
 ~~~~~~~
 
-Next let us understand the class definition of our component. We note some ES6 features in play here.
+Next we understand the class definition of our component. We note some ES6 features in play here.
 
-We are using ```let``` keyword to define local scoped variable. Read more about [let statement][15] here.
-
-We are also using arrow function expression => which is a short form for regular functions. Read more about [ arrow functions][16] here.
+A> ## ES6 let, const statements
+A> We are using ```let``` statement to define block scope local variable. Read more about [let statement][15] here.
+A> To make your code more readable and safer [Medium suggests][22] using const statement for
+A> variables which will not be reassigned. cost follows same scoping rules as let.
 
 A React requirement of note here is the key attribute. List items require unique keys in React.
 
-We have also consumed our ```World``` component as one of the ```CardStack``` list items.
+A> ## ES6 Arrow functions
+A> We are also using arrow function expression => which is a short form for regular functions.
+A> Read more about [arrow functions][16] here.
+
+We also consume our ```World``` component as one of the ```CardStack``` list items.
 
 {title="/app/components/CardStack.jsx CardStack class definition", lang=javascript}
 ~~~~~~~
@@ -449,8 +454,8 @@ import Card from './Card.jsx';
 
 export default class CardStack extends React.Component {
   render () {
-    let messages = this.props.messages;
-    let renderMessages = messages.map(message =>
+    const messages = this.props.messages;
+    const renderMessages = messages.map(message =>
         <Card key={message.id} message={message.txt} />
       );
 
@@ -541,3 +546,4 @@ in this guide as a starting point for our app.
 [19]: https://www.smashingmagazine.com/2016/02/the-flexbox-reading-list/
 [20]: https://www.smashingmagazine.com/2015/12/introduction-to-postcss/
 [21]: https://philipwalton.github.io/solved-by-flexbox/
+[22]: https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75#.jppjlyz4r

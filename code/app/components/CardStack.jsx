@@ -7,8 +7,8 @@ import YouTube from './YouTube.jsx';
 
 export default class CardStack extends React.Component {
   render () {
-    let messages = this.props.messages;
-    let renderMessages = messages.map(message =>
+    const messages = this.props.messages;
+    const renderMessages = messages.map(message =>
         <Card key={message} message={message} />
       );
 
