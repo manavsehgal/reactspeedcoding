@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PostcssImport = require('postcss-easy-import');
 
 const APP = __dirname + '/app';
 const BUILD = __dirname + '/build';
@@ -54,6 +55,10 @@ module.exports = {
   },
   postcss: function () {
     return [
+      PostcssImport({
+        addDependencyTo: webpack,
+        prefix: '_'
+      }),
       precss,
       autoprefixer({ browsers: ['last 2 versions'] })
     ]

@@ -333,6 +333,56 @@ active development and then relocate these to a proper import once we are close 
 We are trying several possible solutions to this [know issue as PostCSS repo][12]. If you would like to contribute
 a solution please [respond to this issue on our Github repo][13].
 
+## Code update 2016-04-21
+
+Normalize.css provides base styles and resets for our app. It is well maintained stylesheet and receives
+regular updates. Earlier solution of "hard copying" it in ```/app/styles``` meant we will need to track
+changes to it and do so manually. Good news is that the stylesheet is available as an NPM dependency.
+
+So, we have removed ```nomalize.css``` from ```/app/styles``` and added it as npm dependency like so.
+
+```
+npm install --save-dev normalize-css
+```
+
+Now we add ```postcss-easy-import``` which enables Webpack build to process ```@import```
+even from ```node_modules``` directory directly.
+
+```
+npm install --save-dev postcss-easy-import
+```
+
+Importing ```postcss-easy-import``` in Webpack configs and adding a plugin for
+processing ```@import``` like so. This enables processing partials with ```_prefix```
+along with any css available as an npm dependency as well.
+
+{title="Update webpack config plugins", lang=javascript}
+~~~~~~~
+#leanpub-start-insert
+const PostcssImport = require('postcss-easy-import');
+#leanpub-end-insert
+
+// some code...
+
+postcss: function () {
+  return [
+#leanpub-start-insert
+    PostcssImport({
+      addDependencyTo: webpack,
+      prefix: '_'
+    }),
+#leanpub-end-insert
+    precss,
+    autoprefixer({ browsers: ['last 2 versions'] })
+  ]
+},
+~~~~~~~
+
+Now whenever ```normalize.css``` changes, we can run ```npm update``` to
+update our development environment with ease.
+
+This also sets us up for adding more npm maintained styles in the future.
+
 ## Recommended Reading List
 
 We will refer to following excellent articles and posts in order to build our understanding
