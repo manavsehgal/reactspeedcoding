@@ -1,6 +1,6 @@
 # Starting Component Design (S)
 
-If the blank, dark code editor window is staring back at you, do not despair. We will run through 10
+If the blank, dark code editor window is staring back at you, do not despair. We will run through 11
 different ways you can get started building your components in React!
 
 The objective at this stage is to speedily "prototype" new features and code within your React project.
@@ -10,6 +10,7 @@ Here is what you will learn in this chapter along with sample code.
 
 - Designing React components rapidly from samples available on the Web.
 - Using Web Embeds like YouTube, Flickr, Twitter, to create React components.
+- Converting CSS libraries into React components.
 - Integrating third-party REST APIs to start creating React components.
 - Moving from a wireframe to a React component.
 - Designing mock and converting it to a React component.
@@ -346,6 +347,145 @@ return (
 Run your app and you will notice the video player takes shape and size of the card. It also
 scales when the card dimensions change on different screen sizes.
 
+## CSS libraries to React (Sc)
+
+There are some very good CSS libraries and frameworks available which can speed up our React development.
+
+Normally you would bring these CSS libraries into your React project using one of the following ways.
+
+- Use ```<link rel="stylesheet" href="//url/to/library.min.css"/>``` to reference the
+library if it is hosted on a CDN.
+- Add a popular library as an NPM dependency and ```@import``` it within ```style.css```.
+- Add a library that does not change frequently as a partial and ```@import``` it within ```style.css```.
+
+Next you would refer to the library classes within your HTML code.
+
+Using React components you can further speed up your usage of such libraries. If the CSS libraries themselves
+have UI components or controls, these can be represented as React components. This enables you
+to create shortcuts to using the library code. You can even do custom processing, apply your own styles,
+before rendering the CSS library code.
+
+We follow this strategy to convert CSS libraries to React components.
+
+1. Decide how to import or integrate the library within your React app.
+2. Identify component(s) from within the library to determine equivalent React components.
+3. Optionally, parametrize any style attributes and repeating elements within
+the CSS library as React component properties.
+4. Reuse the React component in place of CSS library elements within your app.
+
+We can follow this strategy to convert many popular CSS libraries to React components. For this sample,
+we have chosen [Font Awesome][3], one of the most popular iconic font and CSS toolkit.
+
+**Step 1:** As Font Awesome is a popular library and is available over a world class CDN (BootstrapCDN by MaxCDN),
+easiest way to integrate this CSS library into our app is to add it to ```index_default.html```.
+
+This has  the added benefit of browser caching for performance. Client browsers that already have Font Awesome in their cache, do not need to download it again when they load our app. Another benefit is that we are always using
+the latest version of the CSS library without having to update our app.
+
+{title="/app/templates/index_default.html Link Font Awesome CSS library", lang=html}
+~~~~~~~
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+~~~~~~~
+
+**Step 2:** Next we identify which elements of Font Awesome library are candidates
+for converting to React components. This is a relatively straightforward decision as Font Awesome
+is all about icons. So we can create a reusable React component called Icon. Let us go a step further
+into the requirements of our app. We would like to display stats and infographics in our cards, so
+our icons will also have an associated text message. So let us call our React Component ```IconText``` and
+move on to the next step.
+
+**Step 3:** Now we identify repeating elements and configurable attributes of the CSS library,
+in order to turn these into our component properties. Font Awesome icons can be configured using
+a rich combination of classes to determine size, orientation, icon graphic, among other features.
+All these attributes are candidates for converting to React component properties.
+
+Let us see how our new React component is shaping up.
+
+{title="/app/components/IconText.jsx Font Awesome icon and text component", lang=javascript}
+~~~~~~~
+import React, { PropTypes } from 'react';
+
+export default class IconText extends React.Component {
+  static propTypes = {
+    icon: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    size: PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
+    rotate: PropTypes.number,
+    flip: PropTypes.oneOf(['horizontal', 'vertical']),
+    inverse: PropTypes.bool
+  }
+
+  render () {
+    let {
+      icon, text, className, size, rotate,
+      flip, stack, inverse
+    } = this.props;
+
+    let variation = "";
+
+    variation += className ? ` ${className}` : "";
+    variation += size ? ` fa-${size}` : "";
+    variation += rotate ? ` fa-rotate-${rotate}` : "";
+    variation += flip ? ` fa-flip-${flip}` : "";
+    variation += inverse ? ` fa-inverse` : "";
+
+    const iconClass = `fa fa-${icon}${variation}`;
+
+    return (
+      <div>
+        <i className={iconClass}></i>
+        <h4>{text}</h4>
+      </div>
+    );
+  }
+}
+~~~~~~~
+
+A> ## ES5/ES7 Destructuring Assignment
+A> We are introducing another ES5/ES7 feature in this code to extract properties from
+A> ```this.props``` object. Read more about [destructuring assignment at MDN][4].
+A> As this feature was standard in ES5 we do not need any new Babel transform plugins.
+
+**Step 4:** Now we reuse our new component within ```CardStack``` to render some
+new ```IconText``` inctances.
+
+{title="/app/components/CardStack.jsx Render IconText components", lang=javascript}
+~~~~~~~
+#leanpub-start-insert
+import IconText from './IconText.jsx';
+#leanpub-end-insert
+
+// some code...
+
+return (
+  <ul className="stack">
+#leanpub-start-insert
+    <li key="comp-strat" className="card demo">
+        <IconText className="blue" icon="globe" size="5x" text="11 Component Creation Strategies" />
+    </li>
+    <li key="cust-comp" className="card demo">
+        <IconText icon="cog" size="5x" text="Nine Custom Components" />
+    </li>
+    <li key="fire-base" className="card demo">
+        <IconText className="red" icon="database" size="5x" text="Firebase React Integration" />
+    </li>
+#leanpub-end-insert
+    <li key="world" className="card demo">
+      <World />
+    </li>
+    <li key="youtube" className="card demo">
+      <YouTube videoid="MGuKhcnrqGA" />
+    </li>
+    {renderMessages}
+  </ul>
+);
+~~~~~~~
+
+Note the advantages of converting the Font Awesome CSS library to React components. Our component can
+be reused with multiple variations in optional properties. We also process custom rendering
+of the CSS library elements within component code.
+
 ## API to React (Sa)
 
 You may want to integrate an existing API from the multitude of web service providers.
@@ -387,3 +527,5 @@ I> starting component design in React.
 
 [1]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 [2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+[3]: https://fortawesome.github.io/Font-Awesome/
+[4]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment

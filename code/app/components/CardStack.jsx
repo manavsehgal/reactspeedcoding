@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 import Card from './Card.jsx';
 
 import World from './World.jsx';
 import YouTube from './YouTube.jsx';
+import IconText from './IconText.jsx';
 
 export default class CardStack extends React.Component {
   static propTypes = {
-    messages: React.PropTypes.array.isRequired,
+    messages: PropTypes.array.isRequired,
   }
 
   static defaultProps = {
@@ -32,6 +33,15 @@ export default class CardStack extends React.Component {
 
     return (
       <ul className="stack">
+        <li key="comp-strat" className="card demo">
+            <IconText className="blue" icon="globe" size="5x" text="11 Component Creation Strategies" />
+        </li>
+        <li key="cust-comp" className="card demo">
+            <IconText icon="cog" size="5x" text="Nine Custom Components" />
+        </li>
+        <li key="fire-base" className="card demo">
+            <IconText className="red" icon="database" size="5x" text="Firebase React Integration" />
+        </li>
         <li key="world" className="card demo">
           <World />
         </li>

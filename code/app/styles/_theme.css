@@ -38,3 +38,17 @@ $normal-line-height: calc( $h1-line-height * 33.3 / 100 );
 $heading-color:     $black;
 $normal-font-color: $black;
 $link-color:        $blue;
+
+/* Text color styles */
+
+.blue { color: $blue; }
+.red { color: $red; }
+.white { color: $white; }
+.black { color: $black; }
+.green { color: $green; }
+.yellow { color: $yellow; }
+.sand { color: $sand; }
+.gray { color: $gray; }
+.fadeblue { color: $fadeblue; }
+.fadesand { color: $fadesand; }
+.lightblue { color: $lightblue; }
