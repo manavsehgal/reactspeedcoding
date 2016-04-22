@@ -2,8 +2,9 @@
 
 $white:     floralwhite;
 $blue:      color(deepskyblue lightness(30%));
-$red:       tomato;
+$red:       crimson;
 $yellow:    wheat;
+$orange:    coral;
 $black:     #4D4E53; /* charcoal gray */
 $green:     mediumaquamarine;
 
@@ -47,6 +48,7 @@ $link-color:        $blue;
 .black { color: $black; }
 .green { color: $green; }
 .yellow { color: $yellow; }
+.orange { color: $orange; }
 .sand { color: $sand; }
 .gray { color: $gray; }
 .fadeblue { color: $fadeblue; }

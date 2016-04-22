@@ -488,7 +488,132 @@ of the CSS library elements within component code.
 
 ## API to React (Sa)
 
-You may want to integrate an existing API from the multitude of web service providers.
+You may want to integrate with an API from the multitude of web service providers.
+Normally API integration is left to the backend code for authentication,
+caching, and performance. However, there are real-time public APIs which do provide
+rate limited, minimal data suitable for client-side calls.
+
+There are benefits of turning an API access, processing, and data rendering code into a React component.
+- You can map API endpoints to React properties.
+- You can provide reusable UI components wrapping the API functionality.
+
+Strategy for designing a React component from an external API is as follows.
+
+1. Identify a public API which can be accessed without authentication requirements and supporting JSON as results data format.
+2. Optionally, parametrize API endpoints to React properties.
+3. API resulting JSON can be parametrized as component state. As the results change, we want the state to change, and the component ```render()``` to be invoked.
+4. Render an instance of the new component within your app.
+
+**Step 1:** For our new component we decide to use the GitHub API. Type this in the terminal to make a REST GET call to
+the GitHub API and observe the resulting JSON. This particular API endpoints sends back results
+with GitHub repository details including number of stars, and open issues.
+
+```
+curl -i https://api.github.com/repos/facebook/react
+```
+
+**Step 2:** The GitHub API endpoint follows ```/repos/:owner/:repository``` format. Owner and repository can
+vary for our app, and these are good candidates to be combined as a component property.
+
+**Step 3:** We want to extract number of stars, open issues, and formal name of the repository
+from the resulting JSON. These will be part of our component state as using AJAX GET request
+we want our state to be updated when the results are fetched to the browser.
+
+For the AJAX functionality we integrate jQuery with our app. We follow the easiest strategy, same as
+we followed for Font Awesome integration. We add jQuery to ```index_default.html``` like so.
+
+{title="/app/templates/index_default.html add jQuery", lang=html}
+~~~~~~~
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+~~~~~~~
+
+Now we are ready to create our component wrapper for the API. At this stage we also introduce
+React component lifecycle methods ```componentDidMount``` and ```componentWillUnmount``` added
+to our code.
+
+The ```componentDidMount``` method is invoked once, only on the client, immediately
+after the initial rendering occurs. This is the ideal method to integrate other JavaScript
+frameworks like jQuery and make AJAX requests.
+
+The ```componentWillUnmount``` method is invoked immediately before a component is
+unmounted from the DOM. We can perform any necessary cleanup in this method,
+such as cleaning up any DOM elements that were created in ```componentDidMount``` method.
+
+{title="/app/components/GitHub.jsx component definition", lang=javascript}
+~~~~~~~
+import React, {PropTypes} from 'react';
+
+export default class GitHub extends React.Component {
+  static propTypes = {
+    repo: PropTypes.string.isRequired
+  }
+
+  constructor (props) {
+    super (props);
+    this.state = {
+      full_name: '',
+      stargazers_count: 0,
+      open_issues: 0
+    };
+  }
+
+  componentDidMount() {
+    const sourceRepo =
+      `https://api.github.com/repos/${this.props.repo}`;
+
+    this.serverRequest = $.get(sourceRepo, function (result) {
+      this.setState({
+        full_name: result.full_name,
+        stargazers_count: result.stargazers_count,
+        open_issues: result.open_issues
+      });
+    }.bind(this));
+  }
+
+  componentWillUnmount() {
+    this.serverRequest.abort();
+  }
+
+  render() {
+    return (
+      this.state.full_name
+        ? <div>
+            <h4><i className="fa fa-github"></i> {this.state.full_name}</h4>
+            <p><i className="fa fa-star blue"></i> {this.state.stargazers_count} stars</p>
+            <p><i className="fa fa-bug red"></i> {this.state.open_issues} open issues.</p>
+          </div>
+        : <p>Loading Live Stats...</p>
+    );
+  }
+};
+~~~~~~~
+
+Note that the ```this.serverRequest``` is bound to the component using ```bind(this)```.
+This is required to integrate AJAX call with React state management. So, state updates
+when the AJAX call returns with results. This in turn updates the component UI.
+
+The ```render()``` method uses JavaScript conditional (ternary) operator as that is allowed here,
+when deciding what to render based on component state. This is required here as
+the component may render on the browser faster as the AJAX results show up.
+
+We are also reusing Font Awesome to add some icons to our results.
+
+Now all that remains is to use this component and create an instance within our ```CardStack```
+component.
+
+{title="/app/components/CardStack.jsx create instance of GitHub", lang=javascript}
+~~~~~~~
+import GitHub from './GitHub.jsx';
+
+// some code...
+
+<li key="github-react" className="card demo">
+  <GitHub repo="facebook/react" />,
+</li>
+~~~~~~~
+
+We can of course reuse this component sparingly (due to rate limits and user wait time)
+to add results from other repositories by just changing the repo ```owner/name```.
 
 ## Wireframe to React (Sw)
 
