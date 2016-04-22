@@ -494,6 +494,7 @@ caching, and performance. However, there are real-time public APIs which do prov
 rate limited, minimal data suitable for client-side calls.
 
 There are benefits of turning an API access, processing, and data rendering code into a React component.
+
 - You can map API endpoints to React properties.
 - You can provide reusable UI components wrapping the API functionality.
 
@@ -505,8 +506,8 @@ Strategy for designing a React component from an external API is as follows.
 4. Render an instance of the new component within your app.
 
 **Step 1:** For our new component we decide to use the GitHub API. Type this in the terminal to make a REST GET call to
-the GitHub API and observe the resulting JSON. This particular API endpoints sends back results
-with GitHub repository details including number of stars, and open issues.
+the GitHub API and observe the resulting JSON. This particular API endpoint sends back results
+with GitHub repository details including number of stars and open issues.
 
 ```
 curl -i https://api.github.com/repos/facebook/react
