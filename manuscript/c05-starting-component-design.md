@@ -4,7 +4,7 @@ If the blank, dark code editor window is staring back at you, do not despair. We
 different ways you can get started building your components in React!
 
 The objective at this stage is to speedily "prototype" new features and code within your React project.
-Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Components**, and **Refactoring Existing Components** will go over best practices to create performant, reusable, and maintainable code.
+Subsequent chapters on **Defining Component Internals**, **Wiring Multiple Components**, and **Refactoring Existing Components** will go over best practices to create performant, reusable, and maintainable code.
 
 Here is what you will learn in this chapter along with sample code.
 
@@ -595,7 +595,7 @@ when the AJAX call returns with results. This in turn updates the component UI.
 
 The ```render()``` method uses JavaScript conditional (ternary) operator as that is allowed here,
 when deciding what to render based on component state. This is required here as
-the component may render on the browser faster as the AJAX results show up.
+the component may render on the browser faster as the AJAX results take longer showing up.
 
 We are also reusing Font Awesome to add some icons to our results.
 
@@ -614,7 +614,8 @@ import GitHub from './GitHub.jsx';
 ~~~~~~~
 
 We can of course reuse this component sparingly (due to rate limits and user wait time)
-to add results from other repositories by just changing the repo ```owner/name```.
+to add results from other repositories by just changing the repo ```owner/name``` within
+the ```repo``` property.
 
 ## Wireframe to React (Sw)
 

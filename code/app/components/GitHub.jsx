@@ -37,7 +37,7 @@ export default class GitHub extends React.Component {
         ? <div>
             <h4><i className="fa fa-github"></i> {this.state.full_name}</h4>
             <p><i className="fa fa-star blue"></i> {this.state.stargazers_count} stars</p>
-            <p><i className="fa fa-bug red"></i> {this.state.open_issues} open issues.</p>
+            <p><i className="fa fa-bug red"></i> {this.state.open_issues} issues</p>
           </div>
         : <p>Loading Live Stats...</p>
     );

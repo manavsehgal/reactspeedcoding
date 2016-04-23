@@ -34,9 +34,6 @@ export default class CardStack extends React.Component {
 
     return (
       <ul className="stack">
-        <li key="github-react" className="card demo">
-          <GitHub repo="facebook/react" />,
-        </li>
         <li key="comp-strat" className="card demo">
             <IconText className="blue" icon="globe" size="5x" text="11 Component Creation Strategies" />
         </li>
@@ -46,11 +43,20 @@ export default class CardStack extends React.Component {
         <li key="fire-base" className="card demo">
             <IconText className="orange" icon="database" size="5x" text="Firebase React Integration" />
         </li>
-        <li key="world" className="card demo">
-          <World />
+        <li key="github-react" className="card demo">
+          <GitHub repo="facebook/react" />
+        </li>
+        <li key="github-webpack" className="card demo">
+          <GitHub repo="webpack/webpack" />
+        </li>
+        <li key="github-redux" className="card demo">
+          <GitHub repo="reactjs/redux" />
         </li>
         <li key="youtube" className="card demo">
           <YouTube videoid="MGuKhcnrqGA" />
+        </li>
+        <li key="world" className="card demo">
+          <World />
         </li>
         {renderMessages}
       </ul>
