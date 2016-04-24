@@ -21,7 +21,8 @@
   color: $black;
   font-size: 1em;
   text-align: left;
-  flex: 1 60%;
+  margin-top: 5px;
+  flex: 1 55%;
   order: 2;
   padding: 2px;
 }
@@ -34,7 +35,7 @@
   font-size: 1.5em;
   font-weight: bold;
   line-height: 35px;
-  flex: 1 25%;
+  flex: 1 30%;
   order: 3;
 }
 
@@ -44,6 +45,7 @@
   flex: 1 33%;
   order: 1;
   cursor: pointer;
+  user-select: none;
   transition: background 1s;
   &:hover {
     background: $fadeblue;
@@ -64,6 +66,7 @@
   order: 3;
   cursor: pointer;
   transition: background 1s;
+  user-select: none;
   &:hover {
     background: $fadeblack;
   }

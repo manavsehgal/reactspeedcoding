@@ -761,8 +761,11 @@ return (
 Here is the listing for the complete ```Workflow``` component. Notice how we
 are passing the component design workflow data into the component. For demo
 purpose this is fine, however we want something that can scale to cover
-the entire contents of this book. For this objective we will refactor the component
-when we wire it up with a database backend using Firebase.
+the entire contents of this book.
+
+For this objective we will refactor the component
+when we wire it up with a database backend using Firebase. We will also
+reduce the amount of code written to achieve the same results.
 
 {title="/app/components/Workflow.jsx complete component", lang=javascript}
 ~~~~~~~
@@ -856,6 +859,13 @@ export default class Workflow extends React.Component {
   }
 }
 ~~~~~~~
+
+Our component does plenty of things within a relatively small screen real-state. One
+advantage of this size and using Flexbox is how our component experience scales well
+across mobile and desktop screen size. Another advantage is user perceived performance,
+as transitions across workflow steps are instantaneous. Finally, as we have created
+a reusable component it can relate with other components to achieve interesting
+use cases. We will cover such use cases in chapter **Wire Multiple Components**.
 
 As we illustrated in prior sections, we now import and create and instance of this component
 within ```CardStack``` to render it in our app.

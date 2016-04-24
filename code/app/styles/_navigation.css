@@ -16,7 +16,7 @@
     display: block;
     padding: 0.5em;
     color: $white;
-
+    transition: background 1s;
     &:hover {
       background: $fadeblue;
     }
