@@ -1,4 +1,4 @@
-# Starting Component Design (S)
+# Start Component Design (S)
 
 If the blank, dark code editor window is staring back at you, do not despair. We will run through 11
 different ways you can get started building your components in React!
@@ -31,12 +31,12 @@ This is a good place to start your component design journey. The broad sequence 
 
 1. Identify root level component name that represents your sample. Define the basic React component.
 2. Split sample code HTML, CSS, JavaScript into separate files.
-3. Copy HTML DOM that renders the sample UI, into ```render()``` function of the root level component.
+3. Copy HTML DOM that renders the sample UI, into ```render()``` method of the root level component.
 4. Optionally, replace some of the HTML with existing reusable components you may already have in your app.
 5. Copy CSS into new or existing partial.
 6. The JavaScript, if any, can be copied into ```/app/public/js``` folder or, if available over CDN,
 referred in ```<script>``` tag from ```/app/templates/index_default.html```.
-7. Import the new component into your ```index.jsx``` and create an instance in ```render()``` function.
+7. Import the new component into your ```index.jsx``` and create an instance in ```render()``` method.
 
 Advantage of this approach is you get to experiment on features and integration requirements early on
 in your development cycle. You also start modularizing various parts of the sample functionality, like
@@ -74,7 +74,7 @@ easier for us to follow the above mentioned workflow.
 We quickly put together our new component, mostly copying over the HTML from the sample.
 Note that ```class``` attribute name is changed to ```className``` following JSX requirements.
 
-{title="/app/components/Page.jsx render() function", lang=javascript}
+{title="/app/components/Page.jsx render() method", lang=javascript}
 ~~~~~~~
 render() {
   return (
@@ -236,7 +236,7 @@ update ```/app/style.css``` by adding ```@import <new partial name>;```.
 **Step 6:** For this sample we can skip JS integration. However, in earlier chapter on **Production Optimize Webpack** we follow this strategy to integrate ```html5shiv``` JavaScript into ```/app/public/js``` folder.
 
 **Step 7:** Now all that remains is to import the new ```Page``` component into ```index.jsx``` and
-update the ```render()``` function to create an instance of our component like so.
+update the ```render()``` method to create an instance of our component like so.
 
 {title="/app/index.jsx import and render Page component", lang=javascript}
 ~~~~~~~
@@ -619,7 +619,246 @@ the ```repo``` property.
 
 ## Wireframe to React (Sw)
 
-Start your React component creation journey with a simple wireframe.
+Sometimes you want to start your component design journey with a basic wireframe.
+A "boxes and arrows" wireframe is a good start for thinking about React component composition.
+The boxes depict element hierarchy, relationship to each other, and layout. The arrows
+depict properties and state.
+
+Let us design a new component using this technique. We will design a ```Workflow``` component
+to depict component design workflow described in this book.
+
+As you may have noticed so far, we are following a repeating structure for the content
+of this chapter.
+
+We have outlined 11 different **scenarios** for creating components in React,
+like this section **Wireframe to React (Sw)**. We are also indicating a unique **symbol** (Sw) to
+identify the scenario, normally following the first character from high level workflow **(S)tart Component Design**
+and second letter from scenario name like **(w)orkflow** in this case.
+
+We are also outlining a **sequence** of steps where the **text** defines the action you need
+to perform to achieve the given scenario.
+
+For our new component we want to visualize it like an element in the Periodic Table of elements.
+We want to depict the name of the scenario, text from the sequence of steps, symbol depicting the scenario,
+count of steps available in the scenario, and current sequence for the step displayed.
+
+We also want the component to cycle through scenarios on clicking the symbol and cycle through workflow steps
+when clicking on the sequence.
+
+![Workflow component wireframe](images/workflow-wireframe.jpg)
+
+Notice in the wireframe above how the act of drawing out our component in boxes and arrows provides
+us the required next steps in our design journey. We know we need a Workflow containing element. We also
+require a navigation element. Symbol, count, and sequence are contained within the navigation element, and so on.
+
+This information helps us in our next step. Creating the stylesheet partial for Workflow component like so.
+
+Notice how the wireframe guides us in deciding how to use Flexbox layouts to order and style the elements hierarchy.
+
+{title="/app/styles/workflow.css partial", lang=css}
+~~~~~~~
+.workflow {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.workflow-scenario {
+  color: $white;
+  background: $green;
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+  flex: 1 15%;
+  order: 1;
+  padding: 2px;
+}
+
+.workflow-text {
+  color: $black;
+  font-size: 1em;
+  text-align: left;
+  flex: 1 60%;
+  order: 2;
+  padding: 2px;
+}
+
+.workflow-nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 35px;
+  flex: 1 25%;
+  order: 3;
+}
+
+.symbol {
+  background: $blue;
+  color: $white;
+  flex: 1 33%;
+  order: 1;
+  cursor: pointer;
+  transition: background 1s;
+  &:hover {
+    background: $fadeblue;
+  }
+}
+
+.steps {
+  background: $fadesand;
+  color: $black;
+  flex: 1 34%;
+  order: 2;
+}
+
+.sequence {
+  background: $black;
+  color: $white;
+  flex: 1 33%;
+  order: 3;
+  cursor: pointer;
+  transition: background 1s;
+  &:hover {
+    background: $fadeblack;
+  }
+}
+~~~~~~~
+
+Next let us compare side by side how the ```render()``` method is written for our new component
+and how these elements and styles are laid out. We are only listing what the method returns,
+so you can compare the wireframe, styles, and HTML.
+
+{title="/app/components/Workflow.jsx component render method return", lang=javascript}
+~~~~~~~
+return (
+  <div className="workflow">
+    <div className="workflow-scenario">
+      {currentStep.scenario}
+    </div>
+    <div className="workflow-text">
+      {currentStep.text}
+    </div>
+    <div className="workflow-nav">
+      <div onClick={this.cycleScenario} className="symbol">
+        {currentStep.symbol}
+      </div>
+      <div className="steps">
+        {stepsCount}
+      </div>
+      <div onClick={this.cycleSequence} className="sequence">
+        {currentStep.sequence}
+      </div>
+    </div>
+  </div>
+);
+~~~~~~~
+
+Here is the listing for the complete ```Workflow``` component. Notice how we
+are passing the component design workflow data into the component. For demo
+purpose this is fine, however we want something that can scale to cover
+the entire contents of this book. For this objective we will refactor the component
+when we wire it up with a database backend using Firebase.
+
+{title="/app/components/Workflow.jsx complete component", lang=javascript}
+~~~~~~~
+import React, {PropTypes} from 'react';
+
+export default class Workflow extends React.Component {
+  static propTypes = {
+    steps: PropTypes.array.isRequired
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {stepsIndex: 0}
+    this.cycleSequence = this.cycleSequence.bind(this);
+    this.cycleScenario = this.cycleScenario.bind(this);
+  }
+
+  static defaultProps = {
+    steps: [
+      {symbol: 'Se', scenario: 'Embed to React', sequence: 1,
+        text: `Customize the embed code within target platform to suit
+        your site or app styles and placement.`},
+      {symbol: 'Se', scenario: 'Embed to React', sequence: 2,
+        text: `Optionally, parametrize the embed code attributes using React props.`},
+      {symbol: 'Se', scenario: 'Embed to React', sequence: 3,
+        text: `Use stateless component as you will most likely not maintain embed UI state
+        locally in your component.`},
+      {symbol: 'Ss', scenario: 'Sample to React', sequence: 1,
+        text: `Identify root level component name that represents your sample.
+        Define component.`},
+      {symbol: 'Ss', scenario: 'Sample to React', sequence: 2,
+        text: `Split sample code HTML, CSS, JavaScript into separate files.`},
+      {symbol: 'Ss', scenario: 'Sample to React', sequence: 3,
+        text: `Copy HTML DOM that renders the sample UI, into render() method
+        of root component.`},
+      {symbol: 'Ss', scenario: 'Sample to React', sequence: 4,
+        text: `Optionally, replace some of the HTML with existing reusable
+        components in your app.`},
+      {symbol: 'Ss', scenario: 'Sample to React', sequence: 5,
+        text: `Copy CSS into new or existing partial.`},
+      {symbol: 'Ss', scenario: 'Sample to React', sequence: 6,
+        text: `Copy JS to /app/public/js folder.`},
+      {symbol: 'Ss', scenario: 'Sample to React', sequence: 7,
+        text: `JS over CDN is referred in <script> tag from /app/templates/*.html.`},
+      {symbol: 'Ss', scenario: 'Sample to React', sequence: 8,
+        text: `Import the new component into your index.jsx and create an
+        instance in render() method.`},
+    ]
+  }
+
+  cycleSequence() {
+    let nextIndex =
+      this.state.stepsIndex === (this.props.steps.length - 1)
+      ? 0
+      : this.state.stepsIndex + 1;
+
+    this.setState({stepsIndex: nextIndex});
+  }
+
+  cycleScenario() {
+    const steps = this.props.steps;
+    const currentStep = steps[this.state.stepsIndex];
+    let stepsCount = 0;
+    for(let i = 0; i < steps.length; ++i){
+      if(steps[i].symbol === currentStep.symbol) stepsCount++;
+    }
+    let currentScenario = currentStep.scenario;
+    const loopStart =
+      (this.state.stepsIndex + stepsCount) >= steps.length
+      ? 0
+      : this.state.stepsIndex + 1;
+    for(let i = loopStart; i < steps.length; ++i){
+      if(steps[i].scenario != currentScenario) {
+
+        this.setState({stepsIndex: i});
+
+        break;
+      };
+    }
+  }
+
+  render () {
+    const steps = this.props.steps;
+    const currentStep = steps[this.state.stepsIndex];
+    let stepsCount = 0;
+    for(let i = 0; i < steps.length; ++i){
+      if(steps[i].symbol === currentStep.symbol) stepsCount++;
+    }
+
+    // return () code as published earlier in this section...
+  }
+}
+~~~~~~~
+
+As we illustrated in prior sections, we now import and create and instance of this component
+within ```CardStack``` to render it in our app.
 
 ## Mock to React (Sm)
 

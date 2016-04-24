@@ -1,0 +1,70 @@
+.workflow {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.workflow-scenario {
+  color: $white;
+  background: $green;
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+  flex: 1 15%;
+  order: 1;
+  padding: 2px;
+}
+
+.workflow-text {
+  color: $black;
+  font-size: 1em;
+  text-align: left;
+  flex: 1 60%;
+  order: 2;
+  padding: 2px;
+}
+
+.workflow-nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 35px;
+  flex: 1 25%;
+  order: 3;
+}
+
+.symbol {
+  background: $blue;
+  color: $white;
+  flex: 1 33%;
+  order: 1;
+  cursor: pointer;
+  transition: background 1s;
+  &:hover {
+    background: $fadeblue;
+  }
+}
+
+.steps {
+  background: $fadesand;
+  color: $black;
+  flex: 1 34%;
+  order: 2;
+}
+
+.sequence {
+  background: $black;
+  color: $white;
+  flex: 1 33%;
+  order: 3;
+  cursor: pointer;
+  transition: background 1s;
+  &:hover {
+    background: $fadeblack;
+  }
+}

@@ -6,6 +6,7 @@ import World from './World.jsx';
 import YouTube from './YouTube.jsx';
 import IconText from './IconText.jsx';
 import GitHub from './GitHub.jsx';
+import Workflow from './Workflow.jsx';
 
 export default class CardStack extends React.Component {
   static propTypes = {
@@ -34,14 +35,20 @@ export default class CardStack extends React.Component {
 
     return (
       <ul className="stack">
+        <li key="workflow" className="card demo">
+          <Workflow />
+        </li>
         <li key="comp-strat" className="card demo">
-            <IconText className="blue" icon="globe" size="5x" text="11 Component Creation Strategies" />
+          <IconText className="blue" icon="globe"
+            size="5x" text="11 Component Creation Strategies" />
         </li>
         <li key="cust-comp" className="card demo">
-            <IconText icon="cog" size="5x" text="Nine Custom Components" />
+          <IconText icon="cog"
+            size="5x" text="Nine Custom Components" />
         </li>
         <li key="fire-base" className="card demo">
-            <IconText className="orange" icon="database" size="5x" text="Firebase React Integration" />
+          <IconText className="orange" icon="database"
+            size="5x" text="Firebase React Integration" />
         </li>
         <li key="github-react" className="card demo">
           <GitHub repo="facebook/react" />

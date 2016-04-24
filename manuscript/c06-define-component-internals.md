@@ -1,4 +1,4 @@
-# Defining Component Internals
+# Define Component Internals
 
 ## Presentational and container components
 

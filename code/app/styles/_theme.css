@@ -15,6 +15,7 @@ $lightblue: color(deepskyblue lightness(80%));
 $fadesand:  color(wheat saturation(30%));
 $sand:      color(wheat lightness(80%));
 $gray:      color($black lightness(80%));
+$fadeblack:  color($black lightness(50%));
 
 /* Page styles */
 
@@ -54,3 +55,4 @@ $link-color:        $blue;
 .fadeblue { color: $fadeblue; }
 .fadesand { color: $fadesand; }
 .lightblue { color: $lightblue; }
+.fadeblack { color: $fadeblack; }

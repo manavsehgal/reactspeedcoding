@@ -9,7 +9,8 @@ export default class Page extends React.Component {
           <li><a className="brand" href="/">ReactSpeed</a></li>
           <li><a href="/">Home</a></li>
           <li><a href="https://leanpub.com/reactspeedcoding">Book</a></li>
-          <li><a href="https://github.com/manavsehgal/reactspeedcoding">Github</a></li>
+          <li><a href="https://github.com/manavsehgal/reactspeedcoding">Code</a></li>
+          <li><a href="https://leanpub.com/reactspeedcoding/feedback">Discuss</a></li>
         </ul>
         <header className="header">This app is built using code from the book <a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>. Concept to coding React apps, speedily!</header>
         <article className="main">
