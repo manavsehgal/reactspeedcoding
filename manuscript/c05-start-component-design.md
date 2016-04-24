@@ -763,6 +763,8 @@ are passing the component design workflow data into the component. For demo
 purpose this is fine, however we want something that can scale to cover
 the entire contents of this book.
 
+![Workflow component demo](images/workflow-component.jpg)
+
 For this objective we will refactor the component
 when we wire it up with a database backend using Firebase. We will also
 reduce the amount of code written to achieve the same results.
