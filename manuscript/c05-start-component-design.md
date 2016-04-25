@@ -862,15 +862,36 @@ export default class Workflow extends React.Component {
 }
 ~~~~~~~
 
+As we illustrated in prior sections, we now import and create and instance of this component
+within ```CardStack``` to render it in our app.
+
+The steps followed to design React components from a wireframe can be outlined like so.
+
+1. Scenario ideal for creating custom, non-standard, or complex UI controls.
+2. Create wireframe using boxes for elements, layout, composition,
+and arrows for properties, state, and events.
+3. Split individual elements of the wireframe into own style classes. Follow styles
+structure from wireframe.
+4. Use Flexbox to order elements, align element layout, compose element hierarchy.
+5. Create HTML/DOM render matching your wireframe, using the new styles.
+6. Define properties to handle component data required for each element.
+7. Add default property data fixtures if creating a demo component.
+8. Create event handler methods and bind these in constructor. Call these methods
+from element event handlers.
+9. Specify component state based on event driven UI state change.
+10. Import and create instance of component in an owner component.
+
 Our component does plenty of things within a relatively small screen real-state. One
 advantage of this size and using Flexbox is how our component experience scales well
 across mobile and desktop screen size. Another advantage is user perceived performance,
-as transitions across workflow steps are instantaneous. Finally, as we have created
-a reusable component it can relate with other components to achieve interesting
-use cases. We will cover such use cases in chapter **Wire Multiple Components**.
+as transitions across workflow steps are instantaneous.
 
-As we illustrated in prior sections, we now import and create and instance of this component
-within ```CardStack``` to render it in our app.
+You also learnt that it is  relatively straightforward to create a custom UI control, where the look and feel
+does not need to match with controls in conventional UI libraries or that which
+HTML enables.
+
+Finally, as we have created a reusable component, it can be made to relate with other components to achieve interesting
+use cases. We will cover such use cases in the chapter **Wire Multiple Components**.
 
 ## Mock to React (Sm)
 
