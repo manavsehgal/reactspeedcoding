@@ -13,12 +13,68 @@ develop React apps.
 
 We will cover following topics in this chapter.
 
+- Why learn React, comparing with Angular 2.
+- Shared learning path between React and Angular 2.
 - How to install Node.js and use Node Version Manager.
 - Setup package.json to manage your NPM dependencies.
 - Quick access companion code for this book using Github.
 - Install starter dependencies for React, Webpack, and Babel.
 - Create Webpack configuration for development pipeline automation.
 - Write and run your first Hello World React app.
+
+## Why learn React comparing with Angular
+
+A> This section is elaborating an answer by the author to a question on Quora.
+
+**Why learn Angular 2?**  It is like learning Yoga, from one Guru, in a large group.
+
+If you are in a **large** team, Angular will be your choice to get everyone on the same page, faster, at scale.
+Contrary to popular opinion on the subject, we think Angular 2 is **faster** to learn when compared to React for the same goals, simply because you are making fewer "first-time-learner or developer" decisions along your journey.
+
+- Angular2 and TypeScript are opinionated,
+- Most documentation is "single version of truth" from one source (Google, the authors of Angular and Microsoft, the authors of TypeScript),
+- There is mostly "one Angular/TypeScript way" of doing things, so fewer decisions to make along your learning and development journey,
+- Angular 2 API and TypeScript language are well documented.
+- Official samples are up to date with latest changes in the API, well mostly.
+- Development boilerplates or starters are fairly mature, some like Angular Universal are backed by Google/Angular core team.
+- The development and build tool-chain is mostly addressed by Angular/TypeScript, and few popular starter projects.
+
+**Why learn React?** It is like doing cross-training, with multiple experts, at multiple locations.
+
+If you are in a **lean** team or a single developer-designer-architect, "the React way" may be more fun.
+Learning React is more **rewarding** in the long run. As you are making "hopefully informed" decisions all along your learning and development journey, you become a more thorough developer, designer, architect in the long haul. If you make your decisions by evaluating pros-cons of architectural and design patterns, you are becoming a better developer.
+
+React is opinionated for fewer core concepts like one-way-data-binding.
+
+- There are many ways to develop in React starting from how to define React components, how to create React build pipeline, which frameworks to integrate with, how to wire up a backend, the list goes on.
+- You will learn from multiple sources and authors, not just Facebook/Instagram, the authors of React. Having these multiple perspectives will give you stronger real-world decision making muscles!
+- Facebook and the React community is very driven by app performance patterns. Most core React concepts are centered around creating high performance code.
+- The React community is more component driven. You will most likely find more reusable code.
+- The community is also increasingly driven by "Developer Experience". Writing beautiful code, writing more manageable code, writing readable code, and tools that make developer's experience more fun and visual. See kadirahq/react-storybook as an example.
+
+In our experience learning both and going back and forth helps. Programming design patterns remain the same. Syntactical sugar changes. Learning one, reinforces the other.
+
+## Shared learning path between Angular 2 and React
+
+A> This section is elaborating an answer by the author to a question on Quora.
+
+**JavaScript.** JavaScript (ES5 and ES6) is fundamental. TypeScript transpiles to JavaScript. React-JSX-Babel tooling transpiles to JavaScript.
+
+**CSS3.** You cannot do serious front-end coding without it.
+
+**HTML5.** It is obvious, but extend your knowledge on concepts like Offline Storage and Device Access, best practice starters like HTML5 boilerplate.
+
+**Webpack.** Modern day packaging, module bundling, build pipeline automation tooling.
+
+**Design Patterns and Object Oriented principles.** Composition, Inheritance, Singletons, Pure Functions, Immutability, and many others are core concepts helping you in doing good development in general.
+
+**Algorithms and data structures.** Serious development cannot be done without using these in a good measure.
+
+**Backend as a Service.** Firebase, AWS Lamba, among others.
+
+**Microservices and REST/APIs.** No modern app is built in isolation these days.
+
+So, here is a learning path if you want to go beyond React. Learn React first, build some reusable components, learn the component design workflow. Learn Angular 2 next, try reusing your component design and above mentioned shared learning here. Maybe round off your knowledge by learning Meteor (more opinionated with best practice patterns for speed coding and performance) and integrating React and Angular, replacing Meteor's Blaze.
 
 ## Development Environment
 
