@@ -254,6 +254,8 @@ your React app.
 The ReactSpeed website layout reflects our sample with significant variation in styles,
 and addition of ```CardStack``` component capabilities.
 
+{pagebreak}
+
 ## Embed to React (Se)
 
 Many web platforms like Youtube, Flickr, and Twitter offer embed APIs to easily
@@ -344,6 +346,8 @@ return (
 
 Run your app and you will notice the video player takes shape and size of the card. It also
 scales when the card dimensions change on different screen sizes.
+
+{pagebreak}
 
 ## CSS libraries to React (Sc)
 
@@ -484,6 +488,8 @@ Note the advantages of converting the Font Awesome CSS library to React componen
 be reused with multiple variations in optional properties. We also process custom rendering
 of the CSS library elements within component code.
 
+{pagebreak}
+
 ## API to React (Sa)
 
 You may want to integrate with an API from the multitude of web service providers.
@@ -614,6 +620,8 @@ import GitHub from './GitHub.jsx';
 We can of course reuse this component sparingly (due to rate limits and user wait time)
 to add results from other repositories by just changing the repo ```owner/name``` within
 the ```repo``` property.
+
+{pagebreak}
 
 ## Wireframe to React (Sw)
 
@@ -890,6 +898,8 @@ HTML enables.
 
 Finally, as we have created a reusable component, it can be made to relate with other components to achieve interesting
 use cases. We will cover such use cases in the chapter **Wire Multiple Components**.
+
+{pagebreak}
 
 ## Data table to React (St)
 

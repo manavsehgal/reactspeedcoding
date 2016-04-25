@@ -8,7 +8,7 @@ As this book progresses we are hosting the demo app at https://reactspeed.fireba
 
 ## Comparing Firebase with Meteor
 
-> This section is elaborating an answer by the author to a question on Quora.
+A> This section is elaborating an answer by the author to a question on Quora.
 
 Both Meteor and Firebase can be used to build robust mobile-web apps. Differences in platform, database, hosting, and pricing are explained here.
 
@@ -103,6 +103,29 @@ Run ```npm run build``` and then ```firebase deploy```. You are done. You can th
 
 ![Firebase Hosting Panel](images/firebase-hosting.jpg)
 
+## How Firebase stores files and data
+
+A> This section is elaborating an answer by the author to a question on Quora.
+
+**JSON documents.** Firebase is built on top of one of the most mature and powerful NoSQL databases around, MongoDB. So Firebase data store is tree-like, JavaScript Object Notation (JSON) documents.
+
+**Real-time API.** Firebase value adds on top of MongoDB with its real-time publish/subscribe API. What this means is you could have microservice A write to your Firebase data store and microservice B picks up the changes as these happen in near real-time. A and B microservices do not need to be on the same server or developed by the same entity. This makes Firebase really powerful for applications like chatting servers, streaming services, location intelligence, among others.
+
+**Static Hosting and CDN.** Firebase also stores and serves front-end files (HTML, CSS, JS) using a Content Delivery Network (CDN) as a world class hosting platform. You could dynamically generate these files from a Node.js backed development server, use modern web application frameworks like React and Angular to deliver very capable mobile-web apps wired to a real-time database.
+
+**Geo-spatial data.** Firebase has basic capabilities to store and retrieve Latitude/Longitude information along with JSON documents. This makes it ideal for many location aware apps, combined with its real-time data API, and performant front-end hosting for mapping embeds.
+
+**User Profiles.** Firebase also stores basic user profiles and registration data. That is one less worry and an important aspect of any multi-tenant SaaS app.
+
+**Complex UI state management.** This is experimental, however we are keen to explore if Firebase can
+be used to persist in near real-time, complex UI state management. Use cases include deep personalization
+of app UI state, so you come back to same settings you left your app last time you used it.
+
+**Decision Trees.** JSON hierarchical data schema, real-time data change listening, REST API interface to your data schema, all combined can be a good use case for elaborate decision trees. These can support knowledge management and
+machine learning apps.
+
+**Gaming state.** Another variation on complex UI state management. Firebase could be used to create, read, update, and delete user gaming state in real-time.
+
 ## Designing a REST API using Firebase
 
 Providing a REST API is essential for any app that works with data that can be
@@ -131,6 +154,16 @@ curl "https://reactspeed.firebaseio.com/workflow/start/embed.json"
 
 What returns is JSON data with steps outlined to complete **Embed to React** component
 creation explained within the **Start Component Design** chapter.
+
+## For what kind of apps is Firebase not ideal
+
+A> This section is elaborating an answer by the author to a question on Quora.
+
+**Server side continuous processes.** Firebase is not ideal, if your app requires continuous server side processing, like receiving streaming data from a source like Twitter, analyzing this in some way, before consuming the analytics results in your app in real-time.
+
+**Full-stack or universal app frameworks.** You cannot run Meteor or Universal Angular on a platform like Firebase as these frameworks require server-side scripting.
+
+**Large binary file processing.** If you are creating an image processing app, or a an online video post-processing tool, Firebase does not have much to offer in terms of shifting large binary files or processing these on the server side.
 
 
 I> ## Chapter In Progress
