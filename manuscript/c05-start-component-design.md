@@ -18,6 +18,8 @@ Here is what you will learn in this chapter along with sample code.
 - How to model documents as a React component.
 - How to enhance HTML elements as React components.
 
+{pagebreak}
+
 ## Sample to React (Ss)
 
 You may want to start with an existing single page sample

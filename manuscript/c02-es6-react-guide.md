@@ -33,6 +33,8 @@ the React and ES6 features used so far. Subsequent chapters introduce React and 
 based on the context of samples written for the chapter. This spreads your learning journey
 as you apply these concepts.
 
+{pagebreak}
+
 ## File and folder structure
 
 React apps follow component based development. So understanding how components are composed,
@@ -72,6 +74,8 @@ Refer [naming conventions][6] in Airbnb style guide.
 - webpack.config.js
 ~~~~~~~
 
+{pagebreak}
+
 ## Component class definition, export, and import
 
 In React each component is typically defined in a single file, also known as a module.
@@ -98,6 +102,8 @@ A> Thinking in modules is central to how Webpack bundles your code and traces
 A> dependencies while creating chunks. However, Webpack 1.x does not natively support ES6 modules,
 A> though this is on their 2.x roadmap. This is where Babel steps in. Read more about [Webpack ES6 support][7]
 A> on the Webpack official docs.
+
+{pagebreak}
 
 ## Constructor, state, props, and events
 
@@ -194,6 +200,8 @@ Associate event functions with UI.
 </a>
 ~~~~~~~
 
+{pagebreak}
+
 ## Stateless components
 
 Our ```Hello``` component is stateless. It does not define or change any state. According to [Airbnb style guide][8],
@@ -216,6 +224,8 @@ A> stateless functions because in the future we'll also be able to make performa
 A> optimizations specific to these components by avoiding unnecessary checks and memory allocations.
 A> This is the recommended pattern, when possible."
 
+{pagebreak}
+
 ## React Chrome Extension
 
 In case you want to inspect how your components pass properties and how they are organized
@@ -225,6 +235,8 @@ at runtime, you can install [React Chrome Extension][12].
 
 You can then select the code responsible for component UI and see the rendered UI highlighted.
 The extension will also update properties as they are passed along if you turn on the trace feature.
+
+{pagebreak}
 
 ## ES7 Property Initializers (Code update 2016-04-21)
 
@@ -285,6 +297,8 @@ export default class CardStack extends React.Component {
 
 Note the use of ```static``` statement before initializing ```propTypes```
 and ```defaultProps``` in our class definition.
+
+{pagebreak}
 
 ## Recommended reading list
 

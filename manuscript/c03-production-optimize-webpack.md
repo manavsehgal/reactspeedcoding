@@ -14,6 +14,8 @@ We will cover following topics in this chapter.
 - Adding public assets for your app.
 - Creating custom index template.
 
+{pagebreak}
+
 ## Add production plugins and supporting dependencies
 
 For production following plugins add functionality to Webpack.
@@ -28,6 +30,7 @@ The ```html-webpack-plugin``` recommends using ```html-minifier``` to minify HTM
 ```
 npm install --save-dev html-minifier
 ```
+{pagebreak}
 
 ## Webpack production configuration
 
@@ -218,6 +221,8 @@ file to [webpack analysis tool][8] for analyzing your build.
 Using the analysis tool you can drill down into warnings, errors, hints on how to improve your code, and analyze
 module chunks to further optimize your code.
 
+{pagebreak}
+
 ## Public assets
 
 Your production app will have several public assets including images, icons, among others.
@@ -254,6 +259,8 @@ new CopyWebpackPlugin([
 Now when we run ```npm run build```, our public assets are copied over to the ```build``` folder.
 
 We add other files recommended by HTML5 Boilerplate. Adding ```/app/styles/_normalize.css``` as an import to reset base styles. We also add ```Robots.txt```, ```humans.txt```, ```browserconfig.xml```, and ```crossdomain.xml``` files.
+
+{pagebreak}
 
 ## Custom index template
 
@@ -321,6 +328,8 @@ Note that we have also enabled the ```inject``` flag to ```body```. This will in
 the JavaScript resources at the end of the ```body``` tag as advised for improving
 page load time.
 
+{pagebreak}
+
 ## Issue using Hot Reloading with CSS imports
 
 Hot Reloading works just fine for any changes within React code (JSX). However, as we make changes
@@ -332,6 +341,8 @@ active development and then relocate these to a proper import once we are close 
 
 We are trying several possible solutions to this [know issue as PostCSS repo][12]. If you would like to contribute
 a solution please [respond to this issue on our Github repo][13].
+
+{pagebreak}
 
 ## Normalize.css from NPM (Code update 2016-04-21)
 
@@ -382,6 +393,8 @@ Now whenever ```normalize.css``` changes, we can run ```npm update``` to
 update our development environment with ease.
 
 This also sets us up for adding more npm maintained styles in the future.
+
+{pagebreak}
 
 ## Recommended Reading List
 

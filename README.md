@@ -90,7 +90,8 @@ however we will consider this goal as we design the framework.
 
 ## [Starting Component Design][9]
 
-> Code: [Page][8] component.
+> Code: [Page][8] component, [YouTube][10] component, [GitHub][11] component, [Workflow][12] component,  
+> [IconText][13] component.
 
 The objective at this stage is to speedily "prototype" new features and code within your React project.
 Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Components**, and **Refactoring Existing Components** will go over best practices to create performant, reusable, and maintainable code.
@@ -99,8 +100,6 @@ Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Comp
 - Using Web Embeds like YouTube, Flickr, Twitter, to create React components.
 - Integrating third-party REST APIs to start creating React components.
 - Moving from a wireframe to a React component.
-- Designing mock and converting it to a React component.
-- Creating a working prototype and translating this to a React component.
 - Starting with a data table and turing this into a React component.
 - How to handle real-time streams as a React component.
 - How to model documents as a React component.
@@ -126,6 +125,12 @@ Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Comp
 
 > Note: This chapter is in progress.
 
+- Compare Firebase with another popular framework Meteor.
+- Host your front-end app using Firebase hosting.
+- How Firebase stores files and data.
+- Designing a REST API using Firebase.
+- For what kind of apps is Firebase not ideal.
+
 ## Redux State Management
 
 > Note: This chapter is TBD.
@@ -145,3 +150,7 @@ Topics planned: Kadira Storybook. Redux Dev Tools.
 [7]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-react-speed-ui
 [8]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/components
 [9]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-starting-component-design-s
+[10]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/YouTube.jsx
+[11]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/GitHub.jsx
+[12]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/Workflow.jsx
+[13]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/IconText.jsx

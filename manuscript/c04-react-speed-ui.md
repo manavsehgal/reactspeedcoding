@@ -6,6 +6,8 @@ ready Webpack build pipeline, it is time to do some serious app development.
 In this chapter we will start designing our very own React Speed UI framework
 for your apps. We will do so using Flexbox, PostCSS, and custom React components.
 
+{pagebreak}
+
 ## Design Goals
 
 Designing a custom UI framework is an ambitious undertaking. Our task becomes achievable if we scope
@@ -35,6 +37,8 @@ however we will consider this goal as we design the framework.
 
 **Expressive.** Our UI framework will be reusable in expressive, English like statements.
 
+{pagebreak}
+
 ## PostCSS Processing
 
 To helps us along in these design goals, PostCSS offers some great features.
@@ -61,6 +65,8 @@ We use following plugins for building Speed UI.
 
 - The [Autoprefixer plugin][13], so that we don't need to worry about browser prefixes anymore.
 - The [PreCSS plugin][12] enables Sass-like markup within CSS.
+
+{pagebreak}
 
 ## Update Webpack for PostCSS
 
@@ -131,6 +137,8 @@ postcss: function () {
     return [precss, autoprefixer];
 },
 ~~~~~~~
+
+{pagebreak}
 
 ## Organizing and modularizing styles
 
@@ -298,6 +306,8 @@ For component specific styles we follow the same principles as we learnt here.
 - Import partial in ```style.css```.
 - Design the component using the styles as HTML elements or using ```className```.
 
+{pagebreak}
+
 ## Refactoring React components with Speed UI
 
 Let us apply the new styles to refactor an existing component, before we start
@@ -335,6 +345,8 @@ export default function Hello(props) {
   );
 }
 ~~~~~~~
+
+{pagebreak}
 
 ## Flexbox Layouts
 
@@ -503,7 +515,9 @@ We have added more sample code so you are able to run the components from this c
 chapter on **Component Design Workflow** we will design many more components and explain the remaining
 code from this chapter's code commit.
 
-## Code update 2016-04-20
+{pagebreak}
+
+## Key in repeating items (Code update 2016-04-20)
 
 This change applies to the ```messages``` array and list item key attributes.
 
@@ -513,6 +527,8 @@ as long as we are certain that the array values will remain unique.
 So in our latest code update the ```messages``` array is just an array of unique strings as messages.
 We pass this on to key attribute as well as the value for the list items. This further simplifies
 our component code.
+
+{pagebreak}
 
 ## Recommended Reading List
 

@@ -58,33 +58,23 @@ In our experience learning both and going back and forth helps. Programming desi
 
 ## Shared learning path between Angular 2 and React
 
-
 A> This section is elaborating an answer by the author to a question on Quora.
-
 
 **JavaScript.** JavaScript (ES5 and ES6) is fundamental. TypeScript transpiles to JavaScript. React-JSX-Babel tooling transpiles to JavaScript.
 
-
 **CSS3.** You cannot do serious front-end coding without it.
-
 
 **HTML5.** It is obvious, but extend your knowledge on concepts like Offline Storage and Device Access, best practice starters like HTML5 boilerplate.
 
-
 **Webpack.** Modern day packaging, module bundling, build pipeline automation tooling.
-
 
 **Design Patterns and Object Oriented principles.** Composition, Inheritance, Singletons, Pure Functions, Immutability, and many others are core concepts helping you in doing good development in general.
 
-
 **Algorithms and data structures.** Serious development cannot be done without using these in a good measure.
-
 
 **Backend as a Service.** Firebase, AWS Lamba, among others.
 
-
 **Microservices and REST/APIs.** No modern app is built in isolation these days.
-
 
 So, here is a learning path if you want to go beyond React. Learn React first, build some reusable components, learn the component design workflow. Learn Angular 2 next, try reusing your component design and above mentioned shared learning here. Maybe round off your knowledge by learning Meteor (more opinionated with best practice patterns for speed coding and performance) and integrating React and Angular, replacing Meteor's Blaze.
 

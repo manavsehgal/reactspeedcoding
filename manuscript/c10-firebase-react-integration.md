@@ -6,6 +6,16 @@ For the same price-point Firebase delivers much more than its competitors. As an
 
 As this book progresses we are hosting the demo app at https://reactspeed.firebaseapp.com. Once the book completes and we have sufficient traction, we will migrate to our very own domain at https://reactspeed.com. Fingers crossed!
 
+Here is what you will learn in this chapter.
+
+- Compare Firebase with another popular framework Meteor.
+- Host your front-end app using Firebase hosting.
+- How Firebase stores files and data.
+- Designing a REST API using Firebase.
+- For what kind of apps is Firebase not ideal.
+
+{pagebreak}
+
 ## Comparing Firebase with Meteor
 
 A> This section is elaborating an answer by the author to a question on Quora.
