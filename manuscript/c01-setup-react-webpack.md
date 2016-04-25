@@ -413,8 +413,6 @@ A> ## ES6 React Guide
 A> Do not worry about the new syntax that you may notice here. We will explain
 A> each section in the chapter titled **ES6 React Guide**
 
-{pagebreak}
-
 Now we write the ```World``` component which renders the ```Hello``` component
 with a message.
 
@@ -458,8 +456,6 @@ World.defaultProps = {
   greet: 'Hello',
 }
 ~~~~~~~
-
-{pagebreak}
 
 The ```Hello``` component renders Hello World message based on how ```World```
 component calls it and current UI state. Current UI state changes as user clicks
