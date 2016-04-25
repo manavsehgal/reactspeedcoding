@@ -1,5 +1,6 @@
 import React from 'react';
 import CardStack from './CardStack.jsx';
+import LeanPub from './LeanPub.jsx';
 
 export default class Page extends React.Component {
   render() {
@@ -27,6 +28,7 @@ export default class Page extends React.Component {
         <h4>Get the book <a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>.</h4>
         </aside>
         <aside className="aside aside-2">
+          <LeanPub bookid="reactspeedcoding" />
           <h3>
           ReactSpeed equips you, for your React project requirements,
           with best practices, optimized workflows, and powerful tooling.
