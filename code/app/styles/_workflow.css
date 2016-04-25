@@ -5,11 +5,15 @@
   height: 100%;
 }
 
-.workflow-scenario {
+.scenario-theme {
   color: $white;
-  background: $green;
-  font-size: 1.2em;
+  background: $blue;
   font-weight: bold;
+}
+
+.workflow-scenario {
+  @extend .scenario-theme;
+  font-size: 1.2em;
   line-height: 25px;
   text-align: center;
   flex: 1 15%;
@@ -33,41 +37,39 @@
   justify-content: space-between;
   margin-top: 5px;
   font-size: 1.5em;
-  font-weight: bold;
   line-height: 35px;
   flex: 1 30%;
   order: 3;
-}
 
-.symbol {
-  background: $blue;
-  color: $white;
-  flex: 1 33%;
-  order: 1;
-  cursor: pointer;
-  user-select: none;
-  transition: background 1s;
-  &:hover {
-    background: $fadeblue;
+  .symbol {
+    @extend .scenario-theme;
+    flex: 1 33%;
+    order: 1;
+    cursor: pointer;
+    user-select: none;
+    transition: background 1s;
+    &:hover {
+      background: $fadeblue;
+    }
   }
-}
 
-.steps {
-  background: $fadesand;
-  color: $black;
-  flex: 1 34%;
-  order: 2;
-}
+  .steps {
+    background: $fadesand;
+    color: $black;
+    flex: 1 34%;
+    order: 2;
+  }
 
-.sequence {
-  background: $black;
-  color: $white;
-  flex: 1 33%;
-  order: 3;
-  cursor: pointer;
-  transition: background 1s;
-  user-select: none;
-  &:hover {
-    background: $fadeblack;
+  .sequence {
+    background: $black;
+    color: $white;
+    flex: 1 33%;
+    order: 3;
+    cursor: pointer;
+    transition: background 1s;
+    user-select: none;
+    &:hover {
+      background: $fadeblack;
+    }
   }
 }

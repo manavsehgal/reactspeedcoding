@@ -73,6 +73,8 @@ Meteor has +$31M in [funding][5] from leading Silicon Valley investors.
 So, both platforms are a good choice for developing your next app. Firebase pricing is relatively
 easier to grasp and enables more flexibility in your technology stack decisions.
 
+{pagebreak}
+
 ## Firebase Hosting
 
 Getting started with Firebase hosting is easy. Install their Command Line Interface (CLI) tools. Use a Google account to authenticate.
@@ -103,6 +105,8 @@ Run ```npm run build``` and then ```firebase deploy```. You are done. You can th
 
 ![Firebase Hosting Panel](images/firebase-hosting.jpg)
 
+{pagebreak}
+
 ## How Firebase stores files and data
 
 A> This section is elaborating an answer by the author to a question on Quora.
@@ -125,6 +129,8 @@ of app UI state, so you come back to same settings you left your app last time y
 machine learning apps.
 
 **Gaming state.** Another variation on complex UI state management. Firebase could be used to create, read, update, and delete user gaming state in real-time.
+
+{pagebreak}
 
 ## Designing a REST API using Firebase
 
@@ -154,6 +160,8 @@ curl "https://reactspeed.firebaseio.com/workflow/start/embed.json"
 
 What returns is JSON data with steps outlined to complete **Embed to React** component
 creation explained within the **Start Component Design** chapter.
+
+{pagebreak}
 
 ## For what kind of apps is Firebase not ideal
 

@@ -22,6 +22,8 @@ We will cover following topics in this chapter.
 - Create Webpack configuration for development pipeline automation.
 - Write and run your first Hello World React app.
 
+{pagebreak}
+
 ## Why learn React comparing with Angular
 
 A> This section is elaborating an answer by the author to a question on Quora.
@@ -75,6 +77,8 @@ A> This section is elaborating an answer by the author to a question on Quora.
 **Microservices and REST/APIs.** No modern app is built in isolation these days.
 
 So, here is a learning path if you want to go beyond React. Learn React first, build some reusable components, learn the component design workflow. Learn Angular 2 next, try reusing your component design and above mentioned shared learning here. Maybe round off your knowledge by learning Meteor (more opinionated with best practice patterns for speed coding and performance) and integrating React and Angular, replacing Meteor's Blaze.
+
+{pagebreak}
 
 ## Development Environment
 

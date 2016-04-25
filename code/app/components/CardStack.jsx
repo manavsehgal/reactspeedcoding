@@ -40,7 +40,7 @@ export default class CardStack extends React.Component {
         </li>
         <li key="comp-strat" className="card demo">
           <IconText className="blue" icon="globe"
-            size="5x" text="9 Component Creation Strategies" />
+            size="5x" text="Nine Component Creation Strategies" />
         </li>
         <li key="cust-comp" className="card demo">
           <IconText icon="cog"

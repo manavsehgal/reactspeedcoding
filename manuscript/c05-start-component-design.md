@@ -1,6 +1,6 @@
 # Start Component Design (S)
 
-If the blank, dark code editor window is staring back at you, do not despair. We will run through 9
+If the blank, dark code editor window is staring back at you, do not despair. We will run through nine
 different ways you can get started building your components in React!
 
 The objective at this stage is to speedily "prototype" new features and code within your React project.
@@ -464,7 +464,7 @@ return (
   <ul className="stack">
 #leanpub-start-insert
     <li key="comp-strat" className="card demo">
-        <IconText className="blue" icon="globe" size="5x" text="9 Component Creation Strategies" />
+        <IconText className="blue" icon="globe" size="5x" text="Nine Component Creation Strategies" />
     </li>
     <li key="cust-comp" className="card demo">
         <IconText icon="cog" size="5x" text="Nine Custom Components" />
@@ -636,7 +636,7 @@ to depict component design workflow described in this book.
 As you may have noticed so far, we are following a repeating structure for the content
 of this chapter.
 
-We have outlined 9 different **scenarios** for creating components in React,
+We have outlined nine different **scenarios** for creating components in React,
 like this section **Wireframe to React (Sw)**. We are also indicating a unique **symbol** (Sw) to
 identify the scenario, normally following the first character from high level workflow **(S)tart Component Design**
 and second letter from scenario name like **(w)orkflow** in this case.
