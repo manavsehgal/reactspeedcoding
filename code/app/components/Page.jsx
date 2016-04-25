@@ -30,8 +30,7 @@ export default class Page extends React.Component {
         <aside className="aside aside-2">
           <LeanPub bookid="reactspeedcoding" />
           <h3>
-          ReactSpeed equips you, for your React project requirements,
-          with best practices, optimized workflows, and powerful tooling.
+          ReactSpeed equips you with best practices, optimized workflows, and powerful tooling.
           </h3>
         </aside>
         <footer className="footer">

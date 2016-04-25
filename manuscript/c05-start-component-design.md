@@ -349,6 +349,10 @@ return (
 Run your app and you will notice the video player takes shape and size of the card. It also
 scales when the card dimensions change on different screen sizes.
 
+We have added another component ```LeanPub``` which uses LeanPub embed code to display
+a book by ```bookid``` adding this component to ```Page``` aside. You can view the source
+on GitHub for [LeanPub.jsx][5] here.
+
 {pagebreak}
 
 ## CSS libraries to React (Sc)
@@ -930,3 +934,4 @@ I> starting component design in React.
 [2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 [3]: https://fortawesome.github.io/Font-Awesome/
 [4]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+[5]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/LeanPub.jsx

@@ -2,7 +2,7 @@
 
 $white:     floralwhite;
 $blue:      color(deepskyblue lightness(30%));
-$red:       crimson;
+$red:       lightcoral;
 $yellow:    wheat;
 $orange:    coral;
 $black:     #4D4E53; /* charcoal gray */
@@ -15,6 +15,7 @@ $lightblue: color(deepskyblue lightness(80%));
 $fadesand:  color(wheat saturation(30%));
 $sand:      color(wheat lightness(80%));
 $gray:      color($black lightness(80%));
+$fadegray:  color($black lightness(90%));
 $fadeblack:  color($black lightness(50%));
 
 /* Page styles */
@@ -52,7 +53,9 @@ $link-color:        $blue;
 .orange { color: $orange; }
 .sand { color: $sand; }
 .gray { color: $gray; }
+
 .fadeblue { color: $fadeblue; }
 .fadesand { color: $fadesand; }
 .lightblue { color: $lightblue; }
 .fadeblack { color: $fadeblack; }
+.fadegray { color: $fadegray; }

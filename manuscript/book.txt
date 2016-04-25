@@ -3,4 +3,4 @@ c02-es6-react-guide.md
 c03-production-optimize-webpack.md
 c04-react-speed-ui.md
 c05-start-component-design.md
-c10-firebase-react-integration.md
+c11-firebase-react-integration.md

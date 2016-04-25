@@ -10,7 +10,7 @@
 }
 
 .header {
-  background: $lightblue;
+  background: $green;
 }
 
 .footer {
@@ -28,7 +28,7 @@
 }
 
 .aside-2 {
-  background: $sand;
+  background: $fadegray;
   width: 200px;
 }
 
