@@ -1,6 +1,6 @@
 # Start Component Design (S)
 
-If the blank, dark code editor window is staring back at you, do not despair. We will run through 11
+If the blank, dark code editor window is staring back at you, do not despair. We will run through 9
 different ways you can get started building your components in React!
 
 The objective at this stage is to speedily "prototype" new features and code within your React project.
@@ -13,8 +13,6 @@ Here is what you will learn in this chapter along with sample code.
 - Converting CSS libraries into React components.
 - Integrating third-party REST APIs to start creating React components.
 - Moving from a wireframe to a React component.
-- Designing mock and converting it to a React component.
-- Creating a working prototype and translating this to a React component.
 - Starting with a data table and turing this into a React component.
 - How to handle real-time streams as a React component.
 - How to model documents as a React component.
@@ -462,7 +460,7 @@ return (
   <ul className="stack">
 #leanpub-start-insert
     <li key="comp-strat" className="card demo">
-        <IconText className="blue" icon="globe" size="5x" text="11 Component Creation Strategies" />
+        <IconText className="blue" icon="globe" size="5x" text="9 Component Creation Strategies" />
     </li>
     <li key="cust-comp" className="card demo">
         <IconText icon="cog" size="5x" text="Nine Custom Components" />
@@ -630,7 +628,7 @@ to depict component design workflow described in this book.
 As you may have noticed so far, we are following a repeating structure for the content
 of this chapter.
 
-We have outlined 11 different **scenarios** for creating components in React,
+We have outlined 9 different **scenarios** for creating components in React,
 like this section **Wireframe to React (Sw)**. We are also indicating a unique **symbol** (Sw) to
 identify the scenario, normally following the first character from high level workflow **(S)tart Component Design**
 and second letter from scenario name like **(w)orkflow** in this case.
@@ -892,14 +890,6 @@ HTML enables.
 
 Finally, as we have created a reusable component, it can be made to relate with other components to achieve interesting
 use cases. We will cover such use cases in the chapter **Wire Multiple Components**.
-
-## Mock to React (Sm)
-
-You may have designed a mock for your app using tools like Sketch.
-
-## Prototype to React (Sp)
-
-Rapid prototyping tools take mocks a step further by building interactivity.
 
 ## Data table to React (St)
 
