@@ -528,6 +528,7 @@ So in our latest code update the ```messages``` array is just an array of unique
 We pass this on to key attribute as well as the value for the list items. This further simplifies
 our component code.
 
+
 {pagebreak}
 
 ## Recommended Reading List

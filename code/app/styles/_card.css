@@ -12,11 +12,11 @@
 .card {
   color: $black;
 
-  width: 200px;
-  height: 150px;
-
   padding: 5px;
   margin: 5px;
+
+  width: 200px;
+  height: 150px;
 
   font-weight: lighter;
   line-height: $normal-line-height;
@@ -25,6 +25,7 @@
 
   box-shadow: 1px 1px 1px 0px rgba(87,87,87,1);
 }
+
 
 .message {
   background: $yellow;

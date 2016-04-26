@@ -13,7 +13,11 @@ export default class Page extends React.Component {
           <li><a href="https://github.com/manavsehgal/reactspeedcoding">Code</a></li>
           <li><a href="https://leanpub.com/reactspeedcoding/feedback">Discuss</a></li>
         </ul>
-        <header className="header">This app is built using code from the book <a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>. Concept to coding React apps, speedily!</header>
+        <header className="header">
+          This app is built using code from
+          the book <a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>.
+          Concept to coding React apps, speedily!
+        </header>
         <article className="main">
           <CardStack />
         </article>
@@ -23,9 +27,9 @@ export default class Page extends React.Component {
           real-time database using Firebase. Apply new ES6 features to make your React code more reliable.</p>
           <p>Download and reuse fully tested source code from GitHub. Run demo app and components live
           at ReactSpeed website.</p>
-         <p>Master component design workflow
+          <p>Master component design workflow
           with several strategies for reusable, reliable, and rapid coding in React.</p>
-        <h4>Get the book <a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>.</h4>
+          <h4>Get the book <a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>.</h4>
         </aside>
         <aside className="aside aside-2">
           <LeanPub bookid="reactspeedcoding" />

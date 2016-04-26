@@ -396,6 +396,16 @@ This also sets us up for adding more npm maintained styles in the future.
 
 {pagebreak}
 
+## CSS minifying
+
+Our build takes care of CSS minifying. The css-loader uses ```cssnano``` as a dependency which in turn uses ```postcss-discard-comments``` plugin to minify CSS output.
+
+Read more about configuring the cssnano within css-loader [here][14].
+
+The cssnano minifying options are documented [here][15].
+
+{pagebreak}
+
 ## Recommended Reading List
 
 We will refer to following excellent articles and posts in order to build our understanding
@@ -424,3 +434,5 @@ around production optimization when it relates to Webpack, React, and other comp
 [11]: https://github.com/hail2u/node-csswring
 [12]: https://github.com/postcss/postcss-loader/issues/8
 [13]: https://github.com/manavsehgal/reactspeedcoding/issues/1
+[14]: https://github.com/webpack/css-loader#minification
+[15]: http://cssnano.co/options/
