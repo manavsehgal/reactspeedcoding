@@ -30,41 +30,29 @@ export default class CardStack extends React.Component {
   render () {
     const messages = this.props.messages;
     const renderMessages = messages.map(message =>
-        <Card key={message} message={message} />
+        <Card key={message} message><h3>{message}</h3></Card>
       );
 
     return (
       <ul className="stack">
-        <li key="workflow" className="card demo">
-          <Workflow />
-        </li>
-        <li key="comp-strat" className="card demo">
+        <Card key="workflow" size="2w"><Workflow /></Card>
+        <Card key="comp-strat">
           <IconText className="blue" icon="globe"
-            size="5x" text="Nine Component Creation Strategies" />
-        </li>
-        <li key="cust-comp" className="card demo">
+            size="4x" text="Nine Component Creation Strategies" />
+        </Card>
+        <Card key="comp-cust">
           <IconText icon="cog"
-            size="5x" text="10 Custom Components" />
-        </li>
-        <li key="fire-base" className="card demo">
+            size="4x" text="10 Custom Components" />
+        </Card>
+        <Card key="firebase">
           <IconText className="orange" icon="database"
-            size="5x" text="Firebase React Integration" />
-        </li>
-        <li key="github-react" className="card demo">
-          <GitHub repo="facebook/react" />
-        </li>
-        <li key="github-webpack" className="card demo">
-          <GitHub repo="webpack/webpack" />
-        </li>
-        <li key="github-redux" className="card demo">
-          <GitHub repo="reactjs/redux" />
-        </li>
-        <li key="youtube" className="card demo">
-          <YouTube videoid="MGuKhcnrqGA" />
-        </li>
-        <li key="world" className="card demo">
-          <World />
-        </li>
+            size="4x" text="Firebase React Integration" />
+        </Card>
+        <Card key="github-react"><GitHub repo="facebook/react" /></Card>
+        <Card key="github-webpack"><GitHub repo="webpack/webpack" /></Card>
+        <Card key="github-redux"><GitHub repo="reactjs/redux" /></Card>
+        <Card key="youtube"><YouTube videoid="MGuKhcnrqGA" /></Card>
+        <Card key="world"><World /></Card>
         {renderMessages}
       </ul>
     );

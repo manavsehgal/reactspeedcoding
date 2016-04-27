@@ -94,13 +94,13 @@ export default class Workflow extends React.Component {
         </div>
         <div className="workflow-nav">
           <div onClick={this.cycleScenario} className="symbol">
-            <i className="fa fa-caret-left"></i> {currentStep.symbol}
+            <i className="fa fa-refresh"></i> {currentStep.symbol}
           </div>
           <div className="steps">
             {stepsCount}
           </div>
           <div onClick={this.cycleSequence} className="sequence">
-            {currentStep.sequence} <i className="fa fa-caret-right"></i> 
+            {currentStep.sequence} <i className="fa fa-arrow-right"></i>
           </div>
         </div>
       </div>

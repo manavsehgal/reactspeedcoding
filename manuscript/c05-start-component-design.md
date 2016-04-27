@@ -927,7 +927,7 @@ Do you want to add more capabilities to HTML markup elements? React can help.
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
-I> Plan is to add examples for each of the 10 different ways for speedily
+I> Plan is to add examples for each of the nine different ways for speedily
 I> starting component design in React.
 
 [1]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/

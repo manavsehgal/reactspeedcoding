@@ -14,20 +14,26 @@ new components.
 
 ## Imports and exports
 
-Important things to remember about imports and exports.
+You will start React component definition with a set of import statements referencing
+modules which are your component dependencies. You will also export the component defined.
 
+- Use ```import ComponentName from 'library';``` statement to import modules.
 - App entry point index.jsx requires React and ReactDOM modules.
 - ReactDOM module exposes DOM-specific methods.
 - React module has the core tools shared by React on different platforms like, React Native.
 
-
 ## Stateless components
 
-How to decide and define.
+- Cannot use stateless components when rendering ```this.props.children``` within your component.
+
 
 ## Classes and inheritance
 
+When to use and how.
+
 ## Constructor and binding
+
+When to use and how.
 
 ## Property types
 
@@ -50,17 +56,18 @@ Important things to remember about render method and ReactDOM.render.
 - ReactDOM.render instantiates the root component, starts the react framework, and injects the
 markup into a raw DOM element, provided as the second argument.
 
-
 ## JSX features and syntax
 
 JSX is what you write within ```render() return()``` method. JSX gets transpiled to JS
 by Babel in our build environment.
 
-Important things to remember about JSX.
-
 - JSX HTML-like tags are React framework components representing HTML tags and attributes.
 - JSX components use ```className``` instead of ```class``` when specifying CSS classes.
--
+
+I> ## Chapter In Progress
+I> We are still writing this chapter. Please watch this space for updates.
+I> Plan is to add checklist of guidance for each section of component definition.
+
 
 [1]: https://github.com/airbnb/javascript/tree/master/react
 [2]: https://facebook.github.io/react/index.html

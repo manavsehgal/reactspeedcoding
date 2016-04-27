@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
-export default function Card(props) {
-  return (
-    <li className="card message">
-      <h3>{props.message}</h3>
-    </li>
-  );
+export default class Card extends React.Component {
+  static propTypes = { size: PropTypes.string, message: PropTypes.bool }
+  static defaultProps = { size: '', message: false }
+  render() {
+    const messageClass = this.props.message ? ' message': '';
+
+    const cardClass = this.props.size
+      ? `card-${this.props.size}${messageClass}`
+      : `card${messageClass}`;
+
+    return (
+      <li className={cardClass}>
+        {this.props.children}
+      </li>
+    );
+  }
 }

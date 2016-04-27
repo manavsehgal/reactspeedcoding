@@ -9,16 +9,13 @@
   justify-content: space-around;
 }
 
-.card {
+.card-theme {
   color: $black;
-
+  background: $fadesand;
   padding: 5px;
   margin: 5px;
 
-  width: 200px;
-  height: 150px;
-
-  font-weight: lighter;
+  font-weight: normal;
   line-height: $normal-line-height;
   font-size: $normal-font-size;
   text-align: center;
@@ -26,6 +23,17 @@
   box-shadow: 1px 1px 1px 0px rgba(87,87,87,1);
 }
 
+.card {
+  @extend .card-theme;
+  width: 200px;
+  height: 150px;
+}
+
+.card-2w {
+  @extend .card-theme;
+  width: 430px;
+  height: 150px;
+}
 
 .message {
   background: $yellow;
@@ -42,12 +50,12 @@
 }
 
 @media all and (max-width: 800px) {
-  .card {
+  .card, .card-2w {
     width: 100%;
   }
 }
 @media all and (max-width: 600px) {
-  .card {
+  .card, .card-2w {
     width: 100%;
   }
 }

@@ -3,4 +3,10 @@ c02-es6-react-guide.md
 c03-production-optimize-webpack.md
 c04-react-speed-ui.md
 c05-start-component-design.md
+c06-define-component-internals.md
+c07-wire-multiple-components.md
+c08-refactor-existing-components.md
+c09-test-app-components.md
+c10-component-design-workflow.md
 c11-firebase-react-integration.md
+c12-react-developer-experience.md

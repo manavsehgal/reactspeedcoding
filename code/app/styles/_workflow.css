@@ -8,7 +8,6 @@
 .scenario-theme {
   color: $white;
   background: $blue;
-  font-weight: bold;
 }
 
 .workflow-scenario {
@@ -32,12 +31,13 @@
 }
 
 .workflow-nav {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
   margin-top: 5px;
   font-size: 1.5em;
   line-height: 35px;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   flex: 1 30%;
   order: 3;
 
