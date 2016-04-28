@@ -1,20 +1,22 @@
-# Define Component Internals
+# Define Component Internals (D)
 
 This chapter does a deep dive into best practices for defining your React component internals.
-We will add naming conventions to our best practice guidance, mostly following two sources.
+We will add naming conventions to our best practice guidance, mostly following three sources.
 
 - The official [Facebook React docs and tutorials][2]
 - [Airbnb React style guide][1]
-
-We will also add ES6 features and best practices which make your component design
+- We will also add ES6 features and best practices which make your component design
 more readable, reusable, and robust.
 
-In this chapter we will also expand on our React Speed UI framework by adding several
-new components.
+To maintain this chapter as an easy to follow *cheatsheet* format, we will only
+list minimal code snippets from samples discussed in other chapters.
 
 {pagebreak}
 
-## Naming files, folders, and modules
+## Naming files, folders, and modules (Df)
+
+This section outlines strategies for organizing and naming files, folders, and modules, within
+your React app.
 
 - Use ```.jsx``` extension for React components.
 - Entry point for app is ```/app/index.jsx``` file.
@@ -24,24 +26,12 @@ new components.
 - Use camelCase for variable names representing instances of React components.
 - Presentational components go into ```/app/components``` folder.
 - Container components go into ```/app/containers``` folder.
-
 - Entry point for styles is ```/app/style.css``` file which imports the partials.
 - Style partials follow ```_component_name.css``` naming within ```/app/styles``` folder.
 
-**Styles organization.** Some guidance on styles organization suggests keeping css
-and component jsx together. We see several benefits of keeping styles separate
-and not alongside components.
-
-- We can organize styles using the popular 7-1 pattern used by many CSS frameworks.
-- We can organize partials and main imports file in one place.
-- Styles for container and presentational components can be in same file logically.
-- If you have a designer and developer in your team, they could be working on their own
-folders with clearly defined interfaces in the form of naming conventions and organization principles.
-- You can easily package your UI framework styles for independent distribution if required.
-
 {pagebreak}
 
-## Imports and exports
+## Imports and exports (Di)
 
 A> Note that import and export of modules is an ES6 feature.
 
@@ -76,14 +66,14 @@ export default function YouTube(props) {...
 
 {pagebreak}
 
-## Stateless components
+## Stateless components and pure functions (Dp)
 
 - If there are no states or refs then prefer normal functions over classes.
 - Multiple stateless components are allowed per file.
 - You can declare a stateless component function with props.
 - Declare a stateless component function with specific properties using destructuring assignment.
 
-```
+```javascript
 export default function YouTube(props) {...
 
 export default function YouTube({videoid}) {...
@@ -93,29 +83,29 @@ export default function YouTube({videoid}) {...
 
 {pagebreak}
 
-## Classes and inheritance
+## Classes and inheritance (Dc)
 
 - Only one class defined component per file.
 
 
-## Constructor and binding
+## Constructor and binding (Db)
 
 When to use and how.
 
-## Property types
+## Property types (Dt)
 
 Various tricks we can do with properties like spread operator, destructuring assignment,
 Component for custom DOM element as property.
 
-## State management
+## State management (Ds)
 
 When to use state and how.
 
-## Lifecycle methods
+## Lifecycle methods (Dl)
 
 How to decide which lifecycle methods to use and why.
 
-## Render and ReactDOM.render methods
+## Render and ReactDOM.render methods (Dr)
 
 Important things to remember about render method and ReactDOM.render.
 
@@ -125,7 +115,7 @@ markup into a raw DOM element, provided as the second argument.
 
 {pagebreak}
 
-## JSX features and syntax
+## JSX features and syntax (Dj)
 
 JSX is what you write within ```render() return()``` method. JSX gets transpiled to JS
 by Babel in our build environment.

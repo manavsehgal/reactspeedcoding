@@ -1,4 +1,4 @@
-# Wire Multiple components
+# Wire Multiple components (W)
 
 React is all about composition of multiple components. This chapter highlights
 best practices in deciding how to design for inter-related multiple components
@@ -12,17 +12,17 @@ You will learn following concepts in this important chapter.
 
 {pagebreak}
 
-## Presentational and container components
+## Presentational and container components (Wc)
 
 Strategies to decide which is which.
 
-## Passing Component as a property
+## Passing Component as a property (Wp)
 
 See how React Font Awesome component [passes a component as a property][4].
 
 {pagebreak}
 
-## Reconciliation algorithm and keys for dynamic children
+## Reconciliation algorithm and keys for dynamic children (Wk)
 
 This section is important when you are designing component hierarchies with multiple, repeating
 components.
@@ -107,6 +107,18 @@ render () {
 }
 ~~~~~~~
 
+{pagebreak}
+
+## Key in repeating items (Code update 2016-04-20)
+
+This change applies to the ```messages``` array and list item key attributes.
+
+We can simplify the key requirement for repeat elements by passing actual value from the array
+as long as we are certain that the array values will remain unique.
+
+So in our latest code update the ```messages``` array is just an array of unique strings as messages.
+We pass this on to key attribute as well as the value for the list items. This further simplifies
+our component code.
 
 {pagebreak}
 

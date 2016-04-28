@@ -517,26 +517,29 @@ code from this chapter's code commit.
 
 {pagebreak}
 
-## Key in repeating items (Code update 2016-04-20)
-
-This change applies to the ```messages``` array and list item key attributes.
-
-We can simplify the key requirement for repeat elements by passing actual value from the array
-as long as we are certain that the array values will remain unique.
-
-So in our latest code update the ```messages``` array is just an array of unique strings as messages.
-We pass this on to key attribute as well as the value for the list items. This further simplifies
-our component code.
-
 ## Visual design principles
 
 During the design of React Speed UI, we will try to reference many of the visual design principles.
-For detailed explanation please refer to paper by Miles Kimball on this topic [Visual Design Principles: An Empirical Study of Design Lore][23] available on Academia.edu.
+For detailed categorization of these principles please refer to paper by Miles Kimball on this topic [Visual Design Principles: An Empirical Study of Design Lore][23] available on Academia.edu. For explanation of some
+of the important principles along with best practice examples, you can refer to TutsPlus article on [A Comprehensive Introduction to Visual Design][26].
+
+{pagebreak}
 
 ## CSS organization and naming
 
 For folders and organization we will extend the [The 7-1 pattern][24] by Hugo Giraudel, which includes 7 folders
 for partials and 1 main file for imports. Hugo has also made available a [GitHub repo][25] with boilerplate referencing the 7-1 pattern. Although the pattern describes Sass organization, it very well applies to CSS with PostCSS.
+
+Some guidance on styles organization suggests keeping css and component jsx together. We see several benefits of keeping styles separate and not alongside components.
+
+- We can organize styles using the popular 7-1 pattern used by many CSS frameworks.
+- We can organize partials and main imports file in one place.
+- Styles for container and presentational components can be in the same file. Firstly, these
+styles are logically related, like flexbox container and child ordering. Secondly, container
+components have minimal associated style information.
+- If you have a designer and developer in your team, they could be working on their own
+folders with clearly defined interfaces in the form of naming conventions and organization principles.
+- You can easily package your UI framework styles for independent distribution if required.
 
 {pagebreak}
 
@@ -576,3 +579,4 @@ in this guide as a starting point for our app.
 [23]: https://www.academia.edu/11637848/Visual_Design_Principles_An_Empirical_Study_of_Design_Lore
 [24]: https://sass-guidelin.es/#the-7-1-pattern
 [25]: https://github.com/HugoGiraudel/sass-boilerplate
+[26]: http://webdesign.tutsplus.com/articles/a-comprehensive-introduction-to-visual-design--cms-26224

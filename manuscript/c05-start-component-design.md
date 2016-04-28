@@ -13,7 +13,7 @@ Here is what you will learn in this chapter along with sample code.
 - Converting CSS libraries into React components.
 - Integrating third-party REST APIs to start creating React components.
 - Moving from a wireframe to a React component.
-- Starting with a data table and turing this into a React component.
+- Starting with a data table and turning this into a React component.
 - How to handle real-time streams as a React component.
 - How to model documents as a React component.
 - How to enhance HTML elements as React components.
