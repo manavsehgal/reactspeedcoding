@@ -1,11 +1,7 @@
 # Refactor Existing Components
 
-{pagebreak}
-
-## ES5 to ES6 React component definition
-
-Most React content on the Web still refers to ES5 code. This section is about
-refactoring existing E5 React component to ES6 code.
+Refactoring is an essential part of iterative development. React is ideal for iterative
+refactoring of your code because of component based development.
 
 {pagebreak}
 
@@ -125,6 +121,11 @@ only within the owner component or only within the contained component, this str
 provides an easy path to refactoring.
 
 {pagebreak}
+
+## ES5 to ES6 React component definition
+
+Most React content on the Web still refers to ES5 code. This section is about
+refactoring existing E5 React component to ES6 code.
 
 ## Testing and refactoring
 

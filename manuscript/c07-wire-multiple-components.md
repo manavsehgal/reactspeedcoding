@@ -57,10 +57,10 @@ const renderMessages = messages.map(message =>
 
 If you do not supply the key in this piece of code, following warning results.
 
-B> ## React keys warning in browser console.
-B> Warning: Each child in an array or iterator should have a unique "key" prop.
-B> Check the render method of `CardStack`.
-B> See https://fb.me/react-warning-keys for more information.
+E> ## React keys warning in browser console
+E> Warning: Each child in an array or iterator should have a unique "key" prop.
+E> Check the render method of `CardStack`.
+E> See https://fb.me/react-warning-keys for more information.
 
 - **Database id as key.** When using a database to create dynamic elements, you may want to reuse any
 unique ids maintained by your database as key. This transfers the key stability and uniqueness burden
@@ -71,7 +71,7 @@ that the specific component is rendering.
 in a discussion forum, you may want to explore trade-offs between using a GUID generator library or using the underlying database for the unique ids. We prefer the latter approach as it creates less performance burden for our front-end
 and avoids data redundancy in maintaining two sets of uniques per record or document.
 
-With this understanding our ```CardStack``` component gets further simplified. We no longer have to supply 
+With this understanding our ```CardStack``` component gets further simplified. We no longer have to supply
 keys to child components which are not part of an iterator.
 
 {title="/app/components/CardStack.jsx render method", lang=javascript}

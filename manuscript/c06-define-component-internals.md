@@ -28,8 +28,9 @@ new components.
 - Entry point for styles is ```/app/style.css``` file which imports the partials.
 - Style partials follow ```_component_name.css``` naming within ```/app/styles``` folder.
 
-Some guidance on styles organization suggests keeping css and component jsx together. We
-see several benefits of keeping styles separate and not alongside components.
+**Styles organization.** Some guidance on styles organization suggests keeping css
+and component jsx together. We see several benefits of keeping styles separate
+and not alongside components.
 
 - We can organize styles using the popular 7-1 pattern used by many CSS frameworks.
 - We can organize partials and main imports file in one place.
@@ -53,23 +54,21 @@ defining in a ```ComponentName.jsx``` file.
 - ReactDOM module exposes DOM-specific methods.
 - React module has the core tools shared by React on different platforms like, React Native.
 - You can use ```import {Module1, Module2} from 'library';``` to import specific modules
-directly.
+directly. This way you can reduce some coding by referencing these modules directly.
 
-This way you can reduce some coding by referencing these modules directly.
-
-```
+```javascript
 import React, {PropTypes} from 'react';
 ```
 
 - Alias an imported member name and use the alias within your code.
 
-```
+```javascript
 import React, {VeryLongModuleName as shortName} from 'react';
 ```
 
 - Use ```export default``` statements to prefix component name declaration for exporting.
 
-```
+```javascript
 export default class Card extends React.Component {...
 
 export default function YouTube(props) {...
