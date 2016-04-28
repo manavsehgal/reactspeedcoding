@@ -8,7 +8,7 @@ for your apps. We will do so using Flexbox, PostCSS, and custom React components
 
 {pagebreak}
 
-## Design Goals
+## React Speed UI objectives
 
 Designing a custom UI framework is an ambitious undertaking. Our task becomes achievable if we scope
 our design goals upfront.
@@ -528,6 +528,15 @@ So in our latest code update the ```messages``` array is just an array of unique
 We pass this on to key attribute as well as the value for the list items. This further simplifies
 our component code.
 
+## Visual design principles
+
+During the design of React Speed UI, we will try to reference many of the visual design principles.
+For detailed explanation please refer to paper by Miles Kimball on this topic [Visual Design Principles: An Empirical Study of Design Lore][23] available on Academia.edu.
+
+## CSS organization and naming
+
+For folders and organization we will extend the [The 7-1 pattern][24] by Hugo Giraudel, which includes 7 folders
+for partials and 1 main file for imports. Hugo has also made available a [GitHub repo][25] with boilerplate referencing the 7-1 pattern. Although the pattern describes Sass organization, it very well applies to CSS with PostCSS.
 
 {pagebreak}
 
@@ -564,3 +573,6 @@ in this guide as a starting point for our app.
 [20]: https://www.smashingmagazine.com/2015/12/introduction-to-postcss/
 [21]: https://philipwalton.github.io/solved-by-flexbox/
 [22]: https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75#.jppjlyz4r
+[23]: https://www.academia.edu/11637848/Visual_Design_Principles_An_Empirical_Study_of_Design_Lore
+[24]: https://sass-guidelin.es/#the-7-1-pattern
+[25]: https://github.com/HugoGiraudel/sass-boilerplate

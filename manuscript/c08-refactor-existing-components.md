@@ -1,9 +1,13 @@
 # Refactor Existing Components
 
+{pagebreak}
+
 ## ES5 to ES6 React component definition
 
 Most React content on the Web still refers to ES5 code. This section is about
 refactoring existing E5 React component to ES6 code.
+
+{pagebreak}
 
 ## Refactoring to render node children
 
@@ -11,7 +15,7 @@ All JSX HTML-like tags are actually React components. You can start your compone
 design by copying HTML from a sample or existing source into render method.
 
 At some stage you will want to convert these nodes into React components and gain
-benefits of composition design pattern, among other.
+benefits of composition design pattern, among others.
 
 A straightforward strategy to do this kind of refactoring is
 to use ```this.props.children```. Any nodes or components contained within a
@@ -25,10 +29,10 @@ manner. Cases where you want to future-proof your code and add new child nodes,
 representing new components, are also ideal for this refactoring strategy.
 
 Our ```Card``` and ```CardStack``` components are ideal for this refactoring strategy.
-So far we have been adding any custom components to the ```CardStack``` using ```<li>``` node
+So far we have been adding many custom components to the ```CardStack``` using ```<li>``` node
 as parent for the child component. Now let us consider a scenario where you want to
 use ```<div>``` instead of ```<li>``` or a more complex set of HTML and CSS to represent
-a ```Card```. You will face two challenges. You will need to find a replace nodes in multiple
+a ```Card```. You will face two challenges. You will need to find and replace nodes in multiple
 places. Any changes done to ```Card``` component will not reflect, unless you copy these
 changes to nodes that are not rendering the ```Card``` component.
 
@@ -119,6 +123,8 @@ Extending HTML nodes or React components representing standard HTML tags is anot
 use case for this refactoring strategy. As long as you are consuming any properties
 only within the owner component or only within the contained component, this strategy
 provides an easy path to refactoring.
+
+{pagebreak}
 
 ## Testing and refactoring
 

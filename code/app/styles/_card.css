@@ -35,6 +35,13 @@
   height: 150px;
 }
 
+.card-2x {
+  @extend .card-theme;
+  width: 430px;
+  height: 330px;
+}
+
+
 .message {
   background: $yellow;
   cursor: pointer;
@@ -50,12 +57,12 @@
 }
 
 @media all and (max-width: 800px) {
-  .card, .card-2w {
+  .card, .card-2w, .card-2x {
     width: 100%;
   }
 }
 @media all and (max-width: 600px) {
-  .card, .card-2w {
+  .card, .card-2w, .card-2x {
     width: 100%;
   }
 }

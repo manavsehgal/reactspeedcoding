@@ -5,3 +5,7 @@ body {
   padding: $page-padding;
   font-size: 100%;
 }
+
+.link {
+  cursor: pointer;
+}

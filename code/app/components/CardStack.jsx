@@ -35,24 +35,23 @@ export default class CardStack extends React.Component {
 
     return (
       <ul className="stack">
-        <Card key="workflow" size="2w"><Workflow /></Card>
-        <Card key="comp-strat">
-          <IconText className="blue" icon="globe"
-            size="4x" text="Nine Component Creation Strategies" />
+        <Card size="2w"><Workflow /></Card>
+        <Card>
+          <IconText className="blue" icon="globe" size="4x"
+            text="Nine Component Creation Strategies" />
         </Card>
-        <Card key="comp-cust">
-          <IconText icon="cog"
-            size="4x" text="10 Custom Components" />
+        <Card>
+          <IconText icon="cog" size="4x" text="10 Custom Components" />
         </Card>
-        <Card key="firebase">
-          <IconText className="orange" icon="database"
-            size="4x" text="Firebase React Integration" />
+        <Card>
+          <IconText className="orange" icon="database" size="4x"
+          text="Firebase React Integration" />
         </Card>
-        <Card key="github-react"><GitHub repo="facebook/react" /></Card>
-        <Card key="github-webpack"><GitHub repo="webpack/webpack" /></Card>
-        <Card key="github-redux"><GitHub repo="reactjs/redux" /></Card>
-        <Card key="youtube"><YouTube videoid="MGuKhcnrqGA" /></Card>
-        <Card key="world"><World /></Card>
+        <Card><GitHub repo="facebook/react" /></Card>
+        <Card><GitHub repo="webpack/webpack" /></Card>
+        <Card><GitHub repo="reactjs/redux" /></Card>
+        <Card><World /></Card>
+        <Card size="2x"><YouTube videoid="MGuKhcnrqGA" /></Card>
         {renderMessages}
       </ul>
     );
