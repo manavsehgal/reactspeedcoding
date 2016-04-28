@@ -14,7 +14,15 @@ You will learn following concepts in this important chapter.
 
 ## Presentational and container components (Wc)
 
-Strategies to decide which is which.
+To help understand this important section, let us create a small app
+to manage the features roadmap for ReactSpeed book and companion code. We want to list
+upcoming and recent content and components. Users should have the capability
+to *like* features they want to see first.
+
+Our roadmap app will require a component to render individual feature.
+It will also require a component to manage a list of feature components. We would
+also add a search box. A categorize dropdown to list features by categories
+like components, styles, chapters, sections, and strategies.
 
 ## Passing Component as a property (Wp)
 

@@ -525,9 +525,9 @@ of the important principles along with best practice examples, you can refer to 
 
 {pagebreak}
 
-## CSS organization and naming
+## CSS best practices and patterns
 
-For folders and organization we will extend the [The 7-1 pattern][24] by Hugo Giraudel, which includes 7 folders
+For CSS folders and organization, we will extend the [The 7-1 pattern][24] by Hugo Giraudel, which includes 7 folders
 for partials and 1 main file for imports. Hugo has also made available a [GitHub repo][25] with boilerplate referencing the 7-1 pattern. Although the pattern describes Sass organization, it very well applies to CSS with PostCSS.
 
 Some guidance on styles organization suggests keeping css and component jsx together. We see several benefits of keeping styles separate and not alongside components.
@@ -540,6 +540,22 @@ components have minimal associated style information.
 - If you have a designer and developer in your team, they could be working on their own
 folders with clearly defined interfaces in the form of naming conventions and organization principles.
 - You can easily package your UI framework styles for independent distribution if required.
+
+Another set of best practices we will follow are around naming conventions.
+
+Detailed CSS organization and naming best practices include [SMACSS][29], [BEM][30],
+and [OOCSS][31], among many others.
+
+We find an easier starting point with guidance available at [SaasWay][27] around modular CSS naming, and [OxygenCSS][28] around object oriented principles for CSS naming. These strike a good balance between
+speed of implementation, ease of reading code, and following standards prescribed in more detailed guides.
+
+Let us reorganize and refactor our styles based on these patterns and best practices. Oxygen CSS suggests four
+basic categories for CSS class names.
+
+1. Objects: Styles meant at React component level.
+2. Subclasses: Styles based on variations in component rendering. Map these to component properties.
+3. Child-objects: Styles based on React component nodes of an owner component.
+4. Modifiers: Styles based on React component state.
 
 {pagebreak}
 
@@ -580,3 +596,8 @@ in this guide as a starting point for our app.
 [24]: https://sass-guidelin.es/#the-7-1-pattern
 [25]: https://github.com/HugoGiraudel/sass-boilerplate
 [26]: http://webdesign.tutsplus.com/articles/a-comprehensive-introduction-to-visual-design--cms-26224
+[27]: http://thesassway.com/advanced/modular-css-naming-conventions
+[28]: http://oxygencss.com/book/02-oxygen-naming-conventions.html
+[29]: https://smacss.com/
+[30]: http://getbem.com/introduction/
+[31]: https://www.smashingmagazine.com/2011/12/an-introduction-to-object-oriented-css-oocss/
