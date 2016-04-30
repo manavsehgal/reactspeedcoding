@@ -783,8 +783,10 @@ which we will use in subsequent chapters to turn into React components. We have 
 CSS design and naming methodology based on BEM and other best practice guidance. We have also
 started seeing how our new style framework helps refactor existing components.
 
+![ReactSpeed website after refactoring UI](images/refactor-reactspeed.jpg)
+
 And, one more thing! With all these new styles, components, and reusable code, our production CSS
-is all of 20KB in size. Compare that to most of the popular CSS frameworks, which range between 
+is all of 20KB in size. Compare that to most of the popular CSS frameworks, which range between
 60KB to whooping +500KB, only for the minified CSS, JavaScript not even accounted for!
 
 {pagebreak}

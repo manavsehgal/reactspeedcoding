@@ -1,7 +1,6 @@
 .workflow {
   background: white;
   min-width: 250px;
-  min-height: 150px;
 }
 
 .workflow-scenario {
@@ -17,6 +16,7 @@
   font-size: 1em;
   text-align: left;
   margin-top: 5px;
+  min-height: 100px;
   padding: 2px;
 }
 
