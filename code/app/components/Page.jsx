@@ -11,9 +11,6 @@ export default class Page extends React.Component {
             <a className="navigation-link navigation-brand" href="/">ReactSpeed</a>
           </li>
           <li className="grid-cell auto-size">
-            <a className="navigation-link" href="/"><i className="fa fa-home"></i> Home</a>
-          </li>
-          <li className="grid-cell auto-size">
             <a className="navigation-link"
               href="https://leanpub.com/reactspeedcoding">
                 <i className="fa fa-book"></i> Book
