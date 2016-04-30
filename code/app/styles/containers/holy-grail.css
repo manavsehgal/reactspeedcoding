@@ -17,6 +17,14 @@
   flex: none; /* 2 */
 }
 
+.holygrail-footer {
+  background: gainsboro;
+}
+
+.holygrail-header {
+  background: honeydew;
+}
+
 .holygrail-body {
   display: flex;
   flex: 1 0 auto; /* 2 */
@@ -30,13 +38,17 @@
 
 .holygrail-nav {
   order: -1;
+  background: floralwhite;
+}
+
+.holygrail-ads {
+  background: whitesmoke;
 }
 
 .holygrail-nav,
 .holygrail-ads {
   padding: 1em;
   border-radius: 3px;
-  background: rgba(147, 128, 108, 0.1);
 }
 
 @media (--break-lg) {
