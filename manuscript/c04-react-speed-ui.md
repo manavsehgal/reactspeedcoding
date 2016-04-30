@@ -525,7 +525,25 @@ of the important principles along with best practice examples, you can refer to 
 
 {pagebreak}
 
-## CSS best practices and patterns
+## CSS best practices
+
+This section and the following sections are really important and these impact almost all chapters in this book.
+
+So far we have evolved our CSS library organically. We have followed some
+best practices, we may even have ignored some guidelines for ease of creating and reading early samples.
+As our application and custom UI framework grows in size and complexity, so will our styles library.
+
+Large CSS implementations are infamous for difficulty in maintainability. You can do three things to make
+your CSS code as readable, reusable, and robust as your React code.
+
+1. Follow component oriented design principles we follow in our React code.
+2. Use naming conventions based on well established methodologies.
+3. Incorporate linting and pre/post processing tools automation in your build pipeline.
+
+While we have added PostCSS and other CSS optimization tools to our build pipeline, we will add
+linting in the chapter **Test App Components**.
+
+This section and next focus on 1 and 2. Following component oriented design principles. Developing our style methodology.
 
 For CSS folders and organization, we will extend the [The 7-1 pattern][24] by Hugo Giraudel, which includes 7 folders
 for partials and 1 main file for imports. Hugo has also made available a [GitHub repo][25] with boilerplate referencing the 7-1 pattern. Although the pattern describes Sass organization, it very well applies to CSS with PostCSS.
@@ -546,16 +564,224 @@ Another set of best practices we will follow are around naming conventions.
 Detailed CSS organization and naming best practices include [SMACSS][29], [BEM][30],
 and [OOCSS][31], among many others.
 
-We find an easier starting point with guidance available at [SaasWay][27] around modular CSS naming, and [OxygenCSS][28] around object oriented principles for CSS naming. These strike a good balance between
-speed of implementation, ease of reading code, and following standards prescribed in more detailed guides.
+We following simplified guidance from [modular CSS naming conventions][27] at The Sass Way, based on BEM and SMACSS.
 
-Let us reorganize and refactor our styles based on these patterns and best practices. Oxygen CSS suggests four
-basic categories for CSS class names.
+A> ## 80:20 Rule for Naming Conventions
+A> Note that we will be following BEM and other guidelines with an 80:20 rule.
+A> Twenty percent of guidelines solve for 80% of the issues in creating maintainable, reusable, and readable CSS code.
+A> So please do not look for strict adherence.
+A>
+A> You will also note that various libraries
+A> follow their own variations. As long as you are clear about basic principles,
+A> you will evolve your own set of guidelines from practice. And this is just fine as long as
+A> you have these documented somewhere for the rest of your team.
 
-1. Objects: Styles meant at React component level.
-2. Subclasses: Styles based on variations in component rendering. Map these to component properties.
-3. Child-objects: Styles based on React component nodes of an owner component.
-4. Modifiers: Styles based on React component state.
+As a starter for our refactoring journey, we are extending the excellent [Solved by Flexbox][21] samples repo
+along with [SUIT CSS][32] libraries.
+
+Solved by Flexbox is based on BEM with its own variation, so we will
+refactor the sample code to work with our guidelines.
+
+SUIT CSS is one of the most popular CSS libraries on GitHub, also used at Twitter,
+again using BEM with a few variations.
+
+Import relevant SUIT CSS libraries from NPM. These provide utility classes
+for display types and text truncation, breaking, and alignment.
+
+```
+npm install --save-dev suitcss-utils-display
+npm install --save-dev suitcss-utils-text
+```
+
+## React Speed UI naming methodology
+
+Let us refactor React Speed UI, developing our naming methodology, and reusing the starter libraries.
+
+Following the 7-1 pattern we separate our styles into following folders.
+
+- base: Contains theme variables and global resets.
+- components: Contains partials representing our presentational components.
+- containers: Partials for our container components.
+- utils: Media queries, sizing, spacing, and compatibility.
+- vendor: Specific styles for handling vendor library integration.
+
+Our ```style.css``` entry point imports the partials in one place. We are no longer using underscore
+prefix for our partials, so we can make our webpack configs a bit lighter by one line of code.
+
+```javascript
+PostcssImport({
+  addDependencyTo: webpack,
+  // prefix: '_'
+}),
+```
+
+Next we rename ```demo.css``` sample from Solved by Flexbox to ```card.css```
+and modify the class name to ```.card``` reflecting our component name. We apply following CSS guidelines
+while editing ```card.css``` component styles.
+
+A> ## React Speed UI Naming Methodology
+A> We follow CSS style guidelines around component oriented design. Tightly associating how we name our
+A> styles based on how we organize our React components, multi-component relationships, properties, and state.
+
+- Owner React component styles are represented as objects or nouns and written in spinal-case. So ```.card``` style.
+- Child nodes or contained React components are parent-child relationships represented as spinal-case.
+- Parent-child styles are written in noun-noun or parent-object-child-object format.
+- Parent and child styles are listed side-by-side and DO NOT use nesting. So ```.card-header``` style.
+- Subclasses style component inheritance. Subclasses ```@extend``` base style objects. They are written in adjective-base-object format or subclass-base format. So ```.extended-card``` may extend ```.card``` to add more features.
+- Modifiers are component properties or state.
+- Modifiers are force applied to the object or component they refer by using the ampersand operator.
+- Modifiers are written as adjectives or used descriptively. So ```&.is-message``` and ```&.is-spaced``` modifiers.
+- Use nesting selectively only for modifiers, :pseudo-classes like :hover and ::pseudo-elements like ::after.
+- No PascalCase or camelCase. Use hyphens instead.
+- Alphabetical order of style attributes.
+- Replace hex, hsl, rgb values of colors with CSS color names.
+- Later on we can move color names to ```variables.css``` and use variables to build our reusable theme.
+
+{title="/app/styles/components/card.css refactored code", lang=css}
+~~~~~~~
+.card {
+  background: white;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 0px darkgrey;
+  padding: .8em 1em 0;
+  width: 100%;
+
+  &::after {
+    content: '\00a0'; /* &nbsp; */
+    display: block;
+    height: 0px;
+    margin-top: 1em;
+    visibility: hidden;
+  }
+
+  /* card modifiers */
+
+  &.is-spaced {
+    margin-bottom: var(--space);
+  }
+
+  &.is-message {
+    cursor: pointer;
+    transition: 1s background;
+
+    &:hover {
+      background: honeydew;
+    }
+  }
+}
+~~~~~~~
+
+We then refactor ```grid.css``` based on our naming methodology.
+
+{title="/app/styles/containers/grid.css refactored code", lang=css}
+~~~~~~~
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &.top {
+    align-items: flex-start;
+  }
+
+  &.bottom {
+    align-items: flex-end;
+  }
+
+  &.center {
+    align-items: center;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+}
+
+.grid-cell {
+  flex: 1;
+
+  &.top {
+    align-self: flex-start;
+  }
+
+  &.bottom {
+    align-self: flex-end;
+  }
+
+  &.center {
+    align-self: center;
+  }
+
+  &.auto-size {
+    flex: none;
+  }
+}
+
+/* more code available at reactspeedcoding GitHub repo... */
+~~~~~~~
+
+We can now refactor ```Card.jsx``` and ```CardStack.jsx``` to add styles from ```grid.css``` for
+applying flexbox.
+
+Notice that CardStack now defines the ```gridClass``` constant with significant verbosity. This reflects
+the possible variations for setting up grids including gutters, text justification, and mobile
+breakpoints for responsive grids.
+
+Notice that one of our classes does not follow our no camelCase
+guideline ```u-textCenter``` as this class is defined within SUIT CSS which we are importing using
+NPM. We can live with this infrequent variation, remembering the 80:20 rule.
+
+{title="/app/components/CardStack.jsx refactored code", lang=javascript}
+~~~~~~~
+// some code...
+const gridClass = "grid grid-gutters grid-full grid-flex-cells large-grid-fit u-textCenter";
+
+return (
+  <div>
+    <div className={gridClass}>
+      <Card><Workflow /></Card>
+      <Card><YouTube videoid="MGuKhcnrqGA" /></Card>
+    </div>
+
+// some code...
+~~~~~~~
+
+The Card component also changes slightly with ```grid-cell``` and ```card``` classes
+added within the component render method. Adding ```grid-cell``` within Card component
+has an added benefit of handling iterating cases and size variations through properties.
+This also reduces the repetitive code in CardStack component.
+
+{title="/app/components/Card.jsx refactored code", lang=javascript}
+~~~~~~~
+render() {
+  const cardClass = this.props.message ? 'card is-message': 'card';
+  const gridClass = this.props.size
+    ? `grid-cell u-${this.props.size}`: `grid-cell`;
+
+  return (
+    <div className={gridClass}>
+      <div className={cardClass}>
+        {this.props.children}
+      </div>
+    </div>
+  );
+}
+~~~~~~~
+
+There is more refactoring done to the following. Latest code is downloadable from
+reactspeedcoding GitHub repo.
+
+- The ```Workflow``` component and styles.
+- The ```Page``` component and ```holygrail``` styles.
+- Adding ```modifiers.css``` for global modifiers.
+
+Wow! We accomplished a lot in these sections. We now have many more style modules
+which we will use in subsequent chapters to turn into React components. We have started creating our own
+CSS design and naming methodology based on BEM and other best practice guidance. We have also
+started seeing how our new style framework helps refactor existing components.
 
 {pagebreak}
 
@@ -601,3 +827,4 @@ in this guide as a starting point for our app.
 [29]: https://smacss.com/
 [30]: http://getbem.com/introduction/
 [31]: https://www.smashingmagazine.com/2011/12/an-introduction-to-object-oriented-css-oocss/
+[32]: https://github.com/suitcss/suit

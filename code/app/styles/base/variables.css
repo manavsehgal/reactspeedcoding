@@ -1,0 +1,8 @@
+:root {
+  /* Spacing */
+  --space: 1.5em;
+  --space-lg: 2em;
+
+  /* Element colors*/
+  --bg-color: hsl(150, 45%, 50%);
+}

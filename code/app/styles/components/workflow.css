@@ -1,0 +1,46 @@
+.workflow {
+  background: white;
+  min-width: 250px;
+  min-height: 150px;
+}
+
+.workflow-scenario {
+  color: white;
+  background: steelblue;
+  font-size: 1.2em;
+  line-height: 25px;
+  padding: 2px;
+}
+
+.workflow-text {
+  color: black;
+  font-size: 1em;
+  text-align: left;
+  margin-top: 5px;
+  padding: 2px;
+}
+
+.workflow-nav {
+  margin-top: 5px;
+  font-size: 1.5em;
+  line-height: 35px;
+}
+
+.workflow-nav-symbol {
+  color: white;
+  background: steelblue;
+  cursor: pointer;
+  user-select: none;
+}
+
+.workflow-nav-steps {
+  background: white;
+  color: black;
+}
+
+.workflow-nav-sequence {
+  background: lightslategrey;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}

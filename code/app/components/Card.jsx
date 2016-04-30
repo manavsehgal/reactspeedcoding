@@ -4,16 +4,16 @@ export default class Card extends React.Component {
   static propTypes = { size: PropTypes.string, message: PropTypes.bool }
   static defaultProps = { size: '', message: false }
   render() {
-    const messageClass = this.props.message ? ' message': '';
-
-    const cardClass = this.props.size
-      ? `card-${this.props.size}${messageClass}`
-      : `card${messageClass}`;
+    const cardClass = this.props.message ? 'card is-message': 'card';
+    const gridClass = this.props.size
+      ? `grid-cell u-${this.props.size}`: `grid-cell`;
 
     return (
-      <li className={cardClass}>
-        {this.props.children}
-      </li>
+      <div className={gridClass}>
+        <div className={cardClass}>
+          {this.props.children}
+        </div>
+      </div>
     );
   }
 }

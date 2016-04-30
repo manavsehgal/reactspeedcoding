@@ -1,0 +1,54 @@
+/**
+ * 1. Avoid the IE 10-11 `min-height` bug.
+ * 2. Set `flex-shrink` to `0` to prevent some browsers from
+ *    letting these items shrink to smaller than their content's default
+ *    minimum size. See http://bit.ly/1Mn35US for details.
+ * 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
+ */
+
+.holygrail {
+  display: flex;
+  height: 100%; /* 1, 3 */
+  flex-direction: column;
+}
+
+.holygrail-header,
+.holygrail-footer {
+  flex: none; /* 2 */
+}
+
+.holygrail-body {
+  display: flex;
+  flex: 1 0 auto; /* 2 */
+  flex-direction: column;
+  padding: var(--space);
+}
+
+.holygrail-content {
+  margin-top: var(--space);
+}
+
+.holygrail-nav {
+  order: -1;
+}
+
+.holygrail-nav,
+.holygrail-ads {
+  padding: 1em;
+  border-radius: 3px;
+  background: rgba(147, 128, 108, 0.1);
+}
+
+@media (--break-lg) {
+  .holygrail-body {
+    flex-direction: row;
+  }
+  .holygrail-content {
+    flex: 1;
+    padding: 0 var(--space-lg);
+    margin: 0;
+  }
+  .holygrail-nav, .holygrail-ads {
+    flex: 0 0 12em;
+  }
+}

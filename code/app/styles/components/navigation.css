@@ -1,0 +1,19 @@
+.navigation {
+  list-style: none;
+  background: teal;
+  margin: 0;
+  padding-right: 10px;
+}
+
+.navigation-link {
+  border-bottom: none;
+  border-bottom: 1px solid teal;
+  color: white;
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+}
+
+.navigation-brand {
+  font-weight: bold;
+}

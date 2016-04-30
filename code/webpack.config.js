@@ -46,7 +46,7 @@ module.exports = {
     return [
       PostcssImport({
         addDependencyTo: webpack,
-        prefix: '_'
+        // prefix: '_'
       }),
       precss,
       autoprefixer({ browsers: ['last 2 versions'] })

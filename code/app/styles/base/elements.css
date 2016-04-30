@@ -1,0 +1,95 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  color: hsl(0,0%,25%);
+  font: 400 1em/1.4 'Open Sans', sans-serif;
+  text-rendering: optimizeLegibility;
+}
+@media (--high-dppx) {
+  html {
+    font-weight: 300;
+  }
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 2em;
+  -webkit-font-kerning: normal;
+  letter-spacing: -.015em;
+  line-height: 1;
+  margin: .25em 0 .75em;
+}
+@media (--break-lg) {
+  h1 {
+    font-size: 2.5em;
+    margin: .5em 0 1em;
+  }
+}
+
+
+h2 {
+  font-size: 1.333em;
+  font-weight: 600;
+  margin: 0 0 calc(1.5em/1.333);
+}
+
+h3 {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 0 1.5em;
+}
+
+p,
+pre {
+  margin: 0 0 1.5em;
+}
+
+code,
+pre {
+  font-family: 'Menlo', 'Monaco', monospace;
+}
+
+code {
+  font-size: .9em;
+  font-weight: normal;
+  color: #000;
+}
+
+pre > code {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: steelblue;
+  text-decoration: none;
+}
+a:focus,
+a:hover {
+  border-bottom: 1px solid steelblue;
+}
+
+ol,
+ul {
+  list-style: square;
+  margin: 0 0 1.5em;
+  padding: 0 0 0 1.5em;
+}
+
+li {
+  margin-bottom: 0.333em;
+}
+
+
+figure {
+  margin: 0;
+}
+
+strong {
+  font-weight: 600;
+}
