@@ -5,7 +5,7 @@ React app more reliable, robust, and performant.
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
-I> Plan is to add examples for integrating various testing and linting tools
+I> Plan is to add examples for integrating various testing and lint tools
 I> within your React development workflow.
 
 

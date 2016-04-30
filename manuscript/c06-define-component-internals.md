@@ -9,7 +9,22 @@ We will add naming conventions to our best practice guidance, mostly following t
 more readable, reusable, and robust.
 
 To maintain this chapter as an easy to follow *cheatsheet* format, we will only
-list minimal code snippets from samples discussed in other chapters.
+list minimal code snippets from samples discussed in other chapters and focus on
+the guidelines and strategies for designing component internals.
+
+You will learn following concepts in this chapter.
+
+- Naming files, folders, and modules (Df)
+- Imports and exports (Di)
+- Stateless components and pure functions (Dp)
+- Classes and inheritance (Dc)
+- Constructor and binding (Db)
+- Property types (Dt)
+- State management (Ds)
+- Lifecycle methods (Dl)
+- Render and ReactDOM.render methods (Dr)
+- JSX features and syntax (Dj)
+
 
 {pagebreak}
 

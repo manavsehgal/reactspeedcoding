@@ -2,6 +2,8 @@
 
 Companion code and manuscript of React Speed Coding book is available here.
 
+[![React Speed Coding Book](/manuscript/images/title_page.png)](https://leanpub.com/reactspeedcoding)
+
 [ReactSpeed Demo App](https://reactspeed.firebaseapp.com/) created using sample code from the book.
 
 Clone the repo like so.
@@ -21,7 +23,7 @@ The ```--depth=1``` flag ensures that only the latest commit is cloned.
 Now cd to the ```code``` directory and install dependencies using ```npm install``` command.
 Run sample app using ```npm start``` command.
 
-## [Setup React Webpack][3]
+## Setup React Webpack
 
 > Code: [React Webpack Starter Project][1].
 
@@ -32,7 +34,7 @@ Run sample app using ```npm start``` command.
 - Create Webpack configuration for development pipeline automation.
 - Write and run your first Hello World React app.
 
-## [ES6 React Guide][4]
+## ES6 React Guide
 
 - How to organize your React app in folders and files.
 - How to define a React component using ES6 syntax.
@@ -42,7 +44,7 @@ Run sample app using ```npm start``` command.
 - Importance of stateless components.
 - Using React Chrome Extension to inspect your component hierarchy at runtime.
 
-## [Production Optimize Webpack][5]
+## Production Optimize Webpack
 
 > Code: [Production Optimized Webpack Config][2].
 
@@ -54,7 +56,7 @@ Run sample app using ```npm start``` command.
 - Adding public assets for your app.
 - Creating custom index template.
 
-## [React Speed UI][7]
+## React Speed UI
 
 > Code: [React Speed UI framework styles][6]
 
@@ -88,7 +90,7 @@ however we will consider this goal as we design the framework.
 
 **Expressive.** Our UI framework will be reusable in expressive, English like statements.
 
-## [Starting Component Design][9]
+## Start Component Design
 
 > Code: [Page][8] component, [YouTube][10] component, [GitHub][11] component, [Workflow][12] component,  
 > [IconText][13] component.
@@ -105,21 +107,51 @@ Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Comp
 - How to model documents as a React component.
 - How to enhance HTML elements as React components.
 
-## Designing Component Internals
+## Design Component Internals
 
 > Note: This chapter is TBD.
 
-## Wiring Multiple Components
+- Naming files, folders, and modules (Df)
+- Imports and exports (Di)
+- Stateless components and pure functions (Dp)
+- Classes and inheritance (Dc)
+- Constructor and binding (Db)
+- Property types (Dt)
+- State management (Ds)
+- Lifecycle methods (Dl)
+- Render and ReactDOM.render methods (Dr)
+- JSX features and syntax (Dj)
+
+
+## Wire Multiple Components
 
 > Note: This chapter is TBD.
 
-## Refactoring Existing Components
+- When to use presentational verses container components.
+- Strategy for passing component as a property to another component.
+- Reconciliation algorithm and keys for dynamic children.
+
+## Refactor Existing Components
 
 > Note: This chapter is TBD.
+
+- Refactoring to render node children.
+- ES5 to ES6 React component definition
+- Testing and refactoring
+
+## Test App Components
+
+> Note: This chapter is TBD.
+
+Plan is to add examples for integrating various testing and lint tools
+within your React development workflow.
 
 ## Component Design Workflow
 
 > Note: This chapter is TBD.
+
+Plan is to draw out the Big Picture of component design workflow.
+Connecting the dots from prior five chapters which detail the workflow.
 
 ## Firebase React Integration
 
@@ -131,15 +163,13 @@ Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Comp
 - Designing a REST API using Firebase.
 - For what kind of apps is Firebase not ideal.
 
-## Redux State Management
-
-> Note: This chapter is TBD.
-
 ## React Developer Experience
 
 > Note: This chapter is TBD.
 
-Topics planned: Kadira Storybook. Redux Dev Tools.
+Plan is to add Kadira Storybook, create React playgrounds, Redux dev tools, and add
+visual code analytics.
+
 
 [1]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code
 [2]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/webpack.prod.config.js

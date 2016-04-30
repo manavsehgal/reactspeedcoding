@@ -3,6 +3,12 @@
 Refactoring is an essential part of iterative development. React is ideal for iterative
 refactoring of your code because of component based development.
 
+You will learn following concepts in this chapter.
+
+- Refactoring to render node children.
+- ES5 to ES6 React component definition
+- Testing and refactoring
+
 {pagebreak}
 
 ## Refactoring to render node children (Rc)
