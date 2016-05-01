@@ -1,9 +1,20 @@
-.Button {
+@define-mixin colorize $bg {
+  background: $(bg);
+  color: white;
+  &:active,
+  &:focus,
+  &:hover {
+    border: 0;
+    background: color($(bg) tint(20%));
+    text-decoration:none;
+  }
+}
+
+.button {
   transition: background-color 0.2s;
   display: inline-block;
   padding: 0.6em 1em;
-  background: hsla(31, 15%, 50%, 0.15);
-  color: inherit;
+  margin: 0.3em;
   border: 0;
   border-radius: 2px;
   cursor: pointer;
@@ -12,30 +23,32 @@
   line-height: normal;
   text-decoration: none;
   white-space: nowrap;
-}
-.Button:focus {
-  outline: thin dotted #666;
-  text-decoration:none;
-}
-.Button:active,
-.Button:focus,
-.Button:hover {
-  border: 0;
-  background: hsla(31, 15%, 50%, 0.25);
-  text-decoration:none;
-}
+  &:focus {
+    outline: none;
+    text-decoration:none;
+  }
 
-.Button--action {
-  background-color: hsl(150, 45%, 50%);
-  color: #fff;
-}
-.Button--action:active,
-.Button--action:focus,
-.Button--action:hover {
-  background-color: hsl(150, 45%, 40%);
-}
+  &.default { @mixin colorize $default; }
+  &.primary { @mixin colorize $primary; }
+  &.secondary { @mixin colorize $secondary; }
+  &.warning { @mixin colorize $warning; }
+  &.danger { @mixin colorize $danger; }
+  &.success { @mixin colorize $success; }
+  &.golden { @mixin colorize $golden; }
 
-.Button--wide {
-  padding-right: 1.5em;
-  padding-left: 1.5em;
+  &.large {
+    padding: 1em;
+    font-size: 1em;
+  }
+
+  &.medium {
+    padding: 0.75em;
+    font-size: 0.75em;
+  }
+
+  &.small {
+    padding: 0.5em;
+    font-size: 0.5em;
+  }
+
 }

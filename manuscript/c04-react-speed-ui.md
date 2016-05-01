@@ -803,6 +803,44 @@ is all of 20KB in size. Compare that to most of the popular CSS frameworks, whic
 
 {pagebreak}
 
+## Refactor theme
+
+Now it is time to refactor our theme using the new methodology. We are using ```/app/styles/base/variables.css``` instead
+of the earlier ```_theme.css``` partial. We continue using Sass-like ```$variable-name``` to capture
+global theme variables. We move the color variations, using ```color($color-variable tint(20%))``` calculations
+to the actual component modules for easier reference.
+
+{title="/app/styles/base/variables.css theme variables", lang=css}
+~~~~~~~
+
+/* Spacing */
+$space: 1.5em;
+$space-lg: 2em;
+
+/* Dark color palette. White overlay. */
+$default: slategray;
+$primary: steelblue;
+$secondary: teal;
+$danger: crimson;
+$warning: tomato;
+$success: mediumseagreen;
+$golden: darkkhaki;
+
+/* Light color palette. Black overlay. */
+$default-light: whitesmoke;
+$primary-light: lightsteelblue;
+$secondary-light: lightcyan;
+$danger-light: lightpink;
+$success-light: honeydew;
+$warning-light: mocassin;
+$golden-light: floralwhite;
+~~~~~~~
+
+Notice that we are now using more *semantic* names for our variables. This is a recommended guideline,
+as this makes our markup more readable and our intent clearer as to why we are using a particular color.
+
+{pagebreak}
+
 ## Recommended Reading List
 
 - Smashing magazine compiles the [Flexbox reading list][19].

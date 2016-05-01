@@ -6,9 +6,10 @@ in your project.
 
 You will learn following concepts in this important chapter.
 
-- When to use presentational verses container components.
-- Strategy for passing component as a property to another component.
-- Reconciliation algorithm and keys for dynamic children.
+- Events in multiple components (We).
+- When to use presentational verses container components (Wc)
+- Reconciliation algorithm and keys for dynamic children (Wk).
+- Strategy for passing component as a property to another component (Wp).
 
 {pagebreak}
 
@@ -35,6 +36,20 @@ Our app will also maintain several UI states. Some candidate states could be,
 active filter, order of features, search text, and last *Like* clicked.
 
 {pagebreak}
+
+## Events in multiple components (We)
+
+Let us begin creating our Roadmap app by firstly creating some reusable components extending our
+Speed UI component library. Let us create a ```Button``` component. We want our button component
+to render in multiple colors defined in our ```variables.css``` theme. We also want buttons in
+various sizes, like, large, medium, small, and default.
+
+We also want to demonstrate our new reusable component in our ```CardStack``` component listing.
+To manage interactivity for our demo buttons we want to create a ```ButtonDemo``` component
+which will be a placeholder for how to add buttons and interactivity to other owner components.
+
+We will explain this section in detail. For now you can checkout the working demo at
+ReactSpeed website and code at our GitHub repo.
 
 ## Presentational and container components (Wc)
 

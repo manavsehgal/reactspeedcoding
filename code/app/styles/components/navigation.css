@@ -1,13 +1,13 @@
 .navigation {
   list-style: none;
-  background: teal;
+  background: $secondary;
   margin: 0;
   padding-right: 10px;
 }
 
 .navigation-link {
   border-bottom: none;
-  border-bottom: 1px solid teal;
+  border-bottom: 1px solid $secondary;
   color: white;
   &:hover {
     border-bottom: 1px solid white;

@@ -7,10 +7,11 @@ import YouTube from './YouTube.jsx';
 import IconText from './IconText.jsx';
 import GitHub from './GitHub.jsx';
 import Workflow from './Workflow.jsx';
+import ButtonDemo from './ButtonDemo.jsx';
 
 export default class CardStack extends React.Component {
   static propTypes = {
-    messages: PropTypes.array.isRequired,
+    messages: PropTypes.array.isRequired
   }
 
   static defaultProps = {
@@ -43,7 +44,18 @@ export default class CardStack extends React.Component {
             <IconText icon="cog" size="4x" text="10 Custom Components" />
           </Card>
         </div>
-
+        <div className={gridClass}>
+          <Card>
+            <ButtonDemo
+              buttonList={['default', 'primary', 'secondary']}
+            />
+          </Card>
+          <Card>
+            <ButtonDemo
+              buttonList={['golden', 'warning large', 'danger medium', 'primary small']}
+            />
+          </Card>
+        </div>
         <div className={gridClass}>
           <Card>
             <IconText className="orange" icon="database" size="4x"

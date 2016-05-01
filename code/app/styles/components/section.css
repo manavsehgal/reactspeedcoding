@@ -1,5 +1,5 @@
 .Section {
-  padding: 0 var(--space);
+  padding: 0 $space;
 }
 .Section:nth-child(2n) {
   background-color: hsla(31, 15%, 50%, 0.1);
@@ -13,20 +13,20 @@
   visibility: hidden;
 }
 .Section::before {
-  margin-bottom: var(--space);
+  margin-bottom: $space;
 }
 .Section::after {
-  margin-top: var(--space);
+  margin-top: $space;
 }
 @media (--break-lg) {
   .Section {
-    padding: 0 var(--space-lg);
+    padding: 0 $space-lg;
   }
   .Section::before {
-    margin-bottom: var(--space-lg);
+    margin-bottom: $space-lg;
   }
   .Section::after {
-    margin-top: var(--space-lg);
+    margin-top: $space-lg;
   }
 }
 

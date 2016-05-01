@@ -17,7 +17,7 @@
   /* card modifiers */
 
   &.is-spaced {
-    margin-bottom: var(--space);
+    margin-bottom: $space;
   }
 
   &.is-message {
@@ -25,7 +25,7 @@
     transition: 1s background;
 
     &:hover {
-      background: honeydew;
+      background: $success-light;
     }
   }
 }

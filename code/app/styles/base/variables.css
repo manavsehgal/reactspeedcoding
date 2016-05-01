@@ -1,8 +1,21 @@
-:root {
-  /* Spacing */
-  --space: 1.5em;
-  --space-lg: 2em;
+/* Spacing */
+$space: 1.5em;
+$space-lg: 2em;
 
-  /* Element colors*/
-  --bg-color: hsl(150, 45%, 50%);
-}
+/* Dark color palette. White overlay. */
+$default: slategray;
+$primary: steelblue;
+$secondary: teal;
+$danger: crimson;
+$warning: tomato;
+$success: mediumseagreen;
+$golden: darkkhaki;
+
+/* Light color palette. Black overlay. */
+$default-light: whitesmoke;
+$primary-light: lightsteelblue;
+$secondary-light: lightcyan;
+$danger-light: lightpink;
+$success-light: honeydew;
+$warning-light: mocassin;
+$golden-light: floralwhite;

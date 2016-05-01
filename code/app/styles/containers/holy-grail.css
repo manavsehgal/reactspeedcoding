@@ -18,31 +18,32 @@
 }
 
 .holygrail-footer {
-  background: gainsboro;
+  background: $default;
+  color: white;
 }
 
 .holygrail-header {
-  background: honeydew;
+  background: $success-light;
 }
 
 .holygrail-body {
   display: flex;
   flex: 1 0 auto; /* 2 */
   flex-direction: column;
-  padding: var(--space);
+  padding: $space;
 }
 
 .holygrail-content {
-  margin-top: var(--space);
+  margin-top: $space;
 }
 
 .holygrail-nav {
   order: -1;
-  background: floralwhite;
+  background: $golden-light;
 }
 
 .holygrail-ads {
-  background: whitesmoke;
+  background: $default-light;
 }
 
 .holygrail-nav,
@@ -57,7 +58,7 @@
   }
   .holygrail-content {
     flex: 1;
-    padding: 0 var(--space-lg);
+    padding: 0 $space-lg;
     margin: 0;
   }
   .holygrail-nav, .holygrail-ads {

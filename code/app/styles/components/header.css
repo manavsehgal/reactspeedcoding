@@ -1,7 +1,5 @@
 .header {
   padding: 1.5em;
-  background-color: rgba(147, 128, 108, 0.1);
-  text-align: center;
 }
 @media (--break-lg) {
   .header {
