@@ -34,6 +34,37 @@ that match the text entered in search. Number of likes will interact with order 
 Our app will also maintain several UI states. Some candidate states could be,
 active filter, order of features, search text, and last *Like* clicked.
 
+Our app will use two kind of components. Presentational and container components.
+
+Here are some guidelines to decide presentational and container components as suggested  
+by Dan Abramov in his article on [Presentational and Container Components][3].
+
+How do decide that you are writing presentational components.
+
+- Examples: YouTube, LeanPub, Hello, Card.
+- Presentational components are concerned about how things look.
+- May contain both presentational and container components inside.
+- Usually have some DOM markup and styles associated with the component.
+- Often allow containment via this.props.children.
+- Have no dependencies on the rest of the app.
+- Don’t specify how the data is loaded or mutated.
+- Receive data and callbacks exclusively via props.
+- Rarely have their own state (when they do, it’s UI state rather than data).
+- Are written as functional components unless they need state, lifecycle hooks, or performance optimizations.
+
+How to decide that you are writing container components.
+
+- Examples: FeatureList, Roadmap, World, CardStack.
+- Are concerned with how things work.
+- May contain both presentational and container components inside.
+- Usually don’t have any DOM markup of their own except for some wrapping divs
+- Never have any styles.
+- Provide the data and behavior to presentational or other container components.
+- Call Flux actions and provide these as callbacks to the presentational components.
+- Are often stateful, as they tend to serve as data sources.
+- Are usually generated using higher order components such as connect() from React Redux, createContainer() from Relay, or Container.create() from Flux Utils, rather than written by hand.
+
+
 ## Passing Component as a property (Wp)
 
 See how React Font Awesome component [passes a component as a property][4].
