@@ -12,7 +12,7 @@ You will learn following concepts in this important chapter.
 
 {pagebreak}
 
-## Presentational and container components (Wc)
+## The Roadmap app
 
 To help understand this important chapter, let us create a relatively complex app
 to manage the the roadmap for ReactSpeed book and companion code. We want to list
@@ -34,6 +34,10 @@ that match the text entered in search. Number of likes will interact with order 
 Our app will also maintain several UI states. Some candidate states could be,
 active filter, order of features, search text, and last *Like* clicked.
 
+{pagebreak}
+
+## Presentational and container components (Wc)
+
 Our app will use two kind of components. Presentational and container components.
 
 Here are some guidelines to decide presentational and container components as suggested  
@@ -44,7 +48,8 @@ How do decide that you are writing presentational components.
 - Examples: YouTube, LeanPub, Hello, Card.
 - Presentational components are concerned about how things look.
 - May contain both presentational and container components inside.
-- Usually have some DOM markup and styles associated with the component.
+- Usually have some DOM markup.
+- Have styles associated with the component.
 - Often allow containment via this.props.children.
 - Have no dependencies on the rest of the app.
 - Don’t specify how the data is loaded or mutated.
@@ -63,11 +68,6 @@ How to decide that you are writing container components.
 - Call Flux actions and provide these as callbacks to the presentational components.
 - Are often stateful, as they tend to serve as data sources.
 - Are usually generated using higher order components such as connect() from React Redux, createContainer() from Relay, or Container.create() from Flux Utils, rather than written by hand.
-
-
-## Passing Component as a property (Wp)
-
-See how React Font Awesome component [passes a component as a property][4].
 
 {pagebreak}
 
@@ -170,6 +170,11 @@ We pass this on to key attribute as well as the value for the list items. This f
 our component code.
 
 {pagebreak}
+
+## Passing Component as a property (Wp)
+
+See how React Font Awesome component [passes a component as a property][4].
+
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
