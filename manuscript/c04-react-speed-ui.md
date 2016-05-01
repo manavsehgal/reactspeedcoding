@@ -6,6 +6,17 @@ ready Webpack build pipeline, it is time to do some serious app development.
 In this chapter we will start designing our very own React Speed UI framework
 for your apps. We will do so using Flexbox, PostCSS, and custom React components.
 
+You will learn following concepts in this chapter.
+
+- React Speed UI objectives.
+- PostCSS Processing.
+- Update Webpack for PostCSS.
+- Organizing and modularizing styles.
+- Flexbox Layouts.
+- Refactoring React components with Speed UI.
+- CSS best practices.
+- Refactor Speed UI methodology.
+
 {pagebreak}
 
 ## React Speed UI objectives
@@ -525,7 +536,7 @@ of the important principles along with best practice examples, you can refer to 
 
 {pagebreak}
 
-## CSS best practices
+## CSS design methodologies
 
 This section and the following sections are really important and these impact almost all chapters in this book.
 
@@ -592,8 +603,9 @@ for display types and text truncation, breaking, and alignment.
 npm install --save-dev suitcss-utils-display
 npm install --save-dev suitcss-utils-text
 ```
+{pagebreak}
 
-## React Speed UI naming methodology
+## Refactor Speed UI methodology
 
 Let us refactor React Speed UI, developing our naming methodology, and reusing the starter libraries.
 
