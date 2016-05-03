@@ -6,6 +6,7 @@
 @import 'styles/base/custom-media';
 @import 'styles/base/elements';
 @import 'styles/base/modifiers';
+@import 'styles/base/mixins';
 
 @import 'styles/containers/grid'; /* Refactored and tied to component */
 @import 'styles/containers/container';
@@ -21,7 +22,7 @@
 @import 'styles/components/footer';
 @import 'styles/components/header';
 @import 'styles/components/image';
-@import 'styles/components/input-add-on';
+@import 'styles/components/input';
 @import 'styles/components/media';
 @import 'styles/components/notice';
 @import 'styles/components/section';

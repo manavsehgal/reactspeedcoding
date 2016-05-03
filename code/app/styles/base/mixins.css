@@ -1,0 +1,12 @@
+@define-mixin colorize-button $bg {
+  background: $(bg);
+  color: white;
+  border: 1px solid color($(bg) shade(10%));
+  &:active,
+  &:focus,
+  &:hover {
+    background: color($(bg) tint(20%));
+    border: 1px solid color($(bg) shade(10%));
+    text-decoration:none;
+  }
+}

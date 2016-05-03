@@ -86,26 +86,24 @@ export default class Workflow extends React.Component {
 
     return (
       <div className="workflow">
-        <div className="grid">
+        <div className="grid large-grid-full med-grid-full small-grid-full">
           <div className="workflow-scenario grid-cell">
             {currentStep.scenario}
           </div>
-        </div>
-        <div className="grid">
           <div className="workflow-text grid-cell">
             {currentStep.text}
           </div>
         </div>
-        <div className="workflow-nav grid">
-          <div onClick={this.cycleScenario} className="workflow-nav-symbol grid-cell">
+        <div className="grid grid-full large-grid-fit med-grid-fit">
+          <div onClick={this.cycleScenario} className="button primary grid-cell">
             <i className="fa fa-refresh"></i> {currentStep.symbol}
           </div>
-          <div className="workflow-nav-steps grid-cell">
+          <div className="workflow-steps grid-cell">
             {stepsCount}
           </div>
-          <div onClick={this.cycleSequence} className="workflow-nav-sequence grid-cell">
+          <button onClick={this.cycleSequence} className="button default grid-cell">
             {currentStep.sequence} <i className="fa fa-arrow-right"></i>
-          </div>
+          </button>
         </div>
       </div>
     );

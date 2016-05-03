@@ -1,0 +1,51 @@
+.input {
+  display: flex;
+  margin-bottom: 1.5em;
+}
+
+.input-field {
+  flex: 1;
+  transition: background 2s;
+  &:focus {
+    outline: none;
+    text-decoration:none;
+    background: color(white shade(2%));
+  }
+}
+
+.input-field:not(:first-child) {
+  border-left: 0;
+}
+
+.input-field:not(:last-child) {
+  border-right: 0;
+}
+
+.input-item {
+  background: $default-light;
+  color: $default;
+  font: inherit;
+  font-weight: normal;
+}
+
+.input-field,
+.input-item {
+  border: 1px solid color($default-light shade(10%));
+  padding: 0.6em 1em;
+}
+
+.input > .button {
+  margin: 0;
+}
+
+.input > .button:first-child,
+.input-field:first-child,
+.input-item:first-child {
+  border-radius: 2px 0 0 2px;
+}
+
+.input > .button:last-child,
+.input-field:last-child,
+.input-item:last-child {
+  border-radius: 0 2px 2px 0;
+}
