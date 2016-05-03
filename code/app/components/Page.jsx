@@ -36,7 +36,7 @@ export default class Page extends React.Component {
         </header>
         <main className="holygrail-body">
           <article className="holygrail-content">
-            <h1>React Speed UI Components</h1>
+            <h1>ReactSpeed UI Components</h1>
             <CardStack />
           </article>
           <nav className="holygrail-nav u-textCenter">

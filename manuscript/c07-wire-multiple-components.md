@@ -44,14 +44,190 @@ Speed UI component library. Let us create a ```Button``` component. We want our 
 to render in multiple colors defined in our ```variables.css``` theme. We also want buttons in
 various sizes, like, large, medium, small, and default.
 
-We also want to demonstrate our new reusable component in our ```CardStack``` component listing.
+Here is the code for a basic, early version, ```Button``` component. It does not do much,
+just consumes styles and onClick event.
+
+{title="/app/components/Button.jsx basic Button component", lang=javascript}
+~~~~~~~
+import React, { PropTypes, Component } from 'react';
+
+class Button extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+  }
+
+  render () {
+    return (
+      // [TODO] How do bring other event types in here using spread operators
+      <button className={this.props.className} onClick={this.props.onClick}>
+        {this.props.children}
+      </button>
+    );
+  }
+}
+
+export default Button;
+~~~~~~~
+
+We want to demonstrate our new reusable component in our ```CardStack``` component listing.
 To manage interactivity for our demo buttons we want to create a ```ButtonDemo``` component
-which will be a placeholder for how to add buttons and interactivity to other owner components.
+which will be a placeholder for how to add buttons and interactivity with other owner components.
 
-We will explain this section in detail. For now you can checkout the working demo at
-ReactSpeed website and code at our GitHub repo.
+The following code shows two variations of how we create instances of ```Button``` component.
+Firstly we render the instance directly. Next we parametrize the style information and pass
+these are properties to ```ButtonDemo```.
 
-## Presentational and container components (Wc)
+{title="/app/components/CardStack.jsx rendering Button and ButtonDemo", lang=html}
+~~~~~~~
+<Card>
+  <p>Click does not do much...</p>
+  <Button className="button default">Default</Button>
+  <Button className="button primary">Primary</Button>
+  <Button className="button secondary">Secondary</Button>
+  <Button className="button danger">Danger</Button>
+  <Button className="button success">Success</Button>
+  <Button className="button warning">Warning</Button>
+  <Button className="button golden">Golden</Button>
+</Card>
+<Card>
+  <ButtonDemo
+    colors={['Golden', 'Success', 'Danger', 'Warning']}
+    sizes={['large', 'medium', 'medium', 'small']}
+    icons={['coffee', 'cloud', 'flash', 'plug']}
+    iconOnly
+  />
+</Card>
+~~~~~~~
+
+The ```ButtonDemo``` component creates and handles events on ```Button``` component, and passes these
+events as properties to ```Button``` component.
+
+Notice how we bind the event handler to ```Button``` component and pass a parameter to the
+method.
+
+{title="/app/components/ButtonDemo.jsx event handling", lang=javascript}
+~~~~~~~
+import React, { PropTypes, Component } from 'react'
+import Button from './Button.jsx';
+
+class ButtonDemo extends Component {
+  static propTypes = {
+    colors: PropTypes.array.isRequired,
+    icons: PropTypes.array,
+    sizes: PropTypes.array,
+    iconOnly: PropTypes.bool
+  }
+  static defaultProps = {icons: [], sizes: [], iconOnly: false}
+
+  constructor(props) {
+    super(props);
+    this.state = {demoMessage: 'Click any button...'};
+  }
+
+  handleButtonClick(button) {
+    this.setState({demoMessage: `Button ${button} clicked.`});
+  }
+
+  render () {
+    const renderButtons = this.props.colors.map((color, i) => {
+        const iconClass = (this.props.icons === undefined || this.props.icons.length == 0)
+          ? `` : ` fa fa-${this.props.icons[i]}`;
+        const buttonClass = (this.props.sizes === undefined || this.props.sizes.length == 0)
+          ? `button ${color.toLowerCase()}`
+          : `button ${this.props.sizes[i]} ${color.toLowerCase()}`;
+        const renderLabel = this.props.iconOnly
+          ? <i className={iconClass}></i>
+          : (this.props.icons === undefined || this.props.icons.length == 0)
+            ? color
+            : <div><i className={iconClass}></i>&nbsp;{color}</div>;
+        return(
+          <Button
+            key={color}
+            className={buttonClass}
+            onClick={this.handleButtonClick.bind(this, color)}
+          >
+            {renderLabel}
+          </Button>
+        );
+      });
+
+    return (
+      <div>
+        <p>{this.state.demoMessage}</p>
+        {renderButtons}
+      </div>
+    );
+  }
+}
+
+export default ButtonDemo;
+~~~~~~~
+
+Our render method is relatively complex, however it is creating multiple variations of ```Button``` components
+based on style parameters passed as properties. This is a good strategy for creating visual test pages for your components.
+
+Event handling in multiple components has following key strategies.
+
+- As event handlers often manipulate state, they are best defined where state is defined.
+- Define the event handler in outermost owner component.
+- Consume onEvent property within owned components down the multi-component hierarchy.
+- Event handlers without any parameters can bind within constructor.
+- Event handlers with parameters can bind within onEvent property.
+- Pass parameter to event handling method using onEvent property bind expression.
+
+{pagebreak}
+
+## Composition of reusable components (Wc)
+
+Once you create reusable components in React, you should be able to compose more
+complex, feature rich components by just building a node-tree, just like you do with HTML nodes.
+
+Let us create another component to demonstrate this. This time we are creating an input control.
+We want input control to come in several variations. Simple input box. Label and input box.
+Icon label and input box. And, icon label, input box, and a button. We want to design our
+input box variations within JSX by just combining the required components together.
+
+Here is what our ```CardStack``` component rendering of forms looks like.
+This is based on input control styles and ```Button``` React component we created earlier.
+Notice how ```CardStack``` is rendering multiple instances of ```Card``` component, which
+in turn renders several child nodes including ```Button``` components.
+
+{title="/app/components/CardStack.jsx rendering Input styles", lang=html}
+~~~~~~~
+<div className={gridClass}>
+  <Card>
+    <p>Beautiful forms</p>
+    <div className="input">
+      <span className="input-item">Name</span>
+      <input className="input-field" placeholder="Placeholder for name" />
+    </div>
+    <div className="input">
+      <input className="input-field" placeholder="Just a field" />
+    </div>
+  </Card>
+  <Card>
+    <p>Responsive forms</p>
+    <div className="input">
+      <button className="button success"><i className="fa fa-search"></i></button>
+      <input className="input-field" placeholder="Search something" />
+    </div>
+    <div className="input">
+      <span className="input-item"><span className="fa fa-envelope"></span></span>
+      <input className="input-field" placeholder="Send another one" />
+      <button className="button warning">Send</button>
+    </div>
+  </Card>
+</div>
+~~~~~~~
+
+We have a mix of custom React components and CSS modules styling HTML nodes,
+default components React provides out of the box. This is a fair iterative design
+strategy. We create React components as we need them. If HTML nodes + styles serves the purpose,
+we continue moving forward in our app design.
+
+{pagebreak}
+
+## Presentational and container components (Wp)
 
 Our app will use two kind of components. Presentational and container components.
 
@@ -186,7 +362,7 @@ our component code.
 
 {pagebreak}
 
-## Passing Component as a property (Wp)
+## Sending Component as a property (Ws)
 
 See how React Font Awesome component [passes a component as a property][4].
 
