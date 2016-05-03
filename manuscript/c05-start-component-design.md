@@ -1,6 +1,6 @@
 # Start Component Design (S)
 
-If the blank, dark code editor window is staring back at you, do not despair. We will run through nine
+If the blank, dark code editor window is staring back at you, do not despair. We will run through five
 different ways you can get started building your components in React!
 
 The objective at this stage is to speedily "prototype" new features and code within your React project.
@@ -13,10 +13,6 @@ Here is what you will learn in this chapter along with sample code.
 - Converting CSS libraries into React components.
 - Integrating third-party REST APIs to start creating React components.
 - Moving from a wireframe to a React component.
-- Starting with a data table and turning this into a React component.
-- How to handle real-time streams as a React component.
-- How to model documents as a React component.
-- How to enhance HTML elements as React components.
 
 {pagebreak}
 
@@ -905,30 +901,8 @@ HTML enables.
 Finally, as we have created a reusable component, it can be made to relate with other components to achieve interesting
 use cases. We will cover such use cases in the chapter **Wire Multiple Components**.
 
-{pagebreak}
-
-## Data table to React (St)
-
-Sometimes you may have a dataset that you want to design into a component.
-
-## Real-time stream to React (Sr)
-
-Real-time streams of data like Twitter feeds, app instrumentation data, device sensor information,
-can be thought about as a React component.
-
-## Document to React (Sd)
-
-Are you interested in representing a work document, report, or template as a
-React component?
-
-## HTML elements to React (Sh)
-
-Do you want to add more capabilities to HTML markup elements? React can help.
-
-I> ## Chapter In Progress
-I> We are still writing this chapter. Please watch this space for updates.
-I> Plan is to add examples for each of the nine different ways for speedily
-I> starting component design in React.
+In the next chapter on **Define Component Internals** we will dig deeper into component design
+in React.
 
 [1]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 [2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals

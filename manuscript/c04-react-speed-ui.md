@@ -1,27 +1,28 @@
-# React Speed UI
+# ReactSpeed UI
 
 Now that we are comfortable with basic React, ES6 concepts and have a production
 ready Webpack build pipeline, it is time to do some serious app development.
 
-In this chapter we will start designing our very own React Speed UI framework
+In this chapter we will start designing our very own ReactSpeed UI component library
 for your apps. We will do so using Flexbox, PostCSS, and custom React components.
 
 You will learn following concepts in this chapter.
 
-- React Speed UI objectives.
+- ReactSpeed UI objectives.
 - PostCSS Processing.
 - Update Webpack for PostCSS.
 - Organizing and modularizing styles.
 - Flexbox Layouts.
 - Refactoring React components with Speed UI.
 - CSS best practices.
-- Refactor Speed UI methodology.
+- Refactor using ReactSpeed UI methodology.
+- Refactor ReactSpeed UI theme.
 
 {pagebreak}
 
-## React Speed UI objectives
+## ReactSpeed UI objectives
 
-Designing a custom UI framework is an ambitious undertaking. Our task becomes achievable if we scope
+Designing a custom UI library is an ambitious undertaking. Our task becomes achievable if we scope
 our design goals upfront.
 
 **Speed.** Like the name suggests, our UI framework is built for speed of development and
@@ -39,9 +40,6 @@ landing page, buttons, forms, navigation menu, interactive content cards, and fo
 **Simple.** We will keep our UI framework simple to understand, extend, and reuse.
 
 **Optimized.** Speed UI framework will be production ready and optimized for light payloads.
-
-**Reactive.** This topic is TBD. We will see if using Microservices and Reactive architectural patterns
-can be in scope of this book.
 
 **State Machine.** Our UI framework will support state management. This is topic for an advanced chapter,
 however we will consider this goal as we design the framework.
@@ -530,7 +528,7 @@ code from this chapter's code commit.
 
 ## Visual design principles
 
-During the design of React Speed UI, we will try to reference many of the visual design principles.
+During the design of React Speed UI, we will try to reference many of the visual design and Usabilty principles.
 For detailed categorization of these principles please refer to paper by Miles Kimball on this topic [Visual Design Principles: An Empirical Study of Design Lore][23] available on Academia.edu. For explanation of some
 of the important principles along with best practice examples, you can refer to TutsPlus article on [A Comprehensive Introduction to Visual Design][26].
 
@@ -552,7 +550,7 @@ your CSS code as readable, reusable, and robust as your React code.
 3. Incorporate linting and pre/post processing tools automation in your build pipeline.
 
 While we have added PostCSS and other CSS optimization tools to our build pipeline, we will add
-linting in the chapter **Test App Components**.
+lint tools in the chapter **Test App Components**.
 
 This section and next focus on 1 and 2. Following component oriented design principles. Developing our style methodology.
 
@@ -605,7 +603,7 @@ npm install --save-dev suitcss-utils-text
 ```
 {pagebreak}
 
-## Refactor Speed UI methodology
+## Refactor using ReactSpeed UI methodology
 
 Let us refactor React Speed UI, developing our naming methodology, and reusing the starter libraries.
 
@@ -786,24 +784,24 @@ render() {
 There is more refactoring done to the following. Latest code is downloadable from
 reactspeedcoding GitHub repo.
 
-- The ```Workflow``` component and styles.
-- The ```Page``` component and ```holygrail``` styles.
-- Adding ```modifiers.css``` for global modifiers.
+- The ```Workflow.jsx``` component and style module.
+- The ```Page.jsx``` component and ```holy-grail.css``` styles.
+- We also added ```modifiers.css``` to define global modifiers used in our app.
 
 Wow! We accomplished a lot in these sections. We now have many more style modules
 which we will use in subsequent chapters to turn into React components. We have started creating our own
 CSS design and naming methodology based on BEM and other best practice guidance. We have also
-started seeing how our new style framework helps refactor existing components.
+started seeing how our new style library helps refactor existing components.
 
 ![ReactSpeed website after refactoring UI](images/refactor-reactspeed.jpg)
 
 And, one more thing! With all these new styles, components, and reusable code, our production CSS
-is all of 20KB in size. Compare that to most of the popular CSS frameworks, which range between
+is all of 21KB in size or 4.6KB Gzip compressed. Compare that to most of the popular CSS frameworks, which range between
 60KB to whooping +500KB, only for the minified CSS, JavaScript not even accounted for!
 
 {pagebreak}
 
-## Refactor theme
+## Refactor ReactSpeed UI theme
 
 Now it is time to refactor our theme using the new methodology. We are using ```/app/styles/base/variables.css``` instead
 of the earlier ```_theme.css``` partial. We continue using Sass-like ```$variable-name``` to capture
@@ -812,7 +810,6 @@ to the actual component modules for easier reference.
 
 {title="/app/styles/base/variables.css theme variables", lang=css}
 ~~~~~~~
-
 /* Spacing */
 $space: 1.5em;
 $space-lg: 2em;
@@ -832,11 +829,11 @@ $primary-light: lightsteelblue;
 $secondary-light: lightcyan;
 $danger-light: lightpink;
 $success-light: honeydew;
-$warning-light: mocassin;
+$warning-light: moccasin;
 $golden-light: floralwhite;
 ~~~~~~~
 
-Notice that we are now using more *semantic* names for our variables. This is a recommended guideline,
+Notice that we are now using *semantic* names for our variables. This is a recommended guideline,
 as this makes our markup more readable and our intent clearer as to why we are using a particular color.
 
 {pagebreak}

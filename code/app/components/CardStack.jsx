@@ -8,7 +8,6 @@ import IconText from './IconText.jsx';
 import GitHub from './GitHub.jsx';
 import Workflow from './Workflow.jsx';
 import ButtonDemo from './ButtonDemo.jsx';
-import Button from './Button.jsx';
 
 export default class CardStack extends React.Component {
   static propTypes = {
@@ -17,15 +16,9 @@ export default class CardStack extends React.Component {
 
   static defaultProps = {
     messages: [
-      'React Speed UI',
-      'Single Page Apps',
       'Responsive Design',
       'Customizable Theme',
-      'Reusable Components',
-      'Simple Structure',
-      'Production Optimized',
-      'State Machine',
-      'Expressive Syntax'
+      'Reusable Components'
     ],
   }
 
@@ -40,26 +33,30 @@ export default class CardStack extends React.Component {
       <div>
         <div className={gridClass}>
           <Card><Workflow /></Card>
-          <Card><GitHub repo="facebook/react" /></Card>
           <Card>
             <IconText
+              className="warning-text"
               icon="css3"
               size="4x"
-              text="ReactSpeed UI is very efficient. CSS 4.6KB Gzip, 21KB Minified."
+              text="ReactSpeed UI is efficient. CSS 4.6KB Gzip, 21KB Minified."
             />
           </Card>
         </div>
+
         <div className={gridClass}>
           <Card>
             <p>Click does not do much...</p>
-            <Button className="button default">Default</Button>
-            <Button className="button primary">Primary</Button>
-            <Button className="button secondary">Secondary</Button>
-            <Button className="button danger">Danger</Button>
-            <Button className="button success">Success</Button>
-            <Button className="button warning">Warning</Button>
-            <Button className="button golden">Golden</Button>
+            <button className="button default">Default</button>
+            <button className="button primary">Primary</button>
+            <button className="button secondary">Secondary</button>
+            <button className="button danger">Danger</button>
+            <button className="button success">Success</button>
+            <button className="button warning">Warning</button>
+            <button className="button golden">Golden</button>
           </Card>
+        </div>
+
+        <div className={gridClass}>
           <Card>
             <ButtonDemo
               colors={['Golden', 'Success', 'Danger', 'Warning']}
@@ -79,9 +76,9 @@ export default class CardStack extends React.Component {
 
         <div className={gridClass}>
           <Card>
-            <p>Beautiful forms</p>
+            <p>Responsive forms</p>
             <div className="input">
-              <span className="input-item">Name</span>
+              <span className="input-label">Name</span>
               <input className="input-field" placeholder="Placeholder for name" />
             </div>
             <div className="input">
@@ -89,13 +86,13 @@ export default class CardStack extends React.Component {
             </div>
           </Card>
           <Card>
-            <p>Responsive forms</p>
+            <p>Beautiful forms</p>
             <div className="input">
               <button className="button success"><i className="fa fa-search"></i></button>
               <input className="input-field" placeholder="Search something" />
             </div>
             <div className="input">
-              <span className="input-item"><span className="fa fa-envelope"></span></span>
+              <span className="input-label"><span className="fa fa-envelope"></span></span>
               <input className="input-field" placeholder="Send another one" />
               <button className="button warning">Send</button>
             </div>
@@ -103,21 +100,23 @@ export default class CardStack extends React.Component {
         </div>
 
         <div className={gridClass}>
-          <Card>
-            <IconText className="orange" icon="database" size="4x"
-            text="Firebase React Integration" />
-          </Card>
+          <Card><GitHub repo="facebook/react" /></Card>
           <Card><GitHub repo="reactjs/redux" /></Card>
-          <Card><GitHub repo="webpack/webpack" /></Card>
         </div>
 
         <div className={gridClass}>
           <Card><YouTube videoid="MGuKhcnrqGA" /></Card>
+        </div>
+        <div className={gridClass}>
           <Card>
-            <IconText className="blue" icon="globe" size="4x"
-              text="Nine Component Creation Strategies" />
+            <IconText className="warning-text" icon="database" size="4x"
+            text="Firebase React Integration" />
           </Card>
           <Card><World /></Card>
+          <Card>
+            <IconText className="primary-text" icon="globe" size="4x"
+              text="Nine Component Creation Strategies" />
+          </Card>
         </div>
 
         <div className={gridClass}>

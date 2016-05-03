@@ -21,7 +21,7 @@
   border-right: 0;
 }
 
-.input-item {
+.input-label {
   background: $default-light;
   color: $default;
   font: inherit;
@@ -29,7 +29,7 @@
 }
 
 .input-field,
-.input-item {
+.input-label {
   border: 1px solid color($default-light shade(10%));
   padding: 0.6em 1em;
 }
@@ -40,12 +40,12 @@
 
 .input > .button:first-child,
 .input-field:first-child,
-.input-item:first-child {
+.input-label:first-child {
   border-radius: 2px 0 0 2px;
 }
 
 .input > .button:last-child,
 .input-field:last-child,
-.input-item:last-child {
+.input-label:last-child {
   border-radius: 0 2px 2px 0;
 }

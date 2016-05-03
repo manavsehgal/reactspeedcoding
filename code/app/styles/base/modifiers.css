@@ -1,3 +1,7 @@
-.blue { color: steelblue; }
-.red { color: crimson; }
-.orange { color: orange; }
+.primary-text {color: $primary;}
+.danger-text {color: $danger;}
+.warning-text {color: $warning;}
+.success-text {color: $success;}
+.golden-text {color: $golden;}
+.secondary-text {color: $secondary;}
+.default-text {color: $default; }

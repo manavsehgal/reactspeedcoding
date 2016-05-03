@@ -7,6 +7,9 @@ in your project.
 You will learn following concepts in this important chapter.
 
 - Events in multiple components (We).
+- Composition using parent child node tree (Wt).
+- Routing components (Wr).
+- Redux and Flux (Wf).
 - When to use presentational verses container components (Wc)
 - Reconciliation algorithm and keys for dynamic children (Wk).
 - Strategy for passing component as a property to another component (Wp).
@@ -40,40 +43,83 @@ active filter, order of features, search text, and last *Like* clicked.
 ## Events in multiple components (We)
 
 Let us begin creating our Roadmap app by firstly creating some reusable components extending our
-Speed UI component library. Let us create a ```Button``` component. We want our button component
-to render in multiple colors defined in our ```variables.css``` theme. We also want buttons in
+ReactSpeed UI library. Let us create a ```button``` CSS module.
+
+We decide to reuse ```<button>``` component provided by React, rather than create our custom  
+component.
+
+We want our button to render in multiple colors defined in our ```variables.css``` theme. We also want buttons in
 various sizes, like, large, medium, small, and default.
 
-Here is the code for a basic, early version, ```Button``` component. It does not do much,
-just consumes styles and onClick event.
-
-{title="/app/components/Button.jsx basic Button component", lang=javascript}
+{title="/app/styles/components/button.css custom styles for button", lang=css}
 ~~~~~~~
-import React, { PropTypes, Component } from 'react';
+.button {
+  transition: background-color 0.2s;
+  padding: 0.6em 1em;
+  border: 0;
+  border-radius: 2px;
+  margin: 3px;
+  cursor: pointer;
+  font-size: 0.8125em;
+  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
 
-class Button extends Component {
-  static propTypes = {
-    className: PropTypes.string,
+  &:focus {
+    outline: none;
+    text-decoration:none;
   }
 
-  render () {
-    return (
-      // [TODO] How do bring other event types in here using spread operators
-      <button className={this.props.className} onClick={this.props.onClick}>
-        {this.props.children}
-      </button>
-    );
+  &.default { @mixin colorize-button $default; }
+  &.primary { @mixin colorize-button $primary; }
+  &.secondary { @mixin colorize-button $secondary; }
+  &.warning { @mixin colorize-button $warning; }
+  &.danger { @mixin colorize-button $danger; }
+  &.success { @mixin colorize-button $success; }
+  &.golden { @mixin colorize-button $golden; }
+
+  &.large {
+    padding: 0.8em 1.2em;
+    font-size: 1.2em;
+  }
+
+  &.medium {
+    padding: .6em 1em;
+    font-size: 0.9em;
+  }
+
+  &.small {
+    padding: 0.3em 0.7em;
+    font-size: 0.65em;
   }
 }
-
-export default Button;
 ~~~~~~~
 
-We want to demonstrate our new reusable component in our ```CardStack``` component listing.
+Notice we are using CSS mixins to style our button class based on modifiers for different colors.
+
+{title="/app/styles/base/mixins.css mixin for colorizing buttons", lang=css}
+~~~~~~~
+@define-mixin colorize-button $bg {
+  background: $(bg);
+  color: white;
+  border: 1px solid color($(bg) shade(10%));
+  &:active,
+  &:focus,
+  &:hover {
+    background: color($(bg) tint(20%));
+    border: 1px solid color($(bg) shade(10%));
+    text-decoration:none;
+  }
+}
+~~~~~~~
+
+We want to demonstrate our new reusable styles in our ```CardStack``` component listing.
 To manage interactivity for our demo buttons we want to create a ```ButtonDemo``` component
 which will be a placeholder for how to add buttons and interactivity with other owner components.
 
-The following code shows two variations of how we create instances of ```Button``` component.
+The following code shows two variations of how we create instances of ```button``` component.
 Firstly we render the instance directly. Next we parametrize the style information and pass
 these are properties to ```ButtonDemo```.
 
@@ -81,13 +127,13 @@ these are properties to ```ButtonDemo```.
 ~~~~~~~
 <Card>
   <p>Click does not do much...</p>
-  <Button className="button default">Default</Button>
-  <Button className="button primary">Primary</Button>
-  <Button className="button secondary">Secondary</Button>
-  <Button className="button danger">Danger</Button>
-  <Button className="button success">Success</Button>
-  <Button className="button warning">Warning</Button>
-  <Button className="button golden">Golden</Button>
+  <button className="button default">Default</button>
+  <button className="button primary">Primary</button>
+  <button className="button secondary">Secondary</button>
+  <button className="button danger">Danger</button>
+  <button className="button success">Success</button>
+  <button className="button warning">Warning</button>
+  <button className="button golden">Golden</button>
 </Card>
 <Card>
   <ButtonDemo
@@ -99,16 +145,15 @@ these are properties to ```ButtonDemo```.
 </Card>
 ~~~~~~~
 
-The ```ButtonDemo``` component creates and handles events on ```Button``` component, and passes these
-events as properties to ```Button``` component.
+The ```ButtonDemo``` component creates and handles events on ```button``` component, and passes these
+events as properties to ```button``` component.
 
-Notice how we bind the event handler to ```Button``` component and pass a parameter to the
+Notice how we bind the event handler to ```button``` component and pass a parameter to the
 method.
 
 {title="/app/components/ButtonDemo.jsx event handling", lang=javascript}
 ~~~~~~~
 import React, { PropTypes, Component } from 'react'
-import Button from './Button.jsx';
 
 class ButtonDemo extends Component {
   static propTypes = {
@@ -124,8 +169,8 @@ class ButtonDemo extends Component {
     this.state = {demoMessage: 'Click any button...'};
   }
 
-  handleButtonClick(button) {
-    this.setState({demoMessage: `Button ${button} clicked.`});
+  handleButtonClick(color) {
+    this.setState({demoMessage: `Button ${color} clicked.`});
   }
 
   render () {
@@ -144,13 +189,13 @@ class ButtonDemo extends Component {
               ? color
               : <div><i className={iconClass}></i>&nbsp;{color}</div>;
         return(
-          <Button
+          <button
             key={color}
             className={buttonClass}
             onClick={this.handleButtonClick.bind(this, color)}
           >
             {renderLabel}
-          </Button>
+          </button>
         );
       });
 
@@ -167,17 +212,17 @@ export default ButtonDemo;
 ~~~~~~~
 
 Our render method is relatively complex, however it is creating multiple variations of ```Button``` components
-based on style parameters passed as properties. As a result, the ```CardStack``` render is relatively simpler, with fewer lines of code when compared with directly rendering instances of the ```Button``` component variations.
+based on style parameters passed as properties. As a result, the ```CardStack``` render is relatively simpler, with fewer lines of code when compared with directly rendering instances of the ```button``` component variations.
 This is a good strategy for creating visual test pages for your components.
 
 Event handling in multiple components has following key strategies.
 
 - As event handlers often manipulate state, they are best defined where state is defined.
 - Define the event handler in outermost owner component.
-- Consume onEvent property within owned components down the multi-component hierarchy.
+- Consume on<Event> property within owned components down the multi-component hierarchy.
 - Event handlers without any parameters can bind within constructor.
-- Event handlers with parameters can bind within onEvent property.
-- Pass parameter to event handling method using onEvent property bind expression.
+- Event handlers with parameters can bind within on<Event> property.
+- Pass parameter to event handling method using on<Event> property bind expression.
 
 {pagebreak}
 
@@ -192,9 +237,9 @@ Icon label and input box. And, icon label, input box, and a button. We want to d
 input box variations within JSX by just combining the required components together.
 
 Here is what our ```CardStack``` component rendering of forms looks like.
-This is based on input control styles and ```Button``` React component we created earlier.
+This is based on input control styles and ```button``` React component we reused earlier.
 Notice how ```CardStack``` is rendering multiple instances of ```Card``` component, which
-in turn renders several child nodes including ```Button``` components.
+in turn renders several child nodes including ```button``` components.
 
 {title="/app/components/CardStack.jsx rendering Input styles", lang=html}
 ~~~~~~~
@@ -224,35 +269,21 @@ in turn renders several child nodes including ```Button``` components.
 </div>
 ~~~~~~~
 
-We have a mix of custom React components and CSS modules styling HTML nodes,
-default components React provides out of the box. This is a fair iterative design
-strategy. We create React components as we need them. If HTML nodes + styles serves the purpose,
+We have CSS modules styling default components React provides out of the box. This is a fair iterative design
+strategy. We create React components as we need them. If HTML nodes + styles serve the purpose,
 we continue moving forward in our app design.
 
-Another composition strategy is to use ```this.props.children``` property like we used
-in the ```Button``` component to consume the child nodes representing button label.
-
-{title="/app/components/Button.jsx rendering children", lang=javascript}
-~~~~~~~
-render () {
-  return (
-    <button className={this.props.className} onClick={this.props.onClick}>
-      {this.props.children}
-    </button>
-  );
-}
-~~~~~~~
-
-Parent-child tree composition strategies are summarized as followes.
+Parent-child tree composition strategies are summarized here.
 
 - Compose components like HTML/DOM tree to render complex variations of reusable components.
 - Composition in a node tree creates parent-child relationship between components.
-- Parent-child relationship is easier to create, however more decoupled to Owner-owned relationship.
+- Parent-child relationship is easier to create than Owner-owned relationship.
+- Parent-child relationship is relatively decoupled when compared to Owner-owned relationship.
 - Consume child nodes within parent render method using ```this.props.children``` property.
 
 {pagebreak}
 
-## Presentational and container components (Wp)
+## Presentational and container components (Wc)
 
 Our app will use two kind of components. Presentational and container components.
 
@@ -261,7 +292,7 @@ by Dan Abramov in his article on [Presentational and Container Components][3].
 
 How do decide that you are writing presentational components.
 
-- Examples: YouTube, LeanPub, Hello, Card.
+- Examples: YouTube, LeanPub, Hello, Card, Button.
 - Presentational components are concerned about how things look.
 - May contain both presentational and container components inside.
 - Usually have some DOM markup.
@@ -275,7 +306,7 @@ How do decide that you are writing presentational components.
 
 How to decide that you are writing container components.
 
-- Examples: FeatureList, Roadmap, World, CardStack.
+- Examples: FeatureList, Roadmap, World, CardStack, ButtonDemo.
 - Are concerned with how things work.
 - May contain both presentational and container components inside.
 - Usually don’t have any DOM markup of their own except for some wrapping divs
@@ -387,7 +418,7 @@ our component code.
 
 {pagebreak}
 
-## Sending Component as a property (Ws)
+## Passing Component as a property (Wp)
 
 See how React Font Awesome component [passes a component as a property][4].
 

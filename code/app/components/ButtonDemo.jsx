@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react'
-import Button from './Button.jsx';
 
 class ButtonDemo extends Component {
   static propTypes = {
@@ -15,8 +14,8 @@ class ButtonDemo extends Component {
     this.state = {demoMessage: 'Click any button...'};
   }
 
-  handleButtonClick(button) {
-    this.setState({demoMessage: `Button ${button} clicked.`});
+  handleButtonClick(color) {
+    this.setState({demoMessage: `Button ${color} clicked.`});
   }
 
   render () {
@@ -35,13 +34,13 @@ class ButtonDemo extends Component {
               ? color
               : <div><i className={iconClass}></i>&nbsp;{color}</div>;
         return(
-          <Button
+          <button
             key={color}
             className={buttonClass}
             onClick={this.handleButtonClick.bind(this, color)}
           >
             {renderLabel}
-          </Button>
+          </button>
         );
       });
 

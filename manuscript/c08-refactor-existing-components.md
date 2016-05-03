@@ -82,7 +82,7 @@ export default class Card extends React.Component {
 }
 ~~~~~~~
 
-Another benefit from this refactoring is reduced, easier to read code for
+Another benefit from this refactoring is reduced and easier to read code for
 our ```CardStack``` render method. Notice how we are passing ```message```
 property without initializing it with a value. React understands this as a
 boolean property with value as true.
