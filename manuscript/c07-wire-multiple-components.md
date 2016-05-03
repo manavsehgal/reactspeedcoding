@@ -130,16 +130,19 @@ class ButtonDemo extends Component {
 
   render () {
     const renderButtons = this.props.colors.map((color, i) => {
-        const iconClass = (this.props.icons === undefined || this.props.icons.length == 0)
-          ? `` : ` fa fa-${this.props.icons[i]}`;
-        const buttonClass = (this.props.sizes === undefined || this.props.sizes.length == 0)
-          ? `button ${color.toLowerCase()}`
-          : `button ${this.props.sizes[i]} ${color.toLowerCase()}`;
-        const renderLabel = this.props.iconOnly
-          ? <i className={iconClass}></i>
-          : (this.props.icons === undefined || this.props.icons.length == 0)
-            ? color
-            : <div><i className={iconClass}></i>&nbsp;{color}</div>;
+        const iconClass =
+          (this.props.icons === undefined || this.props.icons.length == 0)
+            ? `` : ` fa fa-${this.props.icons[i]}`;
+        const buttonClass =
+          (this.props.sizes === undefined || this.props.sizes.length == 0)
+            ? `button ${color.toLowerCase()}`
+            : `button ${this.props.sizes[i]} ${color.toLowerCase()}`;
+        const renderLabel =
+          this.props.iconOnly
+            ? <i className={iconClass}></i>
+            : (this.props.icons === undefined || this.props.icons.length == 0)
+              ? color
+              : <div><i className={iconClass}></i>&nbsp;{color}</div>;
         return(
           <Button
             key={color}
@@ -164,7 +167,8 @@ export default ButtonDemo;
 ~~~~~~~
 
 Our render method is relatively complex, however it is creating multiple variations of ```Button``` components
-based on style parameters passed as properties. This is a good strategy for creating visual test pages for your components.
+based on style parameters passed as properties. As a result, the ```CardStack``` render is relatively simpler, with fewer lines of code when compared with directly rendering instances of the ```Button``` component variations.
+This is a good strategy for creating visual test pages for your components.
 
 Event handling in multiple components has following key strategies.
 
@@ -177,7 +181,7 @@ Event handling in multiple components has following key strategies.
 
 {pagebreak}
 
-## Composition of reusable components (Wc)
+## Composition using parent child node tree (Wt)
 
 Once you create reusable components in React, you should be able to compose more
 complex, feature rich components by just building a node-tree, just like you do with HTML nodes.
@@ -224,6 +228,27 @@ We have a mix of custom React components and CSS modules styling HTML nodes,
 default components React provides out of the box. This is a fair iterative design
 strategy. We create React components as we need them. If HTML nodes + styles serves the purpose,
 we continue moving forward in our app design.
+
+Another composition strategy is to use ```this.props.children``` property like we used
+in the ```Button``` component to consume the child nodes representing button label.
+
+{title="/app/components/Button.jsx rendering children", lang=javascript}
+~~~~~~~
+render () {
+  return (
+    <button className={this.props.className} onClick={this.props.onClick}>
+      {this.props.children}
+    </button>
+  );
+}
+~~~~~~~
+
+Parent-child tree composition strategies are summarized as followes.
+
+- Compose components like HTML/DOM tree to render complex variations of reusable components.
+- Composition in a node tree creates parent-child relationship between components.
+- Parent-child relationship is easier to create, however more decoupled to Owner-owned relationship.
+- Consume child nodes within parent render method using ```this.props.children``` property.
 
 {pagebreak}
 

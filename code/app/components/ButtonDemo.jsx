@@ -21,16 +21,19 @@ class ButtonDemo extends Component {
 
   render () {
     const renderButtons = this.props.colors.map((color, i) => {
-        const iconClass = (this.props.icons === undefined || this.props.icons.length == 0)
-          ? `` : ` fa fa-${this.props.icons[i]}`;
-        const buttonClass = (this.props.sizes === undefined || this.props.sizes.length == 0)
-          ? `button ${color.toLowerCase()}`
-          : `button ${this.props.sizes[i]} ${color.toLowerCase()}`;
-        const renderLabel = this.props.iconOnly
-          ? <i className={iconClass}></i>
-          : (this.props.icons === undefined || this.props.icons.length == 0)
-            ? color
-            : <div><i className={iconClass}></i>&nbsp;{color}</div>;
+        const iconClass =
+          (this.props.icons === undefined || this.props.icons.length == 0)
+            ? `` : ` fa fa-${this.props.icons[i]}`;
+        const buttonClass =
+          (this.props.sizes === undefined || this.props.sizes.length == 0)
+            ? `button ${color.toLowerCase()}`
+            : `button ${this.props.sizes[i]} ${color.toLowerCase()}`;
+        const renderLabel =
+          this.props.iconOnly
+            ? <i className={iconClass}></i>
+            : (this.props.icons === undefined || this.props.icons.length == 0)
+              ? color
+              : <div><i className={iconClass}></i>&nbsp;{color}</div>;
         return(
           <Button
             key={color}
