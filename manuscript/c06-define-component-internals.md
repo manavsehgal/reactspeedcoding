@@ -133,6 +133,7 @@ handleNameChange(event) {
 - Avoid using ```forceUpdate``` method from React.Component API. Instead use render method to read from props and state. This makes your component "pure" in the sense that its output render is predictable based on input props.
 - ES6 class components that extend React.Component do not have ```isMounted```, ```replaceProps```, ```setProps```, ```replaceState``` and ```getDOMNode``` methods. These may be removed from React API in future releases.
 
+{pagebreak}
 
 ## Constructor and binding (Db)
 
@@ -152,6 +153,8 @@ constructor(props) {
 
 - Use constructor to declare propTypes and set defaultProps.
 - Setting default state can be done within the constructor.
+
+{pagebreak}
 
 ## Property types (Dt)
 
@@ -200,6 +203,8 @@ customProp: function(props, propName, componentName) {
 ~~~~~~~
 
 Using propTypes and defaultProps is essential for defining robust and reliable React components.
+
+{pagebreak}
 
 ## State management (Ds)
 
@@ -252,9 +257,13 @@ handleNameChange(event) {
 
 State management is one of the most powerful React features. Use it responsibly!
 
+{pagebreak}
+
 ## Lifecycle methods (Dl)
 
 How to decide which lifecycle methods to use and why.
+
+{pagebreak}
 
 ## Event handlers (De)
 
@@ -282,6 +291,8 @@ handleButtonClick(color) {
 
 - Define event handler methods at highest level owner component in a component hierarchy.
 - Define event handlers in components where you define state.
+
+{pagebreak}
 
 ## Render and ReactDOM.render methods (Dr)
 
