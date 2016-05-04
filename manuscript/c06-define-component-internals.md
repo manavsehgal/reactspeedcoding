@@ -22,6 +22,7 @@ You will learn following concepts in this chapter.
 - Property types (Dt)
 - State management (Ds)
 - Lifecycle methods (Dl)
+- Event handlers (De)
 - Render and ReactDOM.render methods (Dr)
 - JSX features and syntax (Dj)
 
@@ -103,24 +104,111 @@ export default function YouTube({videoid}) {...
 
 ## Classes and inheritance (Dc)
 
+Classes are introduced in ES6 syntax for defining React components.
+
 - Only one component using class definition per file.
+- React ES6 classes do not support Read Mixins.
+- Methods do not automatically bind ```this``` to the class instance. Explicitly use bind statement.
+
+{title="Explicit method bind", lang=javascript}
+~~~~~~~
+constructor(props) {
+  super(props);
+  // some code...
+  this.handleNameChange = this.handleNameChange.bind(this);
+}
+~~~~~~~
+
+- Custom React components often extend React.Component.
+- React.Component API provides setState() to perform a shallow merge of nextState into current state. This is the primary method you use to trigger UI updates from event handlers and server request callbacks.
+
+{title="setState method", lang=javascript}
+~~~~~~~
+handleNameChange(event) {
+  this.setState({value: event.target.value});
+}
+~~~~~~~
+
+- Treat ```this.state``` as immutable. Do not change its value directly. Use ```setState``` method instead.
+- Avoid using ```forceUpdate``` method from React.Component API. Instead use render method to read from props and state. This makes your component "pure" in the sense that its output render is predictable based on input props.
+- ES6 class components that extend React.Component do not have ```isMounted```, ```replaceProps```, ```setProps```, ```replaceState``` and ```getDOMNode``` methods. These may be removed from React API in future releases.
 
 
 ## Constructor and binding (Db)
 
-When to use and how.
+Constructors are a feature of ES6 classes. Constructor methods are called once per instance of a component.
+
+- First statement in a construction is ```super(props)``` which passes the props within the inheritance tree.
+- Use constructor to bind methods. This is better for performance as it is bound once and also when using ```shouldComponentUpdate()``` method for shallow comparison in the child components.
+
+{title="Explicit method bind", lang=javascript}
+~~~~~~~
+constructor(props) {
+  super(props);
+  // some code...
+  this.handleNameChange = this.handleNameChange.bind(this);
+}
+~~~~~~~
+
+- Use constructor to declare propTypes and set defaultProps.
+- Setting default state can be done within the constructor.
 
 ## Property types (Dt)
 
-Various tricks we can do with properties like spread operator, destructuring assignment,
-Component for custom DOM element as property.
+Defining property types makes your code more reliable.
+
+- Import ```{PropTypes}``` from react dependency.
+- Define property types using ```static propTypes = {} ``` statement in ES6.
+
+{title="Defining propTypes", lang=javascript}
+~~~~~~~
+static propTypes = {
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  size: PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
+  rotate: PropTypes.number,
+  flip: PropTypes.oneOf(['horizontal', 'vertical']),
+  inverse: PropTypes.bool
+}
+~~~~~~~
+
+- Set default properties using ```static defaultProps = {}``` statement in ES6.
+
+{title="Setting defaultProps", lang=javascript}
+~~~~~~~
+static defaultProps = { size: '', message: false }
+~~~~~~~
+
+- Property type violations show up as warnings in browser console.
+- You can define property types for array, string, number, and bool.
+- Define property type for methods, like event handling methods
+propagating from owner component, using ```PropTypes.func``` statement.
+- You can define a property type as required using ```.isRequired``` statement.
+- You can define custom property validator with associated ```Error``` message.
+
+{title="Custom property validator example from Facebook", lang=javascript}
+~~~~~~~
+customProp: function(props, propName, componentName) {
+  if (!/matchme/.test(props[propName])) {
+    return new Error(
+      'Invalid prop `' + propName + '` supplied to' +
+      ' `' + componentName + '`. Validation failed.'
+    );
+  }
+}
+~~~~~~~
+
+Using propTypes and defaultProps is essential for defining robust and reliable React components.
 
 ## State management (Ds)
 
 This section discussed when to use state and how.
 
-- Always define state at the highest level in a component hierarchy.
+- State should contain data that a component's event handlers may change to trigger a UI update.
 - Owner component where state is defined usually also defines event handlers manipulating this state.
+- Always define state at the highest level in a component hierarchy.
+- If you want to know prior value of a prop within your app, state could be used to store prop history.
 - Define minimal state for a component.
 - Most components in your library should be stateless components.
 - If the component data is passed from an owner component via props, it probably isn't state.
@@ -168,6 +256,33 @@ State management is one of the most powerful React features. Use it responsibly!
 
 How to decide which lifecycle methods to use and why.
 
+## Event handlers (De)
+
+Event handler methods bind to React ES6 components for manipulating component state.
+
+- Always bind event handler methods within constructor. This is more performant.
+
+{title="Explicit method bind", lang=javascript}
+~~~~~~~
+constructor(props) {
+  super(props);
+  // some code...
+  this.handleNameChange = this.handleNameChange.bind(this);
+}
+~~~~~~~
+
+- Bind event handler method within on<Event> statement when passing custom parameters to the event handler.
+
+{title="Custom parameter passing to even handler method", lang=javascript}
+~~~~~~~
+handleButtonClick(color) {
+  this.setState({demoMessage: `Button ${color} clicked.`});
+}
+~~~~~~~
+
+- Define event handler methods at highest level owner component in a component hierarchy.
+- Define event handlers in components where you define state.
+
 ## Render and ReactDOM.render methods (Dr)
 
 Important things to remember about render method and ReactDOM.render.
@@ -183,7 +298,7 @@ markup into a raw DOM element, provided as the second argument.
 JSX is what you write within ```render() return()``` method. JSX gets transpiled to JS
 by Babel in our build environment.
 
-- JSX HTML-like tags are React framework components representing HTML tags and attributes.
+- JSX HTML-like tags are React framework native components representing HTML tags and attributes.
 - JSX components use ```className``` instead of ```class``` when specifying CSS classes.
 
 I> ## Chapter In Progress
