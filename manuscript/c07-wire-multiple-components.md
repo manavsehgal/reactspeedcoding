@@ -12,7 +12,6 @@ You will learn following concepts in this important chapter.
 - Redux and Flux (Wf).
 - When to use presentational verses container components (Wc)
 - Reconciliation algorithm and keys for dynamic children (Wk).
-- Strategy for passing component as a property to another component (Wp).
 
 {pagebreak}
 
@@ -419,12 +418,6 @@ as long as we are certain that the array values will remain unique.
 So in our latest code update the ```messages``` array is just an array of unique strings as messages.
 We pass this on to key attribute as well as the value for the list items. This further simplifies
 our component code.
-
-{pagebreak}
-
-## Passing Component as a property (Wp)
-
-See how React Font Awesome component [passes a component as a property][4].
 
 
 I> ## Chapter In Progress
