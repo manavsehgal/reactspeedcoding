@@ -25,7 +25,6 @@ You will learn following concepts in this chapter.
 - Render and ReactDOM.render methods (Dr)
 - JSX features and syntax (Dj)
 
-
 {pagebreak}
 
 ## Naming files, folders, and modules (Df)
@@ -100,7 +99,7 @@ export default function YouTube({videoid}) {...
 
 ## Classes and inheritance (Dc)
 
-- Only one class defined component per file.
+- Only one component using class definition per file.
 
 
 ## Constructor and binding (Db)
@@ -114,7 +113,49 @@ Component for custom DOM element as property.
 
 ## State management (Ds)
 
-When to use state and how.
+This section discussed when to use state and how.
+
+- Always define state at the highest level in a component hierarchy.
+- Owner component where state is defined usually also defines event handlers manipulating this state.
+- Define minimal state for a component.
+- Most components in your library should be stateless components.
+- If the component data is passed from an owner component via props, it probably isn't state.
+- If the component data does not change over time, it probably isn't state.
+- Do not define state to replace computed properties or computed states.
+- For controlled components in forms, like input, use ```this.state.value``` and value prop to
+manage state outside of the component.
+
+```javascript
+<input
+  type="text" value={this.state.value}
+  placeholder="Enter a name"
+  onChange={this.handleNameChange}
+/>
+```
+
+- For uncontrolled components which do not use value prop, manage state within the component.
+- Set default state in constructor after ```super(props)``` statement using ```this.state = {}``` statement.
+
+```javascript
+constructor(props) {
+  super(props);
+  this.state = {
+    currentGreeting: props.greet,
+    value: 'ReactSpeed'
+  };
+  // some code...
+}
+```
+
+- Manipulate state in event handler methods using ```this.setState({})``` method.
+
+```javascript
+handleNameChange(event) {
+  this.setState({value: event.target.value});
+}
+```
+
+State management is one of the most powerful React features. Use it responsibly!
 
 ## Lifecycle methods (Dl)
 

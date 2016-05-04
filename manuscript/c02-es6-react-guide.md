@@ -129,10 +129,12 @@ Constructor is called when component is created, so it is the right place for fo
 constructor(props) {
   super(props);
   this.state = {
-    currentGreeting: props.greet
+    currentGreeting: props.greet,
+    value: 'ReactSpeed'
   };
   this.slangGreet = this.slangGreet.bind(this);
   this.hindiGreet = this.hindiGreet.bind(this);
+  this.handleNameChange = this.handleNameChange.bind(this);
 }
 ~~~~~~~
 

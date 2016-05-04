@@ -121,7 +121,7 @@ which will be a placeholder for how to add buttons and interactivity with other 
 
 The following code shows two variations of how we create instances of ```button``` component.
 Firstly we render the instance directly. Next we parametrize the style information and pass
-these are properties to ```ButtonDemo```.
+these as properties to ```ButtonDemo```.
 
 {title="/app/components/CardStack.jsx rendering Button and ButtonDemo", lang=html}
 ~~~~~~~
@@ -211,7 +211,7 @@ class ButtonDemo extends Component {
 export default ButtonDemo;
 ~~~~~~~
 
-Our render method is relatively complex, however it is creating multiple variations of ```Button``` components
+Our render method is relatively complex, however it is creating multiple variations of ```button``` components
 based on style parameters passed as properties. As a result, the ```CardStack``` render is relatively simpler, with fewer lines of code when compared with directly rendering instances of the ```button``` component variations.
 This is a good strategy for creating visual test pages for your components.
 
@@ -220,7 +220,7 @@ Event handling in multiple components has following key strategies.
 - As event handlers often manipulate state, they are best defined where state is defined.
 - Define the event handler in outermost owner component.
 - Consume on<Event> property within owned components down the multi-component hierarchy.
-- Event handlers without any parameters can bind within constructor.
+- Event handlers without any parameters can bind within the constructor.
 - Event handlers with parameters can bind within on<Event> property.
 - Pass parameter to event handling method using on<Event> property bind expression.
 
@@ -239,7 +239,8 @@ input box variations within JSX by just combining the required components togeth
 Here is what our ```CardStack``` component rendering of forms looks like.
 This is based on input control styles and ```button``` React component we reused earlier.
 Notice how ```CardStack``` is rendering multiple instances of ```Card``` component, which
-in turn renders several child nodes including ```button``` components.
+in turn renders several child nodes including ```button``` and ```inputs``` components
+that React provides.
 
 {title="/app/components/CardStack.jsx rendering Input styles", lang=html}
 ~~~~~~~
@@ -272,6 +273,9 @@ in turn renders several child nodes including ```button``` components.
 We have CSS modules styling default components React provides out of the box. This is a fair iterative design
 strategy. We create React components as we need them. If HTML nodes + styles serve the purpose,
 we continue moving forward in our app design.
+
+This is another reason for using form controls like input as-is without wrapping them in our own component.
+We can use form controls like input as *Controlled Components* where React provides value props and ```this.state.value``` out of the box. This way we do not need to maintain state for such controlled components.
 
 Parent-child tree composition strategies are summarized here.
 

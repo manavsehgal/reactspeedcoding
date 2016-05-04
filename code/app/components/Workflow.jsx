@@ -90,6 +90,8 @@ export default class Workflow extends React.Component {
           <div className="grid-cell workflow-scenario">
             {currentStep.scenario}
           </div>
+        </div>
+        <div className="grid large-grid-full med-grid-full small-grid-full">
           <div className="grid-cell workflow-text">
             {currentStep.text}
           </div>

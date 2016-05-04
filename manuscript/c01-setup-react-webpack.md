@@ -418,40 +418,60 @@ with a message.
 
 {title="/app/components/World.jsx World component", lang=javascript}
 ~~~~~~~
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Hello from './Hello.jsx';
 
 export default class World extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      currentGreeting: props.greet
+      currentGreeting: props.greet,
+      value: 'ReactSpeed'
     };
     this.slangGreet = this.slangGreet.bind(this);
     this.hindiGreet = this.hindiGreet.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
   }
+
   slangGreet() {
     this.setState({currentGreeting: 'Yo!'});
   }
+
   hindiGreet() {
     this.setState({currentGreeting: 'Namaste'});
   }
+
+  handleNameChange(event) {
+    this.setState({value: event.target.value});
+  }
+
   render() {
+    const renderName = this.state.value ? this.state.value + ' says ' : '';
+    const renderGreeting = renderName + this.state.currentGreeting;
     return (
       <div>
-        <Hello greet={ this.state.currentGreeting } message="World!" />
-        <a href="#" onClick={ this.slangGreet }>
-          Slang greeting
-        </a> OR <a href="#" onClick={ this.hindiGreet }>
-          Hindi greeting
+        <Hello greet={renderGreeting} message="World!" />
+        <a className="link" onClick={this.slangGreet}>
+          Slang
+        </a> OR <a className="link" onClick={this.hindiGreet}>
+          Hindi
         </a>
+        <br /><br />
+        <input
+          type="text" value={this.state.value}
+          placeholder="Enter a name"
+          onChange={this.handleNameChange}
+        />
       </div>
     );
   }
 }
+
 World.propTypes = {
   greet: React.PropTypes.string.isRequired,
 }
+
 World.defaultProps = {
   greet: 'Hello',
 }
@@ -459,7 +479,11 @@ World.defaultProps = {
 
 The ```Hello``` component renders Hello World message based on how ```World```
 component calls it and current UI state. Current UI state changes as user clicks
-on greeting language links.
+on greeting language links. We are also processing ```input``` data
+using ```this.state.value``` provided by React. The input control used in this
+example does not maintain its own state. It is known as *Controlled Component* as opposed to
+*Uncontrolled Component* if the value property is not used. Uncontrolled components
+manage their own state. Read more about [handling forms][10] at Facebook React documentation.
 
 Again, do not worry why we use a function here and not a class. All this will be
 covered in the **ES6 React Guide** chapter.
@@ -589,3 +613,4 @@ we will discuss various techniques to optimize for a production environment.
 [7]: https://github.com/airbnb/javascript/tree/master/react
 [8]: http://www.w3schools.com/colors/colors_names.asp
 [9]: http://babeljs.io/docs/plugins/
+[10]: https://facebook.github.io/react/docs/forms.html

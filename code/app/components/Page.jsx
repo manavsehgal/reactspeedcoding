@@ -6,23 +6,23 @@ export default class Page extends React.Component {
   render() {
     return (
       <div className="holygrail">
-        <ul className="navigation grid bottom grid-gutters grid-flex-cells">
-          <li className="grid-cell top">
+        <ul className="navigation grid grid-gutters large-grid-fit med-grid-fit small-grid-1of2">
+          <li className="grid-cell">
             <a className="navigation-link navigation-brand" href="/">ReactSpeed</a>
           </li>
-          <li className="grid-cell auto-size">
+          <li className="grid-cell">
             <a className="navigation-link"
               href="https://leanpub.com/reactspeedcoding">
                 <i className="fa fa-book"></i> Book
             </a>
           </li>
-          <li className="grid-cell auto-size">
+          <li className="grid-cell">
             <a className="navigation-link"
               href="https://github.com/manavsehgal/reactspeedcoding">
                 <i className="fa fa-github"></i> Code
             </a>
           </li>
-          <li className="grid-cell auto-size">
+          <li className="grid-cell">
             <a className="navigation-link"
               href="https://leanpub.com/reactspeedcoding/feedback">
                 <i className="fa fa-comments"></i> Discuss
@@ -40,7 +40,7 @@ export default class Page extends React.Component {
             <CardStack />
           </article>
           <nav className="holygrail-nav u-textCenter">
-            <p>Learn to build a custom UI framework in React, Flexbox, and PostCSS.</p>
+            <p>Learn to build your own custom UI library in React, Flexbox, and PostCSS.</p>
             <p>Apply new ES6 features to make your React code more reliable.</p>
             <p>Master component design workflow
             with several strategies for reusable, reliable, and rapid coding in React.</p>

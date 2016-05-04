@@ -25,7 +25,7 @@ You will learn following concepts in this chapter.
 Designing a custom UI library is an ambitious undertaking. Our task becomes achievable if we scope
 our design goals upfront.
 
-**Speed.** Like the name suggests, our UI framework is built for speed of development and
+**Speed.** Like the name suggests, our UI library is built for speed of development and
 creating performant apps.
 
 **Single Page App.** We will design various UI components required for a single page app including
@@ -33,18 +33,18 @@ landing page, buttons, forms, navigation menu, interactive content cards, and fo
 
 **Responsive.** Our app will be responsive and components will render according to target screen size.
 
-**Customizable.** We want our UI framework to be easily customizable using custom color themes.
+**Customizable.** We want our UI library to be easily customizable using custom color themes.
 
-**Reusable.** The UI frameworks will be reusable across multiple apps.
+**Reusable.** The ReactSpeed UI library will be reusable across multiple apps.
 
-**Simple.** We will keep our UI framework simple to understand, extend, and reuse.
+**Simple.** We will keep our UI library simple to understand, extend, and reuse.
 
-**Optimized.** Speed UI framework will be production ready and optimized for light payloads.
+**Optimized.** ReactSpeed UI library will be production ready and optimized for light payloads.
 
-**State Machine.** Our UI framework will support state management. This is topic for an advanced chapter,
-however we will consider this goal as we design the framework.
+**State Machine.** Our UI library will support state management. This is topic for an advanced chapter,
+however we will consider this goal as we design the library.
 
-**Expressive.** Our UI framework will be reusable in expressive, English like statements.
+**Expressive.** Our UI library will be reusable in expressive, English like statements.
 
 {pagebreak}
 
@@ -172,7 +172,7 @@ body {
 ~~~~~~~
 
 First, let us create a ```_theme.css``` to specify reusable theme variables. That way our
-css can refer to these variables. Changes in one file will impact our entire UI framework.
+css can refer to these variables. Changes in one file will impact our entire UI library.
 
 {title="/styles/theme.css Page styles", lang=css}
 ~~~~~~~
@@ -540,7 +540,7 @@ This section and the following sections are really important and these impact al
 
 So far we have evolved our CSS library organically. We have followed some
 best practices, we may even have ignored some guidelines for ease of creating and reading early samples.
-As our application and custom UI framework grows in size and complexity, so will our styles library.
+As our application and custom UI library grows in size and complexity, so will our styles library.
 
 Large CSS implementations are infamous for difficulty in maintainability. You can do three things to make
 your CSS code as readable, reusable, and robust as your React code.
@@ -566,7 +566,7 @@ styles are logically related, like flexbox container and child ordering. Secondl
 components have minimal associated style information.
 - If you have a designer and developer in your team, they could be working on their own
 folders with clearly defined interfaces in the form of naming conventions and organization principles.
-- You can easily package your UI framework styles for independent distribution if required.
+- You can easily package your UI library styles for independent distribution if required.
 
 Another set of best practices we will follow are around naming conventions.
 
