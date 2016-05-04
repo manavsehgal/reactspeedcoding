@@ -1,3 +1,2 @@
 c01-setup-react-webpack.md
 c05-start-component-design.md
-c11-firebase-react-integration.md
