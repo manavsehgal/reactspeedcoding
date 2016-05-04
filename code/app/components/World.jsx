@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import Hello from './Hello.jsx';
 
 export default class World extends React.Component {

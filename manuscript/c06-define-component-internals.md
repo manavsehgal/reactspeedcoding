@@ -60,23 +60,26 @@ defining in a ```ComponentName.jsx``` file.
 - You can use ```import {Module1, Module2} from 'library';``` to import specific modules
 directly. This way you can reduce some coding by referencing these modules directly.
 
-```javascript
+{title="import statement for default and other exports", lang=javascript}
+~~~~~~~
 import React, {PropTypes} from 'react';
-```
+~~~~~~~
 
 - Alias an imported member name and use the alias within your code.
 
-```javascript
+{title="import statement using alias", lang=javascript}
+~~~~~~~
 import React, {VeryLongModuleName as shortName} from 'react';
-```
+~~~~~~~
 
 - Use ```export default``` statements to prefix component name declaration for exporting.
 
-```javascript
+{title="export statement for class and pure function", lang=javascript}
+~~~~~~~
 export default class Card extends React.Component {...
 
 export default function YouTube(props) {...
-```
+~~~~~~~
 
 {pagebreak}
 
@@ -87,11 +90,12 @@ export default function YouTube(props) {...
 - You can declare a stateless component function with props.
 - Declare a stateless component function with specific properties using destructuring assignment.
 
-```javascript
+{title="Stateless component definition", lang=javascript}
+~~~~~~~
 export default function YouTube(props) {...
 
 export default function YouTube({videoid}) {...
-```
+~~~~~~~
 
 - Cannot use stateless components when rendering ```this.props.children``` within your component.
 
@@ -125,18 +129,20 @@ This section discussed when to use state and how.
 - For controlled components in forms, like input, use ```this.state.value``` and value prop to
 manage state outside of the component.
 
-```javascript
+{title="Controlled native input component", lang=html}
+~~~~~~~
 <input
   type="text" value={this.state.value}
   placeholder="Enter a name"
   onChange={this.handleNameChange}
 />
-```
+~~~~~~~
 
 - For uncontrolled components which do not use value prop, manage state within the component.
 - Set default state in constructor after ```super(props)``` statement using ```this.state = {}``` statement.
 
-```javascript
+{title="Set default state", lang=javascript}
+~~~~~~~
 constructor(props) {
   super(props);
   this.state = {
@@ -145,15 +151,16 @@ constructor(props) {
   };
   // some code...
 }
-```
+~~~~~~~
 
 - Manipulate state in event handler methods using ```this.setState({})``` method.
 
-```javascript
+{title="State manipulation", lang=javascript}
+~~~~~~~
 handleNameChange(event) {
   this.setState({value: event.target.value});
 }
-```
+~~~~~~~
 
 State management is one of the most powerful React features. Use it responsibly!
 

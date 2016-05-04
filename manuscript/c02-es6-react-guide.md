@@ -111,7 +111,7 @@ The constructor of our ```World``` component highlights three most important
 features of how components talk to each other and the user.
 
 **State.** Changing UI or internal state of a component is maintained using ```this.state```
-JSON object. When state changes, rendered markup is updated by re-invoking ```render()```.
+JSON object. When state changes, rendered markup is updated by re-invoking the ```render()``` method.
 
 **Props.** Properties are the mechanism to pass input data from owner to rendered components.
 
