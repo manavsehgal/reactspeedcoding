@@ -19,7 +19,7 @@ You will learn following concepts in this chapter.
 - Stateless components and pure functions (Dp)
 - Classes and inheritance (Dc)
 - Constructor and binding (Db)
-- Property types (Dt)
+- Properties and property types (Dt)
 - State management (Ds)
 - Lifecycle methods (Dl)
 - Event handlers (De)
@@ -156,10 +156,13 @@ constructor(props) {
 
 {pagebreak}
 
-## Property types (Dt)
+## Properties and property types (Dt)
 
 Defining property types makes your code more reliable.
 
+- Properties in ES6 classes are available using ```this.props``` object.
+- Consider ```this.props``` as immutable within the component. Never change ```this.props``` directly.
+Only use JSX attributes to pass props.
 - Import ```{PropTypes}``` from react dependency.
 - Define property types using ```static propTypes = {} ``` statement in ES6.
 
@@ -188,6 +191,8 @@ static defaultProps = { size: '', message: false }
 - Define property type for methods, like event handling methods
 propagating from owner component, using ```PropTypes.func``` statement.
 - You can define a property type as required using ```.isRequired``` statement.
+- When using ```this.props.children``` you can validate that only a single child
+is passed using ```PropTypes.element.isRequired``` statement.
 - You can define custom property validator with associated ```Error``` message.
 
 {title="Custom property validator example from Facebook", lang=javascript}
@@ -201,6 +206,8 @@ customProp: function(props, propName, componentName) {
   }
 }
 ~~~~~~~
+
+- Use JSX spread syntax ```{...this.props}``` to pass on props as-is from owner to extended component. Read more at Facebook React docs about [transferring properties][3] using JSX spread syntax.
 
 Using propTypes and defaultProps is essential for defining robust and reliable React components.
 
@@ -261,7 +268,51 @@ State management is one of the most powerful React features. Use it responsibly!
 
 ## Lifecycle methods (Dl)
 
-How to decide which lifecycle methods to use and why.
+This section explains how to decide which lifecycle methods to use and why.
+
+- componentWillMount is invoked once. It is invoked both on client and server. It is invoked
+immediately *before* the initial rendering.
+- componentDidMount is invoked once, only on the client, immediately *after* initial rendering.
+- componentDidMount for child components is invoked before parent components.
+- Use componentDidMount for sending AJAX requests.
+- Use componentDidMount to integrate with other JavaScript frameworks like jQuery.
+
+{title="AJAX calls and jQuery integration", lang=javascript}
+~~~~~~~
+componentDidMount() {
+  const sourceRepo =
+    `https://api.github.com/repos/${this.props.repo}`;
+
+  this.serverRequest = $.get(sourceRepo, function (result) {
+    this.setState({
+      full_name: result.full_name,
+      stargazers_count: result.stargazers_count,
+      open_issues: result.open_issues
+    });
+  }.bind(this));
+}
+~~~~~~~
+
+- componentWillReceiveProps is invoked when component is receiving new props. It is not invoked during
+initial render. It is invoked before render method.
+- Use componentWillReceiveProps for processing prop transitions and updating state before render method is called. Old props can be accessed using ```this.props``` object. The method provides a parameter with new props. Updating state using ```this.setState()``` in this method will not call render method again.
+- shouldComponentUpdate is invoked before rendering when new props or state are being received. This method is not called for the initial render.
+- Use shouldComponentUpdate to ```return false``` when you're certain that the transition to the new props and state will not require a component render update.
+- Use shouldComponentUpdate to improve app performance by only allowing re-rendering for components when necessary.
+- componentWillUpdate is invoked immediately before rendering when new props or state are being received. This method is not called for the initial render.
+- You cannot use this.setState() in componentWillUpdate method.
+- Use componentWillUpdate, if you need to perform operations in response to a state change.
+- componentDidUpdate method is invoked immediately after the component's updates are flushed to the DOM. This method is not called for the initial render.
+- Use componentDidUpdate to operate on the DOM when the component has been updated.
+- componentWillUnmount is invoked immediately before a component is unmounted from the DOM.
+- Perform any necessary cleanup in componentWillUnmount method, such as aborting AJAX requests or cleaning up any DOM elements that were created in componentDidMount.
+
+{title="AJAX cleanup", lang=javascript}
+~~~~~~~
+componentWillUnmount() {
+  this.serverRequest.abort();
+}
+~~~~~~~
 
 {pagebreak}
 
@@ -311,6 +362,13 @@ by Babel in our build environment.
 
 - JSX HTML-like tags are React framework native components representing HTML tags and attributes.
 - JSX components use ```className``` instead of ```class``` when specifying CSS classes.
+- Attribute values in JSX use ```{}``` curly braces to wrap JavaScript expressions.
+- Boolean attributes can be specified without true value. Not specifying a boolean attribute
+implies false value.
+- JavaScript expressions can be used to specify children of a JSX component.
+- Comments in JSX need ```{}``` curly braces to wrap JavaScript comments when in children section of a tag.
+- HTML entities like ```&npsp;``` for space can be used within literal text in JSX.
+- You can use mixed arrays with strings and JSX elements within JSX tags.
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
@@ -319,3 +377,4 @@ I> Plan is to add checklist of guidance for each section of component definition
 
 [1]: https://github.com/airbnb/javascript/tree/master/react
 [2]: https://facebook.github.io/react/index.html
+[3]: https://facebook.github.io/react/docs/reusable-components.html#transferring-props-a-shortcut

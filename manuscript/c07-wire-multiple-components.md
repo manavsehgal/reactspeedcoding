@@ -122,7 +122,7 @@ The following code shows two variations of how we create instances of ```button`
 Firstly we render the instance directly. Next we parametrize the style information and pass
 these as properties to ```ButtonDemo```.
 
-{title="/app/components/CardStack.jsx rendering Button and ButtonDemo", lang=html}
+{title="/app/components/CardStack.jsx rendering button and ButtonDemo", lang=html}
 ~~~~~~~
 <Card>
   <p>Click does not do much...</p>
@@ -147,7 +147,7 @@ these as properties to ```ButtonDemo```.
 The ```ButtonDemo``` component creates and handles events on ```button``` component, and passes these
 events as properties to ```button``` component.
 
-Notice how we bind the event handler to ```button``` component and pass a parameter to the
+Notice how we bind the event handler to ```button``` native component and pass a parameter to the
 method.
 
 {title="/app/components/ButtonDemo.jsx event handling", lang=javascript}
@@ -210,8 +210,8 @@ class ButtonDemo extends Component {
 export default ButtonDemo;
 ~~~~~~~
 
-Our render method is relatively complex, however it is creating multiple variations of ```button``` components
-based on style parameters passed as properties. As a result, the ```CardStack``` render is relatively simpler, with fewer lines of code when compared with directly rendering instances of the ```button``` component variations.
+Our render method is relatively complex, however it is creating multiple variations of ```button``` native component
+based on style parameters passed as properties. As a result, the ```CardStack``` render is relatively simpler, with fewer lines of code when compared with directly rendering instances of the ```button``` native component variations.
 This is a good strategy for creating visual test pages for your components.
 
 Event handling in multiple components has following key strategies.
@@ -238,7 +238,7 @@ input box variations within JSX by just combining the required components togeth
 Here is what our ```CardStack``` component rendering of forms looks like.
 This is based on input control styles and ```button``` React component we reused earlier.
 Notice how ```CardStack``` is rendering multiple instances of ```Card``` component, which
-in turn renders several child nodes including ```button``` and ```inputs``` components
+in turn renders several child nodes including ```button``` and ```inputs``` native components
 that React provides.
 
 {title="/app/components/CardStack.jsx rendering Input styles", lang=html}
