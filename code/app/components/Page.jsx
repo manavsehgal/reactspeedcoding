@@ -31,7 +31,7 @@ export default class Page extends React.Component {
         </ul>
         <header className="holygrail-header">
           <div className="header header-cozy" role="banner">
-            This app is built using code from the book&nbsp;<a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>. Concept to coding React apps, speedily!
+            This app is built using code from the book&nbsp;<a className="header-link" href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>. Concept to coding React apps, speedily!
           </div>
         </header>
         <main className="holygrail-body">

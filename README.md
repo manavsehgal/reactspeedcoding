@@ -4,7 +4,18 @@ Companion code and manuscript of React Speed Coding book is available here.
 
 [![React Speed Coding Book](/manuscript/images/title_page.png)](https://leanpub.com/reactspeedcoding)
 
-[ReactSpeed Demo App](https://reactspeed.firebaseapp.com/) created using sample code from the book.
+## [ReactSpeed.com](https://reactspeed.com/) created using sample code from the book.
+
+- Component demos.
+- Access ReactSpeed API for component design workflow.
+- Discuss the book.
+- Suggest new features for ReactSpeed UI library.
+
+## Reuse code from book
+
+- Launch quickly with fully functional React + Webpack starter.
+- Reuse 15+ CSS modules.
+- Add 10+ custom React components to your app.
 
 Clone the repo like so.
 
