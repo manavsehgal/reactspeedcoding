@@ -1,30 +1,30 @@
-.Media {
+.media {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   margin-bottom: 1em;
 }
 
-.Media-figure {
-  margin-right: 1em;
+.media-figure {
+  margin-bottom: 1.5em;
 }
 
-.Media-body {
+.media-body {
   flex: 1;
 }
-.Media-body,
-.Media-body :last-child {
+.media-body,
+.media-body :last-child {
   margin-bottom: 0;
 }
 
-.Media-title {
+.media-title {
   margin: 0 0 .5em;
 }
 
-.Media--center {
+.media-center {
   align-items: center;
 }
 
-.Media--reverse > .Media-figure {
+.media-reverse > .media-figure {
   order: 1;
   margin: 0 0 0 1em;
 }

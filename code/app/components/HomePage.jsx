@@ -14,7 +14,7 @@ export default class HomePage extends React.Component {
       <div className="holygrail">
         <Navigation />
         <Header>
-          The book&nbsp;<a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>&nbsp;documents
+          The book&nbsp;<a className="header-link" href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>&nbsp;documents
           how this site and ReactSpeed UI components are developed.
         </Header>
         <main className="holygrail-body">

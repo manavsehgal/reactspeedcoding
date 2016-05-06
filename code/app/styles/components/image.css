@@ -1,19 +1,10 @@
 .Image {
   display: block;
-  width: 40px;
-  height: auto;
+  width: 100%;
+  height: 100%;
   margin-top: 0.2em;
 }
 
 .Image--tiny {
   width: 30px;
-}
-
-@media (--break-md) {
-  .Image {
-    width: 70px;
-  }
-  .Image--tiny {
-    width: 40px;
-  }
 }

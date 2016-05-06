@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 class Navigation extends React.Component {
   render () {
@@ -20,10 +21,9 @@ class Navigation extends React.Component {
           </a>
         </li>
         <li className="grid-cell">
-          <a className="navigation-link"
-            href="https://github.com/manavsehgal/reactspeedcoding">
-              <i className="fa fa-comments"></i> Blog
-          </a>
+          <Link className="navigation-link" to="/blog">
+            <i className="fa fa-comments"></i> Blog
+          </Link>
         </li>
       </ul>
     );

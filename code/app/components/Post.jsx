@@ -5,28 +5,37 @@ class Post extends React.Component {
     title: PropTypes.string.isRequired,
     summary: PropTypes.string,
     content: PropTypes.string,
-    author: PropTypes.string,
-    className: PropTypes.string
+    image: PropTypes.string,
+    author: PropTypes.string
   }
 
   static defaultProps = {
     author: '',
     summary: '',
-    content: ''
+    content: '',
+    image: ''
   }
 
   render () {
     const {
-      title, summary, content, author, className
+      title, summary, content, author, image
     } = this.props;
 
     return (
-      <article className={className}>
-        <h2>{title}</h2>
-        {author ? <h4>{author}</h4> : ''}
-        {summary ? <h3>{summary}</h3> : ''}
-        {content ? <p>{content}</p> : ''}
-      </article>
+      <div className="media">
+        {image
+          ? <img className="media-figure Image" src={image} alt="Post Image" />
+          : ''
+        }
+        <div className="media-body">
+          <h2 className="media-title">{title}</h2>
+          {author ? <h4>{author}</h4> : ''}
+          {summary ? <p><b>{summary}</b></p> : ''}
+          {content.start ? <p>{content.start}</p> : ''}
+          {content.middle ? <p>{content.middle}</p> : ''}
+          {content.end ? <p>{content.end}</p> : ''}
+        </div>
+      </div>
     );
   }
 }
