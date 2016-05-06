@@ -31,6 +31,7 @@ export default class CardStack extends React.Component {
 
     return (
       <div>
+        <h1>ReactSpeed UI Components</h1>
         <div className={gridClass}>
           <Card><Workflow /></Card>
           <Card>

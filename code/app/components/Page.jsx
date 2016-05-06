@@ -1,45 +1,27 @@
 import React from 'react';
 import CardStack from './CardStack.jsx';
 import LeanPub from './LeanPub.jsx';
+import Navigation from './Navigation.jsx';
+import Header from './Header.jsx';
+import Sidebar from './Sidebar.jsx';
+import Aside from './Aside.jsx';
+import Footer from './Footer.jsx';
+import SiteData from '../content/SiteData.js';
 
 export default class Page extends React.Component {
   render() {
     return (
       <div className="holygrail">
-        <ul className="navigation grid grid-gutters large-grid-fit med-grid-fit small-grid-1of2">
-          <li className="grid-cell">
-            <a className="navigation-link navigation-brand" href="/">ReactSpeed</a>
-          </li>
-          <li className="grid-cell">
-            <a className="navigation-link"
-              href="https://leanpub.com/reactspeedcoding">
-                <i className="fa fa-book"></i> Book
-            </a>
-          </li>
-          <li className="grid-cell">
-            <a className="navigation-link"
-              href="https://github.com/manavsehgal/reactspeedcoding">
-                <i className="fa fa-github"></i> Code
-            </a>
-          </li>
-          <li className="grid-cell">
-            <a className="navigation-link"
-              href="https://leanpub.com/reactspeedcoding/feedback">
-                <i className="fa fa-comments"></i> Discuss
-            </a>
-          </li>
-        </ul>
-        <header className="holygrail-header">
-          <div className="header header-cozy" role="banner">
-            This app is built using code from the book&nbsp;<a className="header-link" href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>. Concept to coding React apps, speedily!
-          </div>
-        </header>
+        <Navigation />
+        <Header>
+          The book&nbsp;<a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>&nbsp;documents
+          how this site and ReactSpeed UI components are developed.
+        </Header>
         <main className="holygrail-body">
           <article className="holygrail-content">
-            <h1>ReactSpeed UI Components</h1>
             <CardStack />
           </article>
-          <nav className="holygrail-nav u-textCenter">
+          <Sidebar>
             <p>Learn to build your own custom UI library in React, Flexbox, and PostCSS.</p>
             <p>Apply new ES6 features to make your React code more reliable.</p>
             <p>Master component design workflow
@@ -49,19 +31,19 @@ export default class Page extends React.Component {
             <p>Download and reuse fully tested source code from GitHub. Run demo app and components live
             at ReactSpeed website.</p>
             <h4>Get the book <a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>.</h4>
-          </nav>
-          <aside className="holygrail-ads u-textCenter">
+          </Sidebar>
+          <Aside>
             <LeanPub bookid="reactspeedcoding" />
             <h3>
-            ReactSpeed equips you with best practices, optimized workflows, and powerful tooling.
+            {SiteData.tagline}
             </h3>
-          </aside>
+          </Aside>
         </main>
-        <footer className="holygrail-footer">
+        <Footer>
           <div className="Footer">
-            Copyright (c) 2016, Manav Sehgal. Code is MIT license.
+            {SiteData.copyright}
           </div>
-        </footer>
+        </Footer>
       </div>
     );
   }
