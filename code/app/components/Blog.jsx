@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import PostsData from '../content/PostsData.js';
+import PostData from '../content/PostData.js';
 import Post from './Post.jsx';
 
 class Blog extends React.Component {
@@ -7,20 +7,7 @@ class Blog extends React.Component {
     posts: PropTypes.array
   }
   static defaultProps = {
-    posts: [
-      {
-        id: 1,
-        title: `This is my first post`,
-        summary: `Summary for the post is here`,
-        content: `Content for this first post`
-      },
-      {
-        id: 2,
-        title: `This is my second post`,
-        summary: `Summary for the second post is here`,
-        content: `Content for this second post`
-      }
-    ]
+    posts: PostData
   }
   render () {
     const posts = this.props.posts;
@@ -29,6 +16,7 @@ class Blog extends React.Component {
     );
     return(
       <div className="blog-list">
+        <h1>ReactSpeed Blog</h1>
         {renderPostSummaries}
       </div>
     );

@@ -1,7 +1,7 @@
 const SiteData = {
   copyright:
     `Copyright (c) 2016, Manav Sehgal.
-    Book and blog text is licensed CC-by-nc-nd.
+    Book and blog text is CC BY-NC-ND 2.0 license.
     Code is MIT license.`,
 
   tagline:

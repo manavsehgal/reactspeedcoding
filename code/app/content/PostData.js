@@ -1,4 +1,4 @@
-const PostsData = [
+const PostData = [
   {
     id: 1,
     title: `This is my first post`,

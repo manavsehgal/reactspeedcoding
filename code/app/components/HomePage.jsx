@@ -8,7 +8,7 @@ import Aside from './Aside.jsx';
 import Footer from './Footer.jsx';
 import SiteData from '../content/SiteData.js';
 
-export default class Page extends React.Component {
+export default class HomePage extends React.Component {
   render() {
     return (
       <div className="holygrail">
@@ -40,9 +40,7 @@ export default class Page extends React.Component {
           </Aside>
         </main>
         <Footer>
-          <div className="Footer">
-            {SiteData.copyright}
-          </div>
+          {SiteData.copyright}
         </Footer>
       </div>
     );

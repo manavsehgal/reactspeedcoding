@@ -22,9 +22,9 @@ class Post extends React.Component {
 
     return (
       <article className={className}>
-        <h1>{title}</h1>
-        {author ? <h3>{author}</h3> : ''}
-        {summary ? <h2>{summary}</h2> : ''}
+        <h2>{title}</h2>
+        {author ? <h4>{author}</h4> : ''}
+        {summary ? <h3>{summary}</h3> : ''}
         {content ? <p>{content}</p> : ''}
       </article>
     );

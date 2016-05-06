@@ -4,7 +4,9 @@ class Footer extends React.Component {
   render () {
     return (
       <footer className="holygrail-footer">
-        {this.props.children}
+        <div className="Footer">
+          {this.props.children}
+        </div>
       </footer>
     );
   }
