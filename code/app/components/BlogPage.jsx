@@ -15,35 +15,17 @@ export default class BlogPage extends React.Component {
     return (
       <div className="holygrail">
         <Navigation />
-        <Header>
-          The book&nbsp;<a className="header-link" href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>&nbsp;documents
-          how this site and ReactSpeed UI components are developed.
-        </Header>
+        <Header promo={SiteData.blog.header} />
         <main className="holygrail-body">
           <article className="holygrail-content">
             <Blog />
           </article>
-          <Sidebar>
-            <p>Learn to build your own custom UI library in React, Flexbox, and PostCSS.</p>
-            <p>Apply new ES6 features to make your React code more reliable.</p>
-            <p>Master component design workflow
-            with several strategies for reusable, reliable, and rapid coding in React.</p>
-            <p>Connect to a real-time database using Firebase.</p>
-            <p>Speed up your React development workflow using Webpack.</p>
-            <p>Download and reuse fully tested source code from GitHub. Run demo app and components live
-            at ReactSpeed website.</p>
-            <h4>Get the book <a href="https://leanpub.com/reactspeedcoding">React Speed Coding</a>.</h4>
-          </Sidebar>
-          <Aside>
+          <Sidebar data={SiteData.home.sidebar} />
+          <Aside tagline={SiteData.tagline}>
             <LeanPub bookid="reactspeedcoding" />
-            <h3>
-            {SiteData.tagline}
-            </h3>
           </Aside>
         </main>
-        <Footer>
-          {SiteData.copyright}
-        </Footer>
+        <Footer copyright={SiteData.copyright} />
       </div>
     );
   }

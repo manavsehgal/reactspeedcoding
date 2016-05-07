@@ -6,7 +6,9 @@ class Navigation extends React.Component {
     return (
       <ul className="navigation grid grid-gutters large-grid-fit med-grid-fit small-grid-1of2">
         <li className="grid-cell">
-          <a className="navigation-link navigation-brand" href="/">ReactSpeed</a>
+          <Link className="navigation-link navigation-brand" to="/">
+            ReactSpeed
+          </Link>
         </li>
         <li className="grid-cell">
           <a className="navigation-link"

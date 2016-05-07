@@ -4,7 +4,7 @@ class Post extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     summary: PropTypes.string,
-    content: PropTypes.string,
+    content: PropTypes.object,
     image: PropTypes.string,
     author: PropTypes.string
   }
@@ -12,7 +12,7 @@ class Post extends React.Component {
   static defaultProps = {
     author: '',
     summary: '',
-    content: '',
+    content: {},
     image: ''
   }
 

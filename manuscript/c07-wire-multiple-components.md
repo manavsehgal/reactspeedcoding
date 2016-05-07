@@ -8,8 +8,6 @@ You will learn following concepts in this important chapter.
 
 - Events in multiple components (We).
 - Composition using parent child node tree (Wt).
-- Routing components (Wr).
-- Redux and Flux (Wf).
 - When to use presentational verses container components (Wc)
 - Reconciliation algorithm and keys for dynamic children (Wk).
 

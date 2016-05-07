@@ -5,6 +5,8 @@ c04-react-speed-ui.md
 c05-start-component-design.md
 c06-define-component-internals.md
 c07-wire-multiple-components.md
+c07a-routing-component-layouts.md
+c07b-redux-state-container.md
 c08-refactor-existing-components.md
 c09-test-app-components.md
 c10-component-design-workflow.md
