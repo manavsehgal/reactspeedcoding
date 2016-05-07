@@ -4,6 +4,21 @@ So far we have been developing using a single layout. For more complex apps you 
 to use multiple layouts. In order to switch from one layout to another using links or
 page URLs, we will use routing.
 
+You will create several new components in this chapter. Actually 10 new components!
+
+- Learn about component layout strategies and create HomePage component.
+- Develop Aside component.
+- Create Footer component.
+- Header component.
+- Sidebar component.
+- BlogPage layout component.
+- Blog component.
+- Post component.
+- Router configuration.
+- Navigation component.
+
+{pagebreak}
+
 ## Component layout strategies
 
 To demonstrate routing, let us build a ```BlogPage``` layout
@@ -405,6 +420,8 @@ const PostData = [
 export default PostData;
 ~~~~~~~
 
+{pagebreak}
+
 ## Post component
 
 Let us create our ```Post``` component to display the blog posts.
@@ -459,6 +476,8 @@ export default Post;
 Notice how ```Post``` component reuses ```Card``` component to render blog posts
 using familiar card based layout.
 
+{pagebreak}
+
 ## Router configuration
 
 It is now time to configure our router. We do this by modifying our root component ```app```
@@ -491,6 +510,8 @@ npm install --save react-router
 
 Finally, once we have configured our router, we can go ahead and create our ```Navigation``` component
 and create links to render various layout components.
+
+{pagebreak}
 
 ## Navigation component
 
@@ -534,6 +555,8 @@ class Navigation extends React.Component {
 
 export default Navigation;
 ~~~~~~~
+
+{pagebreak}
 
 ## Next steps
 
