@@ -370,11 +370,6 @@ implies false value.
 - HTML entities like ```&npsp;``` for space can be used within literal text in JSX.
 - You can use mixed arrays with strings and JSX elements within JSX tags.
 
-I> ## Chapter In Progress
-I> We are still writing this chapter. Please watch this space for updates.
-I> Plan is to add checklist of guidance for each section of component definition.
-
-
 [1]: https://github.com/airbnb/javascript/tree/master/react
 [2]: https://facebook.github.io/react/index.html
 [3]: https://facebook.github.io/react/docs/reusable-components.html#transferring-props-a-shortcut

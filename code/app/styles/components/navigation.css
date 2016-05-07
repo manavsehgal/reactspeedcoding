@@ -12,6 +12,9 @@
   &:hover {
     border-bottom: 1px solid white;
   }
+  &.active {
+    border-bottom: 1px solid white;
+  }
 }
 
 .navigation-brand {

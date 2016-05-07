@@ -508,6 +508,14 @@ within React app. To use React Router we add it using NPM.
 npm install --save react-router
 ```
 
+React Router can help us map navigation tree with our component tree. Right now our intent
+is to have Blog and Home as same level menus and represent different layout components.
+
+Once we have a hierarchy of menus, like menus for blog categories, we could use nesting of these
+routes to map navigation nesting with component nesting. In that scenario we will call nested
+components with ```this.props.children``` and router will swap the appropriate component depending
+on the menu clicked.
+
 Finally, once we have configured our router, we can go ahead and create our ```Navigation``` component
 and create links to render various layout components.
 
@@ -555,6 +563,84 @@ class Navigation extends React.Component {
 
 export default Navigation;
 ~~~~~~~
+
+Now clicking on ReactSpeed menu and Blog menu will bring up the respective layout components.
+
+Let us also use React Router to indicate active menu. To do this we change the ```Link``` component
+and add ```activeClassName``` prop like so. We add a CSS modifier ```active``` to indicate
+that this menu is active.
+
+{title="/app/components/Navigation.jsx active link", lang=javascript}
+~~~~~~~
+<Link
+  className="navigation-link"
+  activeClassName="navigation-link active"
+  to="/blog"
+>
+  <i className="fa fa-comments"></i> Blog
+</Link>
+~~~~~~~
+
+We can extract another component to make our navigation links less verbose.
+Let us write ```NavLink``` component to encapsulate rendering of ```Link```
+based on associated style modules, modifier (brand link), and props (href or to).
+
+{title="/app/components/NavLink.jsx component", lang=javascript}
+~~~~~~~
+import React, {PropTypes} from 'react';
+import { Link } from 'react-router';
+
+export default class NavLinks extends React.Component {
+  static propTypes = {brand: PropTypes.bool}
+  static defaultProps = {brand: false}
+
+  render() {
+    return (
+      <li className="grid-cell">
+        {
+          this.props.to
+          ? <Link
+              {...this.props}
+              className={
+                this.props.brand
+                  ? "navigation-link navigation-brand"
+                  : "navigation-link"
+                }
+              activeClassName={
+                this.props.brand
+                  ? "navigation-link navigation-brand active"
+                  : "navigation-link active"
+              }
+            />
+          : <a {...this.props} className="navigation-link" />
+        }
+      </li>
+    );
+  }
+}
+~~~~~~~
+
+Note that we are using ```{...this.props}``` JSX spread attributes to pass remaining
+attributes and children. Saves us some typing this way.
+
+Our ```Navigation``` links are now much simpler.
+
+{title="/app/components/Navigation.jsx active link", lang=javascript}
+~~~~~~~
+// some code...
+<NavLink to="/" brand>ReactSpeed</NavLink>
+<NavLink href="https://leanpub.com/reactspeedcoding">
+  <i className="fa fa-book"></i> Book
+</NavLink>
+<NavLink href="https://github.com/manavsehgal/reactspeedcoding">
+  <i className="fa fa-github"></i> Code
+</NavLink>
+<NavLink to="/blog">
+  <i className="fa fa-comments"></i> Blog
+</NavLink>
+// some code...
+~~~~~~~
+
 
 {pagebreak}
 
