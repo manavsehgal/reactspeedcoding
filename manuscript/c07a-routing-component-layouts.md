@@ -16,6 +16,7 @@ You will create several new components in this chapter. Actually 10 new componen
 - Post component.
 - Router configuration.
 - Navigation component.
+- NavLink component.
 
 {pagebreak}
 

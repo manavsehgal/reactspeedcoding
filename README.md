@@ -2,9 +2,13 @@
 
 Companion code and manuscript of React Speed Coding book is available here.
 
+## [React Speed Coding book](https://leanpub.com/reactspeedcoding)
+
+Download and read ebook, PDF, mobile formats. Support this project.
+
 [![React Speed Coding Book](/manuscript/images/title_page.png)](https://leanpub.com/reactspeedcoding)
 
-## [ReactSpeed.com](https://reactspeed.com/) created using sample code from the book.
+## [ReactSpeed.com](https://reactspeed.com/) companion website
 
 - Component demos.
 - Access ReactSpeed API for component design workflow.
@@ -13,9 +17,8 @@ Companion code and manuscript of React Speed Coding book is available here.
 
 ## Reuse code from book
 
-- Launch quickly with fully functional React + Webpack starter.
-- Reuse 15+ CSS modules.
-- Add 10+ custom React components to your app.
+- Launch quickly with fully functional ES6 React + Webpack starter.
+- Add 20+ custom React components to your app.
 
 Clone the repo like so.
 
@@ -34,7 +37,7 @@ The ```--depth=1``` flag ensures that only the latest commit is cloned.
 Now cd to the ```code``` directory and install dependencies using ```npm install``` command.
 Run sample app using ```npm start``` command.
 
-## Setup React Webpack
+## [Setup React Webpack][3]
 
 > Code: [React Webpack Starter Project][1].
 
@@ -45,7 +48,7 @@ Run sample app using ```npm start``` command.
 - Create Webpack configuration for development pipeline automation.
 - Write and run your first Hello World React app.
 
-## ES6 React Guide
+## [ES6 React Guide][4]
 
 - How to organize your React app in folders and files.
 - How to define a React component using ES6 syntax.
@@ -55,7 +58,7 @@ Run sample app using ```npm start``` command.
 - Importance of stateless components.
 - Using React Chrome Extension to inspect your component hierarchy at runtime.
 
-## Production Optimize Webpack
+## [Production Optimize Webpack][5]
 
 > Code: [Production Optimized Webpack Config][2].
 
@@ -67,7 +70,7 @@ Run sample app using ```npm start``` command.
 - Adding public assets for your app.
 - Creating custom index template.
 
-## React Speed UI
+## [React Speed UI][7]
 
 > Code: [React Speed UI framework styles][6]
 
@@ -101,7 +104,7 @@ however we will consider this goal as we design the framework.
 
 **Expressive.** Our UI framework will be reusable in expressive, English like statements.
 
-## Start Component Design
+## [Start Component Design][9]
 
 > Code: [Page][8] component, [YouTube][10] component, [GitHub][11] component, [Workflow][12] component,  
 > [IconText][13] component.
@@ -118,7 +121,7 @@ Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Comp
 - How to model documents as a React component.
 - How to enhance HTML elements as React components.
 
-## Design Component Internals
+## [Define Component Internals][15]
 
 > Note: This chapter is TBD.
 
@@ -134,7 +137,7 @@ Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Comp
 - JSX features and syntax (Dj)
 
 
-## Wire Multiple Components
+## [Wire Multiple Components][15]
 
 > Note: This chapter is TBD.
 
@@ -142,7 +145,23 @@ Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Comp
 - Strategy for passing component as a property to another component.
 - Reconciliation algorithm and keys for dynamic children.
 
-## Refactor Existing Components
+## [Routing Layout Components][16]
+
+> Code: All 10 components are available under [/app/components][]
+
+- Learn about component layout strategies and create HomePage component.
+- Develop Aside component.
+- Create Footer component.
+- Header component.
+- Sidebar component.
+- BlogPage layout component.
+- Blog component.
+- Post component.
+- Router configuration.
+- Navigation component.
+- NavLink component.
+
+## [Refactor Existing Components][17]
 
 > Note: This chapter is TBD.
 
@@ -164,7 +183,7 @@ within your React development workflow.
 Plan is to draw out the Big Picture of component design workflow.
 Connecting the dots from prior five chapters which detail the workflow.
 
-## Firebase React Integration
+## [Firebase React Integration][18]
 
 > Note: This chapter is in progress.
 
@@ -190,8 +209,14 @@ visual code analytics.
 [6]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/styles
 [7]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-react-speed-ui
 [8]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/components
-[9]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-starting-component-design-s
+[9]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-start-component-design-s
 [10]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/YouTube.jsx
 [11]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/GitHub.jsx
 [12]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/Workflow.jsx
 [13]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/IconText.jsx
+[14]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-define-component-internals-d
+[15]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-wire-multiple-components-w
+[16]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-routing-component-layouts
+[17]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-refactor-existing-components-r
+[18]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-firebase-react-integration
+[20]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/components
