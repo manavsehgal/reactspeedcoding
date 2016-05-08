@@ -10,8 +10,8 @@ export default class NavLinks extends React.Component {
       ? "navigation-link navigation-brand"
       : "navigation-link";
 
-    const renderActiveClass = renderClass +
-      (this.props.to && this.props.brand) ? " active" : "";
+    const renderActiveClass = this.props.brand
+      ? "" : renderClass + " active";
 
     return (
       <li className="grid-cell">

@@ -604,8 +604,8 @@ export default class NavLinks extends React.Component {
       ? "navigation-link navigation-brand"
       : "navigation-link";
 
-    const renderActiveClass = renderClass +
-      (this.props.to && this.props.brand) ? " active" : "";
+    const renderActiveClass = this.props.brand
+      ? "" : renderClass + " active";
 
     return (
       <li className="grid-cell">
@@ -626,6 +626,10 @@ export default class NavLinks extends React.Component {
 
 Note that we are using ```{...this.props}``` JSX spread attributes to pass remaining
 attributes and children. Saves us some typing this way.
+
+The behavior we are intending with ```renderActiveClass``` is to ensure that
+when brand link is clicked there is no active link indicator, otherwise we
+get an active link indicator.
 
 Our ```Navigation``` links are now much simpler.
 
