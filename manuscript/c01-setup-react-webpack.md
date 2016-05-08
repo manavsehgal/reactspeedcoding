@@ -1,12 +1,5 @@
 # Setup React Webpack
 
-The aim of this book is to get you from concept to coding real world React apps,
-as fast as possible.
-
-React ecosystem is constantly evolving and changing at a fast pace. This book
-equips you to take the right decisions matching your project requirements with best practices,
-optimized workflows, and powerful tooling.
-
 You will learn in this chapter how to setup React development environment starting
 from scratch. By the end of this chapter we will have a starter boilerplate to
 develop React apps.

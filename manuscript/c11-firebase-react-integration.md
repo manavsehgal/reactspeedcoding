@@ -115,6 +115,12 @@ Run ```npm run build``` and then ```firebase deploy```. You are done. You can th
 
 ![Firebase Hosting Panel](images/firebase-hosting.jpg)
 
+Firebase hosting also works well for Single Page Apps written to be served entirely from the client side. This includes features like handling search engine friendly URLs and clean URLs.
+
+You can also replace the development HTTP server with Firebase's own development staging server. So far we are using ```serve``` using the npm serve file server. Now we can use ```firebase serve``` using the Firebase development server packaged as part of Firebase CLI. Done! Now you can test your apps under same configuration as on the production server before hitting the ```firebase deploy``` command.
+
+Behind the scenes Firebase is using Superstatic on its hosting infrastructure. Superstatic came with Divshot's acquisition by Firebase. It is an open source project and a "static file server for fancy apps". Read more on [Firebase blog about their hosting features][8].
+
 {pagebreak}
 
 ## How Firebase stores files and data
@@ -197,3 +203,4 @@ I> review hosting optimizations, among other actions.
 [5]: https://www.crunchbase.com/organization/meteor
 [6]: https://www.crunchbase.com/organization/firebase
 [7]: http://techcrunch.com/2016/01/28/facebook-shutters-its-parse-developer-platform/
+[8]: https://www.firebase.com/blog/2015-12-16-hosting-improvements.html

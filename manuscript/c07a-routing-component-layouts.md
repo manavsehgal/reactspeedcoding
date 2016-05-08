@@ -649,6 +649,79 @@ Our ```Navigation``` links are now much simpler.
 // some code...
 ~~~~~~~
 
+## Search engine friendly URLs
+
+Right now as you have noticed we are using hash-bang (#) based cryptic URLs. This works
+fine out of the box on our development environment. However this is not search engine friendly
+or even user friendly.
+
+React Router's solution requires using [HTML5 pushState][2] browser API for handling URL history.
+Once you implement search engine friendly URLs, which is a matter of simply
+replacing ```hashHistory``` with ```browserHistory```, the links will navigate just fine. However,
+if you load any of the deeper links directly by refreshing or bookmarking these, these will fail.
+
+{title="/app/index.jsx using browserHistory", lang=javascript}
+~~~~~~~
+import React from 'react';
+import ReactDOM from 'react-dom';
+import BlogPage from './components/BlogPage.jsx';
+import HomePage from './components/HomePage.jsx';
+
+import { Router, Route, browserHistory } from 'react-router';
+
+ReactDOM.render(
+  <Router history={browserHistory}>
+    <Route path="/" component={HomePage}/>
+    <Route path="/blog" component={BlogPage}/>
+  </Router>,
+  document.getElementById('app')
+);
+~~~~~~~
+
+What is going on is that the single page app you have just written is handling the URL just fine
+as long as it is coming from the router, it is redirecting to index.html, and the JavaScript modules
+bundled within index.html handles the request correctly.
+When you call the deeper link urls directly, the HTTP server tries to
+look for that URL to serve, and does not find it. The request fails as index.html is no longer involved.
+
+This according, to React Router documentation, unfortunately requires a server-side solution. We say
+"unfortunately" because so far we were just fine building a single page app entirely on the front-end.
+It will definitely not be an optimum solution to plan a server-side strategy just on the basis
+of search engine friendly URLs requirement.
+
+There is hope. One of the reasons we are choosing Firebase as our hosting provider is because
+Firebase knows how to work well with Single Page Apps. Although Firebase is comparable to
+other static website servers, it does allow for powerful server-side configuration.
+
+Firebase also implements and distinguishes correctly between search engine friendly URLs and clean URLs.
+
+Removing cryptic hash-bang based URLs and following human-readable URLs is **search engine friendly strategy**.
+
+Removing .html at the end of a URL and serving it like you were serving a folder with default index.html is
+a **strategy called clean URLs**.
+
+Right now we need the former. Here's how we implement it. Within the ```firebase.json``` config file
+we add rules for ```rewrites```. The rule in plain English says - "if server gets a request from any URL
+then treat it as a request meant for /index.html".
+
+{title="/firebase.json search engine friendly url config", lang=json}
+~~~~~~~
+{
+  "firebase": "reactspeed",
+  "public": "build",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ],
+  "rewrites": [ {
+    "source": "**",
+    "destination": "/index.html"
+  } ]
+}
+~~~~~~~
+
+That's it! You will now be serving search engine friendly URLs instead of cryptic hash-bang ones.
 
 {pagebreak}
 
@@ -662,3 +735,4 @@ ideas include following features.
 - Add search engine friendly URLs to our app.
 
 [1]: https://github.com/reactjs/react-router
+[2]: https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState().C2.A0method
