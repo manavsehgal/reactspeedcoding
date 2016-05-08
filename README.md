@@ -147,7 +147,7 @@ Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Comp
 
 ## [Routing Layout Components][16]
 
-> Code: All 10 components are available under [/app/components][]
+> Code: All 10 components are available under [/app/components][20]
 
 - Learn about component layout strategies and create HomePage component.
 - Develop Aside component.
