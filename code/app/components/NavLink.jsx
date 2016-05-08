@@ -6,22 +6,21 @@ export default class NavLinks extends React.Component {
   static defaultProps = {brand: false}
 
   render() {
+    const renderClass = this.props.brand
+      ? "navigation-link navigation-brand"
+      : "navigation-link";
+
+    const renderActiveClass = renderClass +
+      (this.props.to && this.props.brand) ? " active" : "";
+
     return (
       <li className="grid-cell">
         {
           this.props.to
           ? <Link
               {...this.props}
-              className={
-                this.props.brand
-                  ? "navigation-link navigation-brand"
-                  : "navigation-link"
-                }
-              activeClassName={
-                this.props.brand
-                  ? "navigation-link navigation-brand active"
-                  : "navigation-link active"
-              }
+              className={renderClass}
+              activeClassName={renderActiveClass}
             />
           : <a {...this.props} className="navigation-link" />
         }
