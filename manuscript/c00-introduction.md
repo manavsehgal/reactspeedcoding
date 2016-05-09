@@ -12,14 +12,12 @@ optimized workflows, and powerful tooling.
 The author would love to take the credit for coining the term "Speed Coding". However, Speed Coding
 is based on very strong foundations and popular prior art.
 
-React Speed Coding achieves similar goals as [Component Based Design][1].
+**Speed of Developer Workflow.** Speed Coding follows some of the methods and tools as prescribed by the Lean Startup principles. See [infographic][1] for code faster, measure faster, learn faster.
 
-Speed Coding follows some of the methods and tools as prescribed by the [Lean Startup principles][2].
-
-Speed Coding embraces the **designer-developer** evolution and also bases certain principles
+**Speed of Design.** Speed Coding embraces the **designer-developer** evolution and also bases certain principles
 on the [Design Thinking][3] methodology and [Visual Design][7] principles.
 
-Speed Coding technology stack is evaluated comparing with industry best practice guidance including the awesome [ThoughtWorks Technology Radar][4].
+**Speed of Technology Decisions.** Speed Coding technology stack is compared with industry best practice guidance including the awesome [ThoughtWorks Technology Radar][4].
 
 ## Stakeholder perspectives
 
@@ -30,39 +28,25 @@ Let us start with the Why. Speed Coding is essential for three stakeholders. The
 The sponsor.
 
 As app users we define *speed* mostly as performance and reactivity of the app. We even
-define speed as frequency of timely and desired updates to the apps we are using.
+define speed as frequency of timely and desired updates to the apps we are using. Most importantly
+we define speed by time it takes to get things done.
 
 As developers we define speed in terms of our development workflow. How long does it take to
 code, build, test, deploy, debug, and reactor. We also define speed of decision making
 relating to our development and technology stack.
 
 As sponsors for an app project we define speed in terms of time to market. How long does it
-take to move from **Concept to Code to Cash**!
-
-{pagebreak}
-
-## Measuring performance
-
-So it will be nice to define some baseline measurements of speed and see if we can improve
-these as we go through the book.
-
-**Website Performance.** Google PageSpeed defines 25+ criteria for website performance as relative
-measures or percentile scores compared with rest of the Web. For example *Enable Gzip Compression* is 88%
-as recommended baseline. As on May 9, 2016 the ReactSpeed.com website is evaluating grade A (93% average) on
-PageSpeed score, grade B (82% average) on YSlow score, 2.1s page load time, 834KB total page size, with 26 requests. View [GTMetrix ReactSpeed.com report here][6].
-
-**Load Impact (Radar Trial).** Online load testing tool. We are using this tool to perform concurrent user load tests on ReactSpeed.com website. As on May 9, 2016 with 20+ custom React components live on ReactSpeed website, we are recording faster than 200ms load time for our website for 25 concurrent users. Excellent! [View results snapshot here][5].
+take to move from **Concept to Code to Cash**. Believe us, you first heard that phrase here, and we truly mean it!
 
 {pagebreak}
 
 ## Technology stack
 
-ThoughtWorks Technology Radar ranks technologies based on Adopt > Trial > Assess > Hold relative ranking.  This is based on their own usage of these technologies across projects for leading enterprises globally. In terms of speed of decision making about your own technology stack, this is one tool that proves very helpful.
+ThoughtWorks is a privately owned, global technology company with 3,600 employees across 12 countries. ThoughtWorks Technology Radar ranks technologies based on Adopt > Trial > Assess > Hold relative ranking.  This is based on their own usage of these technologies across projects for leading enterprises globally. In terms of speed of decision making about your own technology stack, this is one tool that proves very helpful.
 
 React Speed Coding will be addressing following technologies, platforms, techniques, frameworks, and tools.
 
-**ES6 (Adopt).** JavaScript ECMAScript 6 is right at the top of the Radar list of languages and frameworks. We cover important
-concepts relevant for coding React in ES6.
+**ES6 (Adopt).** JavaScript ECMAScript 6 is right at the top of the Radar list of languages and frameworks. We cover important concepts relevant for coding React in ES6.
 
 **React (Adopt).** React is a close second on the Radar. Of course this book is all about React so we are well covered.
 
@@ -86,6 +70,32 @@ concepts relevant for coding React in ES6.
 
 {pagebreak}
 
+## Measuring speed
+
+So it will be nice to define some baseline measurements of speed and see if we can improve
+these as we go through the book.
+
+**Website Performance.** Google PageSpeed defines 25+ criteria for website performance as relative
+measures or percentile scores compared with rest of the Web. For example *Enable Gzip Compression* is 88%
+as recommended baseline.
+
+As on May 9, 2016 the ReactSpeed.com website is evaluating grade A (93% average) on
+PageSpeed score, grade B (82% average) on YSlow score, 2.1s page load time, 834KB total page size, with 26 requests. View [GTMetrix ReactSpeed.com report here][6].
+
+**Load Impact (Radar Trial).** Online load testing tool. We are using this tool to perform concurrent user load tests on ReactSpeed.com website.
+
+As on May 9, 2016 with 20+ custom React components live on ReactSpeed website, we are recording faster than 200ms load time for our website for 25 concurrent users. That translates to handling approximately 2,50,000 monthly visitors. Excellent! [View results snapshot here][5].
+
+**Build Time.** How long does it take to run the developer workflow.
+
+As on May 9, 2016 our development server continuously builds and updates our app as we save our working code. Production build takes 5.3s with around 250 hidden modules. We deploy 44 files to Firebase.
+
+**Production Payload.** How optimized are our production assets.
+
+As on May 9, 2016 our CSS library is 4.7KB Gzip, 21KB minified with 25+ style modules. App JS bundle is 42KB minified. Vendor JS bundle is 23KB minified. HTML is 3KB.
+
+{pagebreak}
+
 ## Developer workflow
 
 This is most complex area to measure in a generic manner. Most often developer workflow
@@ -106,8 +116,7 @@ This can be measured for number of lint warnings or errors. Complexity analysis 
 
 A> This chapter will continue to evolve along with rest of the book. So, watch this space for frequent updates.
 
-[1]: https://en.wikipedia.org/wiki/Component-based_software_engineering
-[2]: http://theleanstartup.com/principles
+[1]: http://visual.ly/lean-startup
 [3]: http://www.fastcompany.com/919258/design-thinking-what
 [4]: https://www.thoughtworks.com/radar
 [5]: https://app.loadimpact.com/load-test/39d3b00c-d9fa-4056-8606-7ebe9026e161?charts=type%3D1%3Bsid%3D__li_clients_active%3A1%3B%3Btype%3D1%3Bsid%3D__li_user_load_time%3A1&large-charts=type%3D1%3Bsid%3D__li_clients_active%3A1%3B%3Btype%3D1%3Bsid%3D__li_user_load_time%3A1
