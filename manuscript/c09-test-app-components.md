@@ -3,6 +3,10 @@
 This chapter will walk you through multiple testing tools and strategies to make your
 React app more reliable, robust, and performant.
 
+## Browsersync
+
+
+
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
 I> Plan is to add examples for integrating various testing and lint tools

@@ -723,6 +723,9 @@ then treat it as a request meant for /index.html".
 
 That's it! You will now be serving search engine friendly URLs instead of cryptic hash-bang ones.
 
+If you are not using Firebase hosting then there might still be another solution. The [connect-history-api-fallback][3] NPM package offers a middleware to "proxy requests through a specified index page, useful for Single Page Applications that utilise the HTML5 History API". We have not tried it, however if you want to give it a go and let us know, we will be happy to add such insights for our readers.
+
+
 {pagebreak}
 
 ## Next steps
@@ -736,3 +739,4 @@ ideas include following features.
 
 [1]: https://github.com/reactjs/react-router
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState().C2.A0method
+[3]: https://github.com/bripkens/connect-history-api-fallback
