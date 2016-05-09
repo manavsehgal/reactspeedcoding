@@ -3,12 +3,16 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PostcssImport = require('postcss-easy-import');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const APP = __dirname + '/app';
 const BUILD = __dirname + '/build';
 const STYLE = __dirname + '/app/style.css';
 const PUBLIC = __dirname + '/app/public';
-const TEMPLATE =  __dirname + '/app/templates/index_default.html'
+const TEMPLATE =  __dirname + '/app/templates/index_default.html';
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 8080;
+const PROXY = 'http://' + HOST + ':' + PORT;
 
 // PostCSS support
 const precss       = require('precss');
@@ -63,15 +67,29 @@ module.exports = {
 
     stats: 'errors-only',
 
-    host: process.env.HOST,
-    port: process.env.PORT,
+    host: HOST,
+    port: PORT,
 
     // CopyWebpackPlugin: This is required for webpack-dev-server.
     // The path should be an absolute path to your build destination.
-     outputPath: BUILD
+    outputPath: BUILD
   },
   // Webpack plugins
   plugins: [
+    new BrowserSyncPlugin(
+      // BrowserSync options
+      {
+        host: HOST,
+        port: PORT,
+        proxy: PROXY
+      },
+      // plugin options
+      {
+        // prevent BrowserSync from reloading the page
+        // and let Webpack Dev Server take care of this
+        reload: false
+      }
+    ),
     new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
       { from: PUBLIC, to: BUILD }
