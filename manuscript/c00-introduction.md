@@ -86,9 +86,13 @@ PageSpeed score, grade B (82% average) on YSlow score, 2.1s page load time, 834K
 
 As on May 9, 2016 with 20+ custom React components live on ReactSpeed website, we are recording faster than 200ms load time for our website for 25 concurrent users. That translates to handling approximately 2,50,000 monthly visitors. Excellent! [View results snapshot here][5].
 
-**Build Time.** How long does it take to run the developer workflow.
+**Build and Deploy Time.** How long does it take to run the developer workflow.
 
-As on May 9, 2016 our development server continuously builds and updates our app as we save our working code. Production build takes 5.3s with around 250 hidden modules. We deploy 44 files to Firebase.
+As on May 9, 2016 our development server continuously builds and updates our app as we save our working code. Production build takes 5.3s with around 250 hidden modules. We deploy 44 files to Firebase several times during a day.
+
+**Time to Release.** How long does it take to ship new features to production.
+
+Since start of ReactSpeed project we have closed 150 production commits to GitHub over a 30 day period. Our peak is 40 commits during week of April 10.
 
 **Production Payload.** How optimized are our production assets.
 
