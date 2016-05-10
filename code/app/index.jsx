@@ -7,8 +7,8 @@ import { Router, Route, browserHistory } from 'react-router';
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path="/" component={HomePage}/>
-    <Route path="/blog" component={BlogPage}/>
+    <Route path="/" component={HomePage} />
+    <Route path="/blog" component={BlogPage} />
   </Router>,
   document.getElementById('app')
 );

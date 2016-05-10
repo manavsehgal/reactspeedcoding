@@ -15,19 +15,19 @@ export default class World extends React.Component {
   }
 
   slangGreet() {
-    this.setState({currentGreeting: 'Yo!'});
+    this.setState({ currentGreeting: 'Yo!' });
   }
 
   hindiGreet() {
-    this.setState({currentGreeting: 'Namaste'});
+    this.setState({ currentGreeting: 'Namaste' });
   }
 
   handleNameChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   }
 
   render() {
-    const renderName = this.state.value ? this.state.value + ' says ' : '';
+    const renderName = this.state.value ? `${this.state.value} says` : '';
     const renderGreeting = renderName + this.state.currentGreeting;
     return (
       <div>
@@ -49,9 +49,9 @@ export default class World extends React.Component {
 }
 
 World.propTypes = {
-  greet: React.PropTypes.string.isRequired,
-}
+  greet: React.PropTypes.string.isRequired
+};
 
 World.defaultProps = {
-  greet: 'Hello',
-}
+  greet: 'Hello'
+};

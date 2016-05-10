@@ -2,15 +2,15 @@ import React, { PropTypes } from 'react';
 
 class Sidebar extends React.Component {
   static propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    children: PropTypes.node
   }
   static defaultProps = {
     data: {}
   }
-  
-  render () {
+  render() {
     const data = this.props.data;
-    return(
+    return (
       <nav className="holygrail-nav u-textCenter">
         {
           (data && data.messages)
@@ -19,8 +19,10 @@ class Sidebar extends React.Component {
         }
         {
           (data && data.promoButton)
-            ? <a href={data.promoButton.url}
-                className="button success">{data.promoButton.label}</a>
+            ? <a
+              href={data.promoButton.url}
+              className="button success"
+            >{data.promoButton.label}</a>
             : ''
         }
         {this.props.children}

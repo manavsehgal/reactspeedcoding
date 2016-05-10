@@ -11,19 +11,19 @@ export default class IconText extends React.Component {
     inverse: PropTypes.bool
   }
 
-  render () {
-    let {
+  render() {
+    const {
       icon, text, className, size, rotate,
-      flip, stack, inverse
+      flip, inverse
     } = this.props;
 
-    let variation = "";
+    let variation = '';
 
-    variation += className ? ` ${className}` : "";
-    variation += size ? ` fa-${size}` : "";
-    variation += rotate ? ` fa-rotate-${rotate}` : "";
-    variation += flip ? ` fa-flip-${flip}` : "";
-    variation += inverse ? ` fa-inverse` : "";
+    variation += className ? ` ${className}` : '';
+    variation += size ? ` fa-${size}` : '';
+    variation += rotate ? ` fa-rotate-${rotate}` : '';
+    variation += flip ? ` fa-flip-${flip}` : '';
+    variation += inverse ? ' fa-inverse' : '';
 
     const iconClass = `fa fa-${icon}${variation}`;
 

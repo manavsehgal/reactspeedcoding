@@ -351,6 +351,9 @@ while fixing these as per suggestions given by eslint or determing the right fix
 **Hot testing.** We could keep the webpack-dev-server running on one terminal window, and eslint-ff running on another as we fix the problems and test the app in our browser. Thanks to Hot Reloading, we don't need to refresh our browser or
 restart development server manually after every fix.
 
+**Disable PreLoader.** During first run of eslint fixes when you have many problems, you may want to disable
+the Webpack preLoader to avoid these warnings crowding any app errors you may introduce during fixes.
+
 **Defer fix.** Sometimes we encounter problems that need more reading for fixing. One such problem we encounter is
 the ```jsx-no-bind``` issue which requires [refactoring suggested here][6].
 
@@ -359,11 +362,22 @@ A> We have an awesome realization about the simple elegance of React at this poi
 A> When using Eslint in Atom editor hints we see hints for HTML indentation issues.
 A> Oh, actually it is hints for HTML-like native components part of JSX.
 A> Eslint has rules checking our logic as well as our presentation view at the same time.
+A> Of course you also catch subtle errors when you copy-paste HTML and ignore JSX
+A> specific camelCase attributes. Eslint is even checking accessibility rules
+A> within JSX attribute values.
 A> Never made possible before React!
 
 **No-undef errors.** We encounter no-undef errors that ```$ is not defined``` at jQuery usage. This can be fixed
 by adding ```"jquery" : true``` within the ```env``` section of eslintrc file. Once we change the config file,
 just close and open the current JSX file to make the issue go away.
+
+A> Running through all our JSX files and fixing most problems reduces
+A> our overall count from 300+ problems earlier
+A> to around 59 problems. A good day's work indeed.
+
+**Ignore rules file specific.** Now that we have narrowed down to a manageable number of problems, we fix special
+cases where it makes sense by ignoring eslint rules within specific files. We do this carefully after understanding
+if it makes sense to bypass eslint for these specific situations.
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.

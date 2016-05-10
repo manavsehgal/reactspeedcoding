@@ -16,7 +16,7 @@ class Post extends React.Component {
     image: ''
   }
 
-  render () {
+  render() {
     const {
       title, summary, content, author, image
     } = this.props;
@@ -24,7 +24,7 @@ class Post extends React.Component {
     return (
       <div className="media">
         {image
-          ? <img className="media-figure Image" src={image} alt="Post Image" />
+          ? <img className="media-figure Image" src={image} alt="Post" />
           : ''
         }
         <div className="media-body">
