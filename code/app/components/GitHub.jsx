@@ -18,13 +18,13 @@ export default class GitHub extends React.Component {
     const sourceRepo =
       `https://api.github.com/repos/${this.props.repo}`;
 
-    this.serverRequest = $.get(sourceRepo, function github(result) {
+    this.serverRequest = $.get(sourceRepo, (result =>
       this.setState({
         full_name: result.full_name,
         stargazers_count: result.stargazers_count,
         open_issues: result.open_issues
-      });
-    }.bind(this));
+      })
+    ));
   }
 
   componentWillUnmount() {
