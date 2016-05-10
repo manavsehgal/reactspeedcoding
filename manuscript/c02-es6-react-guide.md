@@ -326,3 +326,4 @@ and ```defaultProps``` in our class definition.
 [11]: https://facebook.github.io/react/docs/reusable-components.html#prop-validation
 [12]: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 [13]: https://github.com/jeffmo/es-class-fields-and-static-properties
+[14]: https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d#.shg7n4e8k

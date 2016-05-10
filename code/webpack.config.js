@@ -59,7 +59,7 @@ module.exports = {
       }
     ]
   },
-  postcss: function () {
+  postcss: function processPostcss() {
     return [
       postcssImport({
         addDependencyTo: webpack

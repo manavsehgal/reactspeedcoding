@@ -10,10 +10,6 @@ module.exports = {
   },
   "extends": "airbnb",
   "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    },
     "sourceType": "module"
   },
   "plugins": [
@@ -39,6 +35,12 @@ module.exports = {
     "semi": [
       "error",
       "always"
-    ]
+    ],
+    /* Advanced Rules*/
+    "complexity": ["warn", 3],
+    "no-unused-expressions": "warn",
+    "no-useless-concat": "warn",
+    "block-scoped-var": "error",
+    "consistent-return": "error"
   }
 };

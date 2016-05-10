@@ -27,7 +27,7 @@ export default class World extends React.Component {
   }
 
   render() {
-    const renderName = this.state.value ? `${this.state.value} says` : '';
+    const renderName = this.state.value ? `${this.state.value} says ` : '';
     const renderGreeting = renderName + this.state.currentGreeting;
     return (
       <div>

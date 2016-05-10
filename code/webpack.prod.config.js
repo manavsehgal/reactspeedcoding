@@ -49,7 +49,7 @@ module.exports = {
       }
     ]
   },
-  postcss: function () {
+  postcss: function processPostcss() {
     return [
       postcssImport({
         addDependencyTo: webpack
@@ -98,7 +98,7 @@ module.exports = {
     // Optimizes React for use in production mode
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        'NODE_ENV': JSON.stringify('production') // eslint-disable-line quote-props
       }
     }),
 

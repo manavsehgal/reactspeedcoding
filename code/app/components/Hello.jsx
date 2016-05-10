@@ -1,9 +1,13 @@
 import React from 'react';
 
-export default function Hello(props) {
-  return (
-    <h3>
-      {props.greet} {props.message}
-    </h3>
-  );
-}
+const Hello = ({ greet, message }) =>
+  <h3>
+    {greet} {message}
+  </h3>;
+
+Hello.propTypes = {
+  greet: React.PropTypes.string,
+  message: React.PropTypes.string
+};
+
+export default Hello;

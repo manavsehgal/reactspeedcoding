@@ -324,7 +324,7 @@ which you have missed while getting in-editor hints.
 
 {pagebreak}
 
-## Fixing first time eslint problems
+## Fixing eslint reported problems
 
 When we first run eslint on ReactSpeed code we got 300+ problems (errors and warnings). Here is the workflow we are
 following to fix these.
@@ -338,7 +338,8 @@ fixing these manually, we will learn more about our coding practices and correct
 using eslint recommended rule instead of Airbnb recommendation. This step brings down our problems count
 drastically.
 
-**Ignore files.** We also run ```npm run lint-tb``` to take a quick look at all the files generating
+**Ignore files.** We also run ```npm run lint-tb``` for table format report,
+to take a quick look at all the files generating
 the problems. We decide to ignore vendor files located in ```/app/public/js/``` folder of our app and
 update the ```.eslintignore``` configuration.
 
@@ -357,16 +358,6 @@ the Webpack preLoader to avoid these warnings crowding any app errors you may in
 **Defer fix.** Sometimes we encounter problems that need more reading for fixing. One such problem we encounter is
 the ```jsx-no-bind``` issue which requires [refactoring suggested here][6].
 
-A> ## Elegance of React
-A> We have an awesome realization about the simple elegance of React at this point.
-A> When using Eslint in Atom editor hints we see hints for HTML indentation issues.
-A> Oh, actually it is hints for HTML-like native components part of JSX.
-A> Eslint has rules checking our logic as well as our presentation view at the same time.
-A> Of course you also catch subtle errors when you copy-paste HTML and ignore JSX
-A> specific camelCase attributes. Eslint is even checking accessibility rules
-A> within JSX attribute values.
-A> Never made possible before React!
-
 **No-undef errors.** We encounter no-undef errors that ```$ is not defined``` at jQuery usage. This can be fixed
 by adding ```"jquery" : true``` within the ```env``` section of eslintrc file. Once we change the config file,
 just close and open the current JSX file to make the issue go away.
@@ -375,28 +366,63 @@ A> Running through all our JSX files and fixing most problems reduces
 A> our overall count from 300+ problems earlier
 A> to around 59 problems. A good day's work indeed.
 
-**Ignore rules file specific.** Now that we have narrowed down to a manageable number of problems, we fix special
-cases where it makes sense by ignoring eslint rules within specific files. We do this carefully after understanding
-if it makes sense to bypass eslint for these specific situations.
+**Selectively Disable Eslint.** We can selectively disable Eslint rules for some of the code. We do this by adding
+a comment starting with ```eslint-disable``` for disabling all rules for code that follows. Enable it back with ```eslint-enable``` in comment. Use ```eslint-disable-line``` to disable all rules for a line of code.
+Suffix this with a specific rule name to only disable that rule for specific line of code.
+
+{title="eslint disable rule", lang=javascript}
+~~~~~~~
+'NODE_ENV': JSON.stringify('production') // eslint-disable-line quote-props
+~~~~~~~
+
+We are disabling ```quote-props``` eslint rule check for this line of code which is used as-is from
+most recommended sources including Facebook React documentation.
+
+**Refactor Components.** Next set of eslint fixes require refactoring components to Airbnb best practices. We refactor
+the ```Hello``` and ```LeanPub``` components to use Arrow functions and PropTypes to fix these errors.
 
 {title="eslint output on terminal", lang=text}
 ~~~~~~~
-x 12 problems (10 errors, 2 warnings)
+x 3 problems (3 errors, 0 warnings)
 
 Errors:
-  4  https://google.com/#q=react%2Fprop-types
-  2  http://eslint.org/docs/rules/object-shorthand
-  1  http://eslint.org/docs/rules/quote-props
-  1  https://google.com/#q=react%2Fjsx-no-bind
-  1  http://eslint.org/docs/rules/prefer-arrow-callback
+  1  https://google.com/#q=react%2Fprop-types
   1  https://google.com/#q=react%2Fprefer-stateless-function
-
-Warnings:
-  2  http://eslint.org/docs/rules/func-names
+  1  https://google.com/#q=react%2Fjsx-no-bind
 ~~~~~~~
 
-Next round of lint fixes on ```.js``` files leads to further reduction of the problems from 300+ down to around 12 problems. A count we can live with for now.
+This round of lint fixes leads to further reduction of the problems from 300+ down to around 3 problems. A count we can live with for now.
 
+A> ## Elegance of React
+A> We have an awesome realization about the simple elegance of React at this point.
+A> When using Eslint in Atom editor we see hints for HTML indentation issues.
+A> Oh, actually these are hints for HTML-like native components part of JSX.
+A> Eslint has rules checking our logic as well as our presentation view at the same time.
+A> Of course you also catch subtle errors when you copy-paste HTML and ignore JSX
+A> specific camelCase attributes. Eslint is even checking accessibility rules
+A> within JSX attribute values.
+A> Never made possible before React!
+
+**Custom lint rules.** We can add more eslint rules to our tests from the [full list of rules here][5].
+The [complexity rule][7] is an interesting one to add for code readability.
+
+{title=".eslintrc.js custom rules", lang=javascript}
+~~~~~~~
+module.exports = {
+  // some code...
+  "rules": {
+    "complexity": ["warn", 2],
+    "no-unused-expressions": "warn",
+    "no-useless-concat": "warn",
+    "block-scoped-var": "error",
+    "consistent-return": "error"
+  }
+};
+~~~~~~~
+
+Eslint combined with Atom editor package and Webpack is a really powerful first-line-of-defense to make
+your React code more readable and reliable. Really fast, while you code each line! This will save
+you significant time in downstream testing, team on-boarding, releases, and refactoring.
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
@@ -410,3 +436,4 @@ I> within your React development workflow.
 [4]: https://www.browsersync.io/
 [5]: http://eslint.org/docs/rules/
 [6]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
+[7]: http://eslint.org/docs/rules/complexity
