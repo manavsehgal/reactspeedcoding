@@ -7,7 +7,7 @@ class Aside extends React.Component {
   static defaultProps = {
     tagline: ''
   }
-  render () {
+  render() {
     return (
       <aside className="holygrail-ads u-textCenter">
         {this.props.children}

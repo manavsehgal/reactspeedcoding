@@ -13,6 +13,7 @@ const TEMPLATE =  __dirname + '/app/templates/index_default.html';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
 const PROXY = 'http://' + HOST + ':' + PORT;
+const LINT = __dirname + '/.eslintrc.js';
 
 // PostCSS support
 const precss       = require('precss');
@@ -31,8 +32,19 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']
   },
+  eslint: {
+    configFile: LINT,
+    emitError: true
+  },
   // Loaders for processing different file types
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['eslint'],
+        include: APP
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
@@ -49,12 +61,11 @@ module.exports = {
   postcss: function () {
     return [
       PostcssImport({
-        addDependencyTo: webpack,
-        // prefix: '_'
+        addDependencyTo: webpack
       }),
       precss,
       autoprefixer({ browsers: ['last 2 versions'] })
-    ]
+    ];
   },
   // Source maps used for debugging information
   devtool: 'eval-source-map',
