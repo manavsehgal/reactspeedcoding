@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 import Card from './Card.jsx';
 
@@ -19,15 +19,17 @@ export default class CardStack extends React.Component {
       'Responsive Design',
       'Customizable Theme',
       'Reusable Components'
-    ],
+    ]
   }
 
-  render () {
+  render() {
     const messages = this.props.messages;
+
     const renderMessages = messages.map(message =>
-        <Card key={message} message><h3>{message}</h3></Card>
-      );
-    const gridClass = "grid grid-gutters grid-full grid-flex-cells large-grid-fit u-textCenter";
+      <Card key={message} message><h3>{message}</h3></Card>
+    );
+
+    const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit u-textCenter';
 
     return (
       <div>
@@ -110,13 +112,21 @@ export default class CardStack extends React.Component {
         </div>
         <div className={gridClass}>
           <Card>
-            <IconText className="warning-text" icon="database" size="4x"
-            text="Firebase React Integration" />
+            <IconText
+              className="warning-text"
+              icon="database"
+              size="4x"
+              text="Firebase React Integration"
+            />
           </Card>
           <Card><World /></Card>
           <Card>
-            <IconText className="primary-text" icon="globe" size="4x"
-              text="Nine Component Creation Strategies" />
+            <IconText
+              className="primary-text"
+              icon="globe"
+              size="4x"
+              text="Nine Component Creation Strategies"
+            />
           </Card>
         </div>
 

@@ -10,8 +10,8 @@ class Blog extends React.Component {
   static defaultProps = {
     posts: PostData
   }
-  render () {
-    const gridClass = "grid grid-gutters grid-full grid-flex-cells large-grid-fit";
+  render() {
+    const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
     const posts = this.props.posts;
     const renderPostSummaries = posts.map(post =>
       <Card key={post.id}>
@@ -23,7 +23,7 @@ class Blog extends React.Component {
         />
       </Card>
     );
-    return(
+    return (
       <div>
         <h1>ReactSpeed Blog</h1>
         <div className={gridClass}>

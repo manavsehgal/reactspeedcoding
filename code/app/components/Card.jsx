@@ -1,12 +1,17 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 export default class Card extends React.Component {
-  static propTypes = { size: PropTypes.string, message: PropTypes.bool }
+  static propTypes = {
+    size: PropTypes.string,
+    message: PropTypes.bool,
+    children: PropTypes.node
+  }
   static defaultProps = { size: '', message: false }
   render() {
-    const cardClass = this.props.message ? 'card is-message': 'card';
+    const cardClass = this.props.message ? 'card is-message' : 'card';
+
     const gridClass = this.props.size
-      ? `grid-cell u-${this.props.size}`: `grid-cell`;
+      ? `grid-cell u-${this.props.size}` : 'grid-cell';
 
     return (
       <div className={gridClass}>

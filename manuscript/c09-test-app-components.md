@@ -322,6 +322,49 @@ when you have run eslint once on your code and removed most errors and warnings.
 you can use this option as a quick check in case you introduce any new errors/warnings
 which you have missed while getting in-editor hints.
 
+{pagebreak}
+
+## Fixing first time eslint problems
+
+When we first run eslint on ReactSpeed code we got 300+ problems (errors and warnings). Here is the workflow we are
+following to fix these.
+
+With so many problems there is the temptation to use eslint --fix flag to automatically fix these. However,
+fixing these manually, we will learn more about our coding practices and correct these for good.
+
+**Overview of problems.** We first run eslint command line interface using ```npm run lint-ff``` for eslint-friendly-formatter to tell us a snapshot of types of problems we encounter.
+
+**Overriding rules.** Next we decide to override certain rules like ```comma-dangle``` and revert to
+using eslint recommended rule instead of Airbnb recommendation. This step brings down our problems count
+drastically.
+
+**Ignore files.** We also run ```npm run lint-tb``` to take a quick look at all the files generating
+the problems. We decide to ignore vendor files located in ```/app/public/js/``` folder of our app and
+update the ```.eslintignore``` configuration.
+
+**Changing parser.** We also change the parser to Babel from eslint default espree parser to handle
+ES6/7 features like class properties.
+
+**Editor hints.** Next we open our JSX files alphabetically in Atom editor to check eslint errors and warnings,
+while fixing these as per suggestions given by eslint or determing the right fix.
+
+**Hot testing.** We could keep the webpack-dev-server running on one terminal window, and eslint-ff running on another as we fix the problems and test the app in our browser. Thanks to Hot Reloading, we don't need to refresh our browser or
+restart development server manually after every fix.
+
+**Defer fix.** Sometimes we encounter problems that need more reading for fixing. One such problem we encounter is
+the ```jsx-no-bind``` issue which requires [refactoring suggested here][6].
+
+A> ## Elegance of React
+A> We have an awesome realization about the simple elegance of React at this point.
+A> When using Eslint in Atom editor hints we see hints for HTML indentation issues.
+A> Oh, actually it is hints for HTML-like native components part of JSX.
+A> Eslint has rules checking our logic as well as our presentation view at the same time.
+A> Never made possible before React!
+
+**No-undef errors.** We encounter no-undef errors that ```$ is not defined``` at jQuery usage. This can be fixed
+by adding ```"jquery" : true``` within the ```env``` section of eslintrc file. Once we change the config file,
+just close and open the current JSX file to make the issue go away.
+
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
 I> Plan is to add examples for integrating various testing tools
@@ -333,3 +376,4 @@ I> within your React development workflow.
 [3]: https://atom.io/
 [4]: https://www.browsersync.io/
 [5]: http://eslint.org/docs/rules/
+[6]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md

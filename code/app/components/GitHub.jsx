@@ -1,12 +1,12 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 export default class GitHub extends React.Component {
   static propTypes = {
     repo: PropTypes.string.isRequired
   }
 
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
     this.state = {
       full_name: '',
       stargazers_count: 0,
@@ -18,7 +18,7 @@ export default class GitHub extends React.Component {
     const sourceRepo =
       `https://api.github.com/repos/${this.props.repo}`;
 
-    this.serverRequest = $.get(sourceRepo, function (result) {
+    this.serverRequest = $.get(sourceRepo, function github(result) {
       this.setState({
         full_name: result.full_name,
         stargazers_count: result.stargazers_count,
@@ -35,11 +35,13 @@ export default class GitHub extends React.Component {
     return (
       this.state.full_name
         ? <div>
-            <h4><i className="fa fa-github"></i> {this.state.full_name}</h4>
-            <p><i className="fa fa-star primary-text"></i> {this.state.stargazers_count} stars</p>
-            <p><i className="fa fa-bug danger-text"></i> {this.state.open_issues} issues</p>
-          </div>
+          <h4>
+            <i className="fa fa-github"></i> {this.state.full_name}
+          </h4>
+          <p><i className="fa fa-star primary-text"></i> {this.state.stargazers_count} stars</p>
+          <p><i className="fa fa-bug danger-text"></i> {this.state.open_issues} issues</p>
+        </div>
         : <p>Loading Live Stats...</p>
     );
   }
-};
+}

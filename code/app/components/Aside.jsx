@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 
 class Aside extends React.Component {
   static propTypes = {
-    tagline: PropTypes.string
+    tagline: PropTypes.string,
+    children: React.PropTypes.node
   }
   static defaultProps = {
     tagline: ''

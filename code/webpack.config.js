@@ -38,6 +38,7 @@ module.exports = {
   },
   // Loaders for processing different file types
   module: {
+    /*
     preLoaders: [
       {
         test: /\.jsx?$/,
@@ -45,6 +46,7 @@ module.exports = {
         include: APP
       }
     ],
+    */
     loaders: [
       {
         test: /\.jsx?$/,

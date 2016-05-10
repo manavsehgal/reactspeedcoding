@@ -1,13 +1,14 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react';
 
 class Footer extends React.Component {
   static propTypes = {
-    copyright: PropTypes.string
+    copyright: PropTypes.string,
+    children: PropTypes.node
   }
   static defaultProps = {
     copyright: ''
   }
-  render () {
+  render() {
     return (
       <footer className="holygrail-footer">
         <div className="Footer">

@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react'
+import React, { PropTypes, Component } from 'react';
 
 class ButtonDemo extends Component {
   static propTypes = {
@@ -7,42 +7,48 @@ class ButtonDemo extends Component {
     sizes: PropTypes.array,
     iconOnly: PropTypes.bool
   }
-  static defaultProps = {icons: [], sizes: [], iconOnly: false}
+  static defaultProps = { icons: [], sizes: [], iconOnly: false }
 
   constructor(props) {
     super(props);
-    this.state = {demoMessage: 'Click any button...'};
+    this.state = { demoMessage: 'Click any button...' };
   }
 
   handleButtonClick(color) {
-    this.setState({demoMessage: `Button ${color} clicked.`});
+    this.setState({ demoMessage: `Button ${color} clicked.` });
   }
 
-  render () {
+  render() {
     const renderButtons = this.props.colors.map((color, i) => {
-        const iconClass =
-          (this.props.icons === undefined || this.props.icons.length == 0)
-            ? `` : ` fa fa-${this.props.icons[i]}`;
-        const buttonClass =
-          (this.props.sizes === undefined || this.props.sizes.length == 0)
-            ? `button ${color.toLowerCase()}`
-            : `button ${this.props.sizes[i]} ${color.toLowerCase()}`;
-        const renderLabel =
-          this.props.iconOnly
-            ? <i className={iconClass}></i>
-            : (this.props.icons === undefined || this.props.icons.length == 0)
-              ? color
-              : <div><i className={iconClass}></i>&nbsp;{color}</div>;
-        return(
-          <button
-            key={color}
-            className={buttonClass}
-            onClick={this.handleButtonClick.bind(this, color)}
-          >
-            {renderLabel}
-          </button>
-        );
-      });
+      const iconClass =
+        (this.props.icons === undefined || this.props.icons.length === 0)
+          ? '' : ` fa fa-${this.props.icons[i]}`;
+
+      const buttonClass =
+        (this.props.sizes === undefined || this.props.sizes.length === 0)
+          ? `button ${color.toLowerCase()}`
+          : `button ${this.props.sizes[i]} ${color.toLowerCase()}`;
+
+      const renderIcons =
+        (this.props.icons === undefined || this.props.icons.length === 0)
+          ? color
+          : <div><i className={iconClass}></i>&nbsp;{color}</div>;
+
+      const renderLabel =
+        this.props.iconOnly
+          ? <i className={iconClass}></i>
+          : renderIcons;
+
+      return (
+        <button
+          key={color}
+          className={buttonClass}
+          onClick={this.handleButtonClick.bind(this, color)}
+        >
+          {renderLabel}
+        </button>
+      );
+    });
 
     return (
       <div>
