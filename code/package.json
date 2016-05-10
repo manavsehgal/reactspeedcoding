@@ -50,6 +50,7 @@
     "style-loader": "^0.13.0",
     "suitcss-utils-display": "^1.0.2",
     "suitcss-utils-text": "^1.0.0",
+    "url-join": "^1.1.0",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
   }

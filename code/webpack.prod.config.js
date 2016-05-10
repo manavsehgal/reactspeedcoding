@@ -3,20 +3,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const PostcssImport = require('postcss-easy-import');
+const postcssImport = require('postcss-easy-import');
+const path = require('path');
 
-const APP = __dirname + '/app';
-const BUILD = __dirname + '/build';
-const STYLE = __dirname + '/app/style.css';
-const PUBLIC = __dirname + '/app/public';
-const TEMPLATE =  __dirname + '/app/templates/index_default.html'
+const APP = path.join(__dirname, 'app');
+const BUILD = path.join(__dirname, 'build');
+const STYLE = path.join(__dirname, 'app/style.css');
+const PUBLIC = path.join(__dirname, 'app/public');
+const TEMPLATE = path.join(__dirname, 'app/templates/index_default.html');
 
 const PACKAGE = Object.keys(
   require('./package.json').dependencies
 );
 
 // PostCSS support
-const precss       = require('precss');
+const precss = require('precss');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -50,13 +51,12 @@ module.exports = {
   },
   postcss: function () {
     return [
-      PostcssImport({
-        addDependencyTo: webpack,
-        // prefix: '_'
+      postcssImport({
+        addDependencyTo: webpack
       }),
       precss,
       autoprefixer({ browsers: ['last 2 versions'] })
-    ]
+    ];
   },
   // Remove comment if you require sourcemaps for your production code
   // devtool: 'cheap-module-source-map',
@@ -65,13 +65,14 @@ module.exports = {
     new CleanPlugin([BUILD]),
     new CopyWebpackPlugin([
         { from: PUBLIC, to: BUILD }
-      ],
+    ],
       {
         ignore: [
           // Doesn't copy Mac storage system files
           '.DS_Store'
         ]
-    }),
+      }
+    ),
     // Auto generate index.html
     new HtmlWebpackPlugin({
       template: TEMPLATE,

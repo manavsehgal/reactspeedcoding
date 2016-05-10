@@ -2,21 +2,22 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const PostcssImport = require('postcss-easy-import');
+const postcssImport = require('postcss-easy-import');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const path = require('path');
 
-const APP = __dirname + '/app';
-const BUILD = __dirname + '/build';
-const STYLE = __dirname + '/app/style.css';
-const PUBLIC = __dirname + '/app/public';
-const TEMPLATE =  __dirname + '/app/templates/index_default.html';
+const APP = path.join(__dirname, 'app');
+const BUILD = path.join(__dirname, 'build');
+const STYLE = path.join(__dirname, 'app/style.css');
+const PUBLIC = path.join(__dirname, 'app/public');
+const TEMPLATE = path.join(__dirname, 'app/templates/index_default.html');
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
-const PROXY = 'http://' + HOST + ':' + PORT;
-const LINT = __dirname + '/.eslintrc.js';
+const PROXY = `http://${HOST}:${PORT}`;
+const LINT = path.join(__dirname, '/.eslintrc.js');
 
 // PostCSS support
-const precss       = require('precss');
+const precss = require('precss');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -38,7 +39,6 @@ module.exports = {
   },
   // Loaders for processing different file types
   module: {
-    /*
     preLoaders: [
       {
         test: /\.jsx?$/,
@@ -46,7 +46,6 @@ module.exports = {
         include: APP
       }
     ],
-    */
     loaders: [
       {
         test: /\.jsx?$/,
@@ -62,7 +61,7 @@ module.exports = {
   },
   postcss: function () {
     return [
-      PostcssImport({
+      postcssImport({
         addDependencyTo: webpack
       }),
       precss,
@@ -107,12 +106,13 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: PUBLIC, to: BUILD }
     ],
-    {
-      ignore: [
-        // Doesn't copy Mac storage system files
-        '.DS_Store'
-      ]
-    }),
+      {
+        ignore: [
+          // Doesn't copy Mac storage system files
+          '.DS_Store'
+        ]
+      }
+    ),
     new HtmlWebpackPlugin({
       template: TEMPLATE,
       // JS placed at the bottom of the body element

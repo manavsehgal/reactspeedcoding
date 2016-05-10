@@ -379,6 +379,25 @@ A> to around 59 problems. A good day's work indeed.
 cases where it makes sense by ignoring eslint rules within specific files. We do this carefully after understanding
 if it makes sense to bypass eslint for these specific situations.
 
+{title="eslint output on terminal", lang=text}
+~~~~~~~
+x 12 problems (10 errors, 2 warnings)
+
+Errors:
+  4  https://google.com/#q=react%2Fprop-types
+  2  http://eslint.org/docs/rules/object-shorthand
+  1  http://eslint.org/docs/rules/quote-props
+  1  https://google.com/#q=react%2Fjsx-no-bind
+  1  http://eslint.org/docs/rules/prefer-arrow-callback
+  1  https://google.com/#q=react%2Fprefer-stateless-function
+
+Warnings:
+  2  http://eslint.org/docs/rules/func-names
+~~~~~~~
+
+Next round of lint fixes on ```.js``` files leads to further reduction of the problems from 300+ down to around 12 problems. A count we can live with for now.
+
+
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
 I> Plan is to add examples for integrating various testing tools

@@ -1,7 +1,8 @@
 const PostData = [
   {
     id: 1,
-    title: `ReactSpeed book is Reddit top trending for Reactjs`,
+    title: `ReactSpeed book is Reddit top trending
+    for Reactjs`,
     summary: `It is a proud moment for us to be listed as top trending
     news on Reddit Reactjs.`,
     image: '/img/reddit-trending.jpg',
@@ -17,12 +18,13 @@ const PostData = [
 
       end: `As learning from the Reddit community we are enhancing
       focus on Redux related content, adding visualiation APIs to our
-      component todo list, and improving our Angular 2 v React section.`,
+      component todo list, and improving our Angular 2 v React section.`
     }
   },
   {
     id: 2,
-    title: `New Roadmap App For ReactSpeed Readers`,
+    title: `New Roadmap App For ReactSpeed
+    Readers`,
     summary: `Roadmap app helps our readers vote on ReactSpeed features,
     components, and book content.`,
     image: '/img/roadmap.jpg',
@@ -38,7 +40,8 @@ const PostData = [
       like components, styles, chapters, sections, and strategies.`,
 
       end: `You will note that various components within this app will interact with each
-      other (blue dashed lines in the wireframe). Changing filters will interact with search, reducing the scope of
+      other (blue dashed lines in the wireframe). Changing filters will interact
+      with search, reducing the scope of
       what can be searched. Search will interact with features, showing only features
       that match the text entered in search. Number of likes will interact with order of features.
       Our app will also maintain several UI states. Some candidate states could be,
