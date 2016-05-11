@@ -37,6 +37,18 @@ The ```--depth=1``` flag ensures that only the latest commit is cloned.
 Now cd to the ```code``` directory and install dependencies using ```npm install``` command.
 Run sample app using ```npm start``` command.
 
+## License information
+
+Code is [MIT][23] license. Book manuscript text and images are Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported [(CC BY-NC-ND 3.0)][22] license.
+
+Copyright (c) 2016 Manav Sehgal.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 ## [Setup React Webpack][3]
 
 > Code: [React Webpack Starter Project][1].
@@ -169,12 +181,18 @@ Subsequent chapters on **Designing Component Internals**, **Wiring Multiple Comp
 - ES5 to ES6 React component definition
 - Testing and refactoring
 
-## Test App Components
+## [Test App Components][21]
 
-> Note: This chapter is TBD.
-
-Plan is to add examples for integrating various testing and lint tools
-within your React development workflow.
+- Browsersync multi-device testing.
+- JavaScript lint using eslint.
+- Configuring eslint.
+- Eslint command line interface.
+- Eslint webpack integration.
+- Fixing eslint reported problems.
+- StyleLint for CSS.
+- StyleLint CLI.
+- Fixing StyleLint reported problems.
+- Webpack integration for StyleLint.
 
 ## Component Design Workflow
 
@@ -200,7 +218,6 @@ Connecting the dots from prior five chapters which detail the workflow.
 Plan is to add Kadira Storybook, create React playgrounds, Redux dev tools, and add
 visual code analytics.
 
-
 [1]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code
 [2]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/webpack.prod.config.js
 [3]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-setup-react-webpack
@@ -220,3 +237,6 @@ visual code analytics.
 [17]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-refactor-existing-components-r
 [18]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-firebase-react-integration
 [20]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/components
+[21]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-test-app-components-t
+[22]: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
+[23]: https://en.wikipedia.org/wiki/MIT_License

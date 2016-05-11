@@ -3,6 +3,19 @@
 This chapter will walk you through multiple testing tools and strategies to make your
 React app more reliable, robust, and performant.
 
+We will learn the following topics in this chapter.
+
+- Browsersync multi-device testing.
+- JavaScript lint using eslint.
+- Configuring eslint.
+- Eslint command line interface.
+- Eslint webpack integration.
+- Fixing eslint reported problems.
+- StyleLint for CSS.
+- StyleLint CLI.
+- Fixing StyleLint reported problems.
+- Webpack integration for StyleLint.
+
 {pagebreak}
 
 ## Browsersync multi-device testing
@@ -444,6 +457,8 @@ Eslint combined with Atom editor package and Webpack is a really powerful first-
 your React code more readable and reliable. Really fast, while you code each line! This will save
 you significant time in downstream testing, team on-boarding, releases, and refactoring.
 
+{pagebreak}
+
 ## StyleLint for CSS
 
 Just like the awesome ESLint tool for JavaScript, we have StyleLint for CSS.
@@ -476,6 +491,8 @@ Next let us create the StyleLint configuration.
 
 That's it. The StyleLint config does not get any simpler. We can add custom rules as we progress in our workflow
 to fix any warnings. For now we are good to go to next step of creating a command line script.
+
+{pagebreak}
 
 ## StyleLint CLI
 
@@ -591,6 +608,8 @@ app/styles/utils/spacing.css
 
 We notice 70 odd problems reported by StyleLint, across 12 CSS files in our project.
 
+{pagebreak}
+
 ## Fixing StyleLint reported problems
 
 Here is the workflow used to fix most of the StyleLint reported problems.
@@ -627,7 +646,9 @@ Of course this is just a sample, we are not adding these overrides to our projec
 **Ignore files.** The CLI and Webpack config allow us to include a list of files or paths with wildcards.
 
 **Hot testing.** With the known issue in Hot Reloading not working with PostCSS, unfortunately we
-cannot to Hot Reloading while we fix the problems.
+cannot do Hot Reloading while we fix the problems.
+
+{pagebreak}
 
 ## Webpack integration for StyleLint
 

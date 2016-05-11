@@ -60,9 +60,9 @@ React Speed Coding will be addressing following technologies, platforms, techniq
 
 **Recharts (Assess).** Integrates D3 charts and React. We will implement samples using Recharts and possibly other cool charting and visualization libraries.
 
-**Browsersync (Trial).** We are implementing Hot Reloading with Webpack. We may consider adding Browsersync support.
+**Browsersync (Trial).** Browsersync is a great time-saver for multi-devices testing of mobile-web hybrid apps. React Speed Coding implements Browsersync + Webpack + Hot Reloading. So if you make any changes in your JSX, these should update on all devices on saving the changes. While maintaining your current UI state. Isn't this awesome!
 
-**GitUp (Trial).** Graphical tool complementing Git workflow. We are evaluating this tool is it helps our developer workflow.
+**GitUp (Trial).** Graphical tool complementing Git workflow. We are find this tool useful for going back in time and revising commit logs for instance.
 
 **Webpack (Trial).** We are implementing your React developer workflow using Webpack. Two chapters are dedicated to get you started with Webpack and production optimize the workflow.
 
