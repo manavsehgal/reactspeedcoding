@@ -7,6 +7,6 @@
   &:hover {
     background: color($(bg) tint(20%));
     border: 1px solid color($(bg) shade(10%));
-    text-decoration:none;
+    text-decoration: none;
   }
 }

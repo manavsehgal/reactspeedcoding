@@ -22,13 +22,15 @@
   padding: $space $space 0;
   width: 100%;
 }
+
 .Site-content::after {
   content: '\00a0'; /* &nbsp; */
   display: block;
   margin-top: $space;
-  height: 0px;
+  height: 0;
   visibility: hidden;
 }
+
 @media (--break-lg) {
   .Site-content {
     padding-top: $space-lg;
@@ -41,6 +43,7 @@
 .Site-content--full {
   padding: 0;
 }
+
 .Site-content--full::after {
   content: none;
 }

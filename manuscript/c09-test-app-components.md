@@ -83,7 +83,7 @@ webpack: bundle is now VALID.
 webpack: bundle is now VALID.
 ~~~~~~~
 
-You now get 4 new URLs. Local and external are URLs you can use on multiple local browsers and multiple external devices respectively. UI related URLs enable you to configure Browsersync runtime. In our setup which is one a Mac with XCode installed, we use iOS Simulator to run virtual device for our tests. Opening Safari browser on this virtual device and browsing to the external URL gives us access to our app. We can also connect to real physical devices on the same network this way.
+You now get 4 new URLs. Local and external are URLs you can use on multiple local browsers and multiple external devices respectively. UI related URLs enable you to configure Browsersync runtime. In our setup, which is a Mac with XCode installed, we use iOS Simulator to run virtual device for our tests. Opening Safari browser on this virtual device and browsing to the external URL gives us access to our app. We can also connect to real physical devices on the same network this way.
 
 What the UI configuration links allow you to do is configure if synchronized browsing will capture code sync, clicks, scroll, and form actions. This way you can test on one device and browser and notice synchronized actions automatically on all your other devices. Browsersync also allows other advanced features like simulating network speeds and remote debugging. Go on... explore away.
 
@@ -208,15 +208,15 @@ We can take this a step further and add a script command in the package.json to
 run lint as a separate command as needed.
 
 We will create three commands for three types of result formats.
-For default stylish results ```lint-st``` can be used, for tabular format ```lint-tb``` command,
+For default stylish results ```elint``` can be used, for tabular format ```elinttable``` command,
 and for using eslint-friendly-formatter we can use
-the ```lint-ff``` command.
+the ```elintsummary``` command.
 
 {title="lint command in package.json", lang=javascript}
 ~~~~~~~
-"lint-st": "eslint . --ext .js --ext .jsx --cache || true",
-"lint-tb": "eslint . --ext .js --ext .jsx --cache --format table || true",
-"lint-ff": "eslint . --ext .js --ext .jsx --cache --format 'node_modules/eslint-friendly-formatter' || true"
+"elint": "eslint . --ext .js --ext .jsx --cache || true",
+"elinttable": "eslint . --ext .js --ext .jsx --cache --format table || true",
+"elintsummary": "eslint . --ext .js --ext .jsx --cache --format 'node_modules/eslint-friendly-formatter' || true",
 ~~~~~~~
 
 Add ```.eslintignore``` to determine folders and files to be ignored by eslint tool.
@@ -232,11 +232,11 @@ app/public/js/*.js
 build/
 ~~~~~~~
 
-Now if you hit ```npm run lint-st``` in your terminal, you will notice eslint warnings and errors if any exist
+Now if you hit ```npm run elint``` in your terminal, you will notice eslint warnings and errors if any exist
 in your code.
 
-When we first run ```eslint-ff``` our output looks something like this. Whoa! 245 problems.
-The ```eslint-friendly-formatter``` allows us to take a quick look at the results
+When we first run ```npm run elintsummary``` our output looks something like this. Whoa! 245 problems.
+The ```eslint-friendly-formatter``` allows us to take a quick look at the summary results
 and reset any rules on/off/error/warn in the config before proceeding.
 
 {title="eslint warnings and errors", lang=text}
@@ -332,13 +332,13 @@ following to fix these.
 With so many problems there is the temptation to use eslint --fix flag to automatically fix these. However,
 fixing these manually, we will learn more about our coding practices and correct these for good.
 
-**Overview of problems.** We first run eslint command line interface using ```npm run lint-ff``` for eslint-friendly-formatter to tell us a snapshot of types of problems we encounter.
+**Overview of problems.** We first run eslint command line interface using ```npm run elintsummary``` for eslint-friendly-formatter to tell us a snapshot of types of problems we encounter.
 
 **Overriding rules.** Next we decide to override certain rules like ```comma-dangle``` and revert to
 using eslint recommended rule instead of Airbnb recommendation. This step brings down our problems count
 drastically.
 
-**Ignore files.** We also run ```npm run lint-tb``` for table format report,
+**Ignore files.** We also run ```npm run elinttable``` for table format report,
 to take a quick look at all the files generating
 the problems. We decide to ignore vendor files located in ```/app/public/js/``` folder of our app and
 update the ```.eslintignore``` configuration.
@@ -349,7 +349,7 @@ ES6/7 features like class properties.
 **Editor hints.** Next we open our JSX files alphabetically in Atom editor to check eslint errors and warnings,
 while fixing these as per suggestions given by eslint or determing the right fix.
 
-**Hot testing.** We could keep the webpack-dev-server running on one terminal window, and eslint-ff running on another as we fix the problems and test the app in our browser. Thanks to Hot Reloading, we don't need to refresh our browser or
+**Hot testing.** We could keep the webpack-dev-server running on one terminal window, and ```elintsummary``` running on another as we fix the problems and test the app in our browser. Thanks to Hot Reloading, we don't need to refresh our browser or
 restart development server manually after every fix.
 
 **Disable PreLoader.** During first run of eslint fixes when you have many problems, you may want to disable
@@ -379,7 +379,29 @@ We are disabling ```quote-props``` eslint rule check for this line of code which
 most recommended sources including Facebook React documentation.
 
 **Refactor Components.** Next set of eslint fixes require refactoring components to Airbnb best practices. We refactor
-the ```Hello``` and ```LeanPub``` components to use Arrow functions and PropTypes to fix these errors.
+the ```Hello```, ```YouTube```, and ```LeanPub``` components to use Arrow functions and PropTypes to fix these errors.
+
+{title="Refactored YouTube component", lang=javascript}
+~~~~~~~
+import React from 'react';
+
+const YouTube = ({ videoid }) =>
+  <iframe
+    className="youtube"
+    width="100%"
+    height="100%"
+    src={`https://www.youtube.com/embed/${videoid}?rel=0&amp;controls=0&amp;showinfo=0`}
+    frameBorder="0"
+    allowFullScreen
+  >
+  </iframe>;
+
+YouTube.propTypes = { videoid: React.PropTypes.string };
+
+export default YouTube;
+~~~~~~~
+
+This round of lint fixes leads to further reduction of the problems from 300+ down to around 3 problems. A count we can live with for now.
 
 {title="eslint output on terminal", lang=text}
 ~~~~~~~
@@ -390,8 +412,6 @@ Errors:
   1  https://google.com/#q=react%2Fprefer-stateless-function
   1  https://google.com/#q=react%2Fjsx-no-bind
 ~~~~~~~
-
-This round of lint fixes leads to further reduction of the problems from 300+ down to around 3 problems. A count we can live with for now.
 
 A> ## Elegance of React
 A> We have an awesome realization about the simple elegance of React at this point.
@@ -423,6 +443,216 @@ module.exports = {
 Eslint combined with Atom editor package and Webpack is a really powerful first-line-of-defense to make
 your React code more readable and reliable. Really fast, while you code each line! This will save
 you significant time in downstream testing, team on-boarding, releases, and refactoring.
+
+## StyleLint for CSS
+
+Just like the awesome ESLint tool for JavaScript, we have StyleLint for CSS.
+
+By now we are familiar with the setup and workflow. We follow similar steps to integrate StyleLint.
+
+Let us add the dependencies.
+
+{title="StyleLint dependencies", lang=text}
+~~~~~~~
+npm install --save-dev stylelint
+npm install --save-dev stylelint-config-standard
+npm install --save-dev stylelint-webpack-plugin
+~~~~~~~
+
+Here is what these dependencies do.
+
+- stylelint - The core library offering lint rules processing and issue reporting for CSS.
+- stylelint-config-standard - The standard shareable config for stylelint. Derived from the rules found within: The Idiomatic CSS Principles, Github's PrimerCSS Guidelines, Google's CSS Style Guide, Airbnb's Styleguide, and @mdo's Code Guide.
+- stylelint-webpack-plugin - As the name suggest a StyleLint plugin for Webpack. Benefits over stylelint-loader alternative include processing ```@imports``` and partials and simpler Webpack setup.
+
+Next let us create the StyleLint configuration.
+
+{title=".stylelintrc StyleLint configuration", lang=json}
+~~~~~~~
+{
+  "extends": "stylelint-config-standard"
+}
+~~~~~~~
+
+That's it. The StyleLint config does not get any simpler. We can add custom rules as we progress in our workflow
+to fix any warnings. For now we are good to go to next step of creating a command line script.
+
+## StyleLint CLI
+
+Let us add the StyleLint CLI shortcut to package.json file.
+
+{title="package.json StyleLint command line script", lang=json}
+~~~~~~~
+"slint": "stylelint ./app/styles/**/*.css ./app/style.css --syntax scss || true"
+~~~~~~~
+
+Now we are ready to run StyleLint for the first time. Run ```npm run slint``` in your terminal.
+
+{title="Terminal output of StyleLint command line script", lang=text}
+~~~~~~~
+app/styles/components/card.css
+  5:28  ✖  Unexpected unit on zero length number   number-zero-length-no-unit
+  6:11  ✖  Expected a leading zero                 number-leading-zero       
+ 12:14  ✖  Unexpected unit on zero length number   number-zero-length-no-unit
+
+app/styles/components/feature.css
+ 1:10  ✖  Unexpected empty block   block-no-empty
+
+app/styles/components/footer.css
+  2:3  ✖  Unexpected longhand value '1.5rem 1.5rem'   shorthand-property-no-redundant-values
+          instead of '1.5rem'                                                               
+ 14:1  ✖  Expected empty line before non-nested rule  rule-non-nested-empty-line-before     
+
+app/styles/components/header.css
+  4:1   ✖  Expected empty line before at-rule           at-rule-empty-line-before        
+ 21:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 26:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 31:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 31:22  ✖  Expected newline after ","                   selector-list-comma-newline-after
+ 31:45  ✖  Expected newline after ","                   selector-list-comma-newline-after
+ 34:1   ✖  Expected empty line before at-rule           at-rule-empty-line-before        
+ 46:1   ✖  Expected empty line before at-rule           at-rule-empty-line-before        
+ 59:1   ✖  Expected empty line before at-rule           at-rule-empty-line-before        
+ 66:1   ✖  Expected empty line before at-rule           at-rule-empty-line-before        
+ 75:1   ✖  Expected empty line before at-rule           at-rule-empty-line-before        
+
+app/styles/components/input.css
+ 11:21  ✖  Expected single space after ":" with a single-line  declaration-colon-space-after
+           value                                                                            
+
+app/styles/components/media.css
+ 14:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 20:14  ✖  Expected a leading zero                      number-leading-zero              
+
+app/styles/components/notice.css
+ 3:25  ✖  Expected a leading zero   number-leading-zero
+ 4:13  ✖  Expected a leading zero   number-leading-zero
+
+app/styles/components/section.css
+  4:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+  8:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 12:12  ✖  Unexpected unit on zero length number        number-zero-length-no-unit       
+ 15:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 18:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 21:1   ✖  Expected empty line before at-rule           at-rule-empty-line-before        
+
+app/styles/components/site.css
+ 25:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 29:12  ✖  Unexpected unit on zero length number        number-zero-length-no-unit       
+ 32:1   ✖  Expected empty line before at-rule           at-rule-empty-line-before        
+ 44:1   ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+
+app/styles/containers/grid.css
+ 126:1  ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 133:1  ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+ 140:1  ✖  Expected empty line before non-nested rule   rule-non-nested-empty-line-before
+
+app/styles/containers/holy-grail.css
+ 64:17  ✖  Expected newline after ","   selector-list-comma-newline-after
+
+app/styles/utils/spacing.css
+  2:12  ✖  Expected a maximum of 1            declaration-block-single-line-max-declarations
+           declaration(s)                                                                   
+  8:21  ✖  Expected a leading zero            number-leading-zero                           
+  8:26  ✖  Expected single space before "!"   declaration-bang-space-before                 
+  9:12  ✖  Expected a maximum of 1            declaration-block-single-line-max-declarations
+           declaration(s)                                                                   
+  9:25  ✖  Expected a leading zero            number-leading-zero                           
+  9:30  ✖  Expected single space before "!"   declaration-bang-space-before                 
+  9:56  ✖  Expected a leading zero            number-leading-zero                           
+  9:61  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 10:25  ✖  Expected a leading zero            number-leading-zero                           
+ 10:30  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 11:27  ✖  Expected a leading zero            number-leading-zero                           
+ 11:32  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 12:28  ✖  Expected a leading zero            number-leading-zero                           
+ 12:33  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 13:26  ✖  Expected a leading zero            number-leading-zero                           
+ 13:31  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 15:25  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 16:12  ✖  Expected a maximum of 1            declaration-block-single-line-max-declarations
+           declaration(s)                                                                   
+ 16:29  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 16:59  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 17:29  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 18:31  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 19:32  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 20:30  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 22:25  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 23:12  ✖  Expected a maximum of 1            declaration-block-single-line-max-declarations
+           declaration(s)                                                                   
+ 23:29  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 23:59  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 24:29  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 25:31  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 26:32  ✖  Expected single space before "!"   declaration-bang-space-before                 
+ 27:30  ✖  Expected single space before "!"   declaration-bang-space-before
+~~~~~~~
+
+We notice 70 odd problems reported by StyleLint, across 12 CSS files in our project.
+
+## Fixing StyleLint reported problems
+
+Here is the workflow used to fix most of the StyleLint reported problems.
+
+**Overview of problems.** As we ran StyleLint CLI we notice most of our reported problems
+repeat so Find and Replace in our editor will be our close ally in fixing these.
+
+**Editor hints.** Let us start by integrating StyleLint with Atom editor and then
+walking through our CSS files one by one fixing reported problems.
+
+{title="Add StyleLint Atom package", lang=text}
+~~~~~~~
+apm install linter-stylelint
+~~~~~~~
+
+Done! Stepping through each CSS file took us less than 30 minutes to go from 70 problems
+to zero.
+
+**Overriding rules.** We have not yet encountered any rule that needs overriding. However, when
+we do, we can add overrides in the ```.stylelintrc``` config file like so.
+
+Of course this is just a sample, we are not adding these overrides to our project.
+
+{title="Add StyleLint Atom package", lang=text}
+~~~~~~~
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "number-leading-zero": null
+  }
+}
+~~~~~~~
+
+**Ignore files.** The CLI and Webpack config allow us to include a list of files or paths with wildcards.
+
+**Hot testing.** With the known issue in Hot Reloading not working with PostCSS, unfortunately we
+cannot to Hot Reloading while we fix the problems.
+
+## Webpack integration for StyleLint
+
+Now that we have reached "problems zero", let us integrate StyleLint with webpack development config
+so it runs every time we run the webpack-dev-server.
+
+{title="Add StyleLint Webpack plugin", lang=text}
+~~~~~~~
+// some code...
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+// some code...
+const STYLELINT = ['./app/styles/**/*.css', './app/styles.css'];
+// some code...
+plugins: [
+  new StyleLintPlugin({
+    files: STYLELINT,
+    syntax: 'scss'
+  }),
+// some code...
+~~~~~~~
+
+That's all it takes. Adding the ```stylelint-webpack-plugin``` into our webpack development config.
+
+Now when we run ```npm start``` StyleLint will report any new issues which we do not catch
+with editor hints in the first place.
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.

@@ -123,6 +123,7 @@
 .grid-gutters {
   margin: -1em 0 1em -1em;
 }
+
 .grid-gutters > .grid-cell {
   padding: 1em 0 0 1em;
 }
@@ -130,6 +131,7 @@
 .grid-gutters-lg {
   margin: -1.5em 0 1.5em -1.5em;
 }
+
 .grid-gutters-lg > .grid-cell {
   padding: 1.5em 0 0 1.5em;
 }
@@ -137,6 +139,7 @@
 .grid-gutters-xl {
   margin: -2em 0 2em -2em;
 }
+
 .grid-gutters-xl > .grid-cell {
   padding: 2em 0 0 2em;
 }

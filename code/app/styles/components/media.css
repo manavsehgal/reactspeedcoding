@@ -11,13 +11,14 @@
 .media-body {
   flex: 1;
 }
+
 .media-body,
 .media-body :last-child {
   margin-bottom: 0;
 }
 
 .media-title {
-  margin: 0 0 .5em;
+  margin: 0 0 0.5em;
 }
 
 .media-center {

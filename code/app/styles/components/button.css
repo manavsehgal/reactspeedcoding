@@ -14,7 +14,7 @@
 
   &:focus {
     outline: none;
-    text-decoration:none;
+    text-decoration: none;
   }
 
   &.default { @mixin colorize-button $default; }
@@ -31,7 +31,7 @@
   }
 
   &.medium {
-    padding: .6em 1em;
+    padding: 0.6em 1em;
     font-size: 0.9em;
   }
 

@@ -61,7 +61,8 @@
     padding: 0 $space-lg;
     margin: 0;
   }
-  .holygrail-nav, .holygrail-ads {
+  .holygrail-nav,
+  .holygrail-ads {
     flex: 0 0 12em;
   }
 }

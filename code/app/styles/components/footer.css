@@ -1,5 +1,5 @@
 .Footer {
-  padding: 1.5rem 1.5rem;
+  padding: 1.5rem;
   background: gray(25%);
   color: gray(60%);
   font-size: 0.85em;
@@ -11,6 +11,7 @@
   border: 0;
   color: gray(90%);
 }
+
 .Footer a:focus,
 .Footer a:active,
 .Footer a:hover {

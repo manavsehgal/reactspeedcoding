@@ -1,23 +1,28 @@
 .Section {
   padding: 0 $space;
 }
+
 .Section:nth-child(2n) {
   background-color: hsla(31, 15%, 50%, 0.1);
   overflow: hidden; /* Contain margins. */
 }
+
 .Section::before,
 .Section::after {
   content: '\00a0'; /* &nbsp; */
   display: block;
-  height: 0px;
+  height: 0;
   visibility: hidden;
 }
+
 .Section::before {
   margin-bottom: $space;
 }
+
 .Section::after {
   margin-top: $space;
 }
+
 @media (--break-lg) {
   .Section {
     padding: 0 $space-lg;

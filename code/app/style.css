@@ -1,17 +1,14 @@
 @import 'normalize.css';
 @import 'suitcss-utils-display';
 @import 'suitcss-utils-text';
-
 @import 'styles/base/variables';
 @import 'styles/base/custom-media';
 @import 'styles/base/elements';
 @import 'styles/base/modifiers';
 @import 'styles/base/mixins';
-
 @import 'styles/containers/grid'; /* Refactored and tied to component */
 @import 'styles/containers/container';
 @import 'styles/containers/holy-grail';
-
 @import 'styles/components/card'; /* Refactored and tied to component */
 @import 'styles/components/workflow'; /* Refactored and tied to component */
 @import 'styles/components/navigation'; /* Refactored */
@@ -27,11 +24,9 @@
 @import 'styles/components/notice';
 @import 'styles/components/section';
 @import 'styles/components/site';
-
 @import 'styles/utils/compat.css';
 @import 'styles/utils/media';
 @import 'styles/utils/size';
 @import 'styles/utils/spacing';
-
 @import 'styles/vendor/font-awesome-extensions';
 @import 'styles/vendor/youtube';

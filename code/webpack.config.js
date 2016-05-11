@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const postcssImport = require('postcss-easy-import');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const path = require('path');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const APP = path.join(__dirname, 'app');
 const BUILD = path.join(__dirname, 'build');
@@ -14,7 +15,8 @@ const TEMPLATE = path.join(__dirname, 'app/templates/index_default.html');
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
 const PROXY = `http://${HOST}:${PORT}`;
-const LINT = path.join(__dirname, '/.eslintrc.js');
+const LINT = path.join(__dirname, '.eslintrc.js');
+const STYLELINT = ['./app/styles/**/*.css', './app/styles.css'];
 
 // PostCSS support
 const precss = require('precss');
@@ -88,6 +90,10 @@ module.exports = {
   },
   // Webpack plugins
   plugins: [
+    new StyleLintPlugin({
+      files: STYLELINT,
+      syntax: 'scss'
+    }),
     new BrowserSyncPlugin(
       // BrowserSync options
       {

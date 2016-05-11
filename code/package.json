@@ -8,9 +8,10 @@
     "start": "NODE_ENV=development webpack-dev-server",
     "build": "NODE_ENV=production webpack --config webpack.prod.config.js",
     "profile": "NODE_ENV=production webpack --config webpack.prod.config.js --profile --json > profile.json",
-    "lint-st": "eslint . --ext .js --ext .jsx --cache || true",
-    "lint-tb": "eslint . --ext .js --ext .jsx --cache --format table || true",
-    "lint-ff": "eslint . --ext .js --ext .jsx --cache --format 'node_modules/eslint-friendly-formatter' || true"
+    "elint": "eslint . --ext .js --ext .jsx --cache || true",
+    "elinttable": "eslint . --ext .js --ext .jsx --cache --format table || true",
+    "elintsummary": "eslint . --ext .js --ext .jsx --cache --format 'node_modules/eslint-friendly-formatter' || true",
+    "slint": "stylelint ./app/styles/**/*.css ./app/style.css --syntax scss || true"
   },
   "author": "Manav Sehgal",
   "license": "MIT",
@@ -48,6 +49,9 @@
     "postcss-loader": "^0.8.2",
     "precss": "^1.4.0",
     "style-loader": "^0.13.0",
+    "stylelint": "^6.3.3",
+    "stylelint-config-standard": "^7.0.0",
+    "stylelint-webpack-plugin": "^0.2.0",
     "suitcss-utils-display": "^1.0.2",
     "suitcss-utils-text": "^1.0.0",
     "url-join": "^1.1.0",

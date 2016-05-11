@@ -8,7 +8,7 @@
   transition: background 2s;
   &:focus {
     outline: none;
-    text-decoration:none;
+    text-decoration: none;
     background: color(white shade(2%));
   }
 }

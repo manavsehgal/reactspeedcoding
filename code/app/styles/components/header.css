@@ -1,6 +1,7 @@
 .header {
   padding: 1.5em;
 }
+
 @media (--break-lg) {
   .header {
     padding: 3em 1.5em;
@@ -18,19 +19,25 @@
   line-height: 1;
   word-spacing: 0.08em;
 }
+
 .header-title i {
   font-family: serif;
   font-style: italic;
   font-weight: 400;
 }
+
 .header-title a {
   border: 0;
   color: inherit;
   font-weight: inherit;
 }
-.header-title a:focus, .header-title a:hover, .header-title a:active {
+
+.header-title a:focus,
+.header-title a:hover,
+.header-title a:active {
   text-decoration: none;
 }
+
 @media (--break-lg) {
   .header-title {
     font-size: 4em;
@@ -43,6 +50,7 @@
   font-weight: 300;
   white-space: nowrap;
 }
+
 @media (--break-lg) {
   .header-subtitle {
     margin: 1em 0 1.75em;
@@ -56,6 +64,7 @@
   flex-direction: column;
   font-size: 0.9em;
 }
+
 @media (--break-sm) {
   .header-actions {
     align-items: center;
@@ -63,6 +72,7 @@
     justify-content: center;
   }
 }
+
 @media (--break-lg) {
   .header-actions {
     font-size: 1.1em;
@@ -72,6 +82,7 @@
 .header-button:first-child {
   margin: 0 0 1em;
 }
+
 @media (--break-sm) {
   .header-button:first-child {
     margin: 0 1em 0 0;

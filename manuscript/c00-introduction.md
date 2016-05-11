@@ -98,6 +98,12 @@ Since start of ReactSpeed project we have closed 150 production commits to GitHu
 
 As on May 9, 2016 our CSS library is 4.7KB Gzip, 21KB minified with 25+ style modules. App JS bundle is 42KB minified. Vendor JS bundle is 23KB minified. HTML is 3KB.
 
+**Time to fix issues.** How long does it take to fix issues in code. Code issues can be of several types including compliance with coding guidelines and best practices, logical bugs, usability issues, performance issues, among others.
+
+As on May 10, 2016 it took us 6 hours to resolve 300+ issues down to 3 open issues using ESLint integration
+with Atom editor and Webpack. The issues ranged from coding best practices to refactoring
+requirements as per React coding patterns.
+
 {pagebreak}
 
 ## Developer workflow
