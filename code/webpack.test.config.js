@@ -3,7 +3,9 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const postcssImport = require('postcss-easy-import');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const path = require('path');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const APP = path.join(__dirname, 'app');
 const BUILD = path.join(__dirname, 'build');
@@ -12,6 +14,9 @@ const PUBLIC = path.join(__dirname, 'app/public');
 const TEMPLATE = path.join(__dirname, 'app/templates/index_default.html');
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
+const PROXY = `http://${HOST}:${PORT}`;
+const LINT = path.join(__dirname, '.eslintrc.js');
+const STYLELINT = ['./app/styles/**/*.css', './app/styles.css'];
 
 // PostCSS support
 const precss = require('precss');
@@ -30,8 +35,19 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']
   },
+  eslint: {
+    configFile: LINT,
+    emitError: true
+  },
   // Loaders for processing different file types
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['eslint'],
+        include: APP
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
@@ -74,6 +90,24 @@ module.exports = {
   },
   // Webpack plugins
   plugins: [
+    new StyleLintPlugin({
+      files: STYLELINT,
+      syntax: 'scss'
+    }),
+    new BrowserSyncPlugin(
+      // BrowserSync options
+      {
+        host: HOST,
+        port: PORT,
+        proxy: PROXY
+      },
+      // plugin options
+      {
+        // prevent BrowserSync from reloading the page
+        // and let Webpack Dev Server take care of this
+        reload: false
+      }
+    ),
     new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
       { from: PUBLIC, to: BUILD }

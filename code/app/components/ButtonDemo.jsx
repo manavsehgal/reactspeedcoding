@@ -43,7 +43,9 @@ class ButtonDemo extends Component {
         <button
           key={color}
           className={buttonClass}
+          /* eslint-disable react/jsx-no-bind */
           onClick={this.handleButtonClick.bind(this, color)}
+          /* eslint-enable react/jsx-no-bind */
         >
           {renderLabel}
         </button>

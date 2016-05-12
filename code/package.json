@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server",
+    "test": "NODE_ENV=test webpack-dev-server --config webpack.test.config.js",
     "build": "NODE_ENV=production webpack --config webpack.prod.config.js",
     "profile": "NODE_ENV=production webpack --config webpack.prod.config.js --profile --json > profile.json",
     "elint": "eslint . --ext .js --ext .jsx --cache || true",

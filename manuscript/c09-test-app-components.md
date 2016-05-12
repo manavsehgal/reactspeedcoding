@@ -15,6 +15,7 @@ We will learn the following topics in this chapter.
 - StyleLint CLI.
 - Fixing StyleLint reported problems.
 - Webpack integration for StyleLint.
+- Separating Webpack test config.
 
 {pagebreak}
 
@@ -674,6 +675,157 @@ That's all it takes. Adding the ```stylelint-webpack-plugin``` into our webpack 
 
 Now when we run ```npm start``` StyleLint will report any new issues which we do not catch
 with editor hints in the first place.
+
+{pagebreak}
+
+## Separating Webpack test config
+
+Lint and Browsersync do add to our build time and the "code to browser view" workflow. So,
+we can separate the test related webpack config, like so.
+
+{title="webpack.test.config.js", lang=javascript}
+~~~~~~~
+// Initialization
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const postcssImport = require('postcss-easy-import');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const path = require('path');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+
+const APP = path.join(__dirname, 'app');
+const BUILD = path.join(__dirname, 'build');
+const STYLE = path.join(__dirname, 'app/style.css');
+const PUBLIC = path.join(__dirname, 'app/public');
+const TEMPLATE = path.join(__dirname, 'app/templates/index_default.html');
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 8080;
+const PROXY = `http://${HOST}:${PORT}`;
+const LINT = path.join(__dirname, '.eslintrc.js');
+const STYLELINT = ['./app/styles/**/*.css', './app/styles.css'];
+
+// PostCSS support
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+
+module.exports = {
+  // Paths and extensions
+  entry: {
+    app: APP,
+    style: STYLE
+  },
+  output: {
+    path: BUILD,
+    filename: '[name].js'
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.css']
+  },
+  eslint: {
+    configFile: LINT,
+    emitError: true
+  },
+  // Loaders for processing different file types
+  module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['eslint'],
+        include: APP
+      }
+    ],
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel?cacheDirectory'],
+        include: APP
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css', 'postcss'],
+        include: APP
+      }
+    ]
+  },
+  postcss: function processPostcss() {
+    return [
+      postcssImport({
+        addDependencyTo: webpack
+      }),
+      precss,
+      autoprefixer({ browsers: ['last 2 versions'] })
+    ];
+  },
+  // Source maps used for debugging information
+  devtool: 'eval-source-map',
+  // webpack-dev-server configuration
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+
+    stats: 'errors-only',
+
+    host: HOST,
+    port: PORT,
+
+    // CopyWebpackPlugin: This is required for webpack-dev-server.
+    // The path should be an absolute path to your build destination.
+    outputPath: BUILD
+  },
+  // Webpack plugins
+  plugins: [
+    new StyleLintPlugin({
+      files: STYLELINT,
+      syntax: 'scss'
+    }),
+    new BrowserSyncPlugin(
+      // BrowserSync options
+      {
+        host: HOST,
+        port: PORT,
+        proxy: PROXY
+      },
+      // plugin options
+      {
+        // prevent BrowserSync from reloading the page
+        // and let Webpack Dev Server take care of this
+        reload: false
+      }
+    ),
+    new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin([
+      { from: PUBLIC, to: BUILD }
+    ],
+      {
+        ignore: [
+          // Doesn't copy Mac storage system files
+          '.DS_Store'
+        ]
+      }
+    ),
+    new HtmlWebpackPlugin({
+      template: TEMPLATE,
+      // JS placed at the bottom of the body element
+      inject: 'body'
+    })
+  ]
+};
+~~~~~~~
+
+Now all we need to do is add a script in package.json for running tests.
+
+{title="package.json test script", lang=javascript}
+~~~~~~~
+"test": "NODE_ENV=test webpack-dev-server --config webpack.test.config.js",
+~~~~~~~
+
+We revert the build webpack.config.js to prior version without ESLint, StyleLint, and Browsersync.
+
+Now we can run ```npm start``` without the test overload during normal builds. When we want to test
+our build we run ```npm run test``` command.
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.

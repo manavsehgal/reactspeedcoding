@@ -17,6 +17,10 @@ You will create several new components in this chapter. Actually 10 new componen
 - Router configuration.
 - Navigation component.
 - NavLink component.
+- Search engine friendly URLs.
+- Refactoring layouts with routing
+- Refactoring blog with routing
+- Handling router exceptions.
 
 {pagebreak}
 
@@ -725,17 +729,337 @@ That's it! You will now be serving search engine friendly URLs instead of crypti
 
 If you are not using Firebase hosting then there might still be another solution. The [connect-history-api-fallback][3] NPM package offers a middleware to "proxy requests through a specified index page, useful for Single Page Applications that utilise the HTML5 History API". We have not tried it, however if you want to give it a go and let us know, we will be happy to add such insights for our readers.
 
+{pagebreak}
+
+## Refactoring layouts with routing
+
+Let is continue refactoring and enhancing this app for more advanced use cases.
+We want to achieve these objectives in the sections that follow.
+
+- Reuse only one main layout component and render content specific to a route.
+- Only display post summaries on blog page. Link to post details.
+- Add search engine friendly URLs to our app.
+- Handle routes that do not exist.
+- Handle URLs that do not exist.
+
+Let us start by refactoring our ```HomePage``` layout component so that we do not
+need ```BlogPage``` at all. We instead render content that is different for Home or
+Blog based on routes definition.
+
+{title="/app/components/HomePage.jsx refactored for routing", lang=javascript}
+~~~~~~~
+import React from 'react';
+import LeanPub from './LeanPub.jsx';
+import Navigation from './Navigation.jsx';
+import Header from './Header.jsx';
+import Sidebar from './Sidebar.jsx';
+import Aside from './Aside.jsx';
+import Footer from './Footer.jsx';
+import SiteData from '../content/SiteData.js';
+
+export default function HomePage(props) {
+  return (
+    <div className="holygrail">
+      <Navigation />
+      <Header promo={SiteData.home.header} />
+      <main className="holygrail-body">
+        <article className="holygrail-content">
+          {props.children}
+        </article>
+        <Sidebar data={SiteData.home.sidebar} />
+        <Aside tagline={SiteData.tagline}>
+          <LeanPub bookid="reactspeedcoding" />
+        </Aside>
+      </main>
+      <Footer copyright={SiteData.copyright} />
+    </div>
+  );
+}
+HomePage.propTypes = {
+  children: React.PropTypes.node
+};
+~~~~~~~
+
+The new ```HomePage``` component looks different. We have done a few things in this refactor.
+We have made the component a stateless component based on ESLint recommendations.
+We have also removed ```CardStack``` component and instead added ```this.props.children```
+in its place.
+
+This is where the React Router magic takes place. What React Router can do
+is help us configure what to render in place of ```this.props.children``` based on
+routes definition.
+
+Let us revisit our routes definition.
+
+{title="/app/index.jsx refactored for routing", lang=javascript}
+~~~~~~~
+import React from 'react';
+import ReactDOM from 'react-dom';
+import HomePage from './components/HomePage.jsx';
+import PostSummary from './components/PostSummary.jsx';
+import PostDetail from './components/PostDetail.jsx';
+import CardStack from './components/CardStack.jsx';
+import MissingRoute from './components/MissingRoute.jsx';
+
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+
+ReactDOM.render(
+  <Router history={browserHistory}>
+    <Route path="/" component={HomePage}>
+      <IndexRoute component={CardStack} />
+      <Route path="/blog" component={PostSummary} />
+      <Route path="/blog/:slug" component={PostDetail} />
+    </Route>
+    <Route path="*" component={HomePage}>
+      <IndexRoute component={MissingRoute} />
+    </Route>
+  </Router>,
+  document.getElementById('app')
+);
+~~~~~~~
+
+Our ```index.jsx``` looks very different as well.
+Let us explain what is going on here focusing on ```HomePage``` route first,
+followed by other routes and components in later sections within this chapter.
+
+We have created child routes for HomePage, starting with the ```IndexRoute```
+which says, if the user visits the HomePage directly, render ```CardStack```
+in place of ```this.props.children``` within the HomePage component.
+
+We have also moved the ```/blog``` route as a child of ```/``` route. Instead of
+displaying ```BlogPage``` we are now just rendering the ```PostSummary``` component
+which lists blog posts, in place of ```this.props.children``` within the HomePage layout component.
+
+Finally, we have added a new ```PostDetail``` component to handle display of
+specific posts. We are using the ```/blog/:slug``` routing params feature to indicate
+we will be navigating to specific posts based on the post slug. We will see how in the section
+below that explains the ```PostDetail``` component.
 
 {pagebreak}
 
-## Next steps
+## Refactoring blog with routing
 
-You can continue refactoring and enhancing this app for more advanced use cases. Some of the
-ideas include following features.
+Our blog code looks very different as well. We have changed the ```Blog``` component
+to a more appropriate ```PostSummary``` component. We no longer need the ```BlogPage```
+component so that goes away. Instead we will reuse the ```HomePage``` component
+to display blog content based on routing.
 
-- Only display post summaries on blog page. Link to post details.
-- Convert the JSON data stores to Firebase data store.
-- Add search engine friendly URLs to our app.
+{title="/app/components/PostSummary.jsx refactored for routing", lang=javascript}
+~~~~~~~
+import React, { PropTypes } from 'react';
+import PostData from '../content/PostData.js';
+import Card from './Card.jsx';
+import { Link } from 'react-router';
+
+function PostSummary({ posts }) {
+  const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
+  return (
+    <div>
+      <h1>ReactSpeed Blog</h1>
+      <div className={gridClass}>
+        {posts.map(post =>
+          <Card key={post.id}>
+            <div className="media">
+              {post.thumb
+                ? (<Link className="image-link" to={`/blog/${post.slug}`}>
+                  <img
+                    className="media-figure image"
+                    src={post.thumb}
+                    alt={post.title}
+                  />
+                </Link>
+                )
+                : ''
+              }
+              <div className="media-body">
+                <Link className="image-link" to={`/blog/${post.slug}`}>
+                  <h3 className="media-title">{post.title}</h3>
+                </Link>
+                <p>{post.summary}</p>
+              </div>
+            </div>
+            <Link
+              to={`/blog/${post.slug}`}
+            >
+              Read more...
+            </Link>
+          </Card>
+        )}
+      </div>
+    </div>
+  );
+}
+PostSummary.propTypes = {
+  posts: PropTypes.array
+};
+PostSummary.defaultProps = {
+  posts: PostData
+};
+
+export default PostSummary;
+~~~~~~~
+
+We are using ```Link``` component from React Router to navigate based on unique post slugs.
+
+The ```PostDetail``` component handles rendering specific post when we click on a Link.
+
+{title="/app/components/PostDetail.jsx refactored for routing", lang=javascript}
+~~~~~~~
+import React, { PropTypes } from 'react';
+import PostData from '../content/PostData.js';
+
+function PostDetail({ posts, params }) {
+  const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
+  let renderContent = '';
+  if (params.slug) {
+    for (let i = 0; i < posts.length; ++i) {
+      if (posts[i].slug === params.slug) {
+        renderContent = (
+          <div>
+            <h1>{posts[i].title}</h1>
+            <div className={gridClass}>
+              <div className="media">
+                {posts[i].image
+                  ? <img
+                    className="media-figure image"
+                    src={posts[i].image}
+                    alt={posts[i].title}
+                  />
+                  : ''
+                }
+                <div className="media-body">
+                  <p>{posts[i].content.start}</p>
+                  <p>{posts[i].content.middle}</p>
+                  <p>{posts[i].content.end}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+        break;
+      } else {
+        renderContent = (
+          <div>
+            <h1>Oops! We could not find that...</h1>
+            <h2>
+              Here is the latest post from our blog.
+              Please use top menu to navigate elsewhere.
+            </h2>
+            <div className={gridClass}>
+              <div className="media">
+                {posts[posts.length - 1].image
+                  ? <img
+                    className="media-figure image"
+                    src={posts[i].image}
+                    alt={posts[i].title}
+                  />
+                  : ''
+                }
+                <h1>{posts[posts.length - 1].title}</h1>
+                <div className="media-body">
+                  <p>{posts[i].content.start}</p>
+                  <p>{posts[i].content.middle}</p>
+                  <p>{posts[i].content.end}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+  }
+  return (renderContent);
+}
+PostDetail.propTypes = {
+  posts: PropTypes.array,
+  params: PropTypes.object
+};
+PostDetail.defaultProps = {
+  posts: PostData
+};
+
+export default PostDetail;
+~~~~~~~
+
+We are using React Router provided ```this.props.params.slug``` to match
+the specific post from our data store.
+
+Notice that we are also handling exceptions where the slug does not match or the user has
+mistyped the direct url to the blog post.
+
+{pagebreak}
+
+## Handling router exceptions
+
+So far we have encountered two exceptions scenarios when using routes. User could mistype
+a blog post url and this case is handled by ```PostDetail``` component itself.
+
+Another exception is when user types a missing route itself. This can be handled
+in the routes definition as a general case like so.
+
+{title="/app/index.jsx refactored for routing", lang=javascript}
+~~~~~~~
+// some code ...
+import MissingRoute from './components/MissingRoute.jsx';
+
+// some code ...
+ReactDOM.render(
+  <Router history={browserHistory}>
+    // some code ...
+    <Route path="*" component={HomePage}>
+      <IndexRoute component={MissingRoute} />
+    </Route>
+  </Router>,
+  document.getElementById('app')
+);
+~~~~~~~
+
+We are using ```path="*"``` and defining a new ```MissingRoute``` component to
+render when the route does not exist.
+
+{title="/app/components/MissingRoute.jsx handles missing route exception", lang=javascript}
+~~~~~~~
+import React from 'react';
+import CardStack from './CardStack.jsx';
+
+function MissingRoute() {
+  return (
+    <div>
+      <h1>Oops! We Could Not Find That...</h1>
+      <h2>
+        Here's the latest in ReactSpeed UI.
+        Please use top menu to navigate elsewhere.
+      </h2>
+      <CardStack redirect />
+    </div>
+  );
+}
+
+export default MissingRoute;
+~~~~~~~
+
+All this component is doing is calling ```CardStack``` component with a new prop ```redirect```
+so that ```CardStack``` can decide not to render the title meant for home page.
+
+{title="/app/components/CardStack.jsx handles missing route exception", lang=javascript}
+~~~~~~~
+{!this.props.redirect ? <h1>ReactSpeed UI Components</h1> : ''}
+~~~~~~~
+
+To handle cases where user reaches a route that is not defined, we
+also modified our ```html-webpack-plugin``` configuration to not generate the
+script tags (app and styles). Instead we added these manually to the ```index_default.html``` template.
+The plugin inserts our scripts just with the filenames and no base url reference.
+In case of a missing route, the server appends the missing route as base url for these scripts,
+and obviously the browser complains it cannot find them. Blank page results.
+
+This wraps up advanced usage of React Router. There are few more tricks we may use
+in other chapters including the following.
+
+- Using ids with routing.
+- Rendering multiple components based on single route.
+- Passing properties to components from routing configuration.
+- Separating reusable routing configuration.
 
 [1]: https://github.com/reactjs/react-router
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState().C2.A0method

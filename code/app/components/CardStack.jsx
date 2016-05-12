@@ -11,7 +11,8 @@ import ButtonDemo from './ButtonDemo.jsx';
 
 export default class CardStack extends React.Component {
   static propTypes = {
-    messages: PropTypes.array.isRequired
+    messages: PropTypes.array.isRequired,
+    redirect: PropTypes.bool
   }
 
   static defaultProps = {
@@ -19,7 +20,8 @@ export default class CardStack extends React.Component {
       'Responsive Design',
       'Customizable Theme',
       'Reusable Components'
-    ]
+    ],
+    redirect: false
   }
 
   render() {
@@ -33,7 +35,7 @@ export default class CardStack extends React.Component {
 
     return (
       <div>
-        <h1>ReactSpeed UI Components</h1>
+        {!this.props.redirect ? <h1>ReactSpeed UI Components</h1> : ''}
         <div className={gridClass}>
           <Card><Workflow /></Card>
           <Card>

@@ -1,11 +1,12 @@
 .media {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   margin-bottom: 1em;
+  min-width: 300px;
 }
 
 .media-figure {
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 .media-body {

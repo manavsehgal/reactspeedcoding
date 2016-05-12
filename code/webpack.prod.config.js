@@ -77,7 +77,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: TEMPLATE,
       // JS placed at the bottom of the body element
-      inject: 'body',
+      inject: false,
       // Use html-minifier
       minify: {
         collapseWhitespace: true
