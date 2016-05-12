@@ -1083,8 +1083,8 @@ A> lighter when just importing directly from the main react router library.
 A> This is the **Webpack bundling magic** for you!
 A>
 A> Behind the scenes React Router node_modules
-A> is >500KB in size. Our overall bundle size for app.js which includes
-A> React, ReactDOM, and React Router modules used by the app is <40 KB!
+A> is >500KB in size. Our overall bundle sizes for app.js and vendor.js which include
+A> React, ReactDOM, and React Router modules used by the app are <40 KB and 190KB respectively!
 A> Webpack optimally extracts,
 A> minifies, and bundles our dependencies and imports, automatically for us,
 A> while we focus on writing simple, readable code.

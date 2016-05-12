@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import PostData from '../content/PostData.js';
+import ReactDisqusThread from 'react-disqus-thread';
 
 function PostDetail({ posts, params }) {
   const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
@@ -25,12 +26,19 @@ function PostDetail({ posts, params }) {
                   <p>{posts[i].content.middle}</p>
                   <p>{posts[i].content.end}</p>
                 </div>
+                <ReactDisqusThread
+                  shortname="reactspeed"
+                  identifier={posts[i].slug}
+                  title={posts[i].title}
+                  url={`https://reactspeed.com/blog/${posts[i].slug}`}
+                />
               </div>
             </div>
           </div>
         );
         break;
       } else {
+        const lastPost = posts.length - 1;
         renderContent = (
           <div>
             <h1>Oops! We could not find that...</h1>
@@ -40,20 +48,26 @@ function PostDetail({ posts, params }) {
             </h2>
             <div className={gridClass}>
               <div className="media grid-cell">
-                {posts[posts.length - 1].image
+                {posts[lastPost].image
                   ? <img
                     className="media-figure image"
-                    src={posts[i].image}
-                    alt={posts[i].title}
+                    src={posts[lastPost].image}
+                    alt={posts[lastPost].title}
                   />
                   : ''
                 }
-                <h1>{posts[posts.length - 1].title}</h1>
+                <h1>{posts[lastPost].title}</h1>
                 <div className="media-body">
-                  <p>{posts[i].content.start}</p>
-                  <p>{posts[i].content.middle}</p>
-                  <p>{posts[i].content.end}</p>
+                  <p>{posts[lastPost].content.start}</p>
+                  <p>{posts[lastPost].content.middle}</p>
+                  <p>{posts[lastPost].content.end}</p>
                 </div>
+                <ReactDisqusThread
+                  shortname="reactspeed"
+                  identifier={posts[lastPost].slug}
+                  title={posts[lastPost].title}
+                  url={`https://reactspeed.com/blog/${posts[lastPost].slug}`}
+                />
               </div>
             </div>
           </div>

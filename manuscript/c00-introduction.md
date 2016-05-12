@@ -96,7 +96,7 @@ Since start of ReactSpeed project we have closed 150 production commits to GitHu
 
 **Production Payload.** How optimized are our production assets.
 
-As on May 9, 2016 our CSS library is 4.7KB Gzip, 21KB minified with 25+ style modules. App JS bundle is 42KB minified. Vendor JS bundle is 23KB minified. HTML is 3KB.
+As on May 9, 2016 our CSS library is 4.7KB Gzip, 21KB minified with 25+ style modules. App JS bundle is 42KB minified. Vendor JS bundle is 192KB minified. HTML is 3KB.
 
 **Time to fix issues.** How long does it take to fix issues in code. Code issues can be of several types including compliance with coding guidelines and best practices, logical bugs, usability issues, performance issues, among others.
 
