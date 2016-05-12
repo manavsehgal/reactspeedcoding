@@ -11,7 +11,7 @@ function PostDetail({ posts, params }) {
           <div>
             <h1>{posts[i].title}</h1>
             <div className={gridClass}>
-              <div className="media">
+              <div className="media grid-cell">
                 {posts[i].image
                   ? <img
                     className="media-figure image"
@@ -39,7 +39,7 @@ function PostDetail({ posts, params }) {
               Please use top menu to navigate elsewhere.
             </h2>
             <div className={gridClass}>
-              <div className="media">
+              <div className="media grid-cell">
                 {posts[posts.length - 1].image
                   ? <img
                     className="media-figure image"

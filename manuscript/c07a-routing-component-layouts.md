@@ -1072,6 +1072,24 @@ in other chapters including the following.
 - Passing properties to components from routing configuration.
 - Separating reusable routing configuration.
 
+A> ## Minimizing Bundle Size
+A> React router documents strategy to minimize bundle size for the JS modules
+A> by directly referencing components we need from their respective public API modules.
+A> Read more [here][4], but please do NOT follow before reading this.
+A>
+A> We tried doing so and compared the bundle sizes before and after. We notice no
+A> difference. In fact the overall bundle size of our JS modules is few bytes
+A> lighter when just importing directly from the main react router library.
+A> This is the **Webpack bundling magic** for you!
+A>
+A> Behind the scenes React Router node_modules
+A> is >500KB in size. Our overall bundle size for app.js which includes
+A> React, ReactDOM, and React Router modules used by the app is <40 KB!
+A> Webpack optimally extracts,
+A> minifies, and bundles our dependencies and imports, automatically for us,
+A> while we focus on writing simple, readable code.
+
 [1]: https://github.com/reactjs/react-router
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState().C2.A0method
 [3]: https://github.com/bripkens/connect-history-api-fallback
+[4]: https://github.com/reactjs/react-router/blob/master/docs/guides/MinimizingBundleSize.md
