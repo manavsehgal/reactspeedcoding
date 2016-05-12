@@ -3,3 +3,4 @@ build
 .DS_Store
 npm-debug.log
 profile.json
+.eslintcache
