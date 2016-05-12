@@ -18,8 +18,9 @@ You will create several new components in this chapter. Actually 10 new componen
 - Navigation component.
 - NavLink component.
 - Search engine friendly URLs.
-- Refactoring layouts with routing
-- Refactoring blog with routing
+- Refactoring layouts with routing.
+- Routing for nesting components.
+- Refactoring blog with routing.
 - Handling router exceptions.
 
 {pagebreak}
@@ -733,7 +734,7 @@ If you are not using Firebase hosting then there might still be another solution
 
 ## Refactoring layouts with routing
 
-Let is continue refactoring and enhancing this app for more advanced use cases.
+Let us continue refactoring and enhancing this app for more advanced use cases.
 We want to achieve these objectives in the sections that follow.
 
 - Reuse only one main layout component and render content specific to a route.
@@ -782,12 +783,16 @@ HomePage.propTypes = {
 
 The new ```HomePage``` component looks different. We have done a few things in this refactor.
 We have made the component a stateless component based on ESLint recommendations.
-We have also removed ```CardStack``` component and instead added ```this.props.children```
+We have also removed ```CardStack``` component and instead added ```props.children```
 in its place.
 
 This is where the React Router magic takes place. What React Router can do
-is help us configure what to render in place of ```this.props.children``` based on
+is help us configure what to render in place of ```props.children``` based on
 routes definition.
+
+{pagebreak}
+
+## Routing for nesting components
 
 Let us revisit our routes definition.
 

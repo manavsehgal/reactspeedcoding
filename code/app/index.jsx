@@ -6,7 +6,7 @@ import PostDetail from './components/PostDetail.jsx';
 import CardStack from './components/CardStack.jsx';
 import MissingRoute from './components/MissingRoute.jsx';
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 
 ReactDOM.render(
   <Router history={browserHistory}>

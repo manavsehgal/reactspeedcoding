@@ -24,7 +24,7 @@ function PostSummary({ posts }) {
                 : ''
               }
               <div className="media-body">
-                <Link className="image-link" to={`/blog/${post.slug}`}>
+                <Link to={`/blog/${post.slug}`}>
                   <h3 className="media-title">{post.title}</h3>
                 </Link>
                 <p>{post.summary}</p>
