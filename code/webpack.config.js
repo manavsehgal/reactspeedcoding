@@ -25,7 +25,8 @@ module.exports = {
   },
   output: {
     path: BUILD,
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']
@@ -88,7 +89,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: TEMPLATE,
       // JS placed at the bottom of the body element
-      inject: false
+      inject: 'body'
     })
   ]
 };

@@ -32,7 +32,8 @@ module.exports = {
   output: {
     path: BUILD,
     filename: '[name].[chunkhash].js',
-    chunkFilename: '[chunkhash].js'
+    chunkFilename: '[chunkhash].js',
+    publicPath: '/'
   },
   module: {
     loaders: [
@@ -77,7 +78,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: TEMPLATE,
       // JS placed at the bottom of the body element
-      inject: false,
+      inject: 'body',
       // Use html-minifier
       minify: {
         collapseWhitespace: true

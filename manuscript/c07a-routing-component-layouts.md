@@ -1046,12 +1046,18 @@ so that ```CardStack``` can decide not to render the title meant for home page.
 {!this.props.redirect ? <h1>ReactSpeed UI Components</h1> : ''}
 ~~~~~~~
 
-To handle cases where user reaches a route that is not defined, we
-also modified our ```html-webpack-plugin``` configuration to not generate the
-script tags (app and styles). Instead we added these manually to the ```index_default.html``` template.
-The plugin inserts our scripts just with the filenames and no base url reference.
-In case of a missing route, the server appends the missing route as base url for these scripts,
-and obviously the browser complains it cannot find them. Blank page results.
+To handle cases where user reaches a route that is not defined or directly accesses a route,
+we also modify our webpack configuration to specify the ```publicPath``` so
+that ```html-webpack-plugin``` inserts our script modules with absolute paths
+and not relative paths to a missing or active route.
+
+{title="Webpack config changes to handle missing route exception", lang=javascript}
+~~~~~~~
+output: {
+  // some code ...
+  publicPath: '/'
+},
+~~~~~~~
 
 This wraps up advanced usage of React Router. There are few more tricks we may use
 in other chapters including the following.
