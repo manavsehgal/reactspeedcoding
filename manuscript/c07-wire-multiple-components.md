@@ -10,30 +10,8 @@ You will learn following concepts in this important chapter.
 - Composition using parent child node tree (Wt).
 - When to use presentational verses container components (Wc)
 - Reconciliation algorithm and keys for dynamic children (Wk).
-
-{pagebreak}
-
-## The Roadmap app
-
-To help understand this important chapter, let us create a relatively complex app
-to manage the the roadmap for ReactSpeed book and companion code. We want to list
-upcoming and recent content and code features. Users should have the capability
-to *Like* features they want to see first.
-
-![Roadmap app wireframe](images/roadmap.jpg)
-
-Our roadmap app will require a component to render the individual feature.
-It will also require a component to manage a list of feature components. We would
-also add a search box. A filter component will list features by categories
-like components, styles, chapters, sections, and strategies.
-
-You will note that various components within this app will interact with each
-other (blue dashed lines in the wireframe). Changing filters will interact with search, reducing the scope of
-what can be searched. Search will interact with features, showing only features
-that match the text entered in search. Number of likes will interact with order of features.
-
-Our app will also maintain several UI states. Some candidate states could be,
-active filter, order of features, search text, and last *Like* clicked.
+- Integrating vendor components (Wv).
+- Routing to wire component layouts.
 
 {pagebreak}
 
@@ -417,6 +395,79 @@ So in our latest code update the ```messages``` array is just an array of unique
 We pass this on to key attribute as well as the value for the list items. This further simplifies
 our component code.
 
+{pagebreak}
+
+## Integrating vendor components
+
+There are times when you may not want to develop your own custom component as you
+prefer a vendor written React component. We use the following broad strategies to
+help us decide for a vendor component over creating our own or using another alternative.
+
+**Do not reinvent the wheel.** We prefer focusing on our domain specific problem, custom
+components that solve this problem. If there is better, reusable code out there, we prefer
+integrating it.
+
+**NPM for all the things.** If the vendor component is not available on NPM we do not use it.
+NPM is well maintained repository of versioned dependencies and reusable code. Going outside
+of NPM when our development environment is Node.js really does not make sense.
+
+**GitHub.** Source on GitHub is another essential passing criteria for us to select a vendor component.
+
+**Tests.** Does the component source include tests or demos. Always prefer code with tests included.
+
+**Documentation.** We consider level of source documentation, sample integration code, demos.
+Better documented alternatives win.
+
+**Popularity.** Number of stars on GitHub. Number of downloads on NPM. Higher is obviously better.
+
+**Payload.** Adding vendor code has a cost. It costs additional KB in our overall app payload. We prefer
+vendor components that do not exhibit feature bloat. Follow single responsibility principle.
+
+**Owner Props Match.** Our owner component consuming the vendor component integration needs to
+have the required props to pass on to the vendor component.
+
+So, following our strategies we select one of our first React vendor components to integrate with
+ReactSpeed website. While we are custom developing most of our Blog components, we need to integrate
+the popular Disqus commenting embed within our app. Fortunately we find a popular React component,
+available on GitHub and NPM, for doing exactly what we want.
+
+We decide to integrate [react-disqus-thread][7]
+with our app. The component source is well documented. It includes a working demo. Shows many more downloads
+than the alternative. Does not affect our overall payload much. Integration sample code is straight forward.
+
+We integrate the vendor component by first installing the npm dependency.
+
+```
+npm install --save react-disqus-thread
+```
+
+Next we import the component dependency within the intended owner component. In the next chapter on **Routing Component Layouts** we will design the ```PostDetail``` component to display each blog post in detail view. This is our
+owner component for the ```Disqus``` vendor component.
+
+{title="/app/components/PostDetail.jsx integrating Disqus", lang=javascript}
+~~~~~~~
+<ReactDisqusThread
+  shortname="reactspeed"
+  identifier={posts[i].slug}
+  title={posts[i].title}
+  url={`https://reactspeed.com/blog/${posts[i].slug}`}
+/>
+~~~~~~~
+
+We will explain the PostDetail component in the following chapter. However as you can see,
+this is one of the fastest strategies to wire multiple components.
+
+## Routing to wire component layouts
+
+We will cover routing in great detail in the next chapter on **Routing Component Layouts** creating
+more than 10 new components and wiring these together using React Router.
+
+You may want to read the routing chapter first and return to this section.
+
+For this section we will modify the ```CardStack``` component and refactor it
+to showcase category of UI components together. Like one category could be REST integration components,
+another could be Media components. We will need a new sidebar navigation component as
+well to switch between these component categories.
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.
@@ -428,3 +479,4 @@ I> Plan is to add strategies for managing component libraries and writing comple
 [4]: https://github.com/andreypopp/react-fa/blob/master/src/Icon.js
 [5]: https://facebook.github.io/react/docs/reconciliation.html
 [6]: http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
+[7]: https://www.npmjs.com/package/react-disqus-thread
