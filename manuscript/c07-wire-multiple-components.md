@@ -17,7 +17,7 @@ You will learn following concepts in this important chapter.
 
 ## Events in multiple components (We)
 
-Let us begin creating our Roadmap app by firstly creating some reusable components extending our
+Let us begin by firstly creating some reusable components extending our
 ReactSpeed UI library. Let us create a ```button``` CSS module.
 
 We decide to reuse ```<button>``` component provided by React, rather than create our custom  
@@ -264,7 +264,7 @@ Parent-child tree composition strategies are summarized here.
 
 ## Presentational and container components (Wc)
 
-Our app will use two kind of components. Presentational and container components.
+Our apps will use two kind of components. Presentational and container components.
 
 Here are some guidelines to decide presentational and container components as suggested  
 by Dan Abramov in his article on [Presentational and Container Components][3].
@@ -276,7 +276,7 @@ How do decide that you are writing presentational components.
 - May contain both presentational and container components inside.
 - Usually have some DOM markup.
 - Have styles associated with the component.
-- Often allow containment via this.props.children.
+- Often allow containment via this.props.children within the container component.
 - Have no dependencies on the rest of the app.
 - Don’t specify how the data is loaded or mutated.
 - Receive data and callbacks exclusively via props.
@@ -285,10 +285,10 @@ How do decide that you are writing presentational components.
 
 How to decide that you are writing container components.
 
-- Examples: FeatureList, Roadmap, World, CardStack, ButtonDemo.
+- Examples: HomePage, World, CardStack, ButtonDemo.
 - Are concerned with how things work.
 - May contain both presentational and container components inside.
-- Usually don’t have any DOM markup of their own except for some wrapping divs
+- Usually don’t have any DOM markup of their own except for some wrapping divs.
 - Never have any styles.
 - Provide the data and behavior to presentational or other container components.
 - Call Flux actions and provide these as callbacks to the presentational components.
@@ -457,21 +457,28 @@ owner component for the ```Disqus``` vendor component.
 We will explain the PostDetail component in the following chapter. However as you can see,
 this is one of the fastest strategies to wire multiple components.
 
+{pagebreak}
+
 ## Routing to wire component layouts
 
 We will cover routing in great detail in the next chapter on **Routing Component Layouts** creating
 more than 10 new components and wiring these together using React Router.
 
-You may want to read the routing chapter first and return to this section.
-
-For this section we will modify the ```CardStack``` component and refactor it
-to showcase category of UI components together. Like one category could be REST integration components,
+We will explain strategies to refactor the ```CardStack``` component
+to showcase category of UI components together. Like one category could be AJAX components,
 another could be Media components. We will need a new sidebar navigation component as
 well to switch between these component categories.
 
-I> ## Chapter In Progress
-I> We are still writing this chapter. Please watch this space for updates.
-I> Plan is to add strategies for managing component libraries and writing complex React apps.
+We will also create a set of ```Blog``` components including displaying blog post summary cards,
+wiring these to post detail page, and linking our main navigation to blog layout.
+
+General strategies for wiring component layouts include following.
+
+- Identify your navigation hierarchy first.
+- Match the navigation hierarchy to component hierarchy required to render when each menu is clicked.
+- Reuse layout components as containers.
+- Use stateless presentational components to render content on navigation menu endpoints.
+
 
 [1]: https://medium.com/@learnreact/container-components-c0e67432e005#.gqeyt75at
 [2]: https://www.youtube.com/watch?v=KYzlpRvWZ6c&t=1351

@@ -2,13 +2,17 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 export default class NavLinks extends React.Component {
-  static propTypes = { brand: PropTypes.bool, to: PropTypes.string }
-  static defaultProps = { brand: false }
+  static propTypes = {
+    className: PropTypes.string.isRequired,
+    brand: PropTypes.bool,
+    to: PropTypes.string
+  }
+  static defaultProps = { className: '', brand: false }
 
   render() {
     const renderClass = this.props.brand
-      ? 'navigation-link navigation-brand'
-      : 'navigation-link';
+      ? `${this.props.className} navigation-brand`
+      : this.props.className;
 
     const renderActiveClass = this.props.brand
       ? '' : `${renderClass} + active`;
@@ -22,7 +26,7 @@ export default class NavLinks extends React.Component {
             className={renderClass}
             activeClassName={renderActiveClass}
           />
-          : <a {...this.props} className="navigation-link" />
+          : <a {...this.props} className={this.props.className} />
         }
       </li>
     );

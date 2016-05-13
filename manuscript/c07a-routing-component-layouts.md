@@ -22,6 +22,7 @@ You will create several new components in this chapter. Actually 10 new componen
 - Routing for nesting components.
 - Refactoring blog with routing.
 - Handling router exceptions.
+- Refactoring CardStack with routing.
 
 {pagebreak}
 
@@ -1088,6 +1089,128 @@ A> React, ReactDOM, and React Router modules used by the app are <40 KB and 190K
 A> Webpack optimally extracts,
 A> minifies, and bundles our dependencies and imports, automatically for us,
 A> while we focus on writing simple, readable code.
+
+{pagebreak}
+
+## Refactoring CardStack with routing
+
+We now repeat the refactoring strategies we applied to reusing HomePage for blog features. This time
+we go one level deeper into our component hierarchy and address the ```CardStack``` component.
+
+We want the home page to be "light" on first load and provide a sampling of components in the
+ReactSpeed UI library. We want to create a side navigation of UI library categories, grouping
+UI components by these categories. So, duplicating and refactoring our ```CardStack``` component
+we create category specific container components for showcasing button controls, forms, media components,
+AJAX components, and infographics.
+
+{title="/app/components/CardStackAjax.jsx extracted from CardStack component", lang=javascript}
+~~~~~~~
+import React from 'react';
+import Card from './Card.jsx';
+import GitHub from './GitHub.jsx';
+
+function CardStackAjax() {
+  const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit u-textCenter';
+  return (
+    <div>
+      <h1>AJAX Components</h1>
+
+      <div className={gridClass}>
+        <Card><GitHub repo="facebook/react" /></Card>
+        <Card><GitHub repo="reactjs/redux" /></Card>
+      </div>
+      <div className={gridClass}>
+        <Card><GitHub repo="manavsehgal/reactspeedcoding" /></Card>
+      </div>
+
+    </div>
+  );
+}
+
+export default CardStackAjax;
+~~~~~~~
+
+Note that this is a functional component now. As a result ```CardStack``` component
+does not have to make AJAX calls when rendering on first page load for our app. Same principle
+extracts the Media components into their own ```CardStackMedia``` component, and so on.
+
+Our new router configuration looks like this.
+
+{title="/app/index.jsx refactored router configuration", lang=javascript}
+~~~~~~~
+import React from 'react';
+import ReactDOM from 'react-dom';
+import HomePage from './components/HomePage.jsx';
+import PostSummary from './components/PostSummary.jsx';
+import PostDetail from './components/PostDetail.jsx';
+import CardStack from './components/CardStack.jsx';
+import CardStackAjax from './components/CardStackAjax.jsx';
+import CardStackInfo from './components/CardStackInfo.jsx';
+import CardStackMedia from './components/CardStackMedia.jsx';
+import CardStackButton from './components/CardStackButton.jsx';
+import CardStackForm from './components/CardStackForm.jsx';
+import MissingRoute from './components/MissingRoute.jsx';
+
+import { Route, Router, IndexRoute, browserHistory } from 'react-router';
+
+ReactDOM.render(
+  <Router history={browserHistory}>
+    <Route path="/" component={HomePage}>
+      <IndexRoute component={CardStack} />
+      <Route path="/ajax" component={CardStackAjax} />
+      <Route path="/infographics" component={CardStackInfo} />
+      <Route path="/media" component={CardStackMedia} />
+      <Route path="/forms" component={CardStackForm} />
+      <Route path="/buttons" component={CardStackButton} />
+      <Route path="/blog" component={PostSummary} />
+      <Route path="/blog/:slug" component={PostDetail} />
+    </Route>
+    <Route path="*" component={HomePage}>
+      <IndexRoute component={MissingRoute} />
+    </Route>
+  </Router>,
+  document.getElementById('app')
+);
+~~~~~~~
+
+We now refactor ```Navigation``` and ```NavLink``` components slightly to handle ```className``` passing as
+props. This will make ```NavLink``` reusable for the new ```NavigationSidebar``` component.
+
+{title="/app/components/NavigationSidebar.jsx component", lang=javascript}
+~~~~~~~
+import React from 'react';
+import NavLink from './NavLink.jsx';
+
+function NavigationSidebar() {
+  return (
+    <ul className="sidenav grid grid-gutters large-grid-full">
+      <NavLink className="sidenav-link" to="/forms">
+        <i className="fa fa-list-alt"></i> Forms
+      </NavLink>
+      <NavLink className="sidenav-link" to="/buttons">
+        <i className="fa fa-hand-pointer-o"></i> Buttons
+      </NavLink>
+      <NavLink className="sidenav-link" to="/media">
+        <i className="fa fa-youtube-play"></i> Media
+      </NavLink>
+      <NavLink className="sidenav-link" to="/infographics">
+        <i className="fa fa-eye"></i> Infographics
+      </NavLink>
+      <NavLink className="sidenav-link" to="/ajax">
+        <i className="fa fa-cloud-download"></i> AJAX
+      </NavLink>
+    </ul>
+  );
+}
+
+export default NavigationSidebar;
+~~~~~~~
+
+We add the routing links to our new sidebar navigation component and render this as
+part of our existing ```Sidebar``` component.
+
+Now the Home page is wired to display two levels of navigation and our component hierarchy
+is well represented across easy to navigate categories.
 
 [1]: https://github.com/reactjs/react-router
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState().C2.A0method

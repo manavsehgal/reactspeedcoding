@@ -4,14 +4,14 @@ import NavLink from './NavLink.jsx';
 function Navigation() {
   return (
     <ul className="navigation grid grid-gutters large-grid-fit med-grid-fit small-grid-1of2">
-      <NavLink to="/" brand>ReactSpeed</NavLink>
-      <NavLink href="https://leanpub.com/reactspeedcoding">
+      <NavLink className="navigation-link" to="/" brand>ReactSpeed</NavLink>
+      <NavLink className="navigation-link" href="https://leanpub.com/reactspeedcoding">
         <i className="fa fa-book"></i> Book
       </NavLink>
-      <NavLink href="https://github.com/manavsehgal/reactspeedcoding">
+      <NavLink className="navigation-link" href="https://github.com/manavsehgal/reactspeedcoding">
         <i className="fa fa-github"></i> Code
       </NavLink>
-      <NavLink to="/blog">
+      <NavLink className="navigation-link" to="/blog">
         <i className="fa fa-comments"></i> Blog
       </NavLink>
     </ul>

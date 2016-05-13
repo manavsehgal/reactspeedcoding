@@ -22,15 +22,7 @@ const SiteData = {
         `Learn to build your own custom UI library in React,
         Flexbox, and PostCSS.`,
         `Apply new ES6 features to make your React code more
-        reliable.`,
-        `Master component design workflow
-        with several strategies for reusable, reliable, and rapid coding in React.`,
-        `Connect to a real-time database using
-         Firebase.`,
-        `Speed up your React development workflow
-        using Webpack.`,
-        `Download and reuse fully tested source code from GitHub. Run demo app and components live
-        at ReactSpeed website.`
+        reliable.`
       ],
 
       promoButton: {

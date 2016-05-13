@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import NavigationSidebar from './NavigationSidebar.jsx';
 
 class Sidebar extends React.Component {
   static propTypes = {
@@ -12,6 +13,7 @@ class Sidebar extends React.Component {
     const data = this.props.data;
     return (
       <nav className="holygrail-nav u-textCenter">
+        <NavigationSidebar />
         {
           (data && data.messages)
             ? data.messages.map((message, i) => <p key={i}>{message}</p>)

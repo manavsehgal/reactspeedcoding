@@ -1,7 +1,5 @@
 import React from 'react';
-
 import Card from './Card.jsx';
-
 import GitHub from './GitHub.jsx';
 
 function CardStackAjax() {
@@ -13,6 +11,9 @@ function CardStackAjax() {
       <div className={gridClass}>
         <Card><GitHub repo="facebook/react" /></Card>
         <Card><GitHub repo="reactjs/redux" /></Card>
+      </div>
+      <div className={gridClass}>
+        <Card><GitHub repo="manavsehgal/reactspeedcoding" /></Card>
       </div>
 
     </div>

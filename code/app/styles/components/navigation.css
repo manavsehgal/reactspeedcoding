@@ -5,6 +5,17 @@
   padding-right: 10px;
 }
 
+.sidenav {
+  list-style: none;
+  background: $golden-light;
+  margin: 0;
+  padding-right: 10px;
+  text-align: left;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed $golden;
+}
+
 .navigation-link {
   border-bottom: none;
   border-bottom: 1px solid $secondary;
@@ -14,6 +25,18 @@
   }
   &.active {
     border-bottom: 1px solid white;
+  }
+}
+
+.sidenav-link {
+  border-bottom: none;
+  border-bottom: 1px solid $golden-light;
+  color: $primary;
+  &:hover {
+    border-bottom: 1px solid $primary;
+  }
+  &.active {
+    border-bottom: 1px solid $primary;
   }
 }
 
