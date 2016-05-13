@@ -75,6 +75,13 @@ module.exports = {
   },
   // Webpack plugins
   plugins: [
+    // Required to inject NODE_ENV within React app.
+    // Reduntant package.json script entry does not do that, but required for .babelrc
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development') // eslint-disable-line quote-props
+      }
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
       { from: PUBLIC, to: BUILD }

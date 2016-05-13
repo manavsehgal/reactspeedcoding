@@ -1065,14 +1065,6 @@ output: {
 },
 ~~~~~~~
 
-This wraps up advanced usage of React Router. There are few more tricks we may use
-in other chapters including the following.
-
-- Using ids with routing.
-- Rendering multiple components based on single route.
-- Passing properties to components from routing configuration.
-- Separating reusable routing configuration.
-
 A> ## Minimizing Bundle Size
 A> React router documents strategy to minimize bundle size for the JS modules
 A> by directly referencing components we need from their respective public API modules.
@@ -1089,6 +1081,14 @@ A> React, ReactDOM, and React Router modules used by the app are <40 KB and 190K
 A> Webpack optimally extracts,
 A> minifies, and bundles our dependencies and imports, automatically for us,
 A> while we focus on writing simple, readable code.
+
+This wraps up advanced usage of React Router. There are few more tricks we may use
+in other chapters including the following.
+
+- Using ids with routing.
+- Rendering multiple components based on single route.
+- Passing properties to components from routing configuration.
+- Separating reusable routing configuration.
 
 {pagebreak}
 

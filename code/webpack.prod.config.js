@@ -62,6 +62,13 @@ module.exports = {
   // Remove comment if you require sourcemaps for your production code
   // devtool: 'cheap-module-source-map',
   plugins: [
+    // Required to inject NODE_ENV within React app.
+    // Reduntant package.json script entry does not do that, but required for .babelrc
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production') // eslint-disable-line quote-props
+      }
+    }),
     // Clean build directory
     new CleanPlugin([BUILD]),
     new CopyWebpackPlugin([

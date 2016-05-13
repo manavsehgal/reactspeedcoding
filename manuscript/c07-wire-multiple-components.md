@@ -11,7 +11,7 @@ You will learn following concepts in this important chapter.
 - When to use presentational verses container components (Wc)
 - Reconciliation algorithm and keys for dynamic children (Wk).
 - Integrating vendor components (Wv).
-- Routing to wire component layouts.
+- Routing to wire component layouts (Wr).
 
 {pagebreak}
 
@@ -266,10 +266,10 @@ Parent-child tree composition strategies are summarized here.
 
 Our apps will use two kind of components. Presentational and container components.
 
-Here are some guidelines to decide presentational and container components as suggested  
-by Dan Abramov in his article on [Presentational and Container Components][3].
+Here are some guidelines to decide presentational and container components as suggested by
+Dan Abramov in his article on [Presentational and Container Components][3].
 
-How do decide that you are writing presentational components.
+How do you decide that you are writing presentational components.
 
 - Examples: YouTube, LeanPub, Hello, Card, Button.
 - Presentational components are concerned about how things look.
@@ -397,7 +397,7 @@ our component code.
 
 {pagebreak}
 
-## Integrating vendor components
+## Integrating vendor components (Wv)
 
 There are times when you may not want to develop your own custom component as you
 prefer a vendor written React component. We use the following broad strategies to
@@ -459,7 +459,7 @@ this is one of the fastest strategies to wire multiple components.
 
 {pagebreak}
 
-## Routing to wire component layouts
+## Routing to wire component layouts (Wr)
 
 We will cover routing in great detail in the next chapter on **Routing Component Layouts** creating
 more than 10 new components and wiring these together using React Router.
