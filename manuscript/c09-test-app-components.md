@@ -454,7 +454,7 @@ module.exports = {
 };
 ~~~~~~~
 
-Eslint combined with Atom editor package and Webpack is a really powerful first-line-of-defense to make
+Eslint combined with Atom editor package and Webpack is a really powerful first-line-of-defence to make
 your React code more readable and reliable. Really fast, while you code each line! This will save
 you significant time in downstream testing, team on-boarding, releases, and refactoring.
 
