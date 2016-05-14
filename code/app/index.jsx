@@ -12,15 +12,6 @@ import CardStackForm from './components/CardStackForm.jsx';
 import MissingRoute from './components/MissingRoute.jsx';
 
 import { Route, Router, IndexRoute, browserHistory } from 'react-router';
-import { whyDidYouUpdate } from 'why-did-you-update';
-
-/*
-This library tests React component re-renders which are duplicating.
-Used for improving performance of React apps. Only runs in "test" mode.
-*/
-if (process.env.NODE_ENV === 'test') {
-  whyDidYouUpdate(React);
-}
 
 ReactDOM.render(
   <Router history={browserHistory}>
