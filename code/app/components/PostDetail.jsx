@@ -3,6 +3,7 @@ import PostData from '../content/PostData.js';
 import PostDetailData from '../content/PostDetailData.js';
 import ReactDisqusThread from 'react-disqus-thread';
 import marked from 'marked';
+import Helmet from 'react-helmet';
 
 function PostDetail({ posts, details, params }) {
   const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
@@ -12,6 +13,19 @@ function PostDetail({ posts, details, params }) {
       if (posts[i].slug === params.slug) {
         renderContent = (
           <div>
+            <Helmet
+              title={posts[i].title}
+              meta={[
+                { name: 'description',
+                  content: posts[i].summary
+                },
+                { property: 'og:type', content: 'article' },
+                { property: 'og:image', content: `https://reactspeed.com${posts[i].thumb}` }
+              ]}
+              link={[
+                { rel: 'canonical', href: `https://reactspeed.com/blog/${posts[i].slug}` }
+              ]}
+            />
             <h1>{posts[i].title}</h1>
             <div className={gridClass}>
               <div className="media grid-cell">

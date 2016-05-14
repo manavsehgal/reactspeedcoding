@@ -16,9 +16,6 @@ class Header extends React.Component {
           {promo
             ? <div>
               {promo.message}&nbsp;
-              <a href={promo.promoButton.url} className="button success">
-                {promo.promoButton.label}
-              </a>
             </div>
             : ''
           }

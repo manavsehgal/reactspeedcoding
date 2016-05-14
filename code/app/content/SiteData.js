@@ -10,12 +10,7 @@ const SiteData = {
 
   home: {
     header: {
-      message: 'Learn how this web app is coded in React.',
-
-      promoButton: {
-        url: 'https://leanpub.com/reactspeedcoding',
-        label: 'Get React Speed Book'
-      }
+      message: 'React Speed Coding book explains how this web app is coded in ES6 React.'
     },
     sidebar: {
       messages: [
