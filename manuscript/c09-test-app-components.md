@@ -634,7 +634,7 @@ we do, we can add overrides in the ```.stylelintrc``` config file like so.
 
 Of course this is just a sample, we are not adding these overrides to our project.
 
-{title="Add StyleLint Atom package", lang=text}
+{title=".stylelintrc overriding rules", lang=json}
 ~~~~~~~
 {
   "extends": "stylelint-config-standard",

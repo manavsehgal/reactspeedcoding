@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 import PostData from '../content/PostData.js';
+import PostDetailData from '../content/PostDetailData.js';
 import ReactDisqusThread from 'react-disqus-thread';
+import marked from 'marked';
 
-function PostDetail({ posts, params }) {
+function PostDetail({ posts, details, params }) {
   const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
   let renderContent = '';
   if (params.slug) {
@@ -22,10 +24,16 @@ function PostDetail({ posts, params }) {
                   : ''
                 }
                 <div className="media-body">
-                  <p>{posts[i].content.start}</p>
-                  <p>{posts[i].content.middle}</p>
-                  <p>{posts[i].content.end}</p>
+                  {/* Not recommended for user input content to avoid XSS attacks.
+                    Ok to get content from app controlled data store.
+                    Refer: https://facebook.github.io/react/tips/dangerously-set-inner-html.html */}
+                  <span
+                    dangerouslySetInnerHTML={
+                      { __html: marked(details[i].content) }
+                    }
+                  />
                 </div>
+                <br /><br />
                 <ReactDisqusThread
                   shortname="reactspeed"
                   identifier={posts[i].slug}
@@ -58,9 +66,11 @@ function PostDetail({ posts, params }) {
                 }
                 <h1>{posts[lastPost].title}</h1>
                 <div className="media-body">
-                  <p>{posts[lastPost].content.start}</p>
-                  <p>{posts[lastPost].content.middle}</p>
-                  <p>{posts[lastPost].content.end}</p>
+                  <span
+                    dangerouslySetInnerHTML={
+                      { __html: marked(details[lastPost].content) }
+                    }
+                  />
                 </div>
                 <ReactDisqusThread
                   shortname="reactspeed"
@@ -79,10 +89,12 @@ function PostDetail({ posts, params }) {
 }
 PostDetail.propTypes = {
   posts: PropTypes.array,
+  details: PropTypes.array,
   params: PropTypes.object
 };
 PostDetail.defaultProps = {
-  posts: PostData
+  posts: PostData,
+  details: PostDetailData
 };
 
 export default PostDetail;
