@@ -194,8 +194,89 @@ BlogPage layout component. Blog component. Post component. Router configuration.
 Navigation component. NavLink component.
 
 React Router can help us map navigation tree with our component tree.
-Right now our intent
-is to have Blog and Home as same level menus and represent different layout components.
+The sidebar navigation is mapped to CardStack component variations showing categorized ReactSpeed UI
+components and controls.
+
+Nested routes mimic our component hierarchy.
+
+**/app/index.jsx app entry**
+| [Code explained in the Book](https://leanpub.com/reactspeedcoding/read#leanpub-auto-refactoring-cardstack-with-routing)
+
+---
+
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import HomePage from './components/HomePage.jsx';
+    import PostSummary from './components/PostSummary.jsx';
+    import PostDetail from './components/PostDetail.jsx';
+    import CardStack from './components/CardStack.jsx';
+    import CardStackAjax from './components/CardStackAjax.jsx';
+    import CardStackInfo from './components/CardStackInfo.jsx';
+    import CardStackMedia from './components/CardStackMedia.jsx';
+    import CardStackButton from './components/CardStackButton.jsx';
+    import CardStackForm from './components/CardStackForm.jsx';
+    import MissingRoute from './components/MissingRoute.jsx';
+
+    import { Route, Router, IndexRoute, browserHistory } from 'react-router';
+
+    ReactDOM.render(
+      <Router history={browserHistory}>
+        <Route path="/" component={HomePage}>
+          <IndexRoute component={CardStack} />
+          <Route path="/ajax" component={CardStackAjax} />
+          <Route path="/infographics" component={CardStackInfo} />
+          <Route path="/media" component={CardStackMedia} />
+          <Route path="/forms" component={CardStackForm} />
+          <Route path="/buttons" component={CardStackButton} />
+          <Route path="/blog" component={PostSummary} />
+          <Route path="/blog/:slug" component={PostDetail} />
+        </Route>
+        <Route path="*" component={HomePage}>
+          <IndexRoute component={MissingRoute} />
+        </Route>
+      </Router>,
+      document.getElementById('app')
+    );
+
+---
+
+NavigationSidebar navigates the routes for various UI categories.
+
+**/app/components/NavigationSidebar.jsx component**
+| [Code explained in the Book](https://leanpub.com/reactspeedcoding/read#leanpub-auto-refactoring-cardstack-with-routing)
+
+---
+
+    import React from 'react';
+    import NavLink from './NavLink.jsx';
+
+    function NavigationSidebar() {
+      return (
+        <ul className="sidenav grid grid-gutters large-grid-full">
+          <NavLink className="sidenav-link" to="/forms">
+            <i className="fa fa-list-alt"></i> Forms
+          </NavLink>
+          <NavLink className="sidenav-link" to="/buttons">
+            <i className="fa fa-hand-pointer-o"></i> Buttons
+          </NavLink>
+          <NavLink className="sidenav-link" to="/media">
+            <i className="fa fa-youtube-play"></i> Media
+          </NavLink>
+          <NavLink className="sidenav-link" to="/infographics">
+            <i className="fa fa-eye"></i> Infographics
+          </NavLink>
+          <NavLink className="sidenav-link" to="/ajax">
+            <i className="fa fa-cloud-download"></i> AJAX
+          </NavLink>
+        </ul>
+      );
+    }
+
+    export default NavigationSidebar;
+
+---
+
+Please note that NavLink component wraps the React Router Link component.
 `
   }
 ];
