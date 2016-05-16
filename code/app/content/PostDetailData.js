@@ -197,8 +197,6 @@ React Router can help us map navigation tree with our component tree.
 The sidebar navigation is mapped to CardStack component variations showing categorized ReactSpeed UI
 components and controls.
 
-Nested routes mimic our component hierarchy.
-
 **/app/index.jsx app entry**
 | [Code explained in the Book](https://leanpub.com/reactspeedcoding/read#leanpub-auto-refactoring-cardstack-with-routing)
 
@@ -240,6 +238,16 @@ Nested routes mimic our component hierarchy.
 
 ---
 
+Nested routes mimic our component hierarchy.
+We use **browserHistory** to use search engine friendly URLs. The alternative is to use hashHistory.
+IndexRoute enables us to render a default component on a parent route.
+Nested routes render components within the parent component's **this.props.children** property.
+
+MissingRoute component is used to handle situations when user may type
+a route that has not been defined. Router params are used in **/blog/:slug** path
+so these can be picked up by component rendering the parametrized
+component using **this.props.params.slug** property.
+
 NavigationSidebar navigates the routes for various UI categories.
 
 **/app/components/NavigationSidebar.jsx component**
@@ -276,7 +284,45 @@ NavigationSidebar navigates the routes for various UI categories.
 
 ---
 
-Please note that NavLink component wraps the React Router Link component.
+Please note that NavLink component wraps the React Router Link component
+passing the activeClassName prop.
+
+Finally this is what one of the CardStack variations looks like.
+
+**/app/components/CardStackAjax.jsx extracted from CardStack component**
+| [Code explained in the Book](https://leanpub.com/reactspeedcoding/read#leanpub-auto-refactoring-cardstack-with-routing)
+
+---
+
+    import React from 'react';
+    import Card from './Card.jsx';
+    import GitHub from './GitHub.jsx';
+
+    function CardStackAjax() {
+      // gridClass definition ...
+      return (
+        <div>
+          <h1>AJAX Components</h1>
+
+          <div className={gridClass}>
+            <Card><GitHub repo="facebook/react" /></Card>
+            <Card><GitHub repo="reactjs/redux" /></Card>
+          </div>
+          <div className={gridClass}>
+            <Card><GitHub repo="manavsehgal/reactspeedcoding" /></Card>
+          </div>
+
+        </div>
+      );
+    }
+
+    export default CardStackAjax;
+
+---
+
+We create similar parent components for each of the catetories representing various UI components
+we build within the book.
+
 `
   }
 ];

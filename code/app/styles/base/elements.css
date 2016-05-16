@@ -53,10 +53,17 @@ pre {
 code,
 pre {
   font-family: 'Menlo', 'Monaco', monospace;
+  font-size: 0.5em;
+}
+
+@media (--break-lg) {
+  code,
+  pre {
+    font-size: 0.7em;
+  }
 }
 
 code {
-  font-size: 0.9em;
   font-weight: normal;
   color: #000;
 }
