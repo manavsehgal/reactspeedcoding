@@ -53,13 +53,18 @@ pre {
 code,
 pre {
   font-family: 'Menlo', 'Monaco', monospace;
-  font-size: 0.5em;
+  font-size: 0.6em;
+}
+
+pre {
+  white-space: pre-wrap;       /* css-3 */
+  word-wrap: break-word;
 }
 
 @media (--break-lg) {
   code,
   pre {
-    font-size: 0.7em;
+    font-size: 0.8em;
   }
 }
 
