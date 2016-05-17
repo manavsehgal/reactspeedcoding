@@ -320,7 +320,7 @@ Finally this is what one of the CardStack variations looks like.
 
 ---
 
-We create similar parent components for each of the catetories representing various UI components
+We create similar parent components for each of the categories representing various UI components
 we build within the book.
 
 `

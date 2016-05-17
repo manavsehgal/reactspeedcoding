@@ -7,12 +7,21 @@ import marked from 'marked';
 function PostDetail({ posts, details, params }) {
   const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
   let renderContent = '';
+  let activeDetail = 0;
 
+  // Set options for marked parser here.
   // marked.setOptions({ });
 
   if (params.slug) {
     for (let i = 0; i < posts.length; ++i) {
       if (posts[i].slug === params.slug) {
+        // Match post detail with active post summary id
+        for (let j = 0; j < details.length; ++j) {
+          if (details[j].id === posts[i].id) {
+            activeDetail = j;
+            break;
+          }
+        }
         renderContent = (
           <div>
             <h1>{posts[i].title}</h1>
@@ -32,7 +41,7 @@ function PostDetail({ posts, details, params }) {
                     Refer: https://facebook.github.io/react/tips/dangerously-set-inner-html.html */}
                   <span
                     dangerouslySetInnerHTML={
-                      { __html: marked(details[i].content) }
+                      { __html: marked(details[activeDetail].content) }
                     }
                   />
                 </div>
@@ -49,7 +58,13 @@ function PostDetail({ posts, details, params }) {
         );
         break;
       } else {
-        const lastPost = posts.length - 1;
+        // Match post detail with active post summary id
+        for (let j = 0; j < details.length; ++j) {
+          if (details[j].id === posts[0].id) {
+            activeDetail = j;
+            break;
+          }
+        }
         renderContent = (
           <div>
             <h1>Oops! We could not find that...</h1>
@@ -59,27 +74,27 @@ function PostDetail({ posts, details, params }) {
             </h2>
             <div className={gridClass}>
               <div className="media grid-cell">
-                {posts[lastPost].image
+                {posts[0].image
                   ? <img
                     className="media-figure image"
-                    src={posts[lastPost].image}
-                    alt={posts[lastPost].title}
+                    src={posts[0].image}
+                    alt={posts[0].title}
                   />
                   : ''
                 }
-                <h1>{posts[lastPost].title}</h1>
+                <h1>{posts[0].title}</h1>
                 <div className="media-body">
                   <span
                     dangerouslySetInnerHTML={
-                      { __html: marked(details[lastPost].content) }
+                      { __html: marked(details[activeDetail].content) }
                     }
                   />
                 </div>
                 <ReactDisqusThread
                   shortname="reactspeed"
-                  identifier={posts[lastPost].slug}
-                  title={posts[lastPost].title}
-                  url={`https://reactspeed.com/blog/${posts[lastPost].slug}`}
+                  identifier={posts[0].slug}
+                  title={posts[0].title}
+                  url={`https://reactspeed.com/blog/${posts[0].slug}`}
                 />
               </div>
             </div>
