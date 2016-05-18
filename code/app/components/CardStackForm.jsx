@@ -26,7 +26,7 @@ function CardStackForm() {
           </div>
           <div className="input">
             <span className="input-label"><span className="fa fa-envelope"></span></span>
-            <input className="input-field" placeholder="Send another one" />
+            <input className="input-field" placeholder="Send a message" />
             <button className="button warning">Send</button>
           </div>
         </Card>
