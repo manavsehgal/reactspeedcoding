@@ -17,6 +17,7 @@ We will learn the following topics in this chapter.
 - Webpack integration for StyleLint.
 - Separating Webpack lint config.
 - Mocha Chai Behavior-Driven Development.
+- Enzyme React component testing.
 
 {pagebreak}
 
@@ -828,6 +829,8 @@ We revert the build webpack.config.js to prior version without ESLint, StyleLint
 
 Now we can run ```npm start``` without the lint and Browsersync overload during normal builds.
 When we want to lint our build we simply run ```npm run lint``` command.
+
+{pagebreak}
 
 ## Mocha Chai Behavior-Driven Development
 
