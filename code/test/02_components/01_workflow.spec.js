@@ -22,12 +22,17 @@ describe('<Workflow />', () => {
     expect(wrapper.find('.workflow-text')).to.have.length(1);
   });
 
-  it('[Full DOM] should update sequence on clicking step button', () => {
+  it('[Full DOM] should increment state on clicking step button', () => {
+    const wrapper = mount(<Workflow />);
+    wrapper.find('button.default').simulate('click');
+    expect(wrapper.state('stepsIndex')).to.equal(1);
+  });
+
+  it('[Full DOM] should render new sequence number on clicking step button', () => {
     const wrapper = mount(<Workflow />);
     wrapper.setState({ stepsIndex: 1 });
-    wrapper.find('button.default').simulate('click');
-    expect(wrapper.state('stepsIndex')).to.equal(2);
+    wrapper.find('button.default').simulate('click'); // stepsIndex = 2
     expect(wrapper.find('button.default').text())
-      .to.equal('3 ');
+      .to.equal('3 '); // Sequence = stepsIndex + 1
   });
 });

@@ -1071,32 +1071,44 @@ import { shallow, mount, render } from 'enzyme';
 import Workflow from '../../app/components/Workflow.jsx';
 
 describe('<Workflow />', () => {
-  it('[Shallow] should render one .workflow component', () => {
-    const wrapper = shallow(<Workflow />);
-    expect(wrapper.is('.workflow')).to.equal(true);
-  });
+  import React from 'react';
+  import { expect } from 'chai';
+  import { describe, it } from 'mocha';
+  import { shallow, mount, render } from 'enzyme';
+  import Workflow from '../../app/components/Workflow.jsx';
 
-  it('[Shallow] should define a prop for steps', () => {
-    const wrapper = shallow(<Workflow />);
-    /* eslint-disable no-unused-expressions */
-    expect(wrapper.props().steps).to.be.defined;
-    /* eslint-enable no-unused-expressions */
-  });
+  describe('<Workflow />', () => {
+    it('[Shallow] should render one .workflow component', () => {
+      const wrapper = shallow(<Workflow />);
+      expect(wrapper.is('.workflow')).to.equal(true);
+    });
 
-  it('[Static] should render one .workflow-text control', () => {
-    const wrapper = render(<Workflow />);
-    expect(wrapper.find('.workflow-text')).to.have.length(1);
-  });
+    it('[Shallow] should define a prop for steps', () => {
+      const wrapper = shallow(<Workflow />);
+      /* eslint-disable no-unused-expressions */
+      expect(wrapper.props().steps).to.be.defined;
+      /* eslint-enable no-unused-expressions */
+    });
 
-  it('[Full DOM] should update sequence on clicking step button', () => {
-    const wrapper = mount(<Workflow />);
-    wrapper.setState({ stepsIndex: 1 });
-    wrapper.find('button.default').simulate('click');
-    expect(wrapper.state('stepsIndex')).to.equal(2);
-    expect(wrapper.find('button.default').text())
-      .to.equal('3 ');
+    it('[Static] should render one .workflow-text control', () => {
+      const wrapper = render(<Workflow />);
+      expect(wrapper.find('.workflow-text')).to.have.length(1);
+    });
+
+    it('[Full DOM] should increment state on clicking step button', () => {
+      const wrapper = mount(<Workflow />);
+      wrapper.find('button.default').simulate('click');
+      expect(wrapper.state('stepsIndex')).to.equal(1);
+    });
+
+    it('[Full DOM] should render new sequence number on clicking step button', () => {
+      const wrapper = mount(<Workflow />);
+      wrapper.setState({ stepsIndex: 1 });
+      wrapper.find('button.default').simulate('click'); // stepsIndex = 2
+      expect(wrapper.find('button.default').text())
+        .to.equal('3 '); // Sequence = stepsIndex + 1
+    });
   });
-});
 ~~~~~~~
 
 Note that Enzyme API offers BDD style traversal of our component hierarchy and internals.
@@ -1107,7 +1119,7 @@ Next test checks to see if the Workflow component defines a property called ```s
 
 Third test does static rendering to check of one of the child controls are rendered.
 
-Final test is simulating state management, UI interaction (button click), and
+Final two tests are simulating state management, UI interaction (button click), and
 analyzing resulting HTML structure using full DOM render option of Enzyme.
 
 We also setup our timeout test to ```skip``` the test so we don't have
@@ -1125,11 +1137,11 @@ After running ```npm run test```, the results appear in our terminal.
 ~~~~~~~
 ...
 <Workflow />
-  - [Shallow] should render one .workflow-scenario control
-  - [Shallow] should define a prop for steps
-  - [Static] should render one .workflow-text control
-  - [Full DOM] should update sequence on clicking step button
-
+- [Shallow] should render one .workflow component
+- [Shallow] should define a prop for steps
+- [Static] should render one .workflow-text control
+- [Full DOM] should increment state on clicking step button
+- [Full DOM] should render new sequence number on clicking step button
 
 6 passing (132ms)
 3 pending
@@ -1138,21 +1150,6 @@ After running ```npm run test```, the results appear in our terminal.
 We have setup a comprehensive testing stack using Enzyme for React component testing
 with Mocha and Chai BDD API for describing, running,
 reporting, and asserting tests, complete with JSDOM headless browser testing.
-
-We can continue enhancing our test suite with Webpack integration in subsequent
-updates to this chapter.
-
-npm install --save-dev karma
-npm install --save-dev karma-babel-preprocessor
-npm install --save-dev karma-chrome-launcher
-npm install --save-dev karma-mocha
-npm install --save-dev phantomjs-prebuilt
-npm install --save-dev karma-phantomjs-launcher
-npm install --save-dev karma-sourcemap-loader
-npm install --save-dev karma-webpack
-npm install --save-dev phantomjs-polyfill
-npm install --save-dev karma-coverage
-npm install --save-dev karma-spec-reporter
 
 [1]: http://airbnb.io/enzyme/
 [2]: http://survivejs.com/webpack_react/linting_in_webpack/
