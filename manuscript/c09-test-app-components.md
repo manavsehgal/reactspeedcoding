@@ -853,7 +853,7 @@ informing what the app is expected to do in certain conditions.
 
 Let us write our first test suite using only Mocha BDD interface.
 
-{title="01_mocha_timeout_test.js", lang=javascript}
+{title="01_mocha_timeout.spec.js", lang=javascript}
 ~~~~~~~
 import { describe, it } from 'mocha';
 
@@ -891,7 +891,7 @@ Let us write our second test using BDD interface provided by Mocha and
 BDD style assertions provided by Chai. This time we are using ES6 arrow functions
 as we are not using the Mocha ```this``` context.
 
-{title="02_mocha_chai_test.js", lang=javascript}
+{title="02_mocha_chai.spec.js", lang=javascript}
 ~~~~~~~
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
@@ -947,7 +947,7 @@ run tests in the author intended order instead of alphabetical order.
 
 Now we simply run the test using ```npm run test``` command.
 
-{title="mocha_chai_test results", lang=text}
+{title="mocha_chai results", lang=text}
 ~~~~~~~
 Mocha Timeout
   - should take around 300ms (302ms)
@@ -1050,7 +1050,7 @@ Now we update our test script like so.
 
 {title="package.json test script", lang=javascript}
 ~~~~~~~
-"test": "NODE_ENV=test mocha ./config/test_jsdom.js ./test/**/*_test.js
+"test": "NODE_ENV=test mocha ./config/test_jsdom.js ./test/**/*.spec.js
 --compilers js:babel-core/register --recursive || true"
 ~~~~~~~
 
@@ -1062,7 +1062,7 @@ if none is provided in the command line.
 Let us add a simple React component test suite using all three Enzyme testing strategies
 including shallow, static, and full DOM rendering.
 
-{title="02_components/01_workflow_test.js", lang=javascript}
+{title="02_components/01_workflow.spec.js", lang=javascript}
 ~~~~~~~
 import React from 'react';
 import { expect } from 'chai';
@@ -1071,14 +1071,16 @@ import { shallow, mount, render } from 'enzyme';
 import Workflow from '../../app/components/Workflow.jsx';
 
 describe('<Workflow />', () => {
-  it('[Shallow] should render one .workflow-scenario control', () => {
+  it('[Shallow] should render one .workflow component', () => {
     const wrapper = shallow(<Workflow />);
-    expect(wrapper.find('.workflow-scenario')).to.have.length(1);
+    expect(wrapper.is('.workflow')).to.equal(true);
   });
 
-  it('[Shallow] should render one .workflow-steps control', () => {
+  it('[Shallow] should define a prop for steps', () => {
     const wrapper = shallow(<Workflow />);
-    expect(wrapper.find('.workflow-steps')).to.have.length(1);
+    /* eslint-disable no-unused-expressions */
+    expect(wrapper.props().steps).to.be.defined;
+    /* eslint-enable no-unused-expressions */
   });
 
   it('[Static] should render one .workflow-text control', () => {
@@ -1086,17 +1088,33 @@ describe('<Workflow />', () => {
     expect(wrapper.find('.workflow-text')).to.have.length(1);
   });
 
-  it('[Full DOM] should render one .workflow component', () => {
-    expect(mount(<Workflow />).find('.workflow').length).to.equal(1);
+  it('[Full DOM] should update sequence on clicking step button', () => {
+    const wrapper = mount(<Workflow />);
+    wrapper.setState({ stepsIndex: 1 });
+    wrapper.find('button.default').simulate('click');
+    expect(wrapper.state('stepsIndex')).to.equal(2);
+    expect(wrapper.find('button.default').text())
+      .to.equal('3 ');
   });
 });
 ~~~~~~~
+
+Note that Enzyme API offers BDD style traversal of our component hierarchy and internals.
+
+Our first test checks if Workflow component renders correctly with ```.workflow``` class.
+
+Next test checks to see if the Workflow component defines a property called ```steps```.
+
+Third test does static rendering to check of one of the child controls are rendered.
+
+Final test is simulating state management, UI interaction (button click), and
+analyzing resulting HTML structure using full DOM render option of Enzyme.
 
 We also setup our timeout test to ```skip``` the test so we don't have
 to wait for 600ms for test suites to complete. Skipped tests also show
 up as pending.
 
-{title="01_mocha_timeout_test.js skip test suite", lang=javascript}
+{title="01_mocha_timeout.spec.js skip test suite", lang=javascript}
 ~~~~~~~
 describe.skip('Mocha Timeout', function () {
 ~~~~~~~
@@ -1106,14 +1124,15 @@ After running ```npm run test```, the results appear in our terminal.
 {title="Terminal results from Enzyme test suite", lang=text}
 ~~~~~~~
 ...
-  <Workflow />
-    - [Shallow] should render one .workflow-scenario control
-    - [Shallow] should render one .workflow-steps control
-    - [Static] should render one .workflow-text control
-    - [Full DOM] should render one .workflow component
+<Workflow />
+  - [Shallow] should render one .workflow-scenario control
+  - [Shallow] should define a prop for steps
+  - [Static] should render one .workflow-text control
+  - [Full DOM] should update sequence on clicking step button
 
-  6 passing (107ms)
-  3 pending
+
+6 passing (132ms)
+3 pending
 ~~~~~~~
 
 We have setup a comprehensive testing stack using Enzyme for React component testing
@@ -1123,6 +1142,17 @@ reporting, and asserting tests, complete with JSDOM headless browser testing.
 We can continue enhancing our test suite with Webpack integration in subsequent
 updates to this chapter.
 
+npm install --save-dev karma
+npm install --save-dev karma-babel-preprocessor
+npm install --save-dev karma-chrome-launcher
+npm install --save-dev karma-mocha
+npm install --save-dev phantomjs-prebuilt
+npm install --save-dev karma-phantomjs-launcher
+npm install --save-dev karma-sourcemap-loader
+npm install --save-dev karma-webpack
+npm install --save-dev phantomjs-polyfill
+npm install --save-dev karma-coverage
+npm install --save-dev karma-spec-reporter
 
 [1]: http://airbnb.io/enzyme/
 [2]: http://survivejs.com/webpack_react/linting_in_webpack/
