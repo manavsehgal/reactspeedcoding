@@ -15,7 +15,8 @@ We will learn the following topics in this chapter.
 - StyleLint CLI.
 - Fixing StyleLint reported problems.
 - Webpack integration for StyleLint.
-- Separating Webpack test config.
+- Separating Webpack lint config.
+- Mocha Chai Behavior-Driven Development.
 
 {pagebreak}
 
@@ -678,12 +679,12 @@ with editor hints in the first place.
 
 {pagebreak}
 
-## Separating Webpack test config
+## Separating Webpack lint config
 
-Lint and Browsersync do add to our build time and the "code to browser view" workflow. So,
-we can separate the test related webpack config, like so.
+Lint and Browsersync add to our build time and the "code to browser view" workflow. So,
+we can separate the lint and browsersync related webpack config, like so.
 
-{title="webpack.test.config.js", lang=javascript}
+{title="webpack.lint.config.js", lang=javascript}
 ~~~~~~~
 // Initialization
 const webpack = require('webpack');
@@ -815,22 +816,309 @@ module.exports = {
 };
 ~~~~~~~
 
-Now all we need to do is add a script in package.json for running tests.
+Now all we need to do is add a script in package.json for running lint tests
+with Browsersync.
 
-{title="package.json test script", lang=javascript}
+{title="package.json lint script", lang=javascript}
 ~~~~~~~
-"test": "NODE_ENV=test webpack-dev-server --config webpack.test.config.js",
+"lint": "NODE_ENV=lint webpack-dev-server --config webpack.lint.config.js",
 ~~~~~~~
 
 We revert the build webpack.config.js to prior version without ESLint, StyleLint, and Browsersync.
 
-Now we can run ```npm start``` without the test overload during normal builds. When we want to test
-our build we run ```npm run test``` command.
+Now we can run ```npm start``` without the lint and Browsersync overload during normal builds.
+When we want to lint our build we simply run ```npm run lint``` command.
 
-I> ## Chapter In Progress
-I> We are still writing this chapter. Please watch this space for updates.
-I> Plan is to add examples for integrating various testing tools
-I> within your React development workflow.
+## Mocha Chai Behavior-Driven Development
+
+With the lint tools we can test our code as we edit it. We can also run lint tests from the command line.
+Browsersync enables us to do UI testing on multiple devices.
+
+We can now add to our testing strategies with [Behavior-Driven Development][8] (BDD)
+using Mocha and Chai.
+
+With Mocha and Chai we can add unit tests to cover our app logic or functionality.
+
+{title="Install mocha and chai", lang=text}
+~~~~~~~
+npm install --save-dev mocha
+npm install --save-dev chai
+~~~~~~~
+
+BDD describes functionality of our app in the form of descriptive statements
+informing what the app is expected to do in certain conditions.
+
+Let us write our first test suite using only Mocha BDD interface.
+
+{title="01_mocha_timeout_test.js", lang=javascript}
+~~~~~~~
+import { describe, it } from 'mocha';
+
+/* eslint-disable func-names, prefer-arrow-callback */
+
+describe('Mocha Timeout', function () {
+  this.timeout(500);
+
+  it('should take around 300ms', function (done) {
+    setTimeout(done, 300);
+  });
+
+  it('should take around 250ms', function (done) {
+    setTimeout(done, 250);
+  });
+});
+
+/* eslint-enable func-names, prefer-arrow-callback */
+~~~~~~~
+
+Mocha supports testing asynchronous code using the callback method,
+like we are using ```done``` in this test suite.
+
+Note that we are using ES5 to write our callback functions.
+Mocha explains why this is so.
+
+A> ## Arrow functions and Mocha this context
+A> Passing arrow functions to Mocha is discouraged.
+A> Their lexical binding of the ```this``` value makes them unable to access the Mocha context,
+A> and statements like ```this.timeout(1000)``` will not work inside an arrow function.
+
+ESLint will complain about using ES5 callback functions but we disable it for this test.
+
+Let us write our second test using BDD interface provided by Mocha and
+BDD style assertions provided by Chai. This time we are using ES6 arrow functions
+as we are not using the Mocha ```this``` context.
+
+{title="02_mocha_chai_test.js", lang=javascript}
+~~~~~~~
+import { expect } from 'chai';
+import { describe, it } from 'mocha';
+
+describe('Mocha Chai Demo', () => {
+  describe('Array operations', () => {
+    describe('#indexOf()', () => {
+      it('should return -1 when the value is not present', () => {
+        expect([1, 2, 3].indexOf(5)).to.equal(-1);
+        expect([1, 2, 3].indexOf(0)).to.equal(-1);
+      });
+    });
+
+    describe('length', () => {
+      it('should return 0 when array is empty', () => {
+        expect([].length).to.equal(0);
+      });
+    });
+
+    describe('length', () => {
+      // Indicate pending test as a TODO for your collaborators
+      it('should return number of elements in array');
+    });
+  });
+});
+~~~~~~~
+
+Mocha BDD API includes describe, it, before, after, beforeEach, and afterEach.
+Chai BDD API includes ```expect``` and ```should``` flavors.
+The ```expect``` flavor is more browser friendly when compared with
+the ```should``` style of assertions. The third API Chai provides uses
+TDD or Test-Driven Development style ```assert``` statements.
+
+We have created another test suite in this example, to demonstrate features of
+Mocha and Chai. The test suite comprises of three tests. Two of these
+tests are implemented with callback arrow function returning an assertion result.
+One of the tests is pending implementation. Just avoiding writing a callback function
+makes the test as pending.
+
+Before we run these test suites we need to configure our package.json with a test script.
+
+{title="package.json test script", lang=javascript}
+~~~~~~~
+"test": "mocha --compilers js:babel-core/register --recursive || true"
+~~~~~~~
+
+We do not need to supply the path to our tests as Mocha picks up ```./test/*.js```
+by default for tests to run. The ```--recursive``` flag enables tests
+to be located in their own folders with the pattern ```./test/**/*.js```. Naming
+the folders and test files with a sequence prefix like ```01``` is completely
+a personal preference, not a requirement for Mocha. The sequencing helps
+run tests in the author intended order instead of alphabetical order.
+
+Now we simply run the test using ```npm run test``` command.
+
+{title="mocha_chai_test results", lang=text}
+~~~~~~~
+Mocha Timeout
+  - should take around 300ms (302ms)
+  - should take around 250ms (256ms)
+
+Mocha Chai Demo
+  Array operations
+    #indexOf()
+      - should return -1 when the value is not present
+    length
+      - should return 0 when array is empty
+    length
+      - should return number of elements in array
+
+
+4 passing (612ms)
+1 pending
+~~~~~~~
+
+So far our tests are not doing much for our app. In fact writing such tests helps us learn
+and experiment with the new language features, libraries, and APIs, that we may be using in
+our stack.
+
+Let us start testing some of our React components.
+
+{pagebreak}
+
+## Enzyme React component testing
+
+Airbnb [Enzyme][1] is very popular tool for React component testing. In fact it is recommended
+by Facebook React core team and being considered to replace React [Test Utilities][9].
+
+Enzyme implements three strategies for testing React components.
+
+**Shallow Rendering.** When you want to constrain your testing to a single component and
+avoid traversing its child tree.
+
+**Full DOM Rendering.** When you want to test your React code interactions with the DOM APIs
+or where your React code uses the lifecycle methods.
+
+**Static Rendering.** When you want to analyze the results of static HTML that your
+React components render.
+
+Enzyme plays well with Mocha, can be extended using custom Chai assertions and convenience
+functions, and use JSDOM JavaScript headless browser for creating a realistic testing environment.
+
+Let us install the dependencies to make Enzyme work within our current setup.
+
+{title="Install Enzyme with dependencies", lang=text}
+~~~~~~~
+npm install --save-dev enzyme
+npm install --save-dev react-addons-test-utils
+npm install --save-dev jsdom
+npm install --save-dev babel-preset-airbnb
+~~~~~~~
+
+We update the airbnb preset in ```.babelrc``` config.
+
+{title=".babelrc config adds airbnb preset during test", lang=json}
+~~~~~~~
+{
+  "presets": ["react", "es2015", "airbnb"],
+  "env": {
+    "development": {
+      "presets": ["react-hmre"]
+    }
+  },
+  "plugins": [
+    "transform-class-properties"
+  ]
+}
+~~~~~~~
+
+For using JSDOM, Enzyme recommends loading a document into the global scope before
+requiring React for the first time.
+
+It is very important that the below script gets run before React's code is run.
+
+{title="config/test_jsdom.js", lang=javascript}
+~~~~~~~
+const jsdom = require('jsdom').jsdom;
+
+const exposedProperties = ['window', 'navigator', 'document'];
+
+global.document = jsdom('');
+global.window = document.defaultView;
+Object.keys(document.defaultView).forEach((property) => {
+  if (typeof global[property] === 'undefined') {
+    exposedProperties.push(property);
+    global[property] = document.defaultView[property];
+  }
+});
+
+global.navigator = {
+  userAgent: 'node.js'
+};
+~~~~~~~
+
+Now we update our test script like so.
+
+{title="package.json test script", lang=javascript}
+~~~~~~~
+"test": "NODE_ENV=test mocha ./config/test_jsdom.js ./test/**/*_test.js
+--compilers js:babel-core/register --recursive || true"
+~~~~~~~
+
+We introduce ```NODE_ENV=test``` so that ```.babelrc``` ignores
+the ```react_hmre``` preset used during development. Otherwise Mocha will complain.
+Scripts default to  the ```NODE_ENV=development``` setting,
+if none is provided in the command line.
+
+Let us add a simple React component test suite using all three Enzyme testing strategies
+including shallow, static, and full DOM rendering.
+
+{title="02_components/01_workflow_test.js", lang=javascript}
+~~~~~~~
+import React from 'react';
+import { expect } from 'chai';
+import { describe, it } from 'mocha';
+import { shallow, mount, render } from 'enzyme';
+import Workflow from '../../app/components/Workflow.jsx';
+
+describe('<Workflow />', () => {
+  it('[Shallow] should render one .workflow-scenario control', () => {
+    const wrapper = shallow(<Workflow />);
+    expect(wrapper.find('.workflow-scenario')).to.have.length(1);
+  });
+
+  it('[Shallow] should render one .workflow-steps control', () => {
+    const wrapper = shallow(<Workflow />);
+    expect(wrapper.find('.workflow-steps')).to.have.length(1);
+  });
+
+  it('[Static] should render one .workflow-text control', () => {
+    const wrapper = render(<Workflow />);
+    expect(wrapper.find('.workflow-text')).to.have.length(1);
+  });
+
+  it('[Full DOM] should render one .workflow component', () => {
+    expect(mount(<Workflow />).find('.workflow').length).to.equal(1);
+  });
+});
+~~~~~~~
+
+We also setup our timeout test to ```skip``` the test so we don't have
+to wait for 600ms for test suites to complete. Skipped tests also show
+up as pending.
+
+{title="01_mocha_timeout_test.js skip test suite", lang=javascript}
+~~~~~~~
+describe.skip('Mocha Timeout', function () {
+~~~~~~~
+
+After running ```npm run test```, the results appear in our terminal.
+
+{title="Terminal results from Enzyme test suite", lang=text}
+~~~~~~~
+...
+  <Workflow />
+    - [Shallow] should render one .workflow-scenario control
+    - [Shallow] should render one .workflow-steps control
+    - [Static] should render one .workflow-text control
+    - [Full DOM] should render one .workflow component
+
+  6 passing (107ms)
+  3 pending
+~~~~~~~
+
+We have setup a comprehensive testing stack using Enzyme for React component testing
+with Mocha and Chai BDD API for describing, running,
+reporting, and asserting tests, complete with JSDOM headless browser testing.
+
+We can continue enhancing our test suite with Webpack integration in subsequent
+updates to this chapter.
 
 
 [1]: http://airbnb.io/enzyme/
@@ -840,3 +1128,5 @@ I> within your React development workflow.
 [5]: http://eslint.org/docs/rules/
 [6]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
 [7]: http://eslint.org/docs/rules/complexity
+[8]: https://en.wikipedia.org/wiki/Behavior-driven_development
+[9]: https://facebook.github.io/react/docs/test-utils.html

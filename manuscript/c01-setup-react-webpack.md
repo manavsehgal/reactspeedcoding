@@ -73,20 +73,6 @@ So, here is a learning path if you want to go beyond React. Learn React first, b
 
 {pagebreak}
 
-## Development Environment
-
-This book assumes you have access to a Mac or Linux environment.
-
-A> ## Are you on Windows?
-A> You can try any of the Cloud based code editors which offer Linux Development
-A> environment within the convenience of your web browser.
-A> [Cloud9][1] is our favorite, other options include [Nitrous][2].
-
-On Mac or Linux you can use your favorite code editor. This book is written using [Atom][1].
-Atom gets you started coding by just dragging and dropping a folder onto the editor.
-You can then add power user features as you grow with Atom using custom packages,
-code snippets, among others.
-
 ### Installing Node.js
 
 You will need Node.js to get started with React.
@@ -597,9 +583,6 @@ a huge ~2MB and css turned into JavaScript! In the chapter **Production Optimize
 we will discuss various techniques to optimize for a production environment.
 
 
-[1]: https://atom.io/
-[2]: https://c9.io/
-[3]: https://www.nitrous.io/
 [4]: https://github.com/creationix/nvm
 [5]: https://nodejs.org/en/download/releases/
 [6]: https://github.com/manavsehgal/reactspeedcoding

@@ -70,6 +70,24 @@ React Speed Coding will be addressing following technologies, platforms, techniq
 
 {pagebreak}
 
+## Development Environment
+
+This book assumes you have access to a Mac or Linux environment.
+
+A> ## Are you on Windows?
+A> You can try any of the Cloud based code editors which offer Linux Development
+A> environment within the convenience of your web browser.
+A> You can start with a generous free account with basic stack including
+A> Node.js already setup for you.
+A> [Cloud9][8] is our favorite, other options include [Nitrous][9].
+
+On Mac or Linux you can use your favorite code editor. This book is written using [Atom][10].
+Atom gets you started coding by just dragging and dropping a folder onto the editor.
+You can then add power user features as you grow with Atom using custom packages,
+code snippets, among others.
+
+{pagebreak}
+
 ## Measuring speed
 
 So it will be nice to define some baseline measurements of speed and see if we can improve
@@ -132,3 +150,6 @@ A> This chapter will continue to evolve along with rest of the book. So, watch t
 [5]: https://app.loadimpact.com/load-test/39d3b00c-d9fa-4056-8606-7ebe9026e161?charts=type%3D1%3Bsid%3D__li_clients_active%3A1%3B%3Btype%3D1%3Bsid%3D__li_user_load_time%3A1&large-charts=type%3D1%3Bsid%3D__li_clients_active%3A1%3B%3Btype%3D1%3Bsid%3D__li_user_load_time%3A1
 [6]: https://gtmetrix.com/reports/reactspeed.com/Mn36KHic
 [7]: https://www.academia.edu/11637848/Visual_Design_Principles_An_Empirical_Study_of_Design_Lore
+[8]: https://c9.io/
+[9]: https://www.nitrous.io/
+[10]: https://atom.io/
