@@ -33,6 +33,6 @@ describe('<Workflow />', () => {
     wrapper.setState({ stepsIndex: 1 });
     wrapper.find('button.default').simulate('click'); // stepsIndex = 2
     expect(wrapper.find('button.default').text())
-      .to.equal('3 '); // Sequence = stepsIndex + 1
+      .to.contain('3'); // Sequence = stepsIndex + 1
   });
 });
