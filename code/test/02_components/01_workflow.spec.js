@@ -37,9 +37,10 @@ describe('<Workflow />', () => {
       .to.contain('3'); // Sequence = stepsIndex + 1
   });
 
-  it('[Sinon, Full DOM] should call componentDidMount', () => {
-    sinon.spy(Workflow.prototype, 'componentDidMount');
-    mount(<Workflow />);
-    expect(Workflow.prototype.componentDidMount.calledOnce).to.equal(true);
+  it('[Sinon, Full DOM] should call cycleScenario on clicking scenario button', () => {
+    sinon.spy(Workflow.prototype, 'cycleScenario');
+    const wrapper = mount(<Workflow />);
+    wrapper.find('button.primary').simulate('click');
+    expect(Workflow.prototype.cycleScenario.calledOnce).to.equal(true);
   });
 });

@@ -47,9 +47,6 @@ export default class Workflow extends React.Component {
     this.cycleSequence = this.cycleSequence.bind(this);
     this.cycleScenario = this.cycleScenario.bind(this);
   }
-  componentDidMount() {
-    // This is empty to facilitate sinon spy spec
-  }
   cycleSequence() {
     const nextIndex =
       this.state.stepsIndex === (this.props.steps.length - 1)

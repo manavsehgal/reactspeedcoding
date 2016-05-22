@@ -18,6 +18,7 @@ We will learn the following topics in this chapter.
 - Separating Webpack lint config.
 - Mocha Chai Behavior-Driven Development.
 - Enzyme React component testing.
+- Sinon spy methods and events.
 
 {pagebreak}
 
@@ -1147,9 +1148,61 @@ After running ```npm run test```, the results appear in our terminal.
 3 pending
 ~~~~~~~
 
-We have setup a comprehensive testing stack using Enzyme for React component testing
+{pagebreak}
+
+## Sinon spy methods and events
+
+We can extend our test stack with Sinon JS to add spy capabilities for testing
+events and method calls, among other component internals.
+
+{title="Install sinon", lang=test}
+~~~~~~~
+npm install --save-dev sinon
+~~~~~~~
+
+Let us import sinon to our workflow spec.
+
+{title="01_workflow.spec.js import sinon", lang=javascript}
+~~~~~~~
+import sinon from 'sinon';
+~~~~~~~
+
+Now we add a test to spy on ```cycleScenario``` method. Test if this method
+is called once when we simulate click on the scenario button.
+
+{title="01_workflow.spec.js cycleScenario method test", lang=javascript}
+~~~~~~~
+it('[Sinon, Full DOM] should call cycleScenario on clicking scenario button', () => {
+  sinon.spy(Workflow.prototype, 'cycleScenario');
+  const wrapper = mount(<Workflow />);
+  wrapper.find('button.primary').simulate('click');
+  expect(Workflow.prototype.cycleScenario.calledOnce).to.equal(true);
+});
+~~~~~~~
+
+Once we run ```npm run test``` command we notice our new test is passing.
+
+{title="Terminal results from workflow test suite", lang=text}
+~~~~~~~
+<Workflow />
+  - [Shallow] should render one .workflow component
+  - [Shallow] should define a prop for steps
+  - [Static] should render one .workflow-text control
+  - [Full DOM] should increment state on clicking step button
+  - [Full DOM] should render new sequence number on clicking step button
+  - [Sinon, Full DOM] should call cycleScenario on clicking scenario button
+
+
+8 passing (131ms)
+3 pending
+~~~~~~~
+
+We have setup a comprehensive command line based test stack
+using Enzyme for React component testing
 with Mocha and Chai BDD API for describing, running,
-reporting, and asserting tests, complete with JSDOM headless browser testing.
+reporting, and asserting tests, Sinon for spying methods and events,
+complete with JSDOM headless browser testing.
+
 
 [1]: http://airbnb.io/enzyme/
 [2]: http://survivejs.com/webpack_react/linting_in_webpack/
