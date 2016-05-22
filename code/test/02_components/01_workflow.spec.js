@@ -40,6 +40,7 @@ describe('<Workflow />', () => {
   it('[Sinon, Full DOM] should call cycleScenario on clicking scenario button', () => {
     sinon.spy(Workflow.prototype, 'cycleScenario');
     const wrapper = mount(<Workflow />);
+    expect(Workflow.prototype.cycleScenario.calledOnce).to.equal(false);
     wrapper.find('button.primary').simulate('click');
     expect(Workflow.prototype.cycleScenario.calledOnce).to.equal(true);
   });

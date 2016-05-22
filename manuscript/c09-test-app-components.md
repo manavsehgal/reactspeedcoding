@@ -19,6 +19,7 @@ We will learn the following topics in this chapter.
 - Mocha Chai Behavior-Driven Development.
 - Enzyme React component testing.
 - Sinon spy methods and events.
+- Istanbul test coverage.
 
 {pagebreak}
 
@@ -1197,11 +1198,67 @@ Once we run ```npm run test``` command we notice our new test is passing.
 3 pending
 ~~~~~~~
 
+{pagebreak}
+
+## Istanbul code coverage
+
+One more important part of our test stack is code coverage instrumentation. Knowing
+what parts of our code are covered by the test suites we have defined is an
+important step to writing robust apps.
+
+Istanbul.JS is a popular instrumentation tool for automatically gathering
+code coverage report based on Mocha test runs.
+
+First we install the babel version of istanbul and babel-cli to ensure we are
+able to process babel processed code via istanbul.
+
+{title="Install istanbul and babel dependencies", lang=text}
+~~~~~~~
+npm install --save-dev babel-istanbul
+npm install --save-dev babel-cli
+~~~~~~~
+
+Next we create our package.json script to run code coverage report.
+
+{title="package.json cover script", lang=javascript}
+~~~~~~~
+"cover": "NODE_ENV=test babel-node node_modules/.bin/babel-istanbul cover
+_mocha --  --require config/test_jsdom.js test/**/*.spec.js --reporter dot || true",
+~~~~~~~
+
+Yes, a very loaded command indeed. It can be interpreted as follows.
+
+- Run babel-istanbul cover command using babel-cli (babel-node).
+- Run the cover command on results from the mocha executable (with underscore).
+- Run mocha executable requiring ```test_jsdom.js``` to run first.
+- Run mocha on ```test/**/*.spec.js``` test suites.
+- Replace test suites with ```dots``` for less verbose report.
+- Using ``` || true ``` - do not report any error message when tests fail,
+just report failure message.
+
+Once this is setup we can run the code coverage report using ```npm run cover``` command.
+
+The code coverage summary shows up in a few seconds on the terminal.
+
+{title="Code coverage summary", lang=text}
+~~~~~~~
+=============================== Coverage summary ===============================
+Statements   : 100% ( 51/51 )
+Branches     : 75% ( 12/16 )
+Functions    : 100% ( 6/6 )
+Lines        : 100% ( 43/43 )
+================================================================================
+~~~~~~~
+
+You can also browse to ```./coverage/lcov-report/index.html``` to view the HTML
+report which enables drill-down to tested source files. Lines of code are
+highlighted based on coverage results.
+
 We have setup a comprehensive command line based test stack
 using Enzyme for React component testing
 with Mocha and Chai BDD API for describing, running,
-reporting, and asserting tests, Sinon for spying methods and events,
-complete with JSDOM headless browser testing.
+reporting, and asserting tests, Sinon for spying methods and events, Istanbul
+code coverage, complete with JSDOM headless browser testing.
 
 
 [1]: http://airbnb.io/enzyme/
