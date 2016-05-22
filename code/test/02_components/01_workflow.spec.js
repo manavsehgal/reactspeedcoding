@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
+import sinon from 'sinon';
 import { shallow, mount, render } from 'enzyme';
 import Workflow from '../../app/components/Workflow.jsx';
 
@@ -34,5 +35,11 @@ describe('<Workflow />', () => {
     wrapper.find('button.default').simulate('click'); // stepsIndex = 2
     expect(wrapper.find('button.default').text())
       .to.contain('3'); // Sequence = stepsIndex + 1
+  });
+
+  it('[Sinon, Full DOM] should call componentDidMount', () => {
+    sinon.spy(Workflow.prototype, 'componentDidMount');
+    mount(<Workflow />);
+    expect(Workflow.prototype.componentDidMount.calledOnce).to.equal(true);
   });
 });
