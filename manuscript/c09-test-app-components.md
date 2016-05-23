@@ -1222,12 +1222,18 @@ Next we create our package.json script to run code coverage report.
 
 {title="package.json cover script", lang=javascript}
 ~~~~~~~
-"cover": "NODE_ENV=test babel-node node_modules/.bin/babel-istanbul cover
-_mocha --  --require config/test_jsdom.js test/**/*.spec.js --reporter dot || true",
+"cover": "NODE_ENV=test babel-node
+node_modules/.bin/babel-istanbul cover
+_mocha --  --require config/test_jsdom.js
+test/**/*.spec.js --reporter dot || true",
 ~~~~~~~
+
+Note: Please interpret this command as single line of code. We have split
+it with new lines for ease of readability.
 
 Yes, a very loaded command indeed. It can be interpreted as follows.
 
+- Set NODE_ENV=test so that .babelrc development configuration is ignored.
 - Run babel-istanbul cover command using babel-cli (babel-node).
 - Run the cover command on results from the mocha executable (with underscore).
 - Run mocha executable requiring ```test_jsdom.js``` to run first.
@@ -1242,12 +1248,12 @@ The code coverage summary shows up in a few seconds on the terminal.
 
 {title="Code coverage summary", lang=text}
 ~~~~~~~
-=============================== Coverage summary ===============================
+========== Coverage summary ===============================
 Statements   : 100% ( 51/51 )
 Branches     : 75% ( 12/16 )
 Functions    : 100% ( 6/6 )
 Lines        : 100% ( 43/43 )
-================================================================================
+===========================================================
 ~~~~~~~
 
 You can also browse to ```./coverage/lcov-report/index.html``` to view the HTML

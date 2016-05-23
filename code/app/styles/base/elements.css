@@ -7,7 +7,10 @@
 html {
   height: 100%;
   color: hsl(0, 0%, 25%);
-  font: 400 1em/1.4 'Open Sans', sans-serif;
+  font: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
 }
 

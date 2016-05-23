@@ -6,6 +6,7 @@
 @import 'styles/base/elements';
 @import 'styles/base/modifiers';
 @import 'styles/base/mixins';
+@import 'styles/components/post';
 @import 'styles/containers/grid'; /* Refactored and tied to component */
 @import 'styles/containers/container';
 @import 'styles/containers/holy-grail';

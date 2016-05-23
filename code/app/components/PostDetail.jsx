@@ -40,6 +40,7 @@ function PostDetail({ posts, details, params }) {
                     Ok to get content from app controlled data store.
                     Refer: https://facebook.github.io/react/tips/dangerously-set-inner-html.html */}
                   <span
+                    className="post-content"
                     dangerouslySetInnerHTML={
                       { __html: marked(details[activeDetail].content) }
                     }
@@ -85,6 +86,7 @@ function PostDetail({ posts, details, params }) {
                 <h1>{posts[0].title}</h1>
                 <div className="media-body">
                   <span
+                    className="post-content"
                     dangerouslySetInnerHTML={
                       { __html: marked(details[activeDetail].content) }
                     }
