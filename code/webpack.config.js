@@ -46,7 +46,7 @@ module.exports = {
       }
     ]
   },
-  postcss: function processPostcss() {
+  postcss: function processPostcss(webpack) {  // eslint-disable-line no-shadow
     return [
       postcssImport({
         addDependencyTo: webpack
