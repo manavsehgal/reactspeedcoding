@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import PostData from '../content/PostData.js';
 import PostDetailData from '../content/PostDetailData.js';
-import ReactDisqusThread from 'react-disqus-thread';
 import marked from 'marked';
 
 function PostDetail({ posts, details, params }) {
@@ -47,12 +46,6 @@ function PostDetail({ posts, details, params }) {
                   />
                 </div>
                 <br /><br />
-                <ReactDisqusThread
-                  shortname="reactspeed"
-                  identifier={posts[i].slug}
-                  title={posts[i].title}
-                  url={`https://reactspeed.com/blog/${posts[i].slug}`}
-                />
               </div>
             </div>
           </div>
@@ -92,12 +85,6 @@ function PostDetail({ posts, details, params }) {
                     }
                   />
                 </div>
-                <ReactDisqusThread
-                  shortname="reactspeed"
-                  identifier={posts[0].slug}
-                  title={posts[0].title}
-                  url={`https://reactspeed.com/blog/${posts[0].slug}`}
-                />
               </div>
             </div>
           </div>

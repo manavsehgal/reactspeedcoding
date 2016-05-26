@@ -1,4 +1,4 @@
-# Refactor Existing Components (R)
+# Refactor Existing Components (F)
 
 Refactoring is an essential part of iterative development. React is ideal for iterative
 refactoring of your code because of component based development.
@@ -11,7 +11,7 @@ You will learn following concepts in this chapter.
 
 {pagebreak}
 
-## Refactoring to render node children (Rc)
+## Refactoring to render node children (Fc)
 
 All JSX HTML-like tags are actually React components. You can start your component
 design by copying HTML from a sample or existing source into render method.
@@ -128,12 +128,12 @@ provides an easy path to refactoring.
 
 {pagebreak}
 
-## ES5 to ES6 React component definition (Re)
+## ES5 to ES6 React component definition (Fe)
 
 Most React content on the Web still refers to ES5 code. This section is about
 refactoring existing E5 React component to ES6 code.
 
-## Testing and refactoring (Rt)
+## Testing and refactoring (Ft)
 
 This section will cover aspects of testing that may influence refactoring decisions.
 

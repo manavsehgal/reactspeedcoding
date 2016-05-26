@@ -6,10 +6,10 @@ c04-react-speed-ui.md
 c05-start-component-design.md
 c06-define-component-internals.md
 c07-wire-multiple-components.md
-c07a-routing-component-layouts.md
-c07b-redux-state-container.md
-c08-refactor-existing-components.md
-c09-test-app-components.md
-c10-component-design-workflow.md
-c11-firebase-react-integration.md
-c12-react-developer-experience.md
+c08-route-component-layouts.md
+c09-refactor-existing-components.md
+c10-test-app-components.md
+c11-redux-state-container.md
+c12-component-design-workflow.md
+c13-firebase-react-integration.md
+c14-react-developer-experience.md

@@ -1,3 +1,3 @@
 c00-introduction.md
-c01-setup-react-webpack.md
+c02-es6-react-guide.md
 c05-start-component-design.md

@@ -1028,7 +1028,7 @@ requiring React for the first time.
 
 It is very important that the below script gets run before React's code is run.
 
-{title="config/test_jsdom.js", lang=javascript}
+{title="test/helpers/browser.js", lang=javascript}
 ~~~~~~~
 const jsdom = require('jsdom').jsdom;
 
@@ -1052,7 +1052,7 @@ Now we update our test script like so.
 
 {title="package.json test script", lang=javascript}
 ~~~~~~~
-"test": "NODE_ENV=test mocha ./config/test_jsdom.js ./test/**/*.spec.js
+"test": "NODE_ENV=test mocha test/helpers/browser.js test/**/*.spec.js
 --compilers js:babel-core/register --recursive || true"
 ~~~~~~~
 
@@ -1224,7 +1224,7 @@ Next we create our package.json script to run code coverage report.
 ~~~~~~~
 "cover": "NODE_ENV=test babel-node
 node_modules/.bin/babel-istanbul cover
-_mocha --  --require config/test_jsdom.js
+_mocha --  --require test/helpers/browser.js
 test/**/*.spec.js --reporter dot || true",
 ~~~~~~~
 
@@ -1236,7 +1236,7 @@ Yes, a very loaded command indeed. It can be interpreted as follows.
 - Set NODE_ENV=test so that .babelrc development configuration is ignored.
 - Run babel-istanbul cover command using babel-cli (babel-node).
 - Run the cover command on results from the mocha executable (with underscore).
-- Run mocha executable requiring ```test_jsdom.js``` to run first.
+- Run mocha executable requiring ```test/helpers/browser.js``` to run first.
 - Run mocha on ```test/**/*.spec.js``` test suites.
 - Replace test suites with ```dots``` for less verbose report.
 - Using ``` || true ``` - do not report any error message when tests fail,
