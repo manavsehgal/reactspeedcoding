@@ -15,7 +15,12 @@ class Header extends React.Component {
         <div className="header header-cozy" role="banner">
           {promo
             ? <div>
-              {promo.message}&nbsp;
+              <div className="header-title">
+                {promo.message}
+              </div>
+              <div className="header-subtitle">
+                {promo.subtitle}
+              </div>
             </div>
             : ''
           }

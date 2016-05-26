@@ -10,7 +10,11 @@ const SiteData = {
 
   home: {
     header: {
-      message: 'React Speed Coding book explains how this web app is coded in ES6 React.'
+      message: `Learn JavaScript ES6 React with 25 reusable components,
+      15 ebook chapters.`,
+      subtitle: `Babel. React Hot Loading. React Router. Redux.
+      PostCSS, FlexBox styling. Firebase database. Webpack packaging.
+      Enzyme, Mocha, Chai BDD testing. ESLint and StyleLint. Browsersync.`
     },
     sidebar: {
       messages: [
