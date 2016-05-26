@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-function IconText({ icon, text, className, size, rotate, flip, inverse }) {
+const IconText = ({ icon, text, className, size, rotate, flip, inverse }) => {
   let variation = '';
 
   variation += className ? ` ${className}` : '';
@@ -17,7 +17,7 @@ function IconText({ icon, text, className, size, rotate, flip, inverse }) {
       <h4>{text}</h4>
     </div>
   );
-}
+};
 
 IconText.propTypes = {
   icon: PropTypes.string.isRequired,

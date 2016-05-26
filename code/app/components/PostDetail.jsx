@@ -3,7 +3,7 @@ import PostData from '../content/PostData.js';
 import PostDetailData from '../content/PostDetailData.js';
 import marked from 'marked';
 
-function PostDetail({ posts, details, params }) {
+const PostDetail = ({ posts, details, params }) => {
   const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
   let renderContent = '';
   let activeDetail = 0;
@@ -93,12 +93,14 @@ function PostDetail({ posts, details, params }) {
     }
   }
   return (renderContent);
-}
+};
+
 PostDetail.propTypes = {
   posts: PropTypes.array,
   details: PropTypes.array,
   params: PropTypes.object
 };
+
 PostDetail.defaultProps = {
   posts: PostData,
   details: PostDetailData

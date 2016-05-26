@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Hello = ({ greet, message }) =>
+const Hello = ({ greet, message }) => (
   <h3>
     {greet} {message}
-  </h3>;
+  </h3>
+);
 
 Hello.propTypes = {
   greet: React.PropTypes.string,

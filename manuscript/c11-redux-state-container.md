@@ -1,4 +1,4 @@
-# Redux State Container (S)
+# Redux State Container (X)
 
 When designing React apps, UI state becomes an important concern. How state is managed
 across your component hierarchy during your app lifecycle gets complex fast as
@@ -28,6 +28,8 @@ pattern for infinitely nested components. This chapter implements Redux and Immu
 along with behavior-driven development using Mocha, Chai, and Enzyme
 introduced in the **Test App Components** chapter.
 
+{pagebreak}
+
 ## The Roadmap app
 
 To help understand this important chapter, let us create a relatively complex app
@@ -51,7 +53,7 @@ that match the text entered in search. Number of likes will interact with order 
 Our app will also maintain several UI states. Some candidate states could be,
 active filter, order of features, search text, and last *Like* clicked.
 
-## Formal spec for Roadmap app
+## Formal specification
 
 Let us formalize the specification for our Roadmap app using the BDD test environment
 we setup using **Test App Components** chapter.
@@ -129,6 +131,110 @@ When we run this test using ```npm run test``` we notice following test results.
   9 passing (144ms)
   12 pending
 ~~~~~~~
+
+{pagebreak}
+
+## State tree definition
+
+Now that we have a formal spec for our component hierarchy, let us define the
+state tree required for our app.
+
+A quick way to define this is in the form of a JSON objects at different
+states of the application-data lifecycle.
+
+When we start out, our features are listed under ```proposed``` flag.
+
+{title="Roadmap state tree, proposed", lang=json}
+~~~~~~~
+{
+  proposed: [
+    { feature: 'Navigation', likes: 0 },
+    { feature: 'Redux state container', likes: 0 },
+    { feature: 'Card', likes: 0 }
+  ],
+  trending: [],
+  live: []
+}
+~~~~~~~
+
+As our users ```like``` the features, these change to ```trending``` flag.
+
+{title="Roadmap state tree, trending", lang=json}
+~~~~~~~
+{
+  proposed: [
+    { feature: 'Redux state container', likes: 0 }
+  ],
+  trending: [
+    { feature: 'Navigation', likes: 3 },
+    { feature: 'Card', likes: 1 }
+  ],
+  live: []
+}
+~~~~~~~
+
+As these features go live we change to ```live``` flag.
+
+{title="Roadmap state tree, live", lang=json}
+~~~~~~~
+{
+  proposed: [],
+  trending: [
+    { feature: 'Card', likes: 3 },
+    { feature: 'Redux state container', likes: 2 }
+  ],
+  live: [
+    { feature: 'Navigation', likes: 1 },
+  ]
+}
+~~~~~~~
+
+We can continue to evolve our state tree by adding other states for our app. We
+can add states for handling FeatureSearch text that user enters. We can also
+add state for CategoryFilter that user has selected. At this point we refactor
+our state tree to add feature id to handle data reference.
+
+{title="Roadmap state tree, search", lang=json}
+~~~~~~~
+{
+  proposed: [],
+  trending: [
+    { id: 2, feature: 'Card', likes: 3 },
+    { id: 1, feature: 'Redux state container', likes: 2 }
+  ],
+  live: [
+    { id: 3, feature: 'Navigation', likes: 1 },
+  ],
+  featureSearch: 'Nav',
+  search: [3]
+}
+~~~~~~~
+
+We refactor our state tree for category to add CategoryFilter and features list
+with feature id reference for all other lists.
+
+{title="Roadmap state tree, CategoryFilter", lang=json}
+~~~~~~~
+{
+  features: [
+    { id: 1, feature: 'Redux state container', category: 'chapter', likes: 2 },
+    { id: 2, feature: 'Card', category: 'component' likes: 3 },
+    { id: 3, feature: 'Navigation', category: 'component', likes: 1 }
+  ],
+  proposed: [],
+  trending: [2, 1],
+  live: [3],
+  featureSearch: 'Nav',
+  search: [3],
+  categoryFilter: 'component',
+  category: [2, 3]
+}
+~~~~~~~
+
+{pagebreak}
+
+## Data structure definition
+
 
 
 

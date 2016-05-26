@@ -1,6 +1,6 @@
 import React from 'react';
 
-const YouTube = ({ videoid }) =>
+const YouTube = ({ videoid }) => (
   <iframe
     className="youtube"
     width="100%"
@@ -9,7 +9,8 @@ const YouTube = ({ videoid }) =>
     frameBorder="0"
     allowFullScreen
   >
-  </iframe>;
+  </iframe>
+);
 
 YouTube.propTypes = { videoid: React.PropTypes.string };
 

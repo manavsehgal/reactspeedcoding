@@ -342,6 +342,9 @@ active development and then relocate these to a proper import once we are close 
 We are trying several possible solutions to this [know issue as PostCSS repo][12]. If you would like to contribute
 a solution please [respond to this issue on our Github repo][13].
 
+**Update 2016-05-26.** We have now resolved and closed this issue. Yey!
+Latest webpack config code now enables us to Hot update imported styles without having to restart our app.
+
 {pagebreak}
 
 ## Normalize.css from NPM (Code update 2016-04-21)
