@@ -8,7 +8,7 @@
     "start": "NODE_ENV=development webpack-dev-server",
     "lint": "NODE_ENV=lint webpack-dev-server --config webpack.lint.config.js",
     "cover": "NODE_ENV=test babel-node node_modules/.bin/babel-istanbul cover _mocha --  --require test/helpers/browser.js test/**/*.spec.js --reporter dot || true",
-    "test": "NODE_ENV=test mocha test/helpers/browser.js test/**/*.spec.js --compilers js:babel-core/register",
+    "test": "NODE_ENV=test mocha test/helpers/browser.js test/**/*.spec.js --compilers js:babel-core/register || true",
     "build": "NODE_ENV=production webpack --config webpack.prod.config.js",
     "profile": "NODE_ENV=production webpack --config webpack.prod.config.js --profile --json > profile.json",
     "elint": "eslint . --ext .js --ext .jsx --cache || true",
@@ -23,7 +23,9 @@
     "marked": "^0.3.5",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-router": "^2.4.0"
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.0",
+    "redux": "^3.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
