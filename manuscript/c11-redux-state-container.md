@@ -447,6 +447,152 @@ Now as we evolve our Redux app, we can continue adding to our test suite.
 
 {pagebreak}
 
+## Optimize Redux app
+
+There are several ways our basic Redux app can be optimized before we even move
+onto designing the React components.
+
+These optimizations are important as they improve readability, maintainability,
+and performance for larger apps.
+
+**Object Spread Operator.** Our ```Object.assign()``` code in reducers can be further
+simplified using ES6 stage 2 feature called Object Rest Spread Operator. Using this feature
+requires installing Babel plugin for [transform-object-rest-spread][4] and
+making the required changes in the plugins section of ```.babelrc``` configuration.
+
+Notice how this simplifies our reducers using ```...state``` object spread operator.
+
+{title="/app/reducers/roadmap.js refactor object spread operator", lang=javascript}
+~~~~~~~
+import * as actions from '../actions/roadmap';
+
+const initialState = {
+  searchText: '',
+  categoryFilter: actions.CategoryFilters.SHOW_ALL,
+  features: []
+};
+
+export default function roadmapApp(state = initialState, action) {
+  switch (action.type) {
+  case actions.LIKE_FEATURE:
+    return { ...state,
+      features: state.features.map((feature, index) => {
+        if (index === action.index) {
+          return { ...feature, likes: feature.likes + 1 };
+        }
+        return feature;
+      })
+    };
+  case actions.SEARCH_TEXT:
+    return { ...state, searchText: action.text };
+  case actions.SET_CATEGORY_FILTER:
+    return { ...state, categoryFilter: action.filter };
+  case actions.ADD_FEATURE:
+    return { ...state, features: [...state.features,
+        { title: action.title, category: action.category, likes: 0 }] };
+  default:
+    return state;
+  }
+}
+~~~~~~~
+
+**Reducer composition.** A fundamental pattern of designing Redux apps is to slice
+the reducer code into separate concerns based on top-level state tree nodes.
+
+We have features, categoryFilter, and searchText as top level nodes within our
+state tree.
+
+{title="/app/reducers/roadmap.js refactor reducer composition", lang=javascript}
+~~~~~~~
+import * as actions from '../actions/roadmap';
+
+function features(state = [], action) {
+  switch (action.type) {
+  case actions.LIKE_FEATURE:
+    return state.map((feature, index) => {
+      if (index === action.index) {
+        return { ...feature, likes: feature.likes + 1 };
+      }
+      return feature;
+    });
+  case actions.ADD_FEATURE:
+    return [...state, { title: action.title, category: action.category, likes: 0 }];
+  default:
+    return state;
+  }
+}
+
+function categoryFilter(state = actions.CategoryFilters.SHOW_ALL, action) {
+  switch (action.type) {
+  case actions.SET_CATEGORY_FILTER:
+    return action.filter;
+  default:
+    return state;
+  }
+}
+
+function searchText(state = '', action) {
+  switch (action.type) {
+  case actions.SEARCH_TEXT:
+    return action.text;
+  default:
+    return state;
+  }
+}
+
+export default function roadmapApp(state = {}, action) {
+  return {
+    features: features(state.features, action),
+    searchText: searchText(state.searchText, action),
+    categoryFilter: categoryFilter(state.categoryFilter, action)
+  };
+}
+~~~~~~~
+
+We separate these top-level nodes into their own reducer functions, further
+simplifying their respective code. Our roadmapApp reducer function is now
+only three lines of code!
+
+And, we are not done yet! Let us do another round of optimization using
+Redux ```combineReducers``` utility.
+
+{title="/app/reducers/roadmap.js refactor combineReducers", lang=javascript}
+~~~~~~~
+import { combineReducers } from 'redux';
+
+const roadmapApp = combineReducers({ features, searchText, categoryFilter });
+export default roadmapApp;
+~~~~~~~
+
+One single line of code for our roadmapApp reducer!
+
+**ES6 import.**
+
+Again, we can further do some ES6 magic and optimize our file organization even further.
+
+If we separate the features, searchText, categoryFilter reducers in their own file,
+and use a separate file for roadmapApp, we can use ES6 import to do this.
+
+{title="/app/reducers/roadmapApp.js refactor ES6 import", lang=javascript}
+~~~~~~~
+import * as reducers from './roadmap';
+import { combineReducers } from 'redux';
+
+const roadmapApp = combineReducers(reducers);
+export default roadmapApp;
+~~~~~~~
+
+This makes a lot of sense for larger projects where you may have many more
+reducers which you may want to keep organized in separate files.
+
+Of course we need to update the ```store/roadmap.js``` to import
+from the new ```roadmapApp.js``` file.
+
+All along this journey refactoring our Redux app for optimizations, we were running 
+the test suite defined earlier to ensure all tests are passing.
+
+{pagebreak}
+
 ## Component specification
 
 Let us write the specification for our Roadmap app using the BDD test environment
@@ -551,3 +697,4 @@ I> makes our app architecture more robust.
 [1]: https://github.com/facebook/immutable-js
 [2]: http://guide.elm-lang.org/architecture/index.html
 [3]: http://facebook.github.io/flux/
+[4]: https://babeljs.io/docs/plugins/transform-object-rest-spread/

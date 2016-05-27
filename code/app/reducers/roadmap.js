@@ -1,43 +1,34 @@
 import * as actions from '../actions/roadmap';
 
-const initialState = {
-  searchText: '',
-  categoryFilter: actions.CategoryFilters.SHOW_ALL,
-  features: []
-};
+export function categoryFilter(state = actions.CategoryFilters.SHOW_ALL, action) {
+  switch (action.type) {
+  case actions.SET_CATEGORY_FILTER:
+    return action.filter;
+  default:
+    return state;
+  }
+}
 
-export default function roadmapApp(state = initialState, action) {
+export function searchText(state = '', action) {
+  switch (action.type) {
+  case actions.SEARCH_TEXT:
+    return action.text;
+  default:
+    return state;
+  }
+}
+
+export function features(state = [], action) {
   switch (action.type) {
   case actions.LIKE_FEATURE:
-    return Object.assign({}, state, {
-      features: state.features.map((feature, index) => {
-        if (index === action.index) {
-          return Object.assign({}, feature, {
-            likes: feature.likes + 1
-          });
-        }
-        return feature;
-      })
-    });
-  case actions.SEARCH_TEXT:
-    return Object.assign({}, state, {
-      searchText: action.text
-    });
-  case actions.SET_CATEGORY_FILTER:
-    return Object.assign({}, state, {
-      categoryFilter: action.filter
+    return state.map((feature, index) => {
+      if (index === action.index) {
+        return { ...feature, likes: feature.likes + 1 };
+      }
+      return feature;
     });
   case actions.ADD_FEATURE:
-    return Object.assign({}, state, {
-      features: [
-        ...state.features,
-        {
-          title: action.title,
-          category: action.category,
-          likes: 0
-        }
-      ]
-    });
+    return [...state, { title: action.title, category: action.category, likes: 0 }];
   default:
     return state;
   }
