@@ -4,3 +4,6 @@ build
 npm-debug.log
 profile.json
 .eslintcache
+database.rules.json
+.firebaserc
+firebase.json
