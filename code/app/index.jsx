@@ -10,6 +10,7 @@ import CardStackMedia from './components/CardStackMedia.jsx';
 import CardStackButton from './components/CardStackButton.jsx';
 import CardStackForm from './components/CardStackForm.jsx';
 import MissingRoute from './components/MissingRoute.jsx';
+import Roadmap from './components/Roadmap.jsx';
 
 import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 
@@ -17,6 +18,7 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={HomePage}>
       <IndexRoute component={CardStack} />
+      <Route path="/roadmap" component={Roadmap} />
       <Route path="/ajax" component={CardStackAjax} />
       <Route path="/infographics" component={CardStackInfo} />
       <Route path="/media" component={CardStackMedia} />

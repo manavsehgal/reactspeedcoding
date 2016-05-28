@@ -1,6 +1,10 @@
 .input {
   display: flex;
   margin-bottom: 1.5em;
+
+  &.slim {
+    margin-bottom: 0.5em;
+  }
 }
 
 .input-field {

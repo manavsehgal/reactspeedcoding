@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const IconText = ({ icon, text, className, size, rotate, flip, inverse }) => {
+const IconText = ({ icon, text, className, size, rotate, flip, inverse, slim }) => {
   let variation = '';
 
   variation += className ? ` ${className}` : '';
@@ -12,7 +12,11 @@ const IconText = ({ icon, text, className, size, rotate, flip, inverse }) => {
   const iconClass = `fa fa-${icon}${variation}`;
 
   return (
-    <div>
+    slim
+    ? <div>
+      <i className={iconClass}></i> {text}
+    </div>
+    : <div>
       <i className={iconClass}></i>
       <h4>{text}</h4>
     </div>
@@ -26,7 +30,8 @@ IconText.propTypes = {
   size: PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
   rotate: PropTypes.number,
   flip: PropTypes.oneOf(['horizontal', 'vertical']),
-  inverse: PropTypes.bool
+  inverse: PropTypes.bool,
+  slim: PropTypes.bool  // draw slim single-line InfoText
 };
 
 export default IconText;

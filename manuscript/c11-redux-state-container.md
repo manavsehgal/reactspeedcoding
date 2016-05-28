@@ -588,18 +588,15 @@ reducers which you may want to keep organized in separate files.
 Of course we need to update the ```store/roadmap.js``` to import
 from the new ```roadmapApp.js``` file.
 
-All along this journey refactoring our Redux app for optimizations, we were running 
+All along this journey refactoring our Redux app for optimizations, we were running
 the test suite defined earlier to ensure all tests are passing.
 
 {pagebreak}
 
 ## Component specification
 
-Let us write the specification for our Roadmap app using the BDD test environment
-we setup using **Test App Components** chapter.
-
-For this we will use Mocha only to start with and specify our component hierarchy
-as a to-be-implemented test suite.
+Just like the spec we wrote earlier, let us write the component specification for
+our Roadmap app.
 
 {title="03_roadmap.spec.js", lang=javascript}
 ~~~~~~~
@@ -613,10 +610,15 @@ describe('<Roadmap />', () => {
 
     describe('<FeatureSearch />', () => {
       it('should create one .feature-search component');
+      it('should initialize default value for searchText');
+      it('should execute enterSearch() when user presses Enter in search box');
+      it('should update state tree after enterSearch() is called');
     });
 
     describe('<CategoryFilter />', () => {
       it('should create N .category-filter components');
+      it('should execute selectFilter() when user selects a filter');
+      it('should update state tree after selectFilter() is called');
     });
   });
 
@@ -626,16 +628,16 @@ describe('<Roadmap />', () => {
     describe('<Feature />', () => {
       it('should create N .feature components');
 
-      describe('<Category />', () => {
-        it('should create one .category component per .feature');
+      describe('<FeatureCategory />', () => {
+        it('should create one .feature-category component per .feature');
       });
 
-      describe('<Likes />', () => {
-        it('should create one .likes component per .feature');
+      describe('<FeatureLikes />', () => {
+        it('should create one .feature-likes component per .feature');
       });
 
-      describe('<FeatureDetail />', () => {
-        it('should create one .feature-detail component per .feature');
+      describe('<FeatureTitle />', () => {
+        it('should create one .feature-title component per .feature');
       });
     });
   });
@@ -647,29 +649,30 @@ When we run this test using ```npm run test``` we notice following test results.
 {title="Terminal output running Roadmap test suite", lang=text}
 ~~~~~~~
 ...
-
-  <Roadmap />
-    - should create one .roadmap component
-    <SearchFilter />
-      - should create one .search-filter component
-      <FeatureSearch />
-        - should create one .feature-search component
-      <CategoryFilter />
-        - should create N .category-filter components
-    <FeatureList />
-      - should create one .feature-list component
-      <Feature />
-        - should create N .feature components
-        <Category />
-          - should create one .category component per .feature
-        <Likes />
-          - should create one .likes component per .feature
-        <FeatureDetail />
-          - should create one .feature-detail component per .feature
-
-
-  9 passing (144ms)
-  12 pending
+<Roadmap />
+  - should create one .roadmap component
+  <SearchFilter />
+    - should create one .search-filter component
+    <FeatureSearch />
+      - should create one .feature-search component
+      - should initialize default value for searchText
+      - should execute enterSearch() when user presses Enter in search box
+      - should update state tree after enterSearch() is called
+    <CategoryFilter />
+      - should create N .category-filter components
+      - should execute selectFilter() when user selects a filter
+      - should update state tree after selectFilter() is called
+  <FeatureList />
+    - should create one .feature-list component
+    <Feature />
+      - should create N .feature components
+      <FeatureCategory />
+        - should create one .feature-category component per .feature
+      <FeatureLikes />
+        - should create one .feature-likes component per .feature
+      <FeatureTitle />
+        - should create one .feature-title component per .feature
+...
 ~~~~~~~
 
 Here are the strategies to consider when creating component specification for your app.
@@ -683,11 +686,118 @@ with the component. This className can then be used by Enzyme find() method as w
 - **Cardinality.** Specify cardinality (zero, one, or many) of component(s) expected to be
 created during normal use case of the application. This can be checked
 in the test implementation.
-- [TODO] Consider representing component state or props during specification stage
+- **Props.** Consider representing component props during specification stage
 as additional ```it``` spec statements.
-- [TODO] What aspects of state tree can be represented in the formal spec?
+- **Events.** Events and life-cycle methods can also be specified at this stage.
 
 {pagebreak}
+
+## Component hierarchy reuse
+
+Like real-world apps, as our repository of components grows, we should be creating
+new functionality by mixing existing components, refactoring them for new use cases.
+
+Let us rapidly prototype our front-end for Roadmap app, by duplicating ```CardStack```
+component for layouts, reusing ```Card``` component for granular grid, and bringing
+together button, and form controls we created earlier. We also reuse the ```IconText``` component,
+and create a new ```badge``` control similar to ```button``` control.
+
+{title="/app/components/roadmap.jsx", lang=javascript}
+~~~~~~~
+import React from 'react';
+
+import Card from './Card.jsx';
+import IconText from './IconText.jsx';
+
+const Roadmap = () => {
+  const gridClass = 'grid grid-full grid-flex-cells large-grid-fit';
+  return (
+    <div className="roadmap">
+      <h1>Roadmap</h1>
+      <div className={`${gridClass} search-filter`}>
+        <Card slim>
+          <div className="input slim feature-search">
+            <span className="input-label">Search</span>
+            <input className="input-field" placeholder="Enter feature name" />
+          </div>
+        </Card>
+        <Card slim>
+          <button className="button default medium category-filter">
+            <i className="fa fa-cubes"></i> Component
+          </button>
+          <button className="button primary medium category-filter">
+            <i className="fa fa-cloud"></i> App
+          </button>
+          <button className="button secondary medium category-filter">
+            <i className="fa fa-book"></i> Chapter
+          </button>
+        </Card>
+      </div>
+      <div className="feature-list">
+        <div className={`${gridClass} feature`}>
+          <Card slim message>
+            <IconText
+              className="success-text feature-likes"
+              icon="heart"
+              size="2x"
+              text="21 likes"
+              slim
+            />
+          </Card>
+          <Card className="u-large-2of3 u-med-full u-small-full" slim message>
+            <div className="feature-detail">
+              <b>Feature title here!</b><br />
+              Details spilling to next line here.
+            </div>
+          </Card>
+          <Card slim>
+            <div className="badge secondary medium feature-category">
+              <i className="fa fa-book"></i>
+            </div>
+          </Card>
+        </div>
+
+        <div className={`${gridClass} feature`}>
+          <Card slim message>
+            <IconText
+              className="warning-text feature-likes"
+              icon="heart"
+              size="2x"
+              text="1 like"
+              slim
+            />
+          </Card>
+          <Card className="u-large-2of3 u-med-full u-small-full" slim message>
+            <div className="feature-detail">
+              <b>Feature two title here!</b><br />
+              More details spilling to next line here.
+            </div>
+          </Card>
+          <Card slim>
+            <div className="badge default medium feature-category">
+              <i className="fa fa-cubes"></i>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Roadmap;
+~~~~~~~
+
+We can also connect this rapid prototype with a route and develop the UI interactively
+using Hot Module Replacement.
+
+We are using dummy data as the components are not yet wired to our Redux app.
+
+Note that we are using same class identifiers as defined in our test suite spec.
+If we implement our test suite now, it should run most of the tests just fine.
+
+Once we are relatively satisfied with our UI prototype, we can further optimize
+our component hierarchy by extracting Roadmap app components into separate files
+and start wiring our Redux actions, reducers, and store.
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.

@@ -3,6 +3,9 @@ import NavLink from './NavLink.jsx';
 
 const NavigationSidebar = () => (
   <ul className="sidenav grid grid-gutters large-grid-full">
+    <NavLink className="sidenav-link" to="/roadmap">
+      <i className="fa fa-road"></i> Roadmap
+    </NavLink>
     <NavLink className="sidenav-link" to="/forms">
       <i className="fa fa-list-alt"></i> Forms
     </NavLink>

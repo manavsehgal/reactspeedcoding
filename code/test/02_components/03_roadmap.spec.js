@@ -1,20 +1,35 @@
+import React from 'react';
+
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import store from '../../app/store/roadmap';
+import { shallow, render } from 'enzyme';
 import * as actions from '../../app/actions/roadmap';
+import Roadmap from '../../app/components/Roadmap.jsx';
 
 describe('<Roadmap />', () => {
-  it('should create one .roadmap component');
+  it('should create one .roadmap component', () => {
+    const wrapper = shallow(<Roadmap />);
+    expect(wrapper.is('.roadmap')).to.equal(true);
+  });
 
   describe('<SearchFilter />', () => {
-    it('should create one .search-filter component');
+    it('should create one .search-filter control', () => {
+      const wrapper = render(<Roadmap />);
+      expect(wrapper.find('.search-filter')).to.have.length(1);
+    });
 
     describe('<FeatureSearch />', () => {
       it('should create one .feature-search component');
+      it('should initialize default value for searchText');
+      it('should execute enterSearch() when user presses Enter in search box');
+      it('should update state tree after enterSearch() is called');
     });
 
     describe('<CategoryFilter />', () => {
       it('should create N .category-filter components');
+      it('should execute selectFilter() when user selects a filter');
+      it('should update state tree after selectFilter() is called');
     });
   });
 
@@ -24,16 +39,16 @@ describe('<Roadmap />', () => {
     describe('<Feature />', () => {
       it('should create N .feature components');
 
-      describe('<Category />', () => {
-        it('should create one .category component per .feature');
+      describe('<FeatureCategory />', () => {
+        it('should create one .feature-category component per .feature');
       });
 
-      describe('<Likes />', () => {
-        it('should create one .likes component per .feature');
+      describe('<FeatureLikes />', () => {
+        it('should create one .feature-likes component per .feature');
       });
 
-      describe('<FeatureDetail />', () => {
-        it('should create one .feature-detail component per .feature');
+      describe('<FeatureTitle />', () => {
+        it('should create one .feature-title component per .feature');
       });
     });
   });

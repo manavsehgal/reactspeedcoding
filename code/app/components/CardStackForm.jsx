@@ -2,7 +2,7 @@ import React from 'react';
 
 import Card from './Card.jsx';
 
-function CardStackForm() {
+const CardStackForm = () => {
   const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit u-textCenter';
   return (
     <div>
@@ -33,6 +33,6 @@ function CardStackForm() {
       </div>
     </div>
   );
-}
+};
 
 export default CardStackForm;

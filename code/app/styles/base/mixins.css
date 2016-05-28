@@ -10,3 +10,9 @@
     text-decoration: none;
   }
 }
+
+@define-mixin colorize-badge $bg {
+  color: $(bg);
+  background: white;
+  border: 1px solid color($(bg) shade(10%));
+}
