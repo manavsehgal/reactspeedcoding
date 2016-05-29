@@ -18,7 +18,7 @@ export default class NavLinks extends React.Component {
       ? '' : `${renderClass} + active`;
 
     return (
-      <li className="grid-cell">
+      <li className="grid-cell auto-size">
         {
           this.props.to
           ? <Link

@@ -13,18 +13,18 @@ class Sidebar extends React.Component {
     const data = this.props.data;
     return (
       <nav className="holygrail-nav u-textCenter">
-        <NavigationSidebar />
-        {
-          (data && data.messages)
-            ? data.messages.map((message, i) => <p key={i}>{message}</p>)
-            : ''
-        }
         {
           (data && data.promoButton)
             ? <a
               href={data.promoButton.url}
               className="button success"
             >{data.promoButton.label}</a>
+            : ''
+        }
+        <NavigationSidebar />
+        {
+          (data && data.messages)
+            ? data.messages.map((message, i) => <p key={i}>{message}</p>)
             : ''
         }
         {this.props.children}
