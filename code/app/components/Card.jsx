@@ -10,7 +10,7 @@ const Card = (props) => {
     ? `grid-cell ${props.className}` : 'grid-cell';
 
   return (
-    <div className={gridClass}>
+    <div onClick={props.onClick} className={gridClass}>
       <div className={cardClass}>
         {props.children}
       </div>
@@ -22,7 +22,8 @@ Card.propTypes = {
   className: PropTypes.string,
   message: PropTypes.bool,
   children: PropTypes.node,
-  slim: PropTypes.bool
+  slim: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default Card;

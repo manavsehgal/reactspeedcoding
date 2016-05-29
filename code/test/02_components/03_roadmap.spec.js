@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import store from '../../app/store/roadmap';
 import { shallow, render } from 'enzyme';
 import * as actions from '../../app/actions/roadmap';
-import Roadmap from '../../app/components/Roadmap.jsx';
+import Roadmap from '../../app/components/Roadmap';
 
 describe('<Roadmap />', () => {
   it('should create one .roadmap component', () => {
@@ -14,10 +14,7 @@ describe('<Roadmap />', () => {
   });
 
   describe('<SearchFilter />', () => {
-    it('should create one .search-filter control', () => {
-      const wrapper = render(<Roadmap />);
-      expect(wrapper.find('.search-filter')).to.have.length(1);
-    });
+    it('should create one .search-filter component');
 
     describe('<FeatureSearch />', () => {
       it('should create one .feature-search component');
@@ -34,21 +31,39 @@ describe('<Roadmap />', () => {
   });
 
   describe('<FeatureList />', () => {
-    it('should create one .feature-list component');
+    it('should create one .feature-list component', () => {
+      const wrapper = render(<Roadmap />);
+      expect(wrapper.find('.feature-list')).to.have.length(1);
+    });
+    it('should create N .feature components', () => {
+      const wrapper = render(<Roadmap />);
+      expect(wrapper.find('.feature')).to.have.length.above(2);
+    });
 
     describe('<Feature />', () => {
-      it('should create N .feature components');
-
-      describe('<FeatureCategory />', () => {
-        it('should create one .feature-category component per .feature');
+      it('should create at least one .feature component', () => {
+        const wrapper = render(<Roadmap />);
+        expect(wrapper.find('.feature')).to.have.length.above(1);
+      });
+      describe('Feature Category', () => {
+        it('should create at least one .feature-category control', () => {
+          const wrapper = render(<Roadmap />);
+          expect(wrapper.find('.feature-category')).to.have.length.above(1);
+        });
       });
 
-      describe('<FeatureLikes />', () => {
-        it('should create one .feature-likes component per .feature');
+      describe('Feature Likes', () => {
+        it('should create at least one .feature-likes control', () => {
+          const wrapper = render(<Roadmap />);
+          expect(wrapper.find('.feature-likes')).to.have.length.above(1);
+        });
       });
 
-      describe('<FeatureTitle />', () => {
-        it('should create one .feature-title component per .feature');
+      describe('Feature Detail', () => {
+        it('should create at least one .feature-detail control', () => {
+          const wrapper = render(<Roadmap />);
+          expect(wrapper.find('.feature-detail')).to.have.length.above(1);
+        });
       });
     });
   });

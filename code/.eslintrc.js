@@ -16,6 +16,7 @@ module.exports = {
     "react"
   ],
   "rules": {
+    "no-console": "warn",
     "comma-dangle": [
       "warn",
       "never"

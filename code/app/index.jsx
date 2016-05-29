@@ -10,9 +10,12 @@ import CardStackMedia from './components/CardStackMedia.jsx';
 import CardStackButton from './components/CardStackButton.jsx';
 import CardStackForm from './components/CardStackForm.jsx';
 import MissingRoute from './components/MissingRoute.jsx';
-import Roadmap from './components/Roadmap.jsx';
+import Roadmap from './components/Roadmap';
+import roadmapHydrate from './fixtures/roadmap/roadmapHydrate';
 
 import { Route, Router, IndexRoute, browserHistory } from 'react-router';
+
+roadmapHydrate();
 
 ReactDOM.render(
   <Router history={browserHistory}>

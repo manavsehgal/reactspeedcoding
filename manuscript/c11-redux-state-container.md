@@ -593,7 +593,7 @@ the test suite defined earlier to ensure all tests are passing.
 
 {pagebreak}
 
-## Component specification
+## Component hierarchy specification
 
 Just like the spec we wrote earlier, let us write the component specification for
 our Roadmap app.
@@ -692,7 +692,7 @@ as additional ```it``` spec statements.
 
 {pagebreak}
 
-## Component hierarchy reuse
+## Rapid prototype component hierarchy
 
 Like real-world apps, as our repository of components grows, we should be creating
 new functionality by mixing existing components, refactoring them for new use cases.
@@ -793,11 +793,385 @@ using Hot Module Replacement.
 We are using dummy data as the components are not yet wired to our Redux app.
 
 Note that we are using same class identifiers as defined in our test suite spec.
-If we implement our test suite now, it should run most of the tests just fine.
+We can start implementing some of our test suite now.
+
+{title="03_roadmap.spec.js implement a test", lang=javascript}
+~~~~~~~
+it('should create one .roadmap component', () => {
+  const wrapper = shallow(<Roadmap />);
+  expect(wrapper.is('.roadmap')).to.equal(true);
+});
+~~~~~~~
 
 Once we are relatively satisfied with our UI prototype, we can further optimize
 our component hierarchy by extracting Roadmap app components into separate files
-and start wiring our Redux actions, reducers, and store.
+before we start wiring our Redux actions, reducers, and store.
+
+{pagebreak}
+
+## Fixture data for prototype and Redux app
+
+As we extract components we may want to feed actual data into the components to
+continue prototyping our app before we connect the Redux store.
+
+We will define our fixture data in such a manner that it conforms to our component
+shape (or schema) and at the same time it can be reused later on to hydrate
+(or initialize) our Redux store.
+
+{title="/app/fixtures/roadmap/features.js", lang=javascript}
+~~~~~~~
+import * as actions from '../../actions/roadmap';
+
+const features = [
+  { id: 1,
+    title: 'Roadmap',
+    about: `The app implements a features roadmap for ReactSpeed.
+    The app is built using Redux and available live on ReactSpeed website.`,
+    category: actions.Categories.APP,
+    likes: 3
+  },
+  { id: 2,
+    title: 'Navigation',
+    about: `This component renders main menu navigation items. It also
+    renders React Router Links as child components.`,
+    category: actions.Categories.COMPONENT,
+    likes: 1
+  },
+  { id: 3,
+    title: 'Test App Components',
+    about: `The chapter discusses ESLint, StyleLint, Browsersync setup using Webpack.
+    It also introduces Behavior-Driven Development using Mocha, Chai, and Enzyme.`,
+    category: actions.Categories.CHAPTER,
+    likes: 15
+  }
+];
+
+export default features;
+~~~~~~~
+
+{pagebreak}
+
+## Extract Feature component
+
+Now we extract the ```Feature``` component based on this shape.
+
+{title="/app/components/Roadmap/Feature.jsx", lang=javascript}
+~~~~~~~
+import React, { PropTypes } from 'react';
+import Card from '../Card.jsx';
+import IconText from '../IconText.jsx';
+import { Categories } from '../../actions/roadmap';
+
+const Feature = ({
+  onClickLikes,
+  onClickFeature,
+  title,
+  about,
+  category,
+  likes }) => {
+  const gridClass = 'grid grid-full grid-flex-cells large-grid-fit';
+  let renderCategory = '';
+  switch (category) {
+  case Categories.COMPONENT:
+    renderCategory = (
+      <div className="badge default medium feature-category">
+        <i className="fa fa-cubes"></i>
+      </div>
+    );
+    break;
+  case Categories.APP:
+    renderCategory = (
+      <div className="badge primary medium feature-category">
+        <i className="fa fa-cloud"></i>
+      </div>
+    );
+    break;
+  case Categories.CHAPTER:
+    renderCategory = (
+      <div className="badge secondary medium feature-category">
+        <i className="fa fa-book"></i>
+      </div>
+    );
+    break;
+  default:
+    renderCategory = '';
+  }
+
+  const renderLikesClass = (likes > 10)
+    ? 'success-text feature-likes' : 'warning-text feature-likes';
+
+  return (
+    <div className={`${gridClass} feature`}>
+      <Card onClick={onClickLikes} slim message>
+        <IconText
+          className={renderLikesClass}
+          icon="heart"
+          size="2x"
+          text={`${likes} likes`}
+          slim
+        />
+      </Card>
+      <Card
+        onClick={onClickFeature}
+        className="u-large-2of3 u-med-full u-small-full"
+        slim
+        message
+      >
+        <div className="feature-detail">
+          <b>{title}</b><br />
+          <small>{about}</small>
+        </div>
+      </Card>
+      <Card slim>
+        {renderCategory}
+      </Card>
+    </div>
+  );
+};
+
+Feature.propTypes = {
+  onClickLikes: PropTypes.func.isRequired,
+  onClickFeature: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  about: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired
+};
+
+export default Feature;
+~~~~~~~
+
+We note that the component takes two event handlers as props, one for handling
+click on a feature and another for likes.
+
+We have also added some logic to the component for rendering badges based
+on category of the feature. We also render color for likes icon based on
+number of likes.
+
+{pagebreak}
+
+## Extract FeatureList component
+
+Next we need to create the ```FeatureList``` component to map given features fixture
+and render ```Feature``` components.
+
+{title="/app/components/Roadmap/FeatureList.jsx", lang=javascript}
+~~~~~~~
+import React, { PropTypes } from 'react';
+import Feature from './Feature';
+
+const FeatureList = ({ features, onClickFeature, onClickLikes }) => (
+  <div className="feature-list">
+    {features.map(feature =>
+      <Feature
+        key={feature.id}
+        {...feature}
+        onClickFeature={() => onClickFeature(feature.id)}
+        onClickLikes={() => onClickLikes(feature.id)}
+      />
+    )}
+  </div>
+);
+
+FeatureList.propTypes = {
+  features: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    about: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    likes: PropTypes.number.isRequired
+  }).isRequired).isRequired,
+  onClickFeature: PropTypes.func.isRequired,
+  onClickLikes: PropTypes.func.isRequired
+};
+
+export default FeatureList;
+~~~~~~~
+
+This component passes the event handlers with feature id parameter. We use the
+object spread operator ```{...feature}``` to pass on the remaining props.
+It also defines expected shape of the features prop.
+
+{pagebreak}
+
+## Refactoring Roadmap app
+
+Now that we have started developing Roadmap specific components, it is time to
+refactor our app to its own folder. Creating Roadmap folder named after the
+root component for our app means we can rename ```Roadmap.jsx``` to ```index.jsx``` within
+this folder.
+
+Our app code now reduces to just rendering the FeaturesList component while passing
+it the fixtures data on features.
+
+{title="/app/components/Roadmap/index.jsx", lang=javascript}
+~~~~~~~
+import React from 'react';
+
+import Card from '../Card.jsx';
+import features from '../../fixtures/roadmap/features';
+import FeatureList from './FeatureList';
+
+const Roadmap = () => {
+  const featureClick = (id) => {
+    // to be implemented
+    console.log(`featureClick id = ${id}`);
+  };
+
+  const likesClick = (id) => {
+    // to be implemented
+    console.log(`likesClick id = ${id}`);
+  };
+
+  const gridClass = 'grid grid-full grid-flex-cells large-grid-fit';
+  return (
+    <div className="roadmap">
+      <h1>Roadmap</h1>
+      <div className={`${gridClass} search-filter`}>
+        <Card slim>
+          <div className="input slim feature-search">
+            <span className="input-label">Search</span>
+            <input className="input-field" placeholder="Enter feature name" />
+          </div>
+        </Card>
+        <Card slim>
+          <button className="button default medium category-filter">
+            <i className="fa fa-cubes"></i>
+          </button>
+          <button className="button primary medium category-filter">
+            <i className="fa fa-cloud"></i>
+          </button>
+          <button className="button secondary medium category-filter">
+            <i className="fa fa-book"></i>
+          </button>
+        </Card>
+      </div>
+      <FeatureList
+        features={features}
+        onClickFeature={featureClick}
+        onClickLikes={likesClick}
+      />
+    </div>
+  );
+};
+
+export default Roadmap;
+~~~~~~~
+
+We also create placeholder event handlers ```featureClick``` and ```likesClick```
+within our ```Roadmap``` component, passing these as props to the ```FeaturesList``` component.
+
+Once we are done with this refactoring we can run our app and see the app render
+with the fixtures data.
+
+We can continue implementing our tests to match the components we have created.
+
+{title="003_roadmap.spec.js", lang=javascript}
+~~~~~~~
+// imports code...
+
+describe('<Roadmap />', () => {
+  it('should create one .roadmap component', () => {
+    const wrapper = shallow(<Roadmap />);
+    expect(wrapper.is('.roadmap')).to.equal(true);
+  });
+
+  describe('<SearchFilter />', () => {
+    it('should create one .search-filter component');
+
+    describe('<FeatureSearch />', () => {
+      it('should create one .feature-search component');
+      it('should initialize default value for searchText');
+      it('should execute enterSearch() when user presses Enter in search box');
+      it('should update state tree after enterSearch() is called');
+    });
+
+    describe('<CategoryFilter />', () => {
+      it('should create N .category-filter components');
+      it('should execute selectFilter() when user selects a filter');
+      it('should update state tree after selectFilter() is called');
+    });
+  });
+
+  describe('<FeatureList />', () => {
+    it('should create one .feature-list component', () => {
+      const wrapper = render(<Roadmap />);
+      expect(wrapper.find('.feature-list')).to.have.length(1);
+    });
+    it('should create N .feature components', () => {
+      const wrapper = render(<Roadmap />);
+      expect(wrapper.find('.feature')).to.have.length.above(2);
+    });
+
+    describe('<Feature />', () => {
+      it('should create at least one .feature component', () => {
+        const wrapper = render(<Roadmap />);
+        expect(wrapper.find('.feature')).to.have.length.above(1);
+      });
+      describe('Feature Category', () => {
+        it('should create at least one .feature-category control', () => {
+          const wrapper = render(<Roadmap />);
+          expect(wrapper.find('.feature-category')).to.have.length.above(1);
+        });
+      });
+
+      describe('Feature Likes', () => {
+        it('should create at least one .feature-likes control', () => {
+          const wrapper = render(<Roadmap />);
+          expect(wrapper.find('.feature-likes')).to.have.length.above(1);
+        });
+      });
+
+      describe('Feature Detail', () => {
+        it('should create at least one .feature-detail control', () => {
+          const wrapper = render(<Roadmap />);
+          expect(wrapper.find('.feature-detail')).to.have.length.above(1);
+        });
+      });
+    });
+  });
+});
+
+// other test code...
+~~~~~~~
+
+As we run the test we will see more tests passing.
+
+{title="Terminal output of roadmap test suite", lang=text}
+~~~~~~~
+...
+  <Roadmap />
+    - should create one .roadmap component
+    <SearchFilter />
+      - should create one .search-filter component
+      <FeatureSearch />
+        - should create one .feature-search component
+        - should initialize default value for searchText
+        - should execute enterSearch() when user presses Enter in search box
+        - should update state tree after enterSearch() is called
+      <CategoryFilter />
+        - should create N .category-filter components
+        - should execute selectFilter() when user selects a filter
+        - should update state tree after selectFilter() is called
+    <FeatureList />
+      - should create one .feature-list component
+      - should create N .feature components
+      <Feature />
+        - should create at least one .feature component
+        Feature Category
+          - should create at least one .feature-category control
+        Feature Likes
+          - should create at least one .feature-likes control
+        Feature Detail
+          - should create at least one .feature-detail control
+
+...
+
+  24 passing (208ms)
+  11 pending
+~~~~~~~
+
+
 
 I> ## Chapter In Progress
 I> We are still writing this chapter. Please watch this space for updates.

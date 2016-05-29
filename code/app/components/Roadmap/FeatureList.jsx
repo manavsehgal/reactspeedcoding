@@ -1,0 +1,29 @@
+import React, { PropTypes } from 'react';
+import Feature from './Feature';
+
+const FeatureList = ({ features, onClickFeature, onClickLikes }) => (
+  <div className="feature-list">
+    {features.map(feature =>
+      <Feature
+        key={feature.id}
+        {...feature}
+        onClickFeature={() => onClickFeature(feature.id)}
+        onClickLikes={() => onClickLikes(feature.id)}
+      />
+    )}
+  </div>
+);
+
+FeatureList.propTypes = {
+  features: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    about: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    likes: PropTypes.number.isRequired
+  }).isRequired).isRequired,
+  onClickFeature: PropTypes.func.isRequired,
+  onClickLikes: PropTypes.func.isRequired
+};
+
+export default FeatureList;
