@@ -26,7 +26,7 @@ const SiteData = {
 
       promoButton: {
         url: 'https://leanpub.com/reactspeedcoding',
-        label: 'Read React Speed Coding'
+        label: 'Read ReadSpeed Book'
       }
     }
   },

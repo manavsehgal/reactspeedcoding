@@ -10,8 +10,11 @@ const Navigation = () => (
     <NavLink className="navigation-link" href="https://github.com/manavsehgal/reactspeedcoding">
       <i className="fa fa-github"></i> Code
     </NavLink>
-    <NavLink className="navigation-link" to="/blog">
+    <NavLink className="navigation-link" href="https://medium.com/reactspeed">
       <i className="fa fa-comments"></i> Blog
+    </NavLink>
+    <NavLink className="navigation-link" to="/blog">
+      <i className="fa fa-newspaper-o"></i> News
     </NavLink>
   </ul>
 );

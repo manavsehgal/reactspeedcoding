@@ -19,6 +19,7 @@ const Roadmap = () => {
   return (
     <div className="roadmap">
       <h1>Roadmap</h1>
+      <p className="default-text">Note: This app is work-in-progress.</p>
       <div className={`${gridClass} search-filter`}>
         <Card slim>
           <div className="input slim feature-search">

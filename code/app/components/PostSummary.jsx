@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 const PostSummary = ({ posts }) => (
   <div>
-    <h1>ReactSpeed Blog</h1>
+    <h1>ReactSpeed News</h1>
     <div className="grid grid-gutters grid-full grid-flex-cells large-grid-fit">
       {posts.map(post =>
         <Card key={post.id}>
