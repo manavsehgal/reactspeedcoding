@@ -3,6 +3,7 @@ import React from 'react';
 import Card from '../Card.jsx';
 import VisibleFeatureList from './VisibleFeatureList';
 import FilterCategoryButton from './FilterCategoryButton';
+import SearchFeature from './SearchFeature';
 import { CategoryFilters } from '../../actions/roadmap';
 
 const Roadmap = () => {
@@ -13,10 +14,7 @@ const Roadmap = () => {
       <p className="default-text">Note: This app is work-in-progress.</p>
       <div className={`${gridClass} search-filter`}>
         <Card slim>
-          <div className="input slim feature-search">
-            <span className="input-label">Search</span>
-            <input className="input-field" placeholder="Enter feature name" />
-          </div>
+          <SearchFeature />
         </Card>
         <Card slim>
           <FilterCategoryButton filter={CategoryFilters.SHOW_ALL} />

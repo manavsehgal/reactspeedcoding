@@ -17,19 +17,31 @@ describe('<Roadmap />', () => {
   });
 
   describe('<SearchFilter />', () => {
-    it('should create one .search-filter component');
+    it('should create one .search-filter component', () => {
+      const wrapper = render(<Provider store={store}><Roadmap /></Provider>);
+      expect(wrapper.find('.search-filter')).to.have.length(1);
+    });
 
-    describe('<FeatureSearch />', () => {
-      it('should create one .feature-search component');
-      it('should initialize default value for searchText');
-      it('should execute enterSearch() when user presses Enter in search box');
-      it('should update state tree after enterSearch() is called');
+    describe('<SearchFeature />', () => {
+      it('should create one .feature-search component', () => {
+        const wrapper = render(<Provider store={store}><Roadmap /></Provider>);
+        expect(wrapper.find('.feature-search')).to.have.length(1);
+      });
+      it('should initialize default value for searchText', () => {
+        expect(store.getState().searchText)
+          .to.equal('');
+      });
+      it('should execute onChange() when user presses key in search box');
+      it('should update state tree after onChange() is called in search field');
     });
 
     describe('<CategoryFilter />', () => {
-      it('should create N .category-button components');
-      it('should execute selectFilter() when user selects a filter');
-      it('should update state tree after selectFilter() is called');
+      it('should create N .category-button components', () => {
+        const wrapper = render(<Provider store={store}><Roadmap /></Provider>);
+        expect(wrapper.find('.category-button')).to.have.length(4);
+      });
+      it('should execute setCategoryFilter() when user selects a filter');
+      it('should update state tree after setCategoryFilter() is called');
     });
   });
 

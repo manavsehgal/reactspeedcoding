@@ -1571,8 +1571,93 @@ and about states. We have done this change as we moved from prototype to test su
 implementation. This is how we evolve apps in the real-world as well. One component at a time.
 One state at a time. One test at a time. You get the idea.
 
-In next update we can continue developing our Roadmap app further by connecting the feature search with
+{pagebreak}
+
+## SearchFeature component
+
+Let us continue developing our Roadmap app further by connecting the feature search with
 the Redux store and actions.
+
+{title="/app/components/Roadmap/SearchFeature.jsx", lang=javascript}
+~~~~~~~
+import React from 'react';
+import { connect } from 'react-redux';
+import { setSearchText } from '../../actions/roadmap';
+
+let SearchFeature = ({ dispatch }) => ( // eslint-disable-line no-mutable-exports
+  <div className="input slim feature-search">
+    <span className="input-label">Search</span>
+    <input
+      onChange={e => {
+        e.preventDefault();
+        dispatch(setSearchText(e.target.value.trim()));
+      }}
+      className="input-field"
+      placeholder="Enter feature name"
+    />
+  </div>
+);
+SearchFeature = connect()(SearchFeature);
+
+export default SearchFeature;
+~~~~~~~
+
+We need to modify ```VisibleFeatureList``` to enable search. The way search
+will work is searched features will constrain the category filter. So
+if user has a filter already selected, search matching outside that filter
+will negate visible features based on the filter.
+
+{title="/app/components/Roadmap/VisibleFeatureList.jsx", lang=javascript}
+~~~~~~~
+import { connect } from 'react-redux';
+import * as actions from '../../actions/roadmap';
+import FeatureList from './FeatureList';
+
+const getVisibleFeatures = (features, filter, search) => {
+  let searchedFeatures = features;
+  if (search) {
+    searchedFeatures = features
+      .filter(
+        f => `${f.title} ${f.about}`
+          .toLowerCase().includes(search.toLowerCase())
+      );
+  }
+
+  switch (filter) {
+  case actions.CategoryFilters.SHOW_ALL:
+    return searchedFeatures;
+  case actions.CategoryFilters.SHOW_APPS:
+    return searchedFeatures.filter(f => f.category === actions.Categories.APP);
+  case actions.CategoryFilters.SHOW_COMPONENTS:
+    return searchedFeatures.filter(f => f.category === actions.Categories.COMPONENT);
+  case actions.CategoryFilters.SHOW_CHAPTERS:
+    return searchedFeatures.filter(f => f.category === actions.Categories.CHAPTER);
+  default:
+    return searchedFeatures;
+  }
+};
+
+const mapStateToProps = (state) => ({
+  features: getVisibleFeatures(state.features, state.categoryFilter, state.searchText)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onClickLikes: (id) => {
+    dispatch(actions.likeFeature(id));
+  }
+});
+
+const VisibleFeatureList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FeatureList);
+
+export default VisibleFeatureList;
+~~~~~~~
+
+Once our Redux app is connected, adding new features is rapid incremental change
+to our existing code.
+
 
 [1]: https://github.com/facebook/immutable-js
 [2]: http://guide.elm-lang.org/architecture/index.html
