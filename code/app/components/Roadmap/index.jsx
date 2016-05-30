@@ -1,20 +1,11 @@
 import React from 'react';
 
 import Card from '../Card.jsx';
-import features from '../../fixtures/roadmap/features';
-import FeatureList from './FeatureList';
+import VisibleFeatureList from './VisibleFeatureList';
+import FilterCategoryButton from './FilterCategoryButton';
+import { CategoryFilters } from '../../actions/roadmap';
 
 const Roadmap = () => {
-  const featureClick = (id) => {
-    // to be implemented
-    console.log(`featureClick id = ${id}`);
-  };
-
-  const likesClick = (id) => {
-    // to be implemented
-    console.log(`likesClick id = ${id}`);
-  };
-
   const gridClass = 'grid grid-full grid-flex-cells large-grid-fit';
   return (
     <div className="roadmap">
@@ -28,22 +19,13 @@ const Roadmap = () => {
           </div>
         </Card>
         <Card slim>
-          <button className="button default medium category-filter">
-            <i className="fa fa-cubes"></i>
-          </button>
-          <button className="button primary medium category-filter">
-            <i className="fa fa-cloud"></i>
-          </button>
-          <button className="button secondary medium category-filter">
-            <i className="fa fa-book"></i>
-          </button>
+          <FilterCategoryButton filter={CategoryFilters.SHOW_ALL} />
+          <FilterCategoryButton filter={CategoryFilters.SHOW_APPS} />
+          <FilterCategoryButton filter={CategoryFilters.SHOW_CHAPTERS} />
+          <FilterCategoryButton filter={CategoryFilters.SHOW_COMPONENTS} />
         </Card>
       </div>
-      <FeatureList
-        features={features}
-        onClickFeature={featureClick}
-        onClickLikes={likesClick}
-      />
+      <VisibleFeatureList />
     </div>
   );
 };

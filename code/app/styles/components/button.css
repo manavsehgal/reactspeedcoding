@@ -12,6 +12,10 @@
   white-space: nowrap;
   user-select: none;
 
+  &.disabled {
+    cursor: default;
+  }
+
   &:focus {
     outline: none;
     text-decoration: none;

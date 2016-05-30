@@ -6,6 +6,9 @@ import store from '../../app/store/roadmap';
 import { shallow, render } from 'enzyme';
 import * as actions from '../../app/actions/roadmap';
 import Roadmap from '../../app/components/Roadmap';
+import { Provider } from 'react-redux';
+import roadmapHydrate from '../../app/fixtures/roadmap/roadmapHydrate';
+roadmapHydrate();
 
 describe('<Roadmap />', () => {
   it('should create one .roadmap component', () => {
@@ -24,7 +27,7 @@ describe('<Roadmap />', () => {
     });
 
     describe('<CategoryFilter />', () => {
-      it('should create N .category-filter components');
+      it('should create N .category-button components');
       it('should execute selectFilter() when user selects a filter');
       it('should update state tree after selectFilter() is called');
     });
@@ -32,36 +35,36 @@ describe('<Roadmap />', () => {
 
   describe('<FeatureList />', () => {
     it('should create one .feature-list component', () => {
-      const wrapper = render(<Roadmap />);
+      const wrapper = render(<Provider store={store}><Roadmap /></Provider>);
       expect(wrapper.find('.feature-list')).to.have.length(1);
     });
     it('should create N .feature components', () => {
-      const wrapper = render(<Roadmap />);
+      const wrapper = render(<Provider store={store}><Roadmap /></Provider>);
       expect(wrapper.find('.feature')).to.have.length.above(2);
     });
 
     describe('<Feature />', () => {
       it('should create at least one .feature component', () => {
-        const wrapper = render(<Roadmap />);
+        const wrapper = render(<Provider store={store}><Roadmap /></Provider>);
         expect(wrapper.find('.feature')).to.have.length.above(1);
       });
       describe('Feature Category', () => {
         it('should create at least one .feature-category control', () => {
-          const wrapper = render(<Roadmap />);
+          const wrapper = render(<Provider store={store}><Roadmap /></Provider>);
           expect(wrapper.find('.feature-category')).to.have.length.above(1);
         });
       });
 
       describe('Feature Likes', () => {
         it('should create at least one .feature-likes control', () => {
-          const wrapper = render(<Roadmap />);
+          const wrapper = render(<Provider store={store}><Roadmap /></Provider>);
           expect(wrapper.find('.feature-likes')).to.have.length.above(1);
         });
       });
 
       describe('Feature Detail', () => {
         it('should create at least one .feature-detail control', () => {
-          const wrapper = render(<Roadmap />);
+          const wrapper = render(<Provider store={store}><Roadmap /></Provider>);
           expect(wrapper.find('.feature-detail')).to.have.length.above(1);
         });
       });
@@ -71,27 +74,34 @@ describe('<Roadmap />', () => {
 
 describe('Roadmap Redux', () => {
   it('should get initial state for store', () => {
-    expect(store.getState().features.length).to.equal(0);
+    expect(store.getState().features.length).to.be.above(2);
     expect(store.getState().categoryFilter)
       .to.equal(actions.CategoryFilters.SHOW_ALL);
     expect(store.getState().searchText)
       .to.equal('');
   });
-  it('should add first feature of COMPONENT category', () => {
+  it('should add fourth feature of COMPONENT category', () => {
     store.dispatch(
-      actions.addFeature('New Component Feature', actions.Categories.COMPONENT)
+      actions.addFeature(
+        4,
+        'New Component Feature',
+        'About new component feature',
+        actions.Categories.COMPONENT,
+        3,
+        'https://reactspeed.com'
+      )
     );
-    expect(store.getState().features.length).to.equal(1);
-    expect(store.getState().features[0].category)
+    expect(store.getState().features.length).to.be.above(3);
+    expect(store.getState().features[3].category)
       .to.equal(actions.Categories.COMPONENT);
   });
-  it('should initialize first feature with default state', () => {
-    expect(store.getState().features[0].likes).to.equal(0);
+  it('should initialize fourth feature with 3 likes', () => {
+    expect(store.getState().features[3].likes).to.equal(3);
   });
-  it('should increment likes count for first feature', () => {
-    store.dispatch(actions.likeFeature(0)); // likes = 1
-    store.dispatch(actions.likeFeature(0)); // likes = 2
-    expect(store.getState().features[0].likes).to.equal(2);
+  it('should increment likes count for fourth feature', () => {
+    store.dispatch(actions.likeFeature(4)); // likes = 4
+    store.dispatch(actions.likeFeature(4)); // likes = 5
+    expect(store.getState().features[3].likes).to.equal(5);
   });
   it('should set a new categoryFilter', () => {
     expect(store.getState().categoryFilter)
@@ -100,22 +110,6 @@ describe('Roadmap Redux', () => {
       .setCategoryFilter(actions.CategoryFilters.SHOW_COMPONENTS));
     expect(store.getState().categoryFilter)
       .to.equal(actions.CategoryFilters.SHOW_COMPONENTS);
-  });
-  it('should add second feature of CHAPTER category', () => {
-    store.dispatch(
-      actions.addFeature('Second Chapter Feature', actions.Categories.CHAPTER)
-    );
-    expect(store.getState().features.length).to.equal(2);
-    expect(store.getState().features[1].category)
-      .to.equal(actions.Categories.CHAPTER);
-  });
-  it('should add third feature of APP category', () => {
-    store.dispatch(
-      actions.addFeature('Third App Feature', actions.Categories.APP)
-    );
-    expect(store.getState().features.length).to.equal(3);
-    expect(store.getState().features[2].category)
-      .to.equal(actions.Categories.APP);
   });
   it('should set new search text', () => {
     expect(store.getState().searchText)

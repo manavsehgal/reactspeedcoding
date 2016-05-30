@@ -5,11 +5,11 @@ import { Categories } from '../../actions/roadmap';
 
 const Feature = ({
   onClickLikes,
-  onClickFeature,
   title,
   about,
   category,
-  likes }) => {
+  likes,
+  link }) => {
   const gridClass = 'grid grid-full grid-flex-cells large-grid-fit';
   let renderCategory = '';
   switch (category) {
@@ -53,13 +53,11 @@ const Feature = ({
         />
       </Card>
       <Card
-        onClick={onClickFeature}
         className="u-large-2of3 u-med-full u-small-full"
         slim
-        message
       >
         <div className="feature-detail">
-          <b>{title}</b><br />
+          <b><a href={link}>{title}</a></b><br />
           <small>{about}</small>
         </div>
       </Card>
@@ -72,11 +70,11 @@ const Feature = ({
 
 Feature.propTypes = {
   onClickLikes: PropTypes.func.isRequired,
-  onClickFeature: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   about: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  likes: PropTypes.number.isRequired
+  likes: PropTypes.number.isRequired,
+  link: PropTypes.string.isRequired
 };
 
 export default Feature;

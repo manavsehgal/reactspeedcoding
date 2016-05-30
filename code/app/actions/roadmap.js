@@ -13,7 +13,8 @@ export const SEARCH_TEXT = 'SEARCH_TEXT';
 export const CategoryFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPONENTS: 'SHOW_COMPONENTS',
-  SHOW_CHAPTERS: 'SHOW_CHAPTERS'
+  SHOW_CHAPTERS: 'SHOW_CHAPTERS',
+  SHOW_APPS: 'SHOW_APPS'
 };
 
 export const Categories = {
@@ -26,11 +27,16 @@ export const Categories = {
  * action creators
  */
 
-export function addFeature(title, category) {
+export function addFeature(id, title, about, category, likes, link) {
   return {
     type: ADD_FEATURE,
+    id,
+    title,
+    about,
     category,
-    title };
+    likes,
+    link
+  };
 }
 
 export function setCategoryFilter(filter) {
@@ -41,6 +47,6 @@ export function setSearchText(text) {
   return { type: SEARCH_TEXT, text };
 }
 
-export function likeFeature(index) {
-  return { type: LIKE_FEATURE, index };
+export function likeFeature(id) {
+  return { type: LIKE_FEATURE, id };
 }

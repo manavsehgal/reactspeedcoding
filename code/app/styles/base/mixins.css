@@ -2,10 +2,18 @@
   background: $(bg);
   color: white;
   border: 1px solid color($(bg) shade(10%));
+  &.disabled,
+  &.disabled:active,
+  &.disabled:focus,
+  &.disabled:hover {
+    background: color($(bg) tint(60%));
+    border: 1px solid color($(bg) tint(60%));
+    text-decoration: none;
+  }
   &:active,
   &:focus,
   &:hover {
-    background: color($(bg) tint(20%));
+    background: color($(bg) tint(30%));
     border: 1px solid color($(bg) shade(10%));
     text-decoration: none;
   }
