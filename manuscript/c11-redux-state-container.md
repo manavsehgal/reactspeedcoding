@@ -1272,10 +1272,11 @@ CategoryButton.propTypes = {
 export default CategoryButton;
 ~~~~~~~
 
-The container component connects our presentational component properties
+The ```FilterCategoryButton``` container component connects
+our ```CategoryButton``` presentational component properties
 and events with Redux actions, reducers, and store.
 
-{title="/app/components/Roadmap/CategoryButton.jsx", lang=javascript}
+{title="/app/components/Roadmap/FilterCategoryButton.jsx", lang=javascript}
 ~~~~~~~
 import { connect } from 'react-redux';
 import { setCategoryFilter } from '../../actions/roadmap';
@@ -1300,7 +1301,7 @@ const FilterCategoryButton = connect(
 export default FilterCategoryButton;
 ~~~~~~~
 
-Our ```Roadmap``` component has fewer lines of code now.
+Our ```Roadmap``` app has fewer lines of code now.
 
 {title="/app/components/Roadmap/index.jsx", lang=javascript}
 ~~~~~~~
@@ -1389,7 +1390,8 @@ const roadmapHydrate = () => {
 export default roadmapHydrate;
 ~~~~~~~
 
-The subscribe/unsubscribe are only required to log changes to our store.
+The subscribe/unsubscribe are only required to log changes to our store. You
+can and should remove these statements in production mode.
 
 To run our app we need to run hydrate and pass the store to our components.
 
