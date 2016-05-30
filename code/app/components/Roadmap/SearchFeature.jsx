@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { setSearchText } from '../../actions/roadmap';
 
-let SearchFeature = ({ dispatch }) => ( // eslint-disable-line no-mutable-exports
+let SearchFeature = ({ dispatch }) => ( // eslint-disable-line import/no-mutable-exports
   <div className="input slim feature-search">
     <span className="input-label">Search</span>
     <input
@@ -11,10 +11,13 @@ let SearchFeature = ({ dispatch }) => ( // eslint-disable-line no-mutable-export
         dispatch(setSearchText(e.target.value.trim()));
       }}
       className="input-field"
-      placeholder="Enter feature name"
+      placeholder="Feature name or description"
     />
   </div>
 );
 SearchFeature = connect()(SearchFeature);
+SearchFeature.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
 
 export default SearchFeature;
