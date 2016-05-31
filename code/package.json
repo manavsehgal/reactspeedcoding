@@ -14,7 +14,8 @@
     "elint": "eslint . --ext .js --ext .jsx --cache || true",
     "elint:table": "eslint . --ext .js --ext .jsx --cache --format table || true",
     "elint:summary": "eslint . --ext .js --ext .jsx --cache --format 'node_modules/eslint-friendly-formatter' || true",
-    "slint": "stylelint ./app/styles/**/*.css ./app/style.css --syntax scss || true"
+    "slint": "stylelint ./app/styles/**/*.css ./app/style.css --syntax scss || true",
+    "storybook": "start-storybook -p 9001"
   },
   "author": "Manav Sehgal",
   "license": "MIT",
@@ -28,6 +29,7 @@
     "redux": "^3.5.2"
   },
   "devDependencies": {
+    "@kadira/storybook": "^1.28.1",
     "autoprefixer": "^6.3.6",
     "babel-cli": "^6.9.0",
     "babel-core": "^6.5.2",
