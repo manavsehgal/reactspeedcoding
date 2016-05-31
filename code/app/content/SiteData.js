@@ -10,9 +10,9 @@ const SiteData = {
 
   home: {
     header: {
-      message: `Learn JavaScript ES6 React with 25 reusable components,
-      15 ebook chapters.`,
-      subtitle: `Babel. React Hot Loading. React Router. Redux.
+      message: `Learn React with 30+ reusable custom components,
+      15 ebook chapters, and 3 complete apps.`,
+      subtitle: `JavaScript ES6. Babel. React Hot Loading. React Router. Redux.
       PostCSS, FlexBox styling. Firebase database. Webpack packaging.
       Enzyme, Mocha, Chai BDD testing. ESLint and StyleLint. Browsersync.`
     },

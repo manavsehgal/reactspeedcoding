@@ -34,13 +34,105 @@ export default class CardStack extends React.Component {
       <div>
         {!this.props.redirect ? <h1>ReactSpeed UI Components</h1> : ''}
         <div className={gridClass}>
-          <Card><Workflow /></Card>
           <Card>
+            <IconText
+              className="primary-text"
+              icon="cloud"
+              size="4x"
+              text="Three complete React Apps with code and dedicated chapters"
+            />
+          </Card>
+          <Card>
+            <IconText
+              className="default-text"
+              icon="cubes"
+              size="4x"
+              text="Growing library of 30+ reusable custom components"
+            />
+          </Card>
+          <Card>
+            <IconText
+              className="golden-text"
+              icon="rocket"
+              size="4x"
+              text={`Speed optimizations for every aspect of
+                development and production workflow`}
+            />
+          </Card>
+        </div>
+        <div className={gridClass}>
+          <Card slim>
+            <IconText
+              className="success-text"
+              icon="database"
+              size="4x"
+              text={`Multiple data strategies using fixtures, Redux store,
+                real-time database, and AJAX REST APIs`}
+            />
+          </Card>
+        </div>
+        <div className={gridClass}>
+          <Card>
+            <IconText
+              className="warning-text"
+              icon="road"
+              size="4x"
+              text="Roadmap app created using Redux and Enzyme"
+            />
+          </Card>
+          <Card>
+            <IconText
+              className="default-text"
+              icon="github"
+              size="4x"
+              text={`Popular GitHub repository with complete and
+                tested source code`}
+            />
+          </Card>
+          <Card>
+            <IconText
+              className="danger-text"
+              icon="area-chart"
+              size="4x"
+              text="Infographics, charts, and visualization components in progress"
+            />
+          </Card>
+        </div>
+
+        <div className={gridClass}>
+          <Card slim>
             <IconText
               className="warning-text"
               icon="css3"
               size="4x"
               text="ReactSpeed UI is efficient. CSS 4.6KB Gzip, 21KB Minified."
+            />
+          </Card>
+        </div>
+
+        <div className={gridClass}>
+          <Card>
+            <IconText
+              className="danger-text"
+              icon="bug"
+              size="4x"
+              text="Mocha, Chai, Enzyme BDD Testing"
+            />
+          </Card>
+          <Card>
+            <IconText
+              className="primary-text"
+              icon="globe"
+              size="4x"
+              text="Nine Component Creation Strategies"
+            />
+          </Card>
+          <Card>
+            <IconText
+              className="warning-text"
+              icon="database"
+              size="4x"
+              text="Firebase React Integration"
             />
           </Card>
         </div>
@@ -69,23 +161,8 @@ export default class CardStack extends React.Component {
         </div>
 
         <div className={gridClass}>
-          <Card>
-            <IconText
-              className="warning-text"
-              icon="database"
-              size="4x"
-              text="Firebase React Integration"
-            />
-          </Card>
+          <Card><Workflow /></Card>
           <Card><World /></Card>
-          <Card>
-            <IconText
-              className="primary-text"
-              icon="globe"
-              size="4x"
-              text="Nine Component Creation Strategies"
-            />
-          </Card>
         </div>
 
         <div className={gridClass}>
