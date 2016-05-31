@@ -15,7 +15,8 @@
     "elint:table": "eslint . --ext .js --ext .jsx --cache --format table || true",
     "elint:summary": "eslint . --ext .js --ext .jsx --cache --format 'node_modules/eslint-friendly-formatter' || true",
     "slint": "stylelint ./app/styles/**/*.css ./app/style.css --syntax scss || true",
-    "storybook": "start-storybook -p 9001"
+    "storybook": "start-storybook -p 9001 -s ./app/public",
+    "storybuild": "build-storybook -s ./app/public -o ./.storybook/build"    
   },
   "author": "Manav Sehgal",
   "license": "MIT",

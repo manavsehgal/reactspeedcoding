@@ -28,7 +28,15 @@ want to test UI of a complex custom component in isolation, within minimal devel
 like environment. You may want to do this test visually, interacting with the component,
 as you update its design and code.
 
-This is where [Kadira Storybook][2] steps in. You can install this neat tool using NPM.
+This is where [Kadira Storybook][2] steps in. You can find several use cases for the Storybook.
+You can use it to rapidly prototype custom components in isolation of your overall app. You can
+also use the Storybook to create a component library, demo, documentation, generating a static
+version for publishing to your customers and stakeholders. We use Storybook for rapid visual
+testing of custom components as we design these for ReactSpeed website and book.
+
+What we really like about this tool is how well documented it is. Thank you Kadira!
+
+You can install this neat tool using NPM.
 
 ```
 npm i --save-dev @kadira/storybook
@@ -124,12 +132,32 @@ module.exports = {
 ~~~~~~~
 
 Now we can configure package.json to add shortcut script to run Storybook on port 9001.
+This also configures the static assets path that our components may use.
 
 ```
-"storybook": "start-storybook -p 9001"
+"storybook": "start-storybook -p 9001 -s ./app/public"
 ```
 
 Run the storybook with ```npm run storybook``` and view results at ```http://localhost:9001``` address.
+
+You can add any CSS or scripts loaded in our HTML template by creating ```.storybook/head.html``` file
+like so.
+
+```
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+```
+
+Now you can load Font Awesome icons and perform AJAX and other jQuery integration within the custom
+components prototyped using Storybook.
+
+You can also build a static version of your Storybook using following script in package.json.
+
+```
+"storybuild": "build-storybook -s ./app/public -o ./.storybook/build"    
+```
+
+The static version can be served from any HTTP/file server including Firebase static hosting or GitHub Pages.
 
 
 [1]: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en

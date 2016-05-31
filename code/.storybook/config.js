@@ -3,7 +3,8 @@ import '../app/style.css';
 
 function loadStories() {
   require('../app/stories/button');
-  require('../app/stories/workflow');
+  require('../app/stories/Workflow');
+  require('../app/stories/PostSummary');
   // require as many stories as you need.
 }
 
