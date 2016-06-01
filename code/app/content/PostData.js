@@ -1,5 +1,14 @@
 const PostData = [
   {
+    id: 5,
+    title: 'React Component Design Workflow Periodic Table',
+    slug: 'periodic-table',
+    summary: `Provides a linear learning path to almost entire React ecosystem.
+    It organizes the entire React component design workflow in one place.`,
+    image: '/img/reactspeed-component-design-workflow.jpg',
+    thumb: '/img/reactspeed-component-design-workflow-t.jpg'
+  },
+  {
     id: 4,
     title: 'Routing Component Layouts New Chapter',
     slug: 'routing-component-layouts-new-chapter',

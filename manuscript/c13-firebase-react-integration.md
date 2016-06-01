@@ -189,13 +189,6 @@ A> This section is elaborating an answer by the author to a question on Quora.
 
 **Large binary file processing.** If you are creating an image processing app, or a an online video post-processing tool, Firebase does not have much to offer in terms of shifting large binary files or processing these on the server side.
 
-
-I> ## Chapter In Progress
-I> We are still writing this chapter. Please watch this space for updates.
-I> Plan is to add examples for wiring up our React Speed UI components with Firebase
-I> as real-time database, add user authentication, determine security rules,
-I> review hosting optimizations, among other actions.
-
 [1]: https://www.firebase.com/pricing.html
 [2]: https://www.meteor.com/why-meteor/pricing
 [3]: https://www.compose.io/
