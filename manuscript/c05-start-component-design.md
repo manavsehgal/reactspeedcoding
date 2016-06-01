@@ -1,4 +1,4 @@
-# Start Component Design (S)
+# Start Component Design
 
 If the blank, dark code editor window is staring back at you, do not despair. We will run through five
 different ways you can get started building your components in React!
@@ -16,7 +16,7 @@ Here is what you will learn in this chapter along with sample code.
 
 {pagebreak}
 
-## Sample to React (Ss)
+## Sample to React
 
 You may want to start with an existing single page sample
 available on Github or on one of the tutorial websites. Normally this is accompanied
@@ -254,7 +254,7 @@ and addition of ```CardStack``` component capabilities.
 
 {pagebreak}
 
-## Embed to React (Se)
+## Embed to React
 
 Many web platforms like Youtube, Flickr, and Twitter offer embed APIs to easily
 integrate their platform features into your app.
@@ -351,7 +351,7 @@ on GitHub for [LeanPub.jsx][5] here.
 
 {pagebreak}
 
-## CSS libraries to React (Sc)
+## CSS libraries to React
 
 There are some very good CSS libraries and frameworks available which can speed up our React development.
 
@@ -492,7 +492,7 @@ of the CSS library elements within component code.
 
 {pagebreak}
 
-## API to React (Sa)
+## API to React
 
 You may want to integrate with an API from the multitude of web service providers.
 Normally API integration is left to the backend code for authentication,
@@ -625,7 +625,7 @@ the ```repo``` property.
 
 {pagebreak}
 
-## Wireframe to React (Sw)
+## Wireframe to React
 
 Sometimes you want to start your component design journey with a basic wireframe.
 A "boxes and arrows" wireframe is a good start for thinking about React component composition.

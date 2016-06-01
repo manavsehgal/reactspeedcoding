@@ -1,4 +1,4 @@
-# Redux State Container (X)
+# Redux State Container
 
 When designing React apps, UI state becomes an important concern. How state is managed
 across your component hierarchy during your app lifecycle gets complex fast as

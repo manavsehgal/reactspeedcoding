@@ -1,4 +1,4 @@
-# Define Component Internals (D)
+# Define Component Internals
 
 This chapter does a deep dive into best practices for defining your React component internals.
 We will add naming conventions to our best practice guidance, mostly following three sources.
@@ -14,21 +14,21 @@ the guidelines and strategies for designing component internals.
 
 You will learn following concepts in this chapter.
 
-- Naming files, folders, and modules (Df)
-- Imports and exports (Di)
-- Stateless components and pure functions (Dp)
-- Classes and inheritance (Dc)
-- Constructor and binding (Db)
-- Properties and property types (Dt)
-- State management (Ds)
-- Lifecycle methods (Dl)
-- Event handlers (De)
-- Render and ReactDOM.render methods (Dr)
-- JSX features and syntax (Dj)
+- Naming files, folders, and modules.
+- Imports and exports.
+- Stateless components and pure functions.
+- Classes and inheritance.
+- Constructor and binding.
+- Properties and property types.
+- State management.
+- Lifecycle methods.
+- Event handlers.
+- Render and ReactDOM.render methods.
+- JSX features and syntax.
 
 {pagebreak}
 
-## Naming files, folders, and modules (Df)
+## Naming files, folders, and modules
 
 This section outlines strategies for organizing and naming files, folders, and modules, within
 your React app.
@@ -46,7 +46,7 @@ your React app.
 
 {pagebreak}
 
-## Imports and exports (Di)
+## Imports and exports
 
 A> Note that import and export of modules is an ES6 feature.
 
@@ -84,7 +84,7 @@ export default function YouTube(props) {...
 
 {pagebreak}
 
-## Stateless components and pure functions (Dp)
+## Stateless components and pure functions
 
 - If there are no states or refs then prefer normal functions over classes.
 - Multiple stateless components are allowed per file.
@@ -102,7 +102,7 @@ export default function YouTube({videoid}) {...
 
 {pagebreak}
 
-## Classes and inheritance (Dc)
+## Classes and inheritance
 
 Classes are introduced in ES6 syntax for defining React components.
 
@@ -135,7 +135,7 @@ handleNameChange(event) {
 
 {pagebreak}
 
-## Constructor and binding (Db)
+## Constructor and binding
 
 Constructors are a feature of ES6 classes. Constructor methods are called once per instance of a component.
 
@@ -156,7 +156,7 @@ constructor(props) {
 
 {pagebreak}
 
-## Properties and property types (Dt)
+## Properties and property types
 
 Defining property types makes your code more reliable.
 
@@ -213,7 +213,7 @@ Using propTypes and defaultProps is essential for defining robust and reliable R
 
 {pagebreak}
 
-## State management (Ds)
+## State management
 
 This section discussed when to use state and how.
 
@@ -266,7 +266,7 @@ State management is one of the most powerful React features. Use it responsibly!
 
 {pagebreak}
 
-## Lifecycle methods (Dl)
+## Lifecycle methods
 
 This section explains how to decide which lifecycle methods to use and why.
 
@@ -316,7 +316,7 @@ componentWillUnmount() {
 
 {pagebreak}
 
-## Event handlers (De)
+## Event handlers
 
 Event handler methods bind to React ES6 components for manipulating component state.
 
@@ -345,7 +345,7 @@ handleButtonClick(color) {
 
 {pagebreak}
 
-## Render and ReactDOM.render methods (Dr)
+## Render and ReactDOM.render methods
 
 Important things to remember about render method and ReactDOM.render.
 
@@ -355,7 +355,7 @@ markup into a raw DOM element, provided as the second argument.
 
 {pagebreak}
 
-## JSX features and syntax (Dj)
+## JSX features and syntax
 
 JSX is what you write within ```render() return()``` method. JSX gets transpiled to JS
 by Babel in our build environment.

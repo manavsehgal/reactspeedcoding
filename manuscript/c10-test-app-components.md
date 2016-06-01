@@ -1,4 +1,4 @@
-# Test App Components (T)
+# Test App Components
 
 This chapter will walk you through multiple testing tools and strategies to make your
 React app more reliable, robust, and performant.

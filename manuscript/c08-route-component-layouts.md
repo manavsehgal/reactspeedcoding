@@ -1,4 +1,4 @@
-# Route Component Layouts (R)
+# Route Component Layouts
 
 So far we have been developing using a single layout. For more complex apps you may want
 to use multiple layouts. In order to switch from one layout to another using links or

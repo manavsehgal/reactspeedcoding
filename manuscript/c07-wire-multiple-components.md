@@ -1,4 +1,4 @@
-# Wire Multiple components (W)
+# Wire Multiple components
 
 React is all about composition of multiple components. This chapter highlights
 best practices in deciding how to design for inter-related multiple components
@@ -6,16 +6,16 @@ in your project.
 
 You will learn following concepts in this important chapter.
 
-- Events in multiple components (We).
-- Composition using parent child node tree (Wt).
-- When to use presentational verses container components (Wc)
-- Reconciliation algorithm and keys for dynamic children (Wk).
-- Integrating vendor components (Wv).
-- Routing to wire component layouts (Wr).
+- Events in multiple components.
+- Composition using parent child node tree.
+- When to use presentational verses container components.
+- Reconciliation algorithm and keys for dynamic children.
+- Integrating vendor components.
+- Routing to wire component layouts.
 
 {pagebreak}
 
-## Events in multiple components (We)
+## Events in multiple components
 
 Let us begin by firstly creating some reusable components extending our
 ReactSpeed UI library. Let us create a ```button``` CSS module.
@@ -201,7 +201,7 @@ Event handling in multiple components has following key strategies.
 
 {pagebreak}
 
-## Composition using parent child node tree (Wt)
+## Composition using parent child node tree
 
 Once you create reusable components in React, you should be able to compose more
 complex, feature rich components by just building a node-tree, just like you do with HTML nodes.
@@ -262,7 +262,7 @@ Parent-child tree composition strategies are summarized here.
 
 {pagebreak}
 
-## Presentational and container components (Wc)
+## Presentational and container components
 
 Our apps will use two kind of components. Presentational and container components.
 
@@ -297,7 +297,7 @@ How to decide that you are writing container components.
 
 {pagebreak}
 
-## Reconciliation algorithm and keys for dynamic children (Wk)
+## Reconciliation algorithm and keys for dynamic children
 
 This section is important when you are designing component hierarchies with multiple, repeating
 components.
@@ -397,7 +397,7 @@ our component code.
 
 {pagebreak}
 
-## Integrating vendor components (Wv)
+## Integrating vendor components
 
 There are times when you may not want to develop your own custom component as you
 prefer a vendor written React component. We use the following broad strategies to
@@ -459,7 +459,7 @@ this is one of the fastest strategies to wire multiple components.
 
 {pagebreak}
 
-## Routing to wire component layouts (Wr)
+## Routing to wire component layouts
 
 We will cover routing in great detail in the next chapter on **Routing Component Layouts** creating
 more than 10 new components and wiring these together using React Router.

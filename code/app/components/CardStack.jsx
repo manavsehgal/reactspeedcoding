@@ -5,6 +5,7 @@ import Card from './Card.jsx';
 import World from './World.jsx';
 import IconText from './IconText.jsx';
 import Workflow from './Workflow.jsx';
+import TodoApp from './TodoApp.jsx';
 
 export default class CardStack extends React.Component {
   static propTypes = {
@@ -163,6 +164,7 @@ export default class CardStack extends React.Component {
         <div className={gridClass}>
           <Card><Workflow /></Card>
           <Card><World /></Card>
+          <Card><TodoApp /></Card>
         </div>
 
         <div className={gridClass}>
