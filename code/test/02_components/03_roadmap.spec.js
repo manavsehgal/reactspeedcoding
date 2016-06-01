@@ -92,10 +92,10 @@ describe('Roadmap Redux', () => {
     expect(store.getState().searchText)
       .to.equal('');
   });
-  it('should add fourth feature of COMPONENT category', () => {
+  it('should add 11th feature of COMPONENT category', () => {
     store.dispatch(
       actions.addFeature(
-        4,
+        11,
         'New Component Feature',
         'About new component feature',
         actions.Categories.COMPONENT,
@@ -104,16 +104,16 @@ describe('Roadmap Redux', () => {
       )
     );
     expect(store.getState().features.length).to.be.above(3);
-    expect(store.getState().features[3].category)
+    expect(store.getState().features[10].category)
       .to.equal(actions.Categories.COMPONENT);
   });
-  it('should initialize fourth feature with 3 likes', () => {
-    expect(store.getState().features[3].likes).to.equal(3);
+  it('should initialize 11th feature with 3 likes', () => {
+    expect(store.getState().features[10].likes).to.equal(3);
   });
-  it('should increment likes count for fourth feature', () => {
-    store.dispatch(actions.likeFeature(4)); // likes = 4
-    store.dispatch(actions.likeFeature(4)); // likes = 5
-    expect(store.getState().features[3].likes).to.equal(5);
+  it('should increment likes count for 11th feature', () => {
+    store.dispatch(actions.likeFeature(11)); // likes = 4
+    store.dispatch(actions.likeFeature(11)); // likes = 5
+    expect(store.getState().features[10].likes).to.equal(5);
   });
   it('should set a new categoryFilter', () => {
     expect(store.getState().categoryFilter)
