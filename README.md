@@ -1,5 +1,8 @@
 # React Speed Coding Book and Companion Code
 
+[![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?maxAge=2592000)](https://reactspeed.com)
+[![Gitter](https://badges.gitter.im/manavsehgal/reactspeedcoding.svg)](https://gitter.im/manavsehgal/reactspeedcoding)
+
 Companion code and manuscript of React Speed Coding book is available here.
 
 ## [React Speed Coding book](https://leanpub.com/reactspeedcoding)
