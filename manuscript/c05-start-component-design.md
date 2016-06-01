@@ -4,7 +4,7 @@ If the blank, dark code editor window is staring back at you, do not despair. We
 different ways you can get started building your components in React!
 
 The objective at this stage is to speedily "prototype" new features and code within your React project.
-Subsequent chapters on **Defining Component Internals**, **Wiring Multiple Components**, and **Refactoring Existing Components** will go over best practices to create performant, reusable, and maintainable code.
+Subsequent chapters on **Define Component Internals**, **Wire Multiple Components**, and **Refactor Existing Components** will go over best practices to create performant, reusable, and maintainable code.
 
 Here is what you will learn in this chapter along with sample code.
 
