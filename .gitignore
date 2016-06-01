@@ -7,3 +7,4 @@ profile.json
 database.rules.json
 .firebaserc
 firebase.json
+coverage
