@@ -1,9 +1,11 @@
 language: node_js
+
 node_js:
-  - "5"
   - "5.1"
+
 env:
   global:
     - REPO="manavsehgal/reactspeedcoding"
     - CI_HOME=/$REPO/code
-    
+
+script: npm test
