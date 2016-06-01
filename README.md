@@ -1,5 +1,6 @@
 # React Speed Coding Book and Companion Code
 
+[![build](https://travis-ci.org/manavsehgal/reactspeedcoding.svg?branch=master)](https://travis-ci.org/manavsehgal/reactspeedcoding)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?maxAge=2592000)](https://reactspeed.com)
 [![Gitter](https://badges.gitter.im/manavsehgal/reactspeedcoding.svg)](https://gitter.im/manavsehgal/reactspeedcoding)
 [![bitHound Overall Score](https://www.bithound.io/github/manavsehgal/reactspeedcoding/badges/score.svg)](https://www.bithound.io/github/manavsehgal/reactspeedcoding)
