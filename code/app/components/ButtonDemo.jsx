@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import IconSvg from './IconSvg.jsx';
 
 class ButtonDemo extends Component {
   static propTypes = {
@@ -20,9 +21,9 @@ class ButtonDemo extends Component {
 
   render() {
     const renderButtons = this.props.colors.map((color, i) => {
-      const iconClass =
+      const ICON =
         (this.props.icons === undefined || this.props.icons.length === 0)
-          ? '' : ` fa fa-${this.props.icons[i]}`;
+          ? '' : this.props.icons[i];
 
       const buttonClass =
         (this.props.sizes === undefined || this.props.sizes.length === 0)
@@ -32,11 +33,11 @@ class ButtonDemo extends Component {
       const renderIcons =
         (this.props.icons === undefined || this.props.icons.length === 0)
           ? color
-          : <div><i className={iconClass}></i>&nbsp;{color}</div>;
+          : <div><IconSvg icon={ICON} color="white-text" text={color} slim /></div>;
 
       const renderLabel =
         this.props.iconOnly
-          ? <i className={iconClass}></i>
+          ? <IconSvg icon={ICON} color="white-text" />
           : renderIcons;
 
       return (

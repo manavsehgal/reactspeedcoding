@@ -7,7 +7,7 @@ const Navigation = () => (
   <ul className="navigation grid grid-gutters large-grid-fit med-grid-fit small-grid-1of2">
     <NavLink className="navigation-link" to="/" brand>ReactSpeed</NavLink>
     <NavLink className="navigation-link" href="https://leanpub.com/reactspeedcoding">
-      <i className="fa fa-book"></i> Book
+      <IconSvg icon={ICONS.BOOK} className="navigation-link" text="Book" slim />
     </NavLink>
     <NavLink className="navigation-link" href="https://github.com/manavsehgal/reactspeedcoding">
       <IconSvg icon={ICONS.GITHUB} className="navigation-link" text="Code" slim />
@@ -16,7 +16,7 @@ const Navigation = () => (
       <IconSvg icon={ICONS.COMMENTS} className="navigation-link" text="Blog" slim />
     </NavLink>
     <NavLink className="navigation-link" to="/blog">
-      <i className="fa fa-newspaper-o"></i> News
+      <IconSvg icon={ICONS.NEWS} className="navigation-link" text="News" slim />
     </NavLink>
   </ul>
 );

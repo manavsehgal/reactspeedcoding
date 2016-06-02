@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import Card from '../Card.jsx';
-import IconText from '../IconText.jsx';
+import IconSvg from '../IconSvg.jsx';
+import ICONS from '../../fixtures/icons.js';
 import { Categories } from '../../actions/roadmap';
 
 const Feature = ({
@@ -16,21 +17,21 @@ const Feature = ({
   case Categories.COMPONENT:
     renderCategory = (
       <div className="badge default medium feature-category">
-        <i className="fa fa-cubes"></i>
+        <IconSvg icon={ICONS.COMPONENTS} size={30} color="default-text" />
       </div>
     );
     break;
   case Categories.APP:
     renderCategory = (
       <div className="badge primary medium feature-category">
-        <i className="fa fa-cloud"></i>
+        <IconSvg icon={ICONS.CLOUD} size={30} color="primary-text" />
       </div>
     );
     break;
   case Categories.CHAPTER:
     renderCategory = (
       <div className="badge secondary medium feature-category">
-        <i className="fa fa-book"></i>
+        <IconSvg icon={ICONS.BOOK} size={30} color="secondary-text" />
       </div>
     );
     break;
@@ -44,10 +45,10 @@ const Feature = ({
   return (
     <div className={`${gridClass} feature`}>
       <Card onClick={onClickLikes} slim message>
-        <IconText
-          className={renderLikesClass}
-          icon="heart"
-          size="2x"
+        <IconSvg
+          icon={ICONS.HEART}
+          size={20}
+          color={renderLikesClass}
           text={`${likes} likes`}
           slim
         />

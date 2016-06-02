@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Card from './Card.jsx';
+import IconSvg from './IconSvg.jsx';
+import ICONS from '../fixtures/icons.js';
 
 const CardStackForm = () => {
   const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit u-textCenter';
@@ -21,11 +23,15 @@ const CardStackForm = () => {
         <Card>
           <p>Beautiful forms</p>
           <div className="input">
-            <button className="button success"><i className="fa fa-search"></i></button>
+            <button className="button success">
+              <IconSvg icon={ICONS.SEARCH} color="white-text" />
+            </button>
             <input className="input-field" placeholder="Search something" />
           </div>
           <div className="input">
-            <span className="input-label"><span className="fa fa-envelope"></span></span>
+            <span className="input-label">
+              <IconSvg icon={ICONS.ENVELOPE} color="default-text" />
+            </span>
             <input className="input-field" placeholder="Send a message" />
             <button className="button warning">Send</button>
           </div>

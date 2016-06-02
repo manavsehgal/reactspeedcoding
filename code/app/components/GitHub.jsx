@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import IconSvg from './IconSvg.jsx';
+import ICONS from '../fixtures/icons.js';
 
 export default class GitHub extends React.Component {
   static propTypes = {
@@ -35,11 +37,29 @@ export default class GitHub extends React.Component {
     return (
       this.state.full_name
         ? <div>
-          <h4>
-            <i className="fa fa-github"></i> {this.state.full_name}
-          </h4>
-          <p><i className="fa fa-star primary-text"></i> {this.state.stargazers_count} stars</p>
-          <p><i className="fa fa-bug danger-text"></i> {this.state.open_issues} issues</p>
+          <IconSvg
+            icon={ICONS.GITHUB}
+            color="default-text"
+            text={this.state.full_name}
+            size={30}
+            slim
+          />
+          <br />
+          <IconSvg
+            icon={ICONS.STAR}
+            color="primary-text"
+            text={`${this.state.stargazers_count} stars`}
+            size={20}
+            slim
+          />
+          <br />
+          <IconSvg
+            icon={ICONS.BUG}
+            color="danger-text"
+            text={`${this.state.open_issues} issues`}
+            size={20}
+            slim
+          />
         </div>
         : <p>Loading Live Stats...</p>
     );

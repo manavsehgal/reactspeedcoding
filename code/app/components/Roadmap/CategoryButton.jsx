@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { CategoryFilters } from '../../actions/roadmap';
+import IconSvg from '../IconSvg.jsx';
+import ICONS from '../../fixtures/icons.js';
 
 const CategoryButton = ({ selected, filter, onClick }) => {
   let renderCategoryClass = '';
@@ -8,24 +10,24 @@ const CategoryButton = ({ selected, filter, onClick }) => {
   switch (filter) {
   case CategoryFilters.SHOW_APPS:
     renderCategoryClass = 'primary';
-    renderCategoryIcon = 'cloud';
+    renderCategoryIcon = ICONS.CLOUD;
     break;
   case CategoryFilters.SHOW_COMPONENTS:
     renderCategoryClass = 'default';
-    renderCategoryIcon = 'cubes';
+    renderCategoryIcon = ICONS.COMPONENTS;
     break;
   case CategoryFilters.SHOW_CHAPTERS:
     renderCategoryClass = 'secondary';
-    renderCategoryIcon = 'book';
+    renderCategoryIcon = ICONS.BOOK;
     break;
   default:
     renderCategoryClass = 'golden';
-    renderCategoryIcon = 'star';
+    renderCategoryIcon = ICONS.STAR;
   }
   if (selected) {
     return (
       <button className={`disabled button ${renderCategoryClass} medium category-button`}>
-        <i className={`fa fa-${renderCategoryIcon}`}></i>
+        <IconSvg icon={renderCategoryIcon} size={20} color="white-text" />
       </button>
     );
   }
@@ -37,7 +39,7 @@ const CategoryButton = ({ selected, filter, onClick }) => {
         onClick();
       }}
     >
-      <i className={`fa fa-${renderCategoryIcon}`}></i>
+      <IconSvg icon={renderCategoryIcon} size={20} color="white-text" />
     </button>
   );
 };

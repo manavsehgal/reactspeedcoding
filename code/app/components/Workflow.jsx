@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import IconSvg from './IconSvg.jsx';
+import ICONS from '../fixtures/icons.js';
 
 export default class Workflow extends React.Component {
   static propTypes = {
@@ -98,13 +100,24 @@ export default class Workflow extends React.Component {
         </div>
         <div className="grid grid-full large-grid-fit med-grid-fit">
           <button onClick={this.cycleScenario} className="grid-cell button primary">
-            <i className="fa fa-refresh"></i> {currentStep.symbol}
+            <IconSvg
+              icon={ICONS.REFRESH}
+              color="white-text"
+              text={`${currentStep.symbol}`}
+              slim
+            />
           </button>
           <div className="grid-cell workflow-steps">
             {stepsCount}
           </div>
           <button onClick={this.cycleSequence} className="grid-cell button default">
-            {currentStep.sequence} <i className="fa fa-arrow-right"></i>
+            <IconSvg
+              icon={ICONS.ARROW_RIGHT}
+              color="white-text"
+              text={`${currentStep.sequence}`}
+              slim
+              left
+            />
           </button>
         </div>
       </div>

@@ -9,19 +9,19 @@ const NavigationSidebar = () => (
       <IconSvg icon={ICONS.ROAD} className="sidenav-link" text="Roadmap" slim />
     </NavLink>
     <NavLink className="sidenav-link" to="/forms">
-      <i className="fa fa-list-alt"></i> Forms
+      <IconSvg icon={ICONS.FORM} className="sidenav-link" text="Forms" slim />
     </NavLink>
     <NavLink className="sidenav-link" to="/buttons">
-      <i className="fa fa-hand-pointer-o"></i> Buttons
+      <IconSvg icon={ICONS.POINT_UP} className="sidenav-link" text="Buttons" slim />
     </NavLink>
     <NavLink className="sidenav-link" to="/media">
-      <i className="fa fa-youtube-play"></i> Media
+      <IconSvg icon={ICONS.VIDEO} className="sidenav-link" text="Media" slim />
     </NavLink>
     <NavLink className="sidenav-link" to="/infographics">
-      <i className="fa fa-eye"></i> Infographics
+      <IconSvg icon={ICONS.EYE} className="sidenav-link" text="Infographics" slim />
     </NavLink>
     <NavLink className="sidenav-link" to="/ajax">
-      <i className="fa fa-cloud-download"></i> AJAX
+      <IconSvg icon={ICONS.CLOUD_DOWN} className="sidenav-link" text="AJAX" slim />
     </NavLink>
   </ul>
 );

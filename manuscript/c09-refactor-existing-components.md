@@ -338,5 +338,215 @@ single page app.
 **PostCSS.** Refactoring your CSS styles to follow Airbnb guidelines and PostCSS SASS-like
 syntax encourages reuse, standardization, and readability of your code.
 
+**Inline CSS and SVG.** Refactoring to inline CSS strategically is a strategy worth considering.
+When you combine this strategy with using SVG to replace external libraries like
+for example icon fonts, this can yield impressive results. You can optimize by reducing
+DNS lookups, reducing CSS load time, and overall payload of your app. We will explore
+this strategy in detail in the section **Refactoring Font Awesome to SVG icons** which follows.
+
+{pagebreak}
+
+## Refactoring Font Awesome to SVG icons
+
+So far our app is using Font Awesome font icons library. We used one of the most optimum
+ways to include this library in our app. Using it over BootstrapCDN and loading the
+minified version of Font Awesome library in our index.html head section. There are
+some challenges that remain in this approach.
+
+- While Font Awesome is highly optimized library it still adds around 28.7K payload (7.4K GZip)
+for first time users.
+- It adds an additional DNS lookup to our overall app loading time.
+- It exhibits Flash Of Missing Icons when on slower connection.
+- We are hardly using 20 odd icons from the large array of Font Awesome icons.
+There must be a leaner way of loading icons.
+- While Font Awesome is very flexible, we are stuck with fixed number of sizing options.
+- If we were to load Font Awesome using Webpack we will need additional configuration.
+- If we wanted to customize Font Awesome icons we will need to add configuration and build options to Webpack.
+
+There is an elegant solution. Thanks to David Gilbertson's post
+on [Icons as React Components][1], we are able to create a new custom component,
+which helps us solve all of the above challenges.
+
+The strategy is simple, building on the ideas from the post.
+
+- Use SVG icons instead of icon fonts.
+- Get SVG data for icons from Creative Commons sources like [IcoMoon][2].
+- Use this icon data as fixture for our app where we need icons.
+- Refactor ```IconText``` component to ```IconSvg``` component.
+- Refactor the app to render the new component instead of using Font Awesome.
+
+{title="/app/components/IconSvg.jsx refactored component", lang=javascript}
+~~~~~~~
+import React from 'react';
+const { PropTypes } = React;
+
+const IconSvg = props => {
+  const styles = {
+    svg: {
+      display: 'inline-block',
+      verticalAlign: 'baseline'
+    },
+    path: {
+      fill: 'currentColor'
+    },
+    font: {
+      fontSize: props.slim ? props.size * 120 / 100 : props.size * 40 / 100
+    }
+  };
+  const renderText = props.slim
+    ? <span className={props.textColor}> {props.text} </span>
+    : <div className={props.textColor}>{props.text}</div>;
+  const renderClassName = props.className ? props.className : props.color;
+
+  return (
+    <span className={renderClassName} style={styles.font}>
+      {props.left ? renderText : ''}
+      <svg
+        style={styles.svg}
+        width={`${props.size}px`}
+        height={`${props.size}px`}
+        viewBox="0 0 1024 1024"
+      >
+        <path
+          style={styles.path}
+          d={props.icon}
+        ></path>
+      </svg>
+      {props.left ? '' : renderText}
+    </span>
+  );
+};
+
+IconSvg.propTypes = {
+  icon: PropTypes.string.isRequired,
+  size: PropTypes.number,
+  color: PropTypes.string,
+  text: PropTypes.string,
+  slim: PropTypes.bool,
+  textColor: PropTypes.string,
+  className: PropTypes.string,
+  left: PropTypes.bool
+};
+
+IconSvg.defaultProps = {
+  size: 16,
+  color: 'primary-text',
+  text: '',
+  slim: false,
+  textColor: '',
+  className: '',
+  left: false
+};
+
+export default IconSvg;
+~~~~~~~
+
+There is a lot going on in this component.
+
+- We are using inline styles to enable
+in-component calculation of style properties like in case of ```fontSize``` property.
+- We are rendering several variations of the icon. Just the icon only. Icon with
+text inline (slim). Icon with text below it.
+- We are also influencing SVG styling based on our CSS variables
+using ```currentColor``` property variable.
+- Finally we are using SVG to render the icon itself.
+
+Complete refactoring of Font Awesome icon font to SVG icons impacts a number of
+components, however here is one component that is most impacted by the refactor.
+
+{title="/app/components/CardStackInfo.jsx refactored component", lang=javascript}
+~~~~~~~
+
+import React from 'react';
+
+import Card from './Card.jsx';
+
+import IconSvg from './IconSvg.jsx';
+import ICONS from '../fixtures/icons.js';
+
+function CardStackInfo() {
+  const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit u-textCenter';
+  return (
+    <div>
+      <h1>Infographics Components</h1>
+
+      <div className={gridClass}>
+        <Card>
+          <IconSvg
+            color="default-text"
+            icon={ICONS.DATABASE}
+            size={70}
+            text="Firebase React Integration"
+          />
+        </Card>
+        <Card>
+          <IconSvg
+            color="secondary-text"
+            icon={ICONS.CLOUD}
+            size={70}
+            text="Production Ready Demos"
+          />
+        </Card>
+        <Card>
+          <IconSvg
+            color="primary-text"
+            icon={ICONS.GLOBE}
+            size={70}
+            text="Nine Component Creation Strategies"
+          />
+        </Card>
+      </div>
+      <div className={gridClass}>
+        <Card>
+          <IconSvg
+            color="primary-text"
+            icon={ICONS.GITHUB}
+            size={70}
+            text="Popular GitHub Repository"
+          />
+        </Card>
+        <Card>
+          <IconSvg
+            color="warning-text"
+            icon={ICONS.CSS}
+            size={70}
+            text="ReactSpeed UI is efficient, CSS 4.6KB Gzip, 21KB Minified"
+          />
+        </Card>
+        <Card>
+          <IconSvg
+            color="success-text"
+            icon={ICONS.COMPONENTS}
+            size={70}
+            text="Powerful Webpack Workflow"
+          />
+        </Card>
+      </div>
+
+    </div>
+  );
+}
+
+export default CardStackInfo;
+~~~~~~~
+
+As you notice, we have completely replaced ```IconText``` component with the
+new  ```IconSvg``` component.
+
+So, what are the optimization improvements of doing this refactor?
+
+- Page size improving from 219KB to 149KB. Reducing our payload by 32% is awesome savings.
+- External requests improving from 11 to 9 requests improves our responsiveness.
+- No more Flash Of Missing Icons, as our React app now includes the icons as SVG.
+This improves our user experience.
+- Our developer experience also improves on several fronts. We can auto-lookup
+our icons now from the editor as these are defined as constants. We have more
+freedom to style the icons and infographics with pixel-level sizing.
+- Our designers can also add custom SVG icons in the future.
+
+
 React app optimization is a growing and interesting topic. We will continue to update
 this chapter with new ideas and tools as we incorporate these into our workflow.
+
+[1]: https://medium.com/@david.gilbertson/icons-as-react-components-de3e33cb8792#.ff03a45jm
+[2]: https://icomoon.io

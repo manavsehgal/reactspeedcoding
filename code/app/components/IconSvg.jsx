@@ -14,14 +14,14 @@ const IconSvg = props => {
       fontSize: props.slim ? props.size * 120 / 100 : props.size * 40 / 100
     }
   };
-
   const renderText = props.slim
-    ? <span className={props.textColor}> {props.text}</span>
+    ? <span className={props.textColor}> {props.text} </span>
     : <div className={props.textColor}>{props.text}</div>;
   const renderClassName = props.className ? props.className : props.color;
 
   return (
     <span className={renderClassName} style={styles.font}>
+      {props.left ? renderText : ''}
       <svg
         style={styles.svg}
         width={`${props.size}px`}
@@ -33,7 +33,7 @@ const IconSvg = props => {
           d={props.icon}
         ></path>
       </svg>
-      {renderText}
+      {props.left ? '' : renderText}
     </span>
   );
 };
@@ -45,7 +45,8 @@ IconSvg.propTypes = {
   text: PropTypes.string,
   slim: PropTypes.bool,
   textColor: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  left: PropTypes.bool
 };
 
 IconSvg.defaultProps = {
@@ -54,7 +55,8 @@ IconSvg.defaultProps = {
   text: '',
   slim: false,
   textColor: '',
-  className: ''
+  className: '',
+  left: false
 };
 
 export default IconSvg;
