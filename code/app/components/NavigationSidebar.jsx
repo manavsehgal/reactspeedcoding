@@ -1,10 +1,12 @@
 import React from 'react';
 import NavLink from './NavLink.jsx';
+import IconSvg from './IconSvg.jsx';
+import ICONS from '../fixtures/icons.js';
 
 const NavigationSidebar = () => (
   <ul className="sidenav grid grid-gutters large-grid-full">
     <NavLink className="sidenav-link" to="/roadmap">
-      <i className="fa fa-road"></i> Roadmap
+      <IconSvg icon={ICONS.ROAD} className="sidenav-link" text="Roadmap" slim />
     </NavLink>
     <NavLink className="sidenav-link" to="/forms">
       <i className="fa fa-list-alt"></i> Forms

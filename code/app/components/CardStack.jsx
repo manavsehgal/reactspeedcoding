@@ -3,9 +3,10 @@ import React, { PropTypes } from 'react';
 import Card from './Card.jsx';
 
 import World from './World.jsx';
-import IconText from './IconText.jsx';
 import Workflow from './Workflow.jsx';
 import TodoApp from './TodoApp.jsx';
+import IconSvg from './IconSvg.jsx';
+import ICONS from '../fixtures/icons.js';
 
 export default class CardStack extends React.Component {
   static propTypes = {
@@ -36,76 +37,76 @@ export default class CardStack extends React.Component {
         {!this.props.redirect ? <h1>ReactSpeed UI Components</h1> : ''}
         <div className={gridClass}>
           <Card>
-            <IconText
-              className="primary-text"
-              icon="cloud"
-              size="4x"
+            <IconSvg
+              color="primary-text"
+              icon={ICONS.CLOUD}
+              size={70}
               text="Three complete React Apps with code and dedicated chapters"
             />
           </Card>
           <Card>
-            <IconText
-              className="default-text"
-              icon="cubes"
-              size="4x"
-              text="Growing library of 30+ reusable custom components"
+            <IconSvg
+              color="secondary-text"
+              icon={ICONS.COMPONENTS}
+              size={70}
+              text="Growing library of 30+ reusable custom React components including tests"
             />
           </Card>
           <Card>
-            <IconText
-              className="golden-text"
-              icon="rocket"
-              size="4x"
+            <IconSvg
+              size={70}
+              icon={ICONS.ROCKET}
+              color="danger-text"
               text={`Speed optimizations for every aspect of
                 development and production workflow`}
             />
           </Card>
         </div>
         <div className={gridClass}>
-          <Card slim>
-            <IconText
-              className="success-text"
-              icon="database"
-              size="4x"
-              text={`Multiple data strategies using fixtures, Redux store,
-                real-time database, and AJAX REST APIs`}
+          <Card blank>
+            <IconSvg
+              size={70}
+              icon={ICONS.DATABASE}
+              color="default-text"
+              text={`Multiple data strategies using fixtures,
+                Redux store, real-time database, and AJAX REST APIs`}
             />
           </Card>
         </div>
         <div className={gridClass}>
           <Card>
-            <IconText
-              className="warning-text"
-              icon="road"
-              size="4x"
+            <IconSvg
+              color="golden-text"
+              icon={ICONS.ROAD}
+              size={70}
               text="Roadmap app created using Redux and Enzyme"
             />
           </Card>
           <Card>
-            <IconText
-              className="default-text"
-              icon="github"
-              size="4x"
+            <IconSvg
+              color="warning-text"
+              icon={ICONS.GITHUB}
+              size={70}
               text={`Popular GitHub repository with complete and
                 tested source code`}
             />
           </Card>
           <Card>
-            <IconText
-              className="danger-text"
-              icon="area-chart"
-              size="4x"
+            <IconSvg
+              color="secondary-text"
+              icon={ICONS.LINE_CHART}
+              size={70}
               text="Infographics, charts, and visualization components in progress"
             />
           </Card>
         </div>
 
         <div className={gridClass}>
-          <Card slim>
-            <IconText
-              className="warning-text"
-              icon="css3"
-              size="4x"
+          <Card blank>
+            <IconSvg
+              color="default-text"
+              icon={ICONS.CSS}
+              size={70}
               text="ReactSpeed UI is efficient. CSS 4.6KB Gzip, 21KB Minified."
             />
           </Card>
@@ -113,26 +114,26 @@ export default class CardStack extends React.Component {
 
         <div className={gridClass}>
           <Card>
-            <IconText
-              className="danger-text"
-              icon="bug"
-              size="4x"
+            <IconSvg
+              color="danger-text"
+              icon={ICONS.BUG}
+              size={70}
               text="Mocha, Chai, Enzyme BDD Testing"
             />
           </Card>
           <Card>
-            <IconText
-              className="primary-text"
-              icon="globe"
-              size="4x"
+            <IconSvg
+              color="primary-text"
+              icon={ICONS.GLOBE}
+              size={80}
               text="Nine Component Creation Strategies"
             />
           </Card>
           <Card>
-            <IconText
-              className="warning-text"
-              icon="database"
-              size="4x"
+            <IconSvg
+              size={70}
+              icon={ICONS.DATABASE}
+              color="warning-text"
               text="Firebase React Integration"
             />
           </Card>

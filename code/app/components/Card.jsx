@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
 
 const Card = (props) => {
-  const slimClass = props.slim ? 'card-slim' : 'card';
+  let variantClass = props.slim ? 'card-slim' : 'card';
+  variantClass = props.blank ? 'card-blank' : variantClass;
 
   const cardClass = props.message
-    ? `${slimClass} is-message` : slimClass;
+    ? `${variantClass} is-message` : variantClass;
 
   const gridClass = props.className
     ? `grid-cell ${props.className}` : 'grid-cell';
@@ -23,6 +24,7 @@ Card.propTypes = {
   message: PropTypes.bool,
   children: PropTypes.node,
   slim: PropTypes.bool,
+  blank: PropTypes.bool,
   onClick: PropTypes.func
 };
 

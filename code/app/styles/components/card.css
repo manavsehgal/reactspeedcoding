@@ -49,3 +49,20 @@
     visibility: hidden;
   }
 }
+
+.card-blank {
+  @extend .card;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.4em 0.5em 0;
+  width: 100%;
+
+  &::after {
+    content: '\00a0'; /* &nbsp; */
+    display: block;
+    height: 0;
+    margin-top: 0.2em;
+    visibility: hidden;
+  }
+}

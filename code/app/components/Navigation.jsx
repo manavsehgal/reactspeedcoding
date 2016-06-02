@@ -1,5 +1,7 @@
 import React from 'react';
 import NavLink from './NavLink.jsx';
+import IconSvg from './IconSvg.jsx';
+import ICONS from '../fixtures/icons.js';
 
 const Navigation = () => (
   <ul className="navigation grid grid-gutters large-grid-fit med-grid-fit small-grid-1of2">
@@ -8,10 +10,10 @@ const Navigation = () => (
       <i className="fa fa-book"></i> Book
     </NavLink>
     <NavLink className="navigation-link" href="https://github.com/manavsehgal/reactspeedcoding">
-      <i className="fa fa-github"></i> Code
+      <IconSvg icon={ICONS.GITHUB} className="navigation-link" text="Code" slim />
     </NavLink>
     <NavLink className="navigation-link" href="https://medium.com/reactspeed">
-      <i className="fa fa-comments"></i> Blog
+      <IconSvg icon={ICONS.COMMENTS} className="navigation-link" text="Blog" slim />
     </NavLink>
     <NavLink className="navigation-link" to="/blog">
       <i className="fa fa-newspaper-o"></i> News

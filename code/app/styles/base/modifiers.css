@@ -5,3 +5,5 @@
 .golden-text { color: $golden; }
 .secondary-text { color: $secondary; }
 .default-text { color: $default; }
+.black-text { color: black; }
+.white-text { color: white; }
