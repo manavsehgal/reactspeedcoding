@@ -19,6 +19,9 @@ on the [Design Thinking][3] methodology and [Visual Design][7] principles.
 
 **Speed of Technology Decisions.** Speed Coding technology stack is compared with industry best practice guidance including the awesome [ThoughtWorks Technology Radar][4].
 
+The cover image for our book depicts NASA space shuttle lift-off and is representative of our central theme.
+The science of speed. We thank [Pixabay][11] for providing this NASA imagery in the Creative Commons.
+
 ## Stakeholder perspectives
 
 In order to fulfill the promise of Speed Coding, we need to start by establishing some baselines.
@@ -153,3 +156,4 @@ A> This chapter will continue to evolve along with rest of the book. So, watch t
 [8]: https://c9.io/
 [9]: https://www.nitrous.io/
 [10]: https://atom.io/
+[11]: https://pixabay.com/en/space-shuttle-lift-off-liftoff-nasa-992/
