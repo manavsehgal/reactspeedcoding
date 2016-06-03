@@ -1,0 +1,19 @@
+engines:
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+ratings:
+  paths:
+  - code/app/**
+  - "**.js"
+  - "**.jsx"
+exclude_paths:
+- code/test/**
+- code/build/**
+- code/public/**
