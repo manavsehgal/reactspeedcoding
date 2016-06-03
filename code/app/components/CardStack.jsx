@@ -34,36 +34,35 @@ export default class CardStack extends React.Component {
 
     return (
       <div>
-        {!this.props.redirect ? <h1>ReactSpeed UI Components</h1> : ''}
+        {!this.props.redirect ? <h1>React Speed Coding</h1> : ''}
         <div className={gridClass}>
-          <Card>
-            <IconSvg
-              color="primary-text"
-              icon={ICONS.CLOUD}
-              size={70}
-              text="Three complete React Apps with code and dedicated chapters"
-            />
+          <Card blank>
+            <a href="https://leanpub.com/reactspeedcoding">
+              <img src="/img/react-speed-t.jpg" alt="React Speed Book" />
+            </a>
           </Card>
-          <Card>
+          <Card blank>
             <IconSvg
               color="secondary-text"
               icon={ICONS.COMPONENTS}
               size={70}
-              text="Growing library of 30+ reusable custom React components including tests"
+              text={`Growing library of 30+ reusable custom React components.
+                Complete with Enzyme, Mocha, Chai testing, and ESLint.`}
             />
           </Card>
-          <Card>
+          <Card blank>
             <IconSvg
               size={70}
               icon={ICONS.ROCKET}
-              color="danger-text"
-              text={`Speed optimizations for every aspect of
-                development and production workflow`}
+              color="warning-text"
+              text={`Speed optimize every aspect of development workflow.
+                Faster builds. App payloads. Editor automation.
+                ES6. Static hosting.`}
             />
           </Card>
         </div>
         <div className={gridClass}>
-          <Card blank>
+          <Card slim>
             <IconSvg
               size={70}
               icon={ICONS.DATABASE}
@@ -76,7 +75,7 @@ export default class CardStack extends React.Component {
         <div className={gridClass}>
           <Card>
             <IconSvg
-              color="golden-text"
+              color="danger-text"
               icon={ICONS.ROAD}
               size={70}
               text="Roadmap app created using Redux and Enzyme"
@@ -84,7 +83,7 @@ export default class CardStack extends React.Component {
           </Card>
           <Card>
             <IconSvg
-              color="warning-text"
+              color="primary-text"
               icon={ICONS.GITHUB}
               size={70}
               text={`Popular GitHub repository with complete and
@@ -108,33 +107,6 @@ export default class CardStack extends React.Component {
               icon={ICONS.CSS}
               size={70}
               text="ReactSpeed UI is efficient. CSS 4.6KB Gzip, 21KB Minified."
-            />
-          </Card>
-        </div>
-
-        <div className={gridClass}>
-          <Card>
-            <IconSvg
-              color="danger-text"
-              icon={ICONS.BUG}
-              size={70}
-              text="Mocha, Chai, Enzyme BDD Testing"
-            />
-          </Card>
-          <Card>
-            <IconSvg
-              color="primary-text"
-              icon={ICONS.GLOBE}
-              size={80}
-              text="Nine Component Creation Strategies"
-            />
-          </Card>
-          <Card>
-            <IconSvg
-              size={70}
-              icon={ICONS.DATABASE}
-              color="warning-text"
-              text="Firebase React Integration"
             />
           </Card>
         </div>
