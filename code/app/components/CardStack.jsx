@@ -37,7 +37,7 @@ export default class CardStack extends React.Component {
         {!this.props.redirect ? <h1>React Speed Coding</h1> : ''}
         <div className={gridClass}>
           <Card blank>
-            <a href="https://leanpub.com/reactspeedcoding">
+            <a className="image-link" href="https://leanpub.com/reactspeedcoding">
               <img src="/img/react-speed-t.jpg" alt="React Speed Book" />
             </a>
           </Card>
@@ -47,7 +47,7 @@ export default class CardStack extends React.Component {
               icon={ICONS.COMPONENTS}
               size={70}
               text={`Growing library of 30+ reusable custom React components.
-                Complete with Enzyme, Mocha, Chai testing, and ESLint.`}
+                Complete with Enzyme, Mocha, Chai Behavior-Driven Development, and ESLint.`}
             />
           </Card>
           <Card blank>
@@ -56,8 +56,8 @@ export default class CardStack extends React.Component {
               icon={ICONS.ROCKET}
               color="warning-text"
               text={`Speed optimize every aspect of development workflow.
-                Faster builds. App payloads. Editor automation.
-                ES6. Static hosting.`}
+                Faster builds. Webpack payloads. Editor automation.
+                ES6. Serverless architecture.`}
             />
           </Card>
         </div>
