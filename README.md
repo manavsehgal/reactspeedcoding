@@ -25,7 +25,7 @@ Download and read ebook, PDF, mobile formats. Support this project.
 ## Reuse code from book
 
 - Launch quickly with fully functional ES6 React + Webpack starter.
-- Add 20+ custom React components to your app.
+- Add 30+ custom React components to your app.
 
 Clone the repo like so.
 
@@ -35,18 +35,19 @@ git clone --depth=1 https://github.com/manavsehgal/reactspeedcoding.git
 
 The ```--depth=1``` flag ensures that only the latest commit is cloned.
 
-```
-- reactspeedcoding
--- manuscript # chapter content
--- code # sample code
-```
+Run ```cd reactspeedcoding``` to change folder.
 
-Now cd to the ```code``` directory and install dependencies using ```npm install``` command.
-Run sample app using ```npm start``` command.
+Remove references to our .git repo using ```rm -rf .git``` command.
+
+Install dependencies using ```npm install``` command.
+
+Run ReactSpeed app using ```npm start``` command.
+
+Test using ```npm test``` command.
 
 ## License information
 
-Code is [MIT][23] license. Book manuscript text and images are Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported [(CC BY-NC-ND 3.0)][22] license.
+Code is [MIT][23] license.
 
 Copyright (c) 2016 Manav Sehgal.
 
