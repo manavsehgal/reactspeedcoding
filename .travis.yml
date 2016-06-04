@@ -3,9 +3,6 @@ language: node_js
 node_js:
   - "5.1"
 
-before_install:
-  - cd code
-
 install:
   - npm install
 

@@ -10,10 +10,10 @@ engines:
       - javascript
 ratings:
   paths:
-  - code/app/**
+  - app/**
   - "**.js"
   - "**.jsx"
 exclude_paths:
-- code/test/**
-- code/build/**
-- code/public/**
+- test/**
+- build/**
+- public/**
