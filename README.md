@@ -225,25 +225,25 @@ Connecting the dots from prior five chapters which detail the workflow.
 Plan is to add Kadira Storybook, create React playgrounds, Redux dev tools, and add
 visual code analytics.
 
-[1]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code
-[2]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/webpack.prod.config.js
+[1]: https://github.com/manavsehgal/reactspeedcoding/tree/master
+[2]: https://github.com/manavsehgal/reactspeedcoding/blob/master/webpack.prod.config.js
 [3]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-setup-react-webpack
 [4]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-es6-react-guide-1
 [5]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-production-optimize-webpack
-[6]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/styles
+[6]: https://github.com/manavsehgal/reactspeedcoding/tree/master/app/styles
 [7]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-react-speed-ui
-[8]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/components
+[8]: https://github.com/manavsehgal/reactspeedcoding/tree/master/app/components
 [9]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-start-component-design-s
-[10]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/YouTube.jsx
-[11]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/GitHub.jsx
-[12]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/Workflow.jsx
-[13]: https://github.com/manavsehgal/reactspeedcoding/blob/master/code/app/components/IconText.jsx
+[10]: https://github.com/manavsehgal/reactspeedcoding/blob/master/app/components/YouTube.jsx
+[11]: https://github.com/manavsehgal/reactspeedcoding/blob/master/app/components/GitHub.jsx
+[12]: https://github.com/manavsehgal/reactspeedcoding/blob/master/app/components/Workflow.jsx
+[13]: https://github.com/manavsehgal/reactspeedcoding/blob/master/app/components/IconText.jsx
 [14]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-define-component-internals-d
 [15]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-wire-multiple-components-w
 [16]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-routing-component-layouts
 [17]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-refactor-existing-components-r
 [18]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-firebase-react-integration
-[20]: https://github.com/manavsehgal/reactspeedcoding/tree/master/code/app/components
+[20]: https://github.com/manavsehgal/reactspeedcoding/tree/master/app/components
 [21]: https://leanpub.com/reactspeedcoding/read#leanpub-auto-test-app-components-t
 [22]: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
 [23]: https://en.wikipedia.org/wiki/MIT_License
