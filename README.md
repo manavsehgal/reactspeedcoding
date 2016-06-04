@@ -1,4 +1,4 @@
-# React Speed Coding Book and Companion Code
+# React Speed Coding
 
 [![build](https://travis-ci.org/manavsehgal/reactspeedcoding.svg?branch=master)](https://travis-ci.org/manavsehgal/reactspeedcoding)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?maxAge=2592000)](https://reactspeed.com)
@@ -7,7 +7,7 @@
 [![bitHound Overall Score](https://www.bithound.io/github/manavsehgal/reactspeedcoding/badges/score.svg)](https://www.bithound.io/github/manavsehgal/reactspeedcoding)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/manavsehgal/reactspeedcoding/blob/master/LICENSE)
 
-Companion code and manuscript of React Speed Coding book is available here.
+Companion code for React Speed Coding book is available here.
 
 ## [React Speed Coding book](https://leanpub.com/reactspeedcoding)
 
@@ -15,7 +15,7 @@ Download and read ebook, PDF, mobile formats. Support this project.
 
 [![React Speed Coding Book](/app/public/img/reactspeed-cover.jpg)](https://leanpub.com/reactspeedcoding)
 
-## [ReactSpeed.com](https://reactspeed.com/) companion website
+## [ReactSpeed.com](https://reactspeed.com/) website
 
 - Component demos.
 - Access ReactSpeed API for component design workflow.
