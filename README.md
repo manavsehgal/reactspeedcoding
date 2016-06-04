@@ -12,7 +12,7 @@ Companion code and manuscript of React Speed Coding book is available here.
 
 Download and read ebook, PDF, mobile formats. Support this project.
 
-[![React Speed Coding Book](/code/app/public/img/reactspeed-cover.jpg)](https://leanpub.com/reactspeedcoding)
+[![React Speed Coding Book](/app/public/img/reactspeed-cover.jpg)](https://leanpub.com/reactspeedcoding)
 
 ## [ReactSpeed.com](https://reactspeed.com/) companion website
 
