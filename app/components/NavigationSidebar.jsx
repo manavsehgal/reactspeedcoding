@@ -23,6 +23,9 @@ const NavigationSidebar = () => (
     <NavLink className="sidenav-link" to="/ajax">
       <IconSvg icon={ICONS.CLOUD_DOWN} className="sidenav-link" text="AJAX" slim />
     </NavLink>
+    <NavLink className="sidenav-link" to="/custom">
+      <IconSvg icon={ICONS.GLOBE} className="sidenav-link" text="Custom" slim />
+    </NavLink>
   </ul>
 );
 

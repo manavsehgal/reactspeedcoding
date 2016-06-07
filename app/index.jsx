@@ -9,6 +9,7 @@ import CardStackInfo from './components/CardStackInfo.jsx';
 import CardStackMedia from './components/CardStackMedia.jsx';
 import CardStackButton from './components/CardStackButton.jsx';
 import CardStackForm from './components/CardStackForm.jsx';
+import CardStackCustom from './components/CardStackCustom.jsx';
 import MissingRoute from './components/MissingRoute.jsx';
 import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route path="/media" component={CardStackMedia} />
         <Route path="/forms" component={CardStackForm} />
         <Route path="/buttons" component={CardStackButton} />
+        <Route path="/custom" component={CardStackCustom} />
         <Route path="/blog" component={PostSummary} />
         <Route path="/blog/:slug" component={PostDetail} />
       </Route>
