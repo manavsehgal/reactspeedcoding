@@ -8,3 +8,6 @@ build/
 
 # coverage reports
 coverage/
+
+# chapter specific isolated code
+chapters/
