@@ -1,0 +1,43 @@
+.card {
+  background: white;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 0 darkgrey;
+  padding: 0.8em 1em 0;
+  width: 100%;
+
+  &::after {
+    content: '\00a0'; /* &nbsp; */
+    display: block;
+    height: 0;
+    margin-top: 1em;
+    visibility: hidden;
+  }
+
+  color: $black;
+
+  font-weight: lighter;
+  line-height: $normal-line-height;
+  font-size: $normal-font-size;
+  text-align: center;
+}
+
+.message {
+  cursor: pointer;
+  transition: 1s background;
+
+  &:hover {
+    background: $lightblue;
+  }
+}
+
+.stack {
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}

@@ -21,8 +21,10 @@
   },
   "author": "Manav Sehgal",
   "license": "MIT",
+  "engines": {
+    "node": ">=5.3.0 <6.2.0"
+  },
   "dependencies": {
-    "immutable": "^3.8.1",
     "marked": "^0.3.5",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",

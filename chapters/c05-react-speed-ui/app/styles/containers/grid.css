@@ -1,0 +1,45 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &.top {
+    align-items: flex-start;
+  }
+
+  &.bottom {
+    align-items: flex-end;
+  }
+
+  &.center {
+    align-items: center;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+}
+
+.grid-cell {
+  flex: 1;
+
+  &.top {
+    align-self: flex-start;
+  }
+
+  &.bottom {
+    align-self: flex-end;
+  }
+
+  &.center {
+    align-self: center;
+  }
+
+  &.auto-size {
+    flex: none;
+  }
+}
+
+/* more code available at reactspeedcoding GitHub repo... */
