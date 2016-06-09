@@ -1,10 +1,19 @@
 // Initialization
 const webpack = require('webpack');
+
+// File ops
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// Folder ops
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const postcssImport = require('postcss-easy-import');
 const path = require('path');
 
+// PostCSS support
+const postcssImport = require('postcss-easy-import');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+
+// Constants
 const APP = path.join(__dirname, 'app');
 const BUILD = path.join(__dirname, 'build');
 const STYLE = path.join(__dirname, 'app/style.css');
@@ -12,10 +21,6 @@ const PUBLIC = path.join(__dirname, 'app/public');
 const TEMPLATE = path.join(__dirname, 'app/templates/index_default.html');
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
-
-// PostCSS support
-const precss = require('precss');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
   // Paths and extensions
@@ -46,6 +51,7 @@ module.exports = {
       }
     ]
   },
+  // Configure PostCSS plugins
   postcss: function processPostcss(webpack) {  // eslint-disable-line no-shadow
     return [
       postcssImport({

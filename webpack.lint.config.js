@@ -1,12 +1,23 @@
 // Initialization
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const postcssImport = require('postcss-easy-import');
+
+// Lint and test
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
+// File ops
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// Folder ops
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+
+// PostCSS support
+const postcssImport = require('postcss-easy-import');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+
+// Constants
 const APP = path.join(__dirname, 'app');
 const BUILD = path.join(__dirname, 'build');
 const STYLE = path.join(__dirname, 'app/style.css');
@@ -17,10 +28,6 @@ const PORT = process.env.PORT || 8080;
 const PROXY = `http://${HOST}:${PORT}`;
 const LINT = path.join(__dirname, '.eslintrc.js');
 const STYLELINT = ['./app/styles/**/*.css', './app/styles.css'];
-
-// PostCSS support
-const precss = require('precss');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
   // Paths and extensions
@@ -62,6 +69,7 @@ module.exports = {
       }
     ]
   },
+  // Configure PostCSS plugins
   postcss: function processPostcss(webpack) {  // eslint-disable-line no-shadow
     return [
       postcssImport({

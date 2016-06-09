@@ -74,6 +74,7 @@
     "precss": "^1.4.0",
     "pug": "^2.0.0-alpha6",
     "pug-load": "^2.0.0",
+    "react-addons-perf": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "sinon": "^1.17.4",
     "style-loader": "^0.13.0",

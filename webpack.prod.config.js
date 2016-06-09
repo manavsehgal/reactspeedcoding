@@ -1,11 +1,20 @@
 const webpack = require('webpack');
+
+// File ops
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+// Folder ops
+const CleanPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const postcssImport = require('postcss-easy-import');
 const path = require('path');
 
+// PostCSS support
+const postcssImport = require('postcss-easy-import');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+
+// Constants
 const APP = path.join(__dirname, 'app');
 const BUILD = path.join(__dirname, 'build');
 const STYLE = path.join(__dirname, 'app/style.css');
@@ -15,10 +24,6 @@ const TEMPLATE = path.join(__dirname, 'app/templates/index_default.html');
 const PACKAGE = Object.keys(
   require('./package.json').dependencies
 );
-
-// PostCSS support
-const precss = require('precss');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
@@ -50,6 +55,7 @@ module.exports = {
       }
     ]
   },
+  // Configure PostCSS plugins
   postcss: function processPostcss(webpack) {  // eslint-disable-line no-shadow
     return [
       postcssImport({
@@ -116,5 +122,8 @@ module.exports = {
         warnings: false
       }
     })
+    // Error: vendor.450f275….js:16 Uncaught TypeError: Cannot read property 'shape' of undefined
+    // Error: manifest.798b47f….js:1 Uncaught TypeError: Cannot read property 'call' of undefined
+    // new webpack.optimize.OccurrenceOrderPlugin()
   ]
 };
