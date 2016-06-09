@@ -16,19 +16,6 @@
     cursor: default;
   }
 
-  &:focus {
-    outline: none;
-    text-decoration: none;
-  }
-
-  &.default { @mixin colorize-button $default; }
-  &.primary { @mixin colorize-button $primary; }
-  &.secondary { @mixin colorize-button $secondary; }
-  &.warning { @mixin colorize-button $warning; }
-  &.danger { @mixin colorize-button $danger; }
-  &.success { @mixin colorize-button $success; }
-  &.golden { @mixin colorize-button $golden; }
-
   &.large {
     padding: 0.8em 1.2em;
     font-size: 1.2em;
@@ -43,4 +30,17 @@
     padding: 0.3em 0.7em;
     font-size: 0.65em;
   }
+
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+
+  &.default { @mixin colorize-button $default; }
+  &.primary { @mixin colorize-button $primary; }
+  &.secondary { @mixin colorize-button $secondary; }
+  &.warning { @mixin colorize-button $warning; }
+  &.danger { @mixin colorize-button $danger; }
+  &.success { @mixin colorize-button $success; }
+  &.golden { @mixin colorize-button $golden; }
 }

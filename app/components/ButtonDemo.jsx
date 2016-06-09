@@ -8,7 +8,11 @@ class ButtonDemo extends Component {
     sizes: PropTypes.array,
     iconOnly: PropTypes.bool
   }
-  static defaultProps = { icons: [], sizes: [], iconOnly: false }
+  static defaultProps = {
+    icons: [],
+    sizes: [],
+    iconOnly: false
+  }
 
   constructor(props) {
     super(props);
@@ -22,18 +26,27 @@ class ButtonDemo extends Component {
   render() {
     const renderButtons = this.props.colors.map((color, i) => {
       const ICON =
-        (this.props.icons === undefined || this.props.icons.length === 0)
+        (this.props.icons === undefined
+          || this.props.icons.length === 0)
           ? '' : this.props.icons[i];
 
       const buttonClass =
-        (this.props.sizes === undefined || this.props.sizes.length === 0)
+        (this.props.sizes === undefined
+          || this.props.sizes.length === 0)
           ? `button ${color.toLowerCase()}`
           : `button ${this.props.sizes[i]} ${color.toLowerCase()}`;
 
       const renderIcons =
-        (this.props.icons === undefined || this.props.icons.length === 0)
+        (this.props.icons === undefined
+          || this.props.icons.length === 0)
           ? color
-          : <div><IconSvg icon={ICON} color="white-text" text={color} slim /></div>;
+          : <div><IconSvg
+            icon={ICON}
+            color="white-text"
+            text={color}
+            slim
+          />
+          </div>;
 
       const renderLabel =
         this.props.iconOnly

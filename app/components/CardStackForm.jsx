@@ -24,15 +24,27 @@ const CardStackForm = () => {
           <p>Beautiful forms</p>
           <div className="input">
             <button className="button success">
-              <IconSvg icon={ICONS.SEARCH} color="white-text" />
+              <IconSvg
+                icon={ICONS.SEARCH}
+                color="white-text"
+              />
             </button>
-            <input className="input-field" placeholder="Search something" />
+            <input
+              className="input-field"
+              placeholder="Search something"
+            />
           </div>
           <div className="input">
             <span className="input-label">
-              <IconSvg icon={ICONS.ENVELOPE} color="default-text" />
+              <IconSvg
+                icon={ICONS.ENVELOPE}
+                color="default-text"
+              />
             </span>
-            <input className="input-field" placeholder="Send a message" />
+            <input
+              className="input-field"
+              placeholder="Send a message"
+            />
             <button className="button warning">Send</button>
           </div>
         </Card>
