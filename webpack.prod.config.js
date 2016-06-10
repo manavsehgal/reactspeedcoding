@@ -70,6 +70,7 @@ module.exports = {
   plugins: [
     // Required to inject NODE_ENV within React app.
     // Reduntant package.json script entry does not do that, but required for .babelrc
+    // Optimizes React for use in production mode
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production') // eslint-disable-line quote-props
@@ -107,13 +108,6 @@ module.exports = {
     // Separate vendor and manifest files
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
-    }),
-
-    // Optimizes React for use in production mode
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production') // eslint-disable-line quote-props
-      }
     }),
 
     // Minify JavaScript

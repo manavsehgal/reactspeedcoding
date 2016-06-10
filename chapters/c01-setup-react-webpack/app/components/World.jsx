@@ -11,7 +11,8 @@ export default class World extends React.Component {
     };
     this.slangGreet = this.slangGreet.bind(this);
     this.hindiGreet = this.hindiGreet.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleNameChange
+      = this.handleNameChange.bind(this);
   }
 
   slangGreet() {
@@ -27,19 +28,33 @@ export default class World extends React.Component {
   }
 
   render() {
-    const renderName = this.state.value ? `${this.state.value} says ` : '';
-    const renderGreeting = renderName + this.state.currentGreeting;
+    const renderName = this.state.value
+      ? `${this.state.value} says ` : '';
+    const renderGreeting
+      = renderName + this.state.currentGreeting;
     return (
       <div>
-        <Hello greet={renderGreeting} message="World!" />
-        <a className="link" onClick={this.slangGreet}>
+        <Hello
+          greet={renderGreeting}
+          message="World!"
+        />
+        <a
+          className="link"
+          onClick={this.slangGreet}
+        >
           Slang
-        </a> OR <a className="link" onClick={this.hindiGreet}>
+        </a>
+        {' OR '}
+        <a
+          className="link"
+          onClick={this.hindiGreet}
+        >
           Hindi
         </a>
         <br /><br />
         <input
-          type="text" value={this.state.value}
+          type="text"
+          value={this.state.value}
           placeholder="Enter a name"
           onChange={this.handleNameChange}
         />
