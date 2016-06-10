@@ -4,7 +4,9 @@ import PostDetailData from '../content/PostDetailData.js';
 import marked from 'marked';
 
 const PostDetail = ({ posts, details, params }) => {
-  const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
+  const gridClass
+    = `grid grid-gutters grid-full
+      grid-flex-cells large-grid-fit`;
   let renderContent = '';
   let activeDetail = 0;
 

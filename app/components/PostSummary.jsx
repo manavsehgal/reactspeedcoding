@@ -6,12 +6,18 @@ import { Link } from 'react-router';
 const PostSummary = ({ posts }) => (
   <div>
     <h1>ReactSpeed News</h1>
-    <div className="grid grid-gutters grid-full grid-flex-cells large-grid-fit">
+    <div
+      className={`grid grid-gutters grid-full 
+        grid-flex-cells large-grid-fit`}
+    >
       {posts.map(post =>
         <Card key={post.id}>
           <div className="media">
             {post.thumb
-              ? (<Link className="image-link" to={`/blog/${post.slug}`}>
+              ? (<Link
+                className="image-link"
+                to={`/blog/${post.slug}`}
+              >
                 <img
                   className="media-figure image"
                   src={post.thumb}
@@ -23,7 +29,9 @@ const PostSummary = ({ posts }) => (
             }
             <div className="media-body">
               <Link to={`/blog/${post.slug}`}>
-                <h3 className="media-title">{post.title}</h3>
+                <h3 className="media-title">
+                  {post.title}
+                </h3>
               </Link>
               <p>{post.summary}</p>
             </div>
