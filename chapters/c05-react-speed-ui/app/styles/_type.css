@@ -10,6 +10,16 @@ p {
   text-shadow: 0 1px 0 $white;
 }
 
+a {
+  color: $link-color;
+  text-decoration: none;
+  font-weight: lighter;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 h1 {
   @extend .heading;
   font-size: $h1-font-size;
@@ -32,14 +42,4 @@ h4 {
   @extend .heading;
   font-size: $h4-font-size;
   line-height: $h4-line-height;
-}
-
-a {
-  color: $link-color;
-  text-decoration: none;
-  font-weight: lighter;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
