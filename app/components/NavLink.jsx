@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-export default class NavLinks extends React.Component {
+export default class NavLink extends React.Component {
   static propTypes = {
     className: PropTypes.string.isRequired,
     brand: PropTypes.bool,

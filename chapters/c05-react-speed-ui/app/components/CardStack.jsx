@@ -9,13 +9,17 @@ export default class CardStack extends React.Component {
         <Card key={message.id} message={message.txt} />
       );
 
+    const gridClass = `grid grid-gutters grid-full
+      grid-flex-cells large-grid-fit u-textCenter`;
+
     return (
-      <ul className="stack">
-        <li key="world" className="card demo">
-          <World />
-        </li>
-        {renderMessages}
-      </ul>
+        <div className={gridClass}>
+          <Card><World /></Card>
+        </div>
+
+        <div className={gridClass}>
+          {renderMessages}
+        </div>
     );
   }
 }
