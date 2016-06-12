@@ -25,10 +25,13 @@ export default class CardStack extends React.Component {
     const messages = this.props.messages;
 
     const renderMessages = messages.map(message =>
-      <Card key={message} message><h3>{message}</h3></Card>
+      <Card key={message} message>
+        <h3>{message}</h3>
+      </Card>
     );
 
-    const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit u-textCenter';
+    const gridClass = `grid grid-gutters grid-full
+      grid-flex-cells large-grid-fit u-textCenter`;
 
     return (
       <div>

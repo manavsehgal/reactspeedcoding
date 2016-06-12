@@ -15,10 +15,13 @@ class Sidebar extends React.Component {
       <nav className="holygrail-nav u-textCenter">
         {
           (data && data.promoButton)
-            ? <a
-              href={data.promoButton.url}
-              className="button success"
-            >{data.promoButton.label}</a>
+            ? <div>
+              <a
+                href={data.promoButton.url}
+                className="button success"
+              >{data.promoButton.label}</a>
+              <p className="call-to-action">{data.promoButton.action}</p>
+            </div>
             : ''
         }
         <NavigationSidebar />

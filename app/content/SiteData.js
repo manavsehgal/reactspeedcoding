@@ -25,8 +25,9 @@ const SiteData = {
       ],
 
       promoButton: {
-        url: 'https://leanpub.com/reactspeedcoding',
-        label: 'Read ReadSpeed Book'
+        url: 'http://eepurl.com/b5rx09',
+        label: 'Launch Apps Faster',
+        action: 'Exclusive subscriber access'
       }
     }
   },

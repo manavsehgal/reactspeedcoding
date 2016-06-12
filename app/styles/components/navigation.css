@@ -45,3 +45,8 @@
 .navigation-brand {
   font-weight: bold;
 }
+
+.call-to-action {
+  font-size: 12px;
+  margin-top: 10px;
+}
