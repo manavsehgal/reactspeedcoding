@@ -15,7 +15,7 @@ Companion code for React Speed Coding book is available here.
 
 Download and read ebook, PDF, mobile formats. Support this project.
 
-[![React Speed Coding Book](/app/public/img/reactspeed-cover-t.jpg)](https://leanpub.com/reactspeedcoding)
+[![React Speed Coding Book](/app/public/img/react-speed-t.jpg)](https://leanpub.com/reactspeedcoding)
 
 ## [ReactSpeed.com](https://reactspeed.com/) website
 
