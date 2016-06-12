@@ -10,7 +10,9 @@
 Companion code for React Speed Coding book is available here.
 
 **Like this repo?** Get exclusive tips, code delivered to your inbox.
+
 ReactSpeed helps you [Launch Apps Faster](http://eepurl.com/b5rx09).
+
 Subscribers get exclusive access.
 
 ## [React Speed Coding book](https://leanpub.com/reactspeedcoding)
