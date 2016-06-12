@@ -22,7 +22,6 @@ export default class CardStack extends React.Component {
 
   render() {
     const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit u-textCenter';
-    const mailChimp = { position: 'absolute', left: '-5000px' };
 
     return (
       <div>
