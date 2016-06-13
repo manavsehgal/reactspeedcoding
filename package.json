@@ -17,7 +17,9 @@
     "elint:summary": "eslint . --ext .js --ext .jsx --cache --format 'node_modules/eslint-friendly-formatter' || true",
     "slint": "stylelint ./app/styles/**/*.css ./app/style.css --syntax scss",
     "storybook": "start-storybook -p 9001 -s ./app/public",
-    "storybuild": "build-storybook -s ./app/public -o ./.storybook/build"
+    "storybuild": "build-storybook -s ./app/public -o ./.storybook/build",
+    "src:summary": "sloc app/",
+    "src:detail": "sloc -d -f cli-table -k total,source,comment app/"
   },
   "author": "Manav Sehgal",
   "license": "MIT",
@@ -77,6 +79,7 @@
     "react-addons-perf": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "sinon": "^1.17.4",
+    "sloc": "^0.1.10",
     "style-loader": "^0.13.0",
     "stylelint": "^6.3.3",
     "stylelint-config-standard": "^7.0.0",
