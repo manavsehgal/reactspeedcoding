@@ -21,6 +21,8 @@ Download and read ebook, PDF, mobile formats. Support this project.
 
 [![React Speed Coding Book](/app/public/img/react-speed-t.jpg)](https://leanpub.com/reactspeedcoding)
 
+<a href="https://geo.itunes.apple.com/us/book/react-speed-coding/id1123718637?mt=11" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/images/badges/en-us/badge_ibooks-lrg.svg) no-repeat;width:165px;height:40px;"></a>
+
 ## [ReactSpeed.com](https://reactspeed.com/) website
 
 - Component demos.
