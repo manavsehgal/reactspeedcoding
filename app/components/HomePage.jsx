@@ -14,7 +14,20 @@ export default function HomePage(props) {
         <article className="holygrail-content">
           {props.children}
         </article>
-        <Sidebar data={SiteData.home.sidebar} />
+        <Sidebar data={SiteData.home.sidebar}>
+          <a
+            className="image-link"
+            href="//geo.itunes.apple.com/us/book/react-speed-coding/id1123718637?mt=11"
+          >
+            <img
+              src="//linkmaker.itunes.apple.com/images/badges/en-us/badge_ibooks-lrg.svg"
+              alt="React Speed iBook"
+              width="112px"
+              height="40px"
+            />
+          </a>
+          <p className="call-to-action-ibooks">ReactSpeed Book</p>
+        </Sidebar>
       </main>
       <Footer copyright={SiteData.copyright} />
     </div>
