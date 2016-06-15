@@ -8,6 +8,9 @@ const NavigationSidebar = () => (
     <NavLink className="sidenav-link" to="/roadmap">
       <IconSvg icon={ICONS.ROAD} className="sidenav-link" text="Roadmap" slim />
     </NavLink>
+    <NavLink className="sidenav-link" to="/charts">
+      <IconSvg icon={ICONS.LINE_CHART} className="sidenav-link" text="Charts" slim />
+    </NavLink>
     <NavLink className="sidenav-link" to="/forms">
       <IconSvg icon={ICONS.FORM} className="sidenav-link" text="Forms" slim />
     </NavLink>

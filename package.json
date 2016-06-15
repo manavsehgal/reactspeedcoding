@@ -32,7 +32,8 @@
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "rumble-charts": "^1.0.7"
   },
   "devDependencies": {
     "@kadira/storybook": "^1.28.1",
