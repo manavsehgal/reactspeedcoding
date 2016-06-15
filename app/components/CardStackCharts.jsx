@@ -12,7 +12,7 @@ const {
   Layer, Animate, Transform
 } = require('rumble-charts');
 
-export default class CardStack extends React.Component {
+export default class CardStackCharts extends React.Component {
   constructor() {
     super();
     this.state = { series, cloudSeries, singleSeries, hovered: {} };
