@@ -15,7 +15,7 @@ const {
 export default class CardStackCharts extends React.Component {
   constructor() {
     super();
-    this.state = { series, cloudSeries, singleSeries, hovered: {} };
+    this.state = { series, cloudSeries, singleSeries };
     this.updateSeries = this.updateSeries.bind(this);
   }
   updateSeries = () => {
@@ -26,7 +26,7 @@ export default class CardStackCharts extends React.Component {
     const series = _.map(_.range(3), () => ({
       data: _.map(_.range(3), () => Math.random() * 100)
     }));
-    this.setState({ series, cloudSeries, singleSeries, hovered: {} });
+    this.setState({ series, singleSeries });
     /* eslint-enable no-shadow, no-undef */
   }
   render() {
