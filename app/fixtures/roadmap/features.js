@@ -1,12 +1,21 @@
 import * as actions from '../../actions/roadmap';
 
 const features = [
+  { id: 11,
+    title: 'Animated Basic Charts in D3 and React',
+    about: `React and D3 are match made in heaven. In this article we will
+    create basic pie, bar, line charts with event driven animation using D3
+    for visualization and React for the view, data, and state management.`,
+    category: actions.Categories.CHAPTER,
+    likes: 43,
+    link: 'https://medium.com/reactspeed/animated-basic-charts-in-d3-and-react-e131635229c#.sovnu2z1r'
+  },
   { id: 1,
     title: 'Roadmap',
     about: `The app implements a features roadmap for ReactSpeed.
     The app is built using Redux and available live on ReactSpeed website.`,
     category: actions.Categories.APP,
-    likes: 93,
+    likes: 32,
     link: 'https://github.com/manavsehgal/reactspeedcoding/blob/master/app/components/Roadmap/index.jsx'
   },
   { id: 2,
@@ -14,7 +23,7 @@ const features = [
     about: `This component renders main menu navigation items. It also
     renders React Router Links as child components.`,
     category: actions.Categories.COMPONENT,
-    likes: 81,
+    likes: 23,
     link: 'https://github.com/manavsehgal/reactspeedcoding/blob/master/app/components/Navigation.jsx'
   },
   { id: 3,
@@ -22,7 +31,7 @@ const features = [
     about: `The chapter discusses ESLint, StyleLint, Browsersync setup using Webpack.
     It also introduces Behavior-Driven Development using Mocha, Chai, and Enzyme.`,
     category: actions.Categories.CHAPTER,
-    likes: 75,
+    likes: 15,
     link: 'http://reactspeed.com/blog/test-react-components-new-chapter'
   },
   { id: 4,
@@ -30,7 +39,7 @@ const features = [
     about: `The chapter explains React Router and creates more than 10 custom
     React components for defining layout of a blog app.`,
     category: actions.Categories.CHAPTER,
-    likes: 65,
+    likes: 12,
     link: 'http://localhost:8080/blog/routing-component-layouts-new-chapter'
   },
   { id: 5,
@@ -38,7 +47,7 @@ const features = [
     about: `This component demonstrates jQuery integration within React component
     lifecycle methods and calling external REST API using AJAX.`,
     category: actions.Categories.COMPONENT,
-    likes: 23,
+    likes: 13,
     link: 'https://github.com/manavsehgal/reactspeedcoding/blob/master/app/components/GitHub.jsx'
   },
   { id: 6,
@@ -46,7 +55,7 @@ const features = [
     about: `Card component is very versatile and used extensively throughout ReactSpeed.com
     website for rendering custom components using FlexBox grid system.`,
     category: actions.Categories.COMPONENT,
-    likes: 15,
+    likes: 10,
     link: 'https://github.com/manavsehgal/reactspeedcoding/blob/master/app/components/Card.jsx'
   },
   { id: 7,
