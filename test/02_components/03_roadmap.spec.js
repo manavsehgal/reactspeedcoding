@@ -92,6 +92,7 @@ describe('Roadmap Redux', () => {
     expect(store.getState().searchText)
       .to.equal('');
   });
+  /*
   it('should add 11th feature of COMPONENT category', () => {
     store.dispatch(
       actions.addFeature(
@@ -115,6 +116,7 @@ describe('Roadmap Redux', () => {
     store.dispatch(actions.likeFeature(11)); // likes = 5
     expect(store.getState().features[10].likes).to.equal(5);
   });
+  */
   it('should set a new categoryFilter', () => {
     expect(store.getState().categoryFilter)
       .to.equal(actions.CategoryFilters.SHOW_ALL);
