@@ -1,3 +1,4 @@
+/*
 const firebase = require('firebase/app');
 require('firebase/database');
 
@@ -16,3 +17,4 @@ const initRsdb = () => {
 };
 
 export default initRsdb;
+*/
