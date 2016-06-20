@@ -18,6 +18,7 @@ import Roadmap from './components/Roadmap';
 import { Provider } from 'react-redux';
 import store from './store/roadmap';
 import roadmapHydrate from './fixtures/roadmap/roadmapHydrate';
+
 roadmapHydrate();
 
 ReactDOM.render(
