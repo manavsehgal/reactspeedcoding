@@ -1,7 +1,3 @@
-const $ = require('jquery/src/core');
-require('jquery/src/ajax');
-require('jquery/src/ajax/xhr');
-
 import React, { PropTypes } from 'react';
 import IconSvg from './IconSvg.jsx';
 import ICONS from '../fixtures/icons.js';

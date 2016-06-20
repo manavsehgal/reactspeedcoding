@@ -42,9 +42,7 @@ const PostDetail = ({ posts, details, params }) => {
                     Refer: https://facebook.github.io/react/tips/dangerously-set-inner-html.html */}
                   <span
                     className="post-content"
-                    dangerouslySetInnerHTML={
-                      { __html: marked(details[activeDetail].content) }
-                    }
+                    dangerouslySetInnerHTML={{ __html: marked(details[activeDetail].content) }}
                   />
                 </div>
                 <br /><br />
@@ -82,9 +80,7 @@ const PostDetail = ({ posts, details, params }) => {
                 <div className="media-body">
                   <span
                     className="post-content"
-                    dangerouslySetInnerHTML={
-                      { __html: marked(details[activeDetail].content) }
-                    }
+                    dangerouslySetInnerHTML={{ __html: marked(details[activeDetail].content) }}
                   />
                 </div>
               </div>
