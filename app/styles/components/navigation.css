@@ -7,15 +7,15 @@
 
 .sidenav {
   list-style: none;
-  background: $golden-light;
+  background: $default-light;
   margin: 0;
   padding-right: 10px;
   text-align: left;
   padding-bottom: 20px;
   margin-bottom: 20px;
   margin-top: 20px;
-  border-top: 1px dashed $golden;
-  border-bottom: 1px dashed $golden;
+  border-top: 1px dashed $default;
+  border-bottom: 1px dashed $default;
 }
 
 .navigation-link {

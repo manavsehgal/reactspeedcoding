@@ -69,7 +69,6 @@
     "graceful-fs": "^4.1.4",
     "html-minifier": "^1.5.0",
     "html-webpack-plugin": "^2.15.0",
-    "imports-loader": "^0.6.5",
     "jsdom": "^9.1.0",
     "mocha": "^2.4.5",
     "normalize.css": "^4.1.1",

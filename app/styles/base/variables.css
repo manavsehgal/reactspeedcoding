@@ -12,7 +12,7 @@ $success: mediumseagreen;
 $golden: darkkhaki;
 
 /* Light color palette. Black overlay. */
-$default-light: whitesmoke;
+$default-light: color(whitesmoke tint(50%));
 $primary-light: lightsteelblue;
 $secondary-light: lightcyan;
 $danger-light: lightpink;

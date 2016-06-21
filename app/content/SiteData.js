@@ -17,13 +17,6 @@ const SiteData = {
       Enzyme, Mocha, Chai BDD testing. ESLint and StyleLint. Browsersync.`
     },
     sidebar: {
-      messages: [
-        `Learn to build your own custom UI library in React,
-        Flexbox, and PostCSS.`,
-        `Apply new ES6 features to make your React code more
-        reliable.`
-      ],
-
       promoButton: {
         url: 'http://eepurl.com/b5rx09',
         label: 'Launch Apps Faster',
