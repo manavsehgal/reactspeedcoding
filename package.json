@@ -10,7 +10,8 @@
     "cover": "NODE_ENV=test babel-node node_modules/.bin/babel-istanbul cover _mocha --  --require test/helpers/browser.js test/**/*.spec.js --reporter dot || true",
     "test": "NODE_ENV=test npm run elint && npm run slint && npm run test:mocha",
     "test:mocha": "NODE_ENV=test mocha test/helpers/browser.js test/**/*.spec.js --compilers js:babel-core/register",
-    "build": "NODE_ENV=production webpack --config webpack.prod.config.js --display-modules",
+    "build": "NODE_ENV=production webpack --config webpack.prod.config.js",
+    "build:details": "NODE_ENV=production webpack --config webpack.prod.config.js --display-modules",
     "profile": "NODE_ENV=production webpack --config webpack.prod.config.js --profile --json > profile.json",
     "elint": "eslint . --ext .js --ext .jsx --cache",
     "elint:table": "eslint . --ext .js --ext .jsx --cache --format table || true",
@@ -32,6 +33,7 @@
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
+    "react-select": "^0.9.1",
     "redux": "^3.5.2",
     "rumble-charts": "^1.0.7"
   },

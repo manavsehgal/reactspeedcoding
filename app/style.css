@@ -31,3 +31,4 @@
 @import 'styles/utils/media';
 @import 'styles/utils/size';
 @import 'styles/utils/spacing';
+@import 'react-select/dist/react-select.css';
