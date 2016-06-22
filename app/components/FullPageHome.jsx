@@ -20,9 +20,9 @@ export default function FullPageHome() {
         <Card blank className="u-textCenter">
           <h1>Develop Awesome Apps</h1>
           <p>Join 100s of readers learning latest React ES6 concepts.
-            Develop custom UI library of reusable React components.
+            Design custom UI library of reusable React components.
             Speed up your development workflow. Develop single page app using
-            Redux.
+            Redux. Practice Behavior-Driven Development using Enzyme.
           </p>
           <div className="grid">
             <div className="grid-cell">
