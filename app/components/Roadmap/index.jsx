@@ -11,7 +11,10 @@ const Roadmap = () => {
   return (
     <div className="roadmap">
       <h1>Roadmap</h1>
-      <p className="default-text">Note: This app is work-in-progress.</p>
+      <p className="default-text">This app lists latest features and content
+        from ReactSpeed. It is developed in Redux and explained in the book.
+        This app is work-in-progress, for demo only.
+      </p>
       <div className={`${gridClass} search-filter`}>
         <Card slim>
           <SearchFeature />

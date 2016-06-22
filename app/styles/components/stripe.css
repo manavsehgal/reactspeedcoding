@@ -1,0 +1,16 @@
+.stripe {
+  padding: 1em 1em 1.5em;
+}
+
+.stripe-call-to-action {
+  font-size: 12px;
+  margin-top: 15px;
+  padding-left: 5px;
+}
+
+.stipes-code {
+  background: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}

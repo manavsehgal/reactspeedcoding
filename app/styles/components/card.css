@@ -28,6 +28,11 @@
       background: $success-light;
     }
   }
+
+  &.is-transparent { background: none; }
+  &.is-shaded-default { background: $default-light; }
+  &.is-shaded-primary { background: $primary-light; }
+  &.is-shaded-secondary { background: $secondary-light; }
 }
 
 .card-slim {

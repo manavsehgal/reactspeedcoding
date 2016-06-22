@@ -7,3 +7,5 @@
 .default-text { color: $default; }
 .black-text { color: black; }
 .white-text { color: white; }
+
+.default-light-back { background: $default-light; }

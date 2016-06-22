@@ -25,10 +25,10 @@
 @import 'styles/components/input';
 @import 'styles/components/media';
 @import 'styles/components/notice';
-@import 'styles/components/section';
 @import 'styles/components/site';
 @import 'styles/utils/compat.css';
 @import 'styles/utils/media';
 @import 'styles/utils/size';
 @import 'styles/utils/spacing';
+@import 'styles/components/stripe';
 @import 'react-select/dist/react-select.css';

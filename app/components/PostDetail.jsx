@@ -63,7 +63,7 @@ const PostDetail = ({ posts, details, params }) => {
           <div>
             <h1>Oops! We could not find that...</h1>
             <h2>
-              Here is the latest post from our blog.
+              Here is the latest news from ReactSpeed.
               Please use top menu to navigate elsewhere.
             </h2>
             <div className={gridClass}>

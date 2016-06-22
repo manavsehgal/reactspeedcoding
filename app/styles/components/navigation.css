@@ -1,8 +1,9 @@
 .navigation {
   list-style: none;
-  background: $secondary;
+  background: black;
   margin: 0;
   padding-right: 10px;
+  padding-bottom: 5px;
 }
 
 .sidenav {
@@ -19,14 +20,16 @@
 }
 
 .navigation-link {
-  border-bottom: none;
-  border-bottom: 1px solid $secondary;
+  text-decoration: none;
+  border-bottom: none !important;
   color: white;
+  font-size: 18px;
+  transition: 0.5s color;
   &:hover {
-    border-bottom: 1px solid white;
+    color: color(white shade(20%));
   }
   &.active {
-    border-bottom: 1px solid white;
+    color: color(white shade(20%));
   }
 }
 

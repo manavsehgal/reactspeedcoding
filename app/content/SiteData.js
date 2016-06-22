@@ -1,4 +1,5 @@
 const SiteData = {
+  layout: 'fullpage',
   copyright:
     `Copyright (c) 2016, Manav Sehgal.
     Book and blog text is CC BY-NC-ND 2.0 license.

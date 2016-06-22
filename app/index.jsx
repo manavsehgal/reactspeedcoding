@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HomePage from './components/HomePage.jsx';
+import FullPage from './components/FullPage.jsx';
+import FullPageHome from './components/FullPageHome.jsx';
+import FullPageComponents from './components/FullPageComponents.jsx';
 import PostSummary from './components/PostSummary.jsx';
 import PostDetail from './components/PostDetail.jsx';
 import CardStack from './components/CardStack.jsx';
@@ -18,10 +21,11 @@ import Roadmap from './components/Roadmap';
 import { Provider } from 'react-redux';
 import store from './store/roadmap';
 import roadmapHydrate from './fixtures/roadmap/roadmapHydrate';
+import SiteData from './content/SiteData.js';
 
 roadmapHydrate();
 
-ReactDOM.render(
+const stackedRoutes = (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={HomePage}>
@@ -41,6 +45,42 @@ ReactDOM.render(
         <IndexRoute component={MissingRoute} />
       </Route>
     </Router>
-  </Provider>,
+  </Provider>
+);
+
+const fullpageRoutes = (
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={FullPage}>
+        <IndexRoute component={FullPageHome} />
+        <Route path="/roadmap" component={Roadmap} />
+        <Route path="/ajax" component={CardStackAjax} />
+        <Route path="/infographics" component={CardStackInfo} />
+        <Route path="/media" component={CardStackMedia} />
+        <Route path="/forms" component={CardStackForm} />
+        <Route path="/buttons" component={CardStackButton} />
+        <Route path="/custom" component={CardStackCustom} />
+        <Route path="/components" component={FullPageComponents} />
+        <Route path="/charts" component={CardStackCharts} />
+        <Route path="/news" component={PostSummary} />
+        <Route path="/blog" component={PostSummary} />
+        <Route path="/blog/:slug" component={PostDetail} />
+      </Route>
+      <Route path="*" component={FullPage}>
+        <IndexRoute component={MissingRoute} />
+      </Route>
+    </Router>
+  </Provider>
+);
+
+let activeRoutes = null;
+switch (SiteData.layout) {
+case 'stacked': activeRoutes = stackedRoutes; break;
+case 'fullpage': activeRoutes = fullpageRoutes; break;
+default: activeRoutes = stackedRoutes;
+}
+
+ReactDOM.render(
+  activeRoutes,
   document.getElementById('app')
 );
