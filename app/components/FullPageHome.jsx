@@ -13,7 +13,7 @@ export default function FullPageHome() {
       <div className={gridClass}>
         <Card blank className="u-large-1of2 u-med-full u-small-full u-textCenter">
           <a className="image-link" href="https://leanpub.com/reactspeedcoding">
-            <img src="/img/react-speed-t.jpg" alt="React Speed Book" />
+            <img src="/img/ibook-cover-w300.jpg" alt="React Speed Book" />
           </a>
           <p className="call-to-action-ibooks">Read sample chapters at LeanPub</p>
         </Card>
