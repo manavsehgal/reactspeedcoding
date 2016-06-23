@@ -38,6 +38,8 @@ const stackedRoutes = (
         <Route path="/buttons" component={CardStackButton} />
         <Route path="/custom" component={CardStackCustom} />
         <Route path="/charts" component={CardStackCharts} />
+        <Route path="/components" component={FullPageComponents} />
+        <Route path="/news" component={PostSummary} />
         <Route path="/blog" component={PostSummary} />
         <Route path="/blog/:slug" component={PostDetail} />
       </Route>
@@ -75,7 +77,7 @@ const fullpageRoutes = (
 
 let activeRoutes = null;
 switch (SiteData.layout) {
-case 'stacked': activeRoutes = stackedRoutes; break;
+case 'holygrail': activeRoutes = stackedRoutes; break;
 case 'fullpage': activeRoutes = fullpageRoutes; break;
 default: activeRoutes = stackedRoutes;
 }
