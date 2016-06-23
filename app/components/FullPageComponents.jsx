@@ -9,12 +9,12 @@ import IconSvg from './IconSvg.jsx';
 import ICONS from '../fixtures/icons.js';
 
 export default function FullPageComponents() {
-  const gridClass = `grid grid-gutters grid-full
+  const gridClass = `stripe grid grid-gutters grid-full
     grid-flex-cells large-grid-fit u-textCenter`;
 
   return (
     <div>
-      <div className={`${gridClass} stripe`}>
+      <div className={gridClass}>
         <Card>
           <IconSvg
             color="default-text"
@@ -55,7 +55,7 @@ export default function FullPageComponents() {
           <p className="stripe-call-to-action">Media component demos</p>
         </Card>
       </div>
-      <div className={`${gridClass} stripe default-light-back`}>
+      <div className={`${gridClass} default-light-back`}>
         <Card blank shade="default" className="u-textCenter">
           <h1>Hello World React</h1>
           <p>
@@ -73,7 +73,7 @@ export default function FullPageComponents() {
           <p className="stripe-call-to-action">Custom component demos</p>
         </Card>
       </div>
-      <div className={`${gridClass} stripe`}>
+      <div className={gridClass}>
         <Card>
           <p>Buttons</p>
           <button className="button default">Default</button>
@@ -108,7 +108,7 @@ export default function FullPageComponents() {
         </Card>
       </div>
 
-      <div className={`${gridClass} stripe default-light-back`}>
+      <div className={`${gridClass} default-light-back`}>
         <Card blank shade="default" className="u-textCenter">
           <IconSvg
             color="primary-text"
@@ -152,7 +152,7 @@ export default function FullPageComponents() {
         </Card>
       </div>
 
-      <div className={`${gridClass} stripe`}>
+      <div className={gridClass}>
         <Card>
           <IconSvg
             color="primary-text"

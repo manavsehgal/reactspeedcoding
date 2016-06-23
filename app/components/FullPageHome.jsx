@@ -49,7 +49,7 @@ export default function FullPageHome() {
         </Card>
       </div>
       <div className={`${gridClass} default-light-back`}>
-        <Card blank shade="default" className="u-textLeft">
+        <Card blank shade="default" className="u-textCenter">
           <h1>React Workflow Strategies</h1>
           <p>The book covers workflows and strategies for starting, defining, wiring, testing,
             routing, and refactoring React apps. These make
@@ -93,7 +93,7 @@ export default function FullPageHome() {
             </a> in our blog.
           </p>
         </Card>
-        <Card blank shade="default" className="u-textLeft">
+        <Card blank shade="default" className="u-textCenter">
           <h1>Speed Coding</h1>
           <p>More than 3,000 lines of reusable code, 30 custom React components,
             3 single page apps.
