@@ -1,48 +1,13 @@
 import React, { PropTypes } from 'react';
 import IconSvg from './IconSvg.jsx';
 import ICONS from '../fixtures/icons.js';
+import stepsData from '../fixtures/workflow/workflow.js';
 
 export default class Workflow extends React.Component {
   static propTypes = {
     steps: PropTypes.array.isRequired
   }
-  static defaultProps = {
-    steps: [
-      { symbol: 'Se', scenario: 'Embed to React', sequence: 1,
-        text: `Customize the embed code within target platform to suit
-        your site or app styles and placement.` },
-      { symbol: 'Se', scenario: 'Embed to React', sequence: 2,
-        text: `Optionally, parametrize the embed code attributes
-        using React props.` },
-      { symbol: 'Se', scenario: 'Embed to React', sequence: 3,
-        text: `Use stateless component as you will most likely not maintain embed UI state
-        locally in your component.` },
-      { symbol: 'Ss', scenario: 'Sample to React', sequence: 1,
-        text: `Identify root level component name that represents your sample.
-        Define component.` },
-      { symbol: 'Ss', scenario: 'Sample to React', sequence: 2,
-        text: `Split sample code HTML, CSS, JavaScript into
-        separate files.` },
-      { symbol: 'Ss', scenario: 'Sample to React', sequence: 3,
-        text: `Copy HTML DOM that renders the sample UI, into render() method
-        of root component.` },
-      { symbol: 'Ss', scenario: 'Sample to React', sequence: 4,
-        text: `Optionally, replace some of the HTML with existing reusable
-        components in your app.` },
-      { symbol: 'Ss', scenario: 'Sample to React', sequence: 5,
-        text: `Copy CSS into new or existing
-        partial.` },
-      { symbol: 'Ss', scenario: 'Sample to React', sequence: 6,
-        text: `Copy JavaScript to /app/public/js
-        folder.` },
-      { symbol: 'Ss', scenario: 'Sample to React', sequence: 7,
-        text: `JS over CDN is referred in <script> tag
-        from /app/templates/*.html.` },
-      { symbol: 'Ss', scenario: 'Sample to React', sequence: 8,
-        text: `Import the new component into your index.jsx and create an
-        instance in render() method.` }
-    ]
-  }
+  static defaultProps = { steps: stepsData }
   constructor(props) {
     super(props);
     this.state = { stepsIndex: 0 };
@@ -94,8 +59,10 @@ export default class Workflow extends React.Component {
           </div>
         </div>
         <div className="grid large-grid-full med-grid-full small-grid-full">
-          <div className="grid-cell workflow-text">
-            {currentStep.text}
+          <div className="grid-cell workflow-text u-textCenter">
+            {currentStep.text
+              ? currentStep.text
+              : <img height="120px" src={currentStep.img} alt={currentStep.scenario} />}
           </div>
         </div>
         <div className="grid grid-full large-grid-fit med-grid-fit">
@@ -103,18 +70,18 @@ export default class Workflow extends React.Component {
             <IconSvg
               icon={ICONS.REFRESH}
               color="white-text"
-              text={`${currentStep.symbol}`}
+              text={currentStep.symbol}
               slim
             />
           </button>
           <div className="grid-cell workflow-steps">
-            {stepsCount}
+            {currentStep.workflow}
           </div>
           <button onClick={this.cycleSequence} className="grid-cell button default">
             <IconSvg
               icon={ICONS.ARROW_RIGHT}
               color="white-text"
-              text={`${currentStep.sequence}`}
+              text={currentStep.sequence}
               slim
               left
             />
