@@ -88,7 +88,7 @@ export default function FullPageHome() {
             </code>
           </pre>
           <p>
-            Read <a href="https://medium.com/reactspeed/speed-start-react-es6-essentials-writing-your-first-react-app-cc7c329d72f0#.vjnyzoshb">
+            Read <a href="https://medium.com/reactspeed/speed-start-react-es6-development-82427d8260d4#.tggtl3gp5">
             quick setup instructions
             </a> in our blog.
           </p>
