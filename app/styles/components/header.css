@@ -1,28 +1,10 @@
 .header {
-  padding: 1.5em;
-}
-
-@media (--break-lg) {
-  .header {
-    padding: 3em 1.5em;
-  }
-}
-
-.header-link {
-  border-bottom: 1px solid $success-light;
+  padding: 1em;
 }
 
 .header-title {
-  font-size: 1.6em;
-  font-weight: 400;
+  font-size: 1em;
   line-height: 1;
-  word-spacing: 0.08em;
-}
-
-.header-title i {
-  font-family: serif;
-  font-style: italic;
-  font-weight: 400;
 }
 
 .header-title a {
@@ -35,77 +17,4 @@
 .header-title a:hover,
 .header-title a:active {
   text-decoration: none;
-}
-
-@media (--break-lg) {
-  .header-title {
-    font-size: 4em;
-  }
-}
-
-.header-subtitle {
-  font-size: 0.8em;
-  font-weight: 300;
-}
-
-@media (--break-lg) {
-  .header-subtitle {
-    font-size: 1.1em;
-  }
-}
-
-.header-actions {
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-  font-size: 0.9em;
-}
-
-@media (--break-sm) {
-  .header-actions {
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-@media (--break-lg) {
-  .header-actions {
-    font-size: 1.1em;
-  }
-}
-
-.header-button:first-child {
-  margin: 0 0 1em;
-}
-
-@media (--break-sm) {
-  .header-button:first-child {
-    margin: 0 1em 0 0;
-  }
-}
-
-@media (--break-lg) {
-  .header-cozy {
-    display: flex;
-    padding: 1.5em;
-    align-items: center;
-  }
-  .header-cozy .header-titles {
-    display: flex;
-    align-items: baseline;
-  }
-  .header-cozy .header-title {
-    font-size: 1.5em;
-  }
-  .header-cozy .header-subtitle {
-    font-size: 0.8em;
-    font-weight: 300;
-    color: gray;
-  }
-  .header-cozy .header-actions {
-    flex: 1;
-    justify-content: flex-end;
-    font-size: 0.9em;
-  }
 }

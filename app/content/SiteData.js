@@ -11,11 +11,8 @@ const SiteData = {
 
   home: {
     header: {
-      message: `Learn React with 30+ reusable custom components,
-      15 ebook chapters, and 3 complete apps.`,
-      subtitle: `JavaScript ES6. Babel. React Hot Loading. React Router. Redux.
-      PostCSS, FlexBox styling. Firebase database. Webpack packaging.
-      Enzyme, Mocha, Chai BDD testing. ESLint and StyleLint. Browsersync.`
+      message: `Learn React ES6, Redux, Webpack, Enzyme BDD, Flexbox,
+      and Firebase.`
     },
     sidebar: {
       promoButton: {

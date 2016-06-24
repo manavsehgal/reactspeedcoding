@@ -12,14 +12,11 @@ class Header extends React.Component {
     const promo = this.props.promo;
     return (
       <header className="holygrail-header">
-        <div className="header header-cozy" role="banner">
+        <div className="header" role="banner">
           {promo
             ? <div>
               <div className="header-title">
                 {promo.message}
-              </div>
-              <div className="header-subtitle">
-                {promo.subtitle}
               </div>
             </div>
             : ''
