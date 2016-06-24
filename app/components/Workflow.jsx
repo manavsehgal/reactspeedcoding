@@ -62,7 +62,7 @@ export default class Workflow extends React.Component {
           <div className="grid-cell workflow-text u-textCenter">
             {currentStep.text
               ? currentStep.text
-              : <img height="100%" src={currentStep.img} alt={currentStep.scenario} />}
+              : <img width="80%" src={currentStep.img} alt={currentStep.scenario} />}
           </div>
         </div>
         <div className="grid grid-full large-grid-fit med-grid-fit">
