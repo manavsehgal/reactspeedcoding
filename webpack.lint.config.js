@@ -66,6 +66,12 @@ module.exports = {
         test: /\.css$/,
         loaders: ['style', 'css', 'postcss'],
         include: APP
+      },
+      // Process JSON data fixtures
+      {
+        test: /\.json$/,
+        loader: 'json',
+        include: APP
       }
     ]
   },

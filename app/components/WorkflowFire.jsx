@@ -1,29 +1,32 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import IconSvg from './IconSvg.jsx';
 import ICONS from '../fixtures/icons.js';
+import rsdb from '../fixtures/rsdb.js';
 const steps = require('../fixtures/workflow/steps.json');
 
-export default class Workflow extends React.Component {
-  static propTypes = {
-    steps: PropTypes.array.isRequired
-  }
-  static defaultProps = { steps: Object.values(steps) }
+export default class WorkflowFire extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { stepsIndex: 0 };
+    this.state = { stepsIndex: 0, steps: Object.values(steps), firebase: false };
     this.cycleSequence = this.cycleSequence.bind(this);
     this.cycleScenario = this.cycleScenario.bind(this);
   }
+  componentDidMount() {
+    rsdb.ref('steps').once('value', (snap) => {
+      this.setState({ steps: snap.val() });
+      this.setState({ firebase: true });
+    });
+  }
   cycleSequence() {
     const nextIndex =
-      this.state.stepsIndex === (this.props.steps.length - 1)
+      this.state.stepsIndex === (this.state.steps.length - 1)
       ? 0
       : this.state.stepsIndex + 1;
 
     this.setState({ stepsIndex: nextIndex });
   }
   cycleScenario() {
-    const stepsList = this.props.steps;
+    const stepsList = this.state.steps;
     const currentStep = stepsList[this.state.stepsIndex];
     let stepsCount = 0;
     for (let i = 0; i < stepsList.length; ++i) {
@@ -42,7 +45,7 @@ export default class Workflow extends React.Component {
     }
   }
   render() {
-    const stepsList = this.props.steps;
+    const stepsList = this.state.steps;
     const currentStep = stepsList[this.state.stepsIndex];
     return (
       <div className="workflow">
@@ -79,6 +82,11 @@ export default class Workflow extends React.Component {
               left
             />
           </button>
+        </div>
+        <div>
+          <p className="call-to-action">
+            Data Source: {this.state.firebase ? 'Firebase' : 'Local'}
+          </p>
         </div>
       </div>
     );

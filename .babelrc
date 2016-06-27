@@ -1,5 +1,5 @@
 {
-  "presets": ["react", "es2015", "airbnb"],
+  "presets": ["react", "es2015", "es2017", "airbnb"],
   "env": {
     "development": {
       "presets": ["react-hmre"]
@@ -7,6 +7,7 @@
   },
   "plugins": [
     "transform-class-properties",
-    "transform-object-rest-spread"
+    "transform-object-rest-spread",
+    "transform-runtime"
   ]
 }

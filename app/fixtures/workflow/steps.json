@@ -1,0 +1,22 @@
+{
+  "0": { "workflow": "Start", "symbol": "Se", "scenario": "Embed to React", "sequence": 1,
+    "img": "img/embed-to-react-w300.jpg" },
+  "1": { "workflow": "Start", "symbol": "Se", "scenario": "Embed to React", "sequence": 2,
+    "text": "Customize the embed code within target platform to suit your site or app styles and placement." },
+  "2": { "workflow": "Start", "symbol": "Se", "scenario": "Embed to React", "sequence": 3,
+    "text": "Optionally, parametrize the embed code attributes using React props." },
+  "3": { "workflow": "Start", "symbol": "Se", "scenario": "Embed to React", "sequence": 4,
+    "text": "Use stateless component as you will most likely not maintain embed UI state locally in your component." },
+  "4": { "workflow": "Define", "symbol": "Df", "scenario": "Naming conventions", "sequence": 1,
+    "img": "img/webpack-workflow-w300.jpg" },
+  "5": { "workflow": "Define", "symbol": "Df", "scenario": "Naming conventions", "sequence": 2,
+    "text": "Use .jsx extension for React components." },
+  "6": { "workflow": "Define", "symbol": "Df", "scenario": "Naming conventions", "sequence": 3,
+    "text": "Entry point for app is /app/index.jsx file." },
+  "7": { "workflow": "Wire", "symbol": "We", "scenario": "Events", "sequence": 1,
+    "text": "As event handlers often manipulate state, they are best defined where state is defined." },
+  "8": { "workflow": "Wire", "symbol": "We", "scenario": "Events", "sequence": 2,
+    "text": "Define the event handler in outermost owner component." },
+  "9": { "workflow": "Wire", "symbol": "We", "scenario": "Events", "sequence": 3,
+    "text": "Consume on<Event> property within owned components down the multi-component hierarchy." }
+}

@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import Card from './Card.jsx';
 
 import World from './World.jsx';
-import Workflow from './Workflow.jsx';
+import WorkflowFire from './WorkflowFire.jsx';
 import TodoApp from './TodoApp.jsx';
 
 export default class CardStack extends React.Component {
@@ -37,7 +37,7 @@ export default class CardStack extends React.Component {
       <div>
         <h1>Custom Components</h1>
         <div className={gridClass}>
-          <Card><Workflow /></Card>
+          <Card><WorkflowFire /></Card>
           <Card><World /></Card>
           <Card><TodoApp /></Card>
         </div>
