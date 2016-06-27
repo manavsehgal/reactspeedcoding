@@ -12,7 +12,7 @@ export default class WorkflowFire extends React.Component {
     this.cycleScenario = this.cycleScenario.bind(this);
   }
   componentDidMount() {
-    rsdb.ref('steps').once('value', (snap) => {
+    rsdb.ref('steps').once('value').then((snap) => {
       this.setState({ steps: snap.val() });
       this.setState({ firebase: true });
     });
