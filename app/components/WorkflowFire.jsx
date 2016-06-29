@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import IconSvg from './IconSvg.jsx';
 import ICONS from '../fixtures/icons.js';
-import rsdb from '../fixtures/rsdb.js';
-const steps = require('../fixtures/workflow/steps.json');
 
 export default class WorkflowFire extends React.Component {
+  static propTypes = {
+    steps: PropTypes.object.isRequired,
+    rsdb: PropTypes.object.isRequired,
+    realtime: PropTypes.bool }
+  static defaultProps = { realtime: false }
   constructor(props) {
     super(props);
-    this.state = { stepsIndex: 0, steps: Object.values(steps), firebase: false };
+    this.state = {
+      stepsIndex: 0,
+      steps: Object.values(this.props.steps),
+      firebase: false,
+      stepsCount: Object.values(this.props.steps).length };
     this.cycleSequence = this.cycleSequence.bind(this);
     this.cycleScenario = this.cycleScenario.bind(this);
   }
   componentDidMount() {
-    rsdb.ref('steps').once('value').then((snap) => {
-      this.setState({ steps: snap.val() });
-      this.setState({ firebase: true });
-    });
+    const getSteps = (snap) => {
+      this.setState({
+        steps: snap.val(),
+        firebase: true,
+        stepsCount: snap.numChildren()
+      });
+    };
+    if (this.props.realtime) {
+      this.props.rsdb.ref('steps').on('value', getSteps);
+    } else {
+      this.props.rsdb.ref('steps').once('value').then(getSteps);
+    }
   }
   cycleSequence() {
     const nextIndex =
@@ -32,13 +47,13 @@ export default class WorkflowFire extends React.Component {
     for (let i = 0; i < stepsList.length; ++i) {
       if (stepsList[i].symbol === currentStep.symbol) stepsCount++;
     }
-    const currentScenario = currentStep.scenario;
+    const currentScenario = currentStep.strategy;
     const loopStart =
       (this.state.stepsIndex + stepsCount) >= stepsList.length
       ? 0
       : this.state.stepsIndex + 1;
     for (let i = loopStart; i < stepsList.length; ++i) {
-      if (stepsList[i].scenario !== currentScenario) {
+      if (stepsList[i].strategy !== currentScenario) {
         this.setState({ stepsIndex: i });
         break;
       }
@@ -51,14 +66,14 @@ export default class WorkflowFire extends React.Component {
       <div className="workflow">
         <div className="grid large-grid-full med-grid-full small-grid-full">
           <div className="grid-cell workflow-scenario">
-            {currentStep.scenario}
+            {currentStep.strategy}
           </div>
         </div>
         <div className="grid large-grid-full med-grid-full small-grid-full">
           <div className="grid-cell workflow-text u-textCenter">
             {currentStep.text
               ? currentStep.text
-              : <img width="80%" src={currentStep.img} alt={currentStep.scenario} />}
+              : <img width="80%" src={currentStep.img} alt={currentStep.strategy} />}
           </div>
         </div>
         <div className="grid grid-full large-grid-fit med-grid-fit">
@@ -86,6 +101,7 @@ export default class WorkflowFire extends React.Component {
         <div>
           <p className="call-to-action">
             Data Source: {this.state.firebase ? 'Firebase' : 'Local'}
+            &nbsp;| Steps count: {this.state.stepsCount}
           </p>
         </div>
       </div>

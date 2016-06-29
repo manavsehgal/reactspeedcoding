@@ -16,6 +16,11 @@ module.exports = {
         test: /\.css$/,
         loaders: ['style', 'css', 'postcss'],
         include: APP
+      },
+      {
+        test: /\.json$/,
+        loader: 'json',
+        include: APP
       }
     ]
   },

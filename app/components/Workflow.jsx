@@ -29,13 +29,13 @@ export default class Workflow extends React.Component {
     for (let i = 0; i < stepsList.length; ++i) {
       if (stepsList[i].symbol === currentStep.symbol) stepsCount++;
     }
-    const currentScenario = currentStep.scenario;
+    const currentScenario = currentStep.strategy;
     const loopStart =
       (this.state.stepsIndex + stepsCount) >= stepsList.length
       ? 0
       : this.state.stepsIndex + 1;
     for (let i = loopStart; i < stepsList.length; ++i) {
-      if (stepsList[i].scenario !== currentScenario) {
+      if (stepsList[i].strategy !== currentScenario) {
         this.setState({ stepsIndex: i });
         break;
       }
@@ -48,14 +48,14 @@ export default class Workflow extends React.Component {
       <div className="workflow">
         <div className="grid large-grid-full med-grid-full small-grid-full">
           <div className="grid-cell workflow-scenario">
-            {currentStep.scenario}
+            {currentStep.strategy}
           </div>
         </div>
         <div className="grid large-grid-full med-grid-full small-grid-full">
           <div className="grid-cell workflow-text u-textCenter">
             {currentStep.text
               ? currentStep.text
-              : <img width="80%" src={currentStep.img} alt={currentStep.scenario} />}
+              : <img width="80%" src={currentStep.img} alt={currentStep.strategy} />}
           </div>
         </div>
         <div className="grid grid-full large-grid-fit med-grid-fit">
