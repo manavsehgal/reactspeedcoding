@@ -5,13 +5,13 @@ import Card from './Card.jsx';
 import World from './World.jsx';
 import WorkflowFire from './WorkflowFire.jsx';
 import TodoApp from './TodoApp.jsx';
-import rsdb from '../fixtures/rsdb.js';
 const steps = require('../fixtures/workflow/steps.json');
 
 export default class CardStack extends React.Component {
   static propTypes = {
     messages: PropTypes.array.isRequired,
-    redirect: PropTypes.bool
+    redirect: PropTypes.bool,
+    route: PropTypes.object
   }
 
   static defaultProps = {
@@ -39,7 +39,9 @@ export default class CardStack extends React.Component {
       <div>
         <h1>Custom Components</h1>
         <div className={gridClass}>
-          <Card><WorkflowFire steps={steps} rsdb={rsdb} /></Card>
+          <Card>
+            <WorkflowFire steps={steps} rsdb={this.props.route.rsdb} />
+          </Card>
           <Card><World /></Card>
           <Card><TodoApp /></Card>
         </div>

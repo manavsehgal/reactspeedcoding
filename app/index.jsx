@@ -23,6 +23,7 @@ import { Provider } from 'react-redux';
 import store from './store/roadmap';
 import roadmapHydrate from './fixtures/roadmap/roadmapHydrate';
 import SiteData from './content/SiteData.js';
+import { firebaseApp, rsdb } from './fixtures/rsdb.js';
 
 roadmapHydrate();
 
@@ -62,8 +63,18 @@ const fullpageRoutes = (
         <Route path="/media" component={CardStackMedia} />
         <Route path="/forms" component={CardStackForm} />
         <Route path="/buttons" component={CardStackButton} />
-        <Route path="/custom" component={CardStackCustom} />
-        <Route path="/workflow-editor" component={WorkflowEditor} />
+        <Route
+          path="/custom"
+          firebaseApp={firebaseApp}
+          rsdb={rsdb}
+          component={CardStackCustom}
+        />
+        <Route
+          path="/workflow-editor"
+          firebaseApp={firebaseApp}
+          rsdb={rsdb}
+          component={WorkflowEditor}
+        />
         <Route path="/components" component={FullPageComponents} />
         <Route path="/charts" component={CardStackCharts} />
         <Route path="/news" component={PostSummary} />

@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Card from './Card.jsx';
 import Select from 'react-select';
 import WorkflowFire from './WorkflowFire.jsx';
-import rsdb from '../fixtures/rsdb.js';
 const steps = require('../fixtures/workflow/steps.json');
 
 const workflowOptions = [
@@ -33,6 +32,7 @@ const strategyOptions = {
 };
 
 export default class WorkflowEditor extends React.Component {
+  static propTypes = { route: PropTypes.object.isRequired }
   constructor(props) {
     super(props);
     this.state = {
@@ -40,14 +40,22 @@ export default class WorkflowEditor extends React.Component {
       stepsCount: 0,
       strategy: 'Sample to React',
       text: '',
+      img: '',
       sequence: 0,
       symbol: 'Ss',
-      strategyOptions: strategyOptions.Start
+      strategyOptions: strategyOptions.Start,
+      login: '',
+      password: '',
+      loginError: '',
+      auth: false
     };
+    this.login = this.login.bind(this);
+    this.loginChange = this.loginChange.bind(this);
+    this.passwordChange = this.passwordChange.bind(this);
+    this.addStep = this.addStep.bind(this);
     this.strategyChange = this.strategyChange.bind(this);
     this.workflowChange = this.workflowChange.bind(this);
     this.symbolChange = this.symbolChange.bind(this);
-    this.addStep = this.addStep.bind(this);
     this.textChange = this.textChange.bind(this);
     this.sequenceChange = this.sequenceChange.bind(this);
   }
@@ -57,16 +65,36 @@ export default class WorkflowEditor extends React.Component {
         stepsCount: snap.numChildren()
       });
     };
-    rsdb.ref('steps').on('value', getStepCount);
+    this.props.route.rsdb.ref('steps').on('value', getStepCount);
+  }
+  login() {
+    this.setState({ loginError: '' });
+    this.props.route.firebaseApp.auth()
+      .signInWithEmailAndPassword(this.state.login, this.state.password)
+      .catch((error) => {
+        this.setState({ loginError: error.message });
+        return;
+      });
+    this.setState({ auth: true });
+  }
+  loginChange(event) {
+    this.setState({ login: event.target.value });
+  }
+  passwordChange(event) {
+    this.setState({ password: event.target.value });
   }
   addStep() {
-    rsdb.ref(`steps/${this.state.stepsCount}`).set({
-      workflow: this.state.workflow,
-      strategy: this.state.strategy,
-      text: this.state.text,
-      symbol: this.state.symbol,
-      sequence: this.state.sequence
-    });
+    if (this.state.auth) {
+      this.props.route.rsdb.ref(`steps/${this.state.stepsCount}`).set({
+        workflow: this.state.workflow,
+        strategy: this.state.strategy,
+        text: this.state.text,
+        symbol: this.state.symbol,
+        sequence: this.state.sequence
+      });
+    } else {
+      this.setState({ loginError: 'You need to login to add workflow step.' });
+    }
   }
   workflowChange(value) {
     let newSymbol = '';
@@ -107,6 +135,53 @@ export default class WorkflowEditor extends React.Component {
     return (
       <div>
         <h1>Workflow Editor</h1>
+        <p className="default-text">Demonstrates integration with Firebase
+        using authentication. Visual editing enables review of results
+        using component connected with realtime database. As new workflow steps
+        are added, the component re-renders with new items reactively.
+        Also demonstrates linked form fields which auto-fill based on other fields.
+          <br />
+        Future releases can enable auto-filling of Form values while navigating the
+        component visually, for editing existing data.
+        </p>
+        {!this.state.auth
+          ? <div>
+            <div className={gridClass}>
+              <Card>
+                <div className="grid grid-fit">
+                  <div className="input grid-cell">
+                    <span className="input-label">Login</span>
+                    <input
+                      className="input-field"
+                      type="email"
+                      placeholder="Enter login email"
+                      value={this.state.login}
+                      onChange={this.loginChange}
+                    />
+                  </div>
+                  &nbsp;
+                  <div className="input grid-cell">
+                    <span className="input-label">Password</span>
+                    <input
+                      className="input-field"
+                      type="password"
+                      placeholder="Enter password"
+                      value={this.state.password}
+                      onChange={this.passwordChange}
+                    />
+                    <button className="button primary" onClick={this.login}>Login</button>
+                  </div>
+                </div>
+              </Card>
+            </div>
+            {this.state.loginError
+              ? <p className="danger-text">{this.state.loginError}</p>
+              : <p className="default-text">
+                You need to login for adding steps to the workflow.
+              </p>}
+          </div>
+          : ''
+        }
         <div className={gridClass}>
           <Card>
             <Select
@@ -161,7 +236,7 @@ export default class WorkflowEditor extends React.Component {
             </button>
           </Card>
           <Card className="u-textCenter">
-            <WorkflowFire steps={steps} rsdb={rsdb} realtime />
+            <WorkflowFire steps={steps} rsdb={this.props.route.rsdb} realtime />
           </Card>
         </div>
       </div>

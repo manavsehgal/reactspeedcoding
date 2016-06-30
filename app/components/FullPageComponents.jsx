@@ -17,16 +17,16 @@ export default function FullPageComponents() {
       <div className={gridClass}>
         <Card>
           <IconSvg
-            color="default-text"
-            icon={ICONS.CLOUD_DOWN}
+            color="primary-text"
+            icon={ICONS.DATABASE}
             size={50}
-            text="AJAX components demo jQuery and React integration"
+            text="Firebase visual form editor and authentication"
           />
           <br />
-          <NavLink className="button default" to="/ajax">
-            AJAX components
+          <NavLink className="button primary" to="/workflow-editor">
+            Firebase integration
           </NavLink>
-          <p className="stripe-call-to-action">AJAX component demos</p>
+          <p className="stripe-call-to-action">Media component demos</p>
         </Card>
         <Card>
           <IconSvg
@@ -43,16 +43,16 @@ export default function FullPageComponents() {
         </Card>
         <Card>
           <IconSvg
-            color="primary-text"
-            icon={ICONS.VIDEO}
+            color="default-text"
+            icon={ICONS.CLOUD_DOWN}
             size={50}
-            text="Media components embed YouTube using properties"
+            text="AJAX components demo jQuery and React integration"
           />
           <br />
-          <NavLink className="button primary" to="/media">
-            Media components
+          <NavLink className="button default" to="/ajax">
+            AJAX components
           </NavLink>
-          <p className="stripe-call-to-action">Media component demos</p>
+          <p className="stripe-call-to-action">AJAX component demos</p>
         </Card>
       </div>
       <div className={`${gridClass} default-light-back`}>
@@ -176,11 +176,16 @@ export default function FullPageComponents() {
         </Card>
         <Card>
           <IconSvg
-            color="secondary-text"
-            icon={ICONS.CSS}
-            size={70}
-            text="ReactSpeed UI is efficient, CSS 4.6KB Gzip, 21KB Minified"
+            color="primary-text"
+            icon={ICONS.VIDEO}
+            size={50}
+            text="Media components embed YouTube using properties"
           />
+          <br />
+          <NavLink className="button primary" to="/media">
+            Media components
+          </NavLink>
+          <p className="stripe-call-to-action">Media component demos</p>
         </Card>
       </div>
     </div>
