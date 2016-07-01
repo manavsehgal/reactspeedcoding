@@ -180,8 +180,7 @@ export default class WorkflowEditor extends React.Component {
               </p>}
           </div>
           : <p className="success-text">
-          You successfully logged in as &nbsp;
-            <b>{this.props.route.firebaseApp.auth().currentUser.email}</b>.
+          You successfully logged in.
           </p>
         }
         <div className={gridClass}>
