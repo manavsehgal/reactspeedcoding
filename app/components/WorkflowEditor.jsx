@@ -68,14 +68,13 @@ export default class WorkflowEditor extends React.Component {
     this.props.route.rsdb.ref('steps').on('value', getStepCount);
   }
   login() {
-    this.setState({ loginError: '' });
+    this.setState({ loginError: '', auth: true });
     this.props.route.firebaseApp.auth()
       .signInWithEmailAndPassword(this.state.login, this.state.password)
       .catch((error) => {
-        this.setState({ loginError: error.message });
+        this.setState({ loginError: error.message, auth: false });
         return;
       });
-    this.setState({ auth: true });
   }
   loginChange(event) {
     this.setState({ login: event.target.value });
@@ -180,7 +179,10 @@ export default class WorkflowEditor extends React.Component {
                 You need to login for adding steps to the workflow.
               </p>}
           </div>
-          : ''
+          : <p className="success-text">
+          You successfully logged in as &nbsp;
+            <b>{this.props.route.firebaseApp.auth().currentUser.email}</b>.
+          </p>
         }
         <div className={gridClass}>
           <Card>
