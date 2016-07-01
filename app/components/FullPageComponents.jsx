@@ -26,7 +26,7 @@ export default function FullPageComponents() {
           <NavLink className="button primary" to="/workflow-editor">
             Firebase integration
           </NavLink>
-          <p className="stripe-call-to-action">Media component demos</p>
+          <p className="stripe-call-to-action">Workflow Editor App</p>
         </Card>
         <Card>
           <IconSvg
