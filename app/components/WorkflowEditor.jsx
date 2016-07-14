@@ -47,7 +47,7 @@ export default class WorkflowEditor extends React.Component {
       login: '',
       password: '',
       loginError: '',
-      auth: false
+      loginMessage: ''
     };
     this.login = this.login.bind(this);
     this.loginChange = this.loginChange.bind(this);
@@ -67,13 +67,16 @@ export default class WorkflowEditor extends React.Component {
     };
     this.props.route.rsdb.ref('steps').on('value', getStepCount);
   }
+  componentWillUnmount() {
+    this.props.route.firebaseApp.auth().signOut();
+  }
   login() {
-    this.setState({ loginError: '', auth: true });
     this.props.route.firebaseApp.auth()
       .signInWithEmailAndPassword(this.state.login, this.state.password)
-      .catch((error) => {
-        this.setState({ loginError: error.message, auth: false });
-        return;
+      .then(() => {
+        this.setState({ loginError: '', loginMessage: 'You successfully logged in.' });
+      }, (error) => {
+        this.setState({ loginError: error.message, loginMessage: '' });
       });
   }
   loginChange(event) {
@@ -83,7 +86,7 @@ export default class WorkflowEditor extends React.Component {
     this.setState({ password: event.target.value });
   }
   addStep() {
-    if (this.state.auth) {
+    if (this.props.route.firebaseApp.auth().currentUser) {
       this.props.route.rsdb.ref(`steps/${this.state.stepsCount}`).set({
         workflow: this.state.workflow,
         strategy: this.state.strategy,
@@ -143,8 +146,11 @@ export default class WorkflowEditor extends React.Component {
         Future releases can enable auto-filling of Form values while navigating the
         component visually, for editing existing data.
         </p>
-        {!this.state.auth
-          ? <div>
+        {this.props.route.firebaseApp.auth().currentUser
+          ? <p className="success-text">
+          {this.state.loginMessage}
+          </p>
+          : <div>
             <div className={gridClass}>
               <Card>
                 <div className="grid grid-fit">
@@ -179,9 +185,6 @@ export default class WorkflowEditor extends React.Component {
                 You need to login for adding steps to the workflow.
               </p>}
           </div>
-          : <p className="success-text">
-          You successfully logged in.
-          </p>
         }
         <div className={gridClass}>
           <Card>
