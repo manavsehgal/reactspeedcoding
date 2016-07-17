@@ -18,7 +18,10 @@ const workflowOptions = [
 const strategyOptions = {
   Start: [
     { value: 'Sample to React', label: 'Sample to React' },
-    { value: 'Embed to React', label: 'Embed to React' }
+    { value: 'Embed to React', label: 'Embed to React' },
+    { value: 'CSS Library to React', label: 'CSS Library to React' },
+    { value: 'API to React', label: 'API to React' },
+    { value: 'Wireframe to React', label: 'Wireframe to React' }
   ],
   Define: [
     { value: 'Naming conventions', label: 'Naming conventions' },
@@ -58,6 +61,7 @@ export default class WorkflowEditor extends React.Component {
     this.symbolChange = this.symbolChange.bind(this);
     this.textChange = this.textChange.bind(this);
     this.sequenceChange = this.sequenceChange.bind(this);
+    this.handleStepChange = this.handleStepChange.bind(this);
   }
   componentDidMount() {
     const getStepCount = (snap) => {
@@ -132,20 +136,25 @@ export default class WorkflowEditor extends React.Component {
       this.setState({ sequence: parseInt(event.target.value, 10) });
     }
   }
+  handleStepChange(workflow, strategy, sequence) {
+    this.workflowChange(workflow);
+    this.strategyChange(strategy);
+    this.setState({ sequence });
+  }
   render() {
     const gridClass = 'grid grid-gutters grid-full grid-flex-cells large-grid-fit';
     return (
       <div>
         <h1>Workflow Editor</h1>
-        <p className="default-text">Demonstrates integration with Firebase
-        using authentication. Visual editing enables review of results
-        using component connected with realtime database. As new workflow steps
-        are added, the component re-renders with new items reactively.
-        Also demonstrates linked form fields which auto-fill based on other fields.
-          <br />
-        Future releases can enable auto-filling of Form values while navigating the
-        component visually, for editing existing data.
-        </p>
+        <ul className="default-text">
+          <li>Demonstrates integration with Firebase using authentication</li>
+          <li>Visual editing enables review of results
+          using component connected with realtime database
+          </li>
+          <li>Demonstrates linked form fields which auto-fill based on other fields</li>
+          <li>Enables auto-filling of Form values while navigating the
+          component visually</li>
+        </ul>
         {this.props.route.firebaseApp.auth().currentUser
           ? <p className="success-text">
           {this.state.loginMessage}
@@ -240,7 +249,12 @@ export default class WorkflowEditor extends React.Component {
             </button>
           </Card>
           <Card className="u-textCenter">
-            <WorkflowFire steps={steps} rsdb={this.props.route.rsdb} realtime />
+            <WorkflowFire
+              stepChange={this.handleStepChange}
+              steps={steps}
+              rsdb={this.props.route.rsdb}
+              realtime
+            />
           </Card>
         </div>
       </div>

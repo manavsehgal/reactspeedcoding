@@ -6,7 +6,9 @@ export default class WorkflowFire extends React.Component {
   static propTypes = {
     steps: PropTypes.object.isRequired,
     rsdb: PropTypes.object.isRequired,
-    realtime: PropTypes.bool }
+    realtime: PropTypes.bool,
+    stepChange: PropTypes.func
+  }
   static defaultProps = { realtime: false }
   constructor(props) {
     super(props);
@@ -38,6 +40,12 @@ export default class WorkflowFire extends React.Component {
       ? 0
       : this.state.stepsIndex + 1;
 
+    if (this.props.stepChange) {
+      const stepsList = this.state.steps;
+      const nextStep = stepsList[nextIndex];
+      this.props.stepChange(nextStep.workflow, nextStep.strategy, nextStep.sequence);
+    }
+
     this.setState({ stepsIndex: nextIndex });
   }
   cycleScenario() {
@@ -54,6 +62,11 @@ export default class WorkflowFire extends React.Component {
       : this.state.stepsIndex + 1;
     for (let i = loopStart; i < stepsList.length; ++i) {
       if (stepsList[i].strategy !== currentScenario) {
+        if (this.props.stepChange) {
+          const nextStep = stepsList[i];
+          this.props.stepChange(nextStep.workflow, nextStep.strategy, nextStep.sequence);
+        }
+
         this.setState({ stepsIndex: i });
         break;
       }
