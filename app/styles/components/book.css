@@ -53,8 +53,8 @@
 }
 
 .csstransforms3d  .book::after {
-  width: 5%;
-  left: 100%;
+  width: 7%;
+  left: 99%;
   background-color: #efefef;
   box-shadow: inset 0 0 5px #aaa;
   -moz-transform: rotateY(12deg);
