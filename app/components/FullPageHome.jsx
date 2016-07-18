@@ -12,10 +12,14 @@ export default function FullPageHome() {
     <div>
       <div className={gridClass}>
         <Card blank className="u-large-1of2 u-med-full u-small-full u-textCenter">
-          <a className="image-link" href="https://leanpub.com/reactspeedcoding">
-            <img src="/img/ibook-cover-w300.jpg" alt="React Speed Book" />
-          </a>
-          <p className="call-to-action-ibooks">Read sample chapters at LeanPub</p>
+          <div className="books">
+            <div className="book">
+              <a className="image-link" href="https://leanpub.com/reactspeedcoding">
+                <img src="/img/ibook-cover-w300.jpg" alt="React Speed Book" />
+              </a>
+            </div>
+          </div>
+          <p className="call-to-action-3d">Read sample chapters at LeanPub</p>
         </Card>
         <Card blank className="u-textCenter">
           <h1>Develop Awesome Apps</h1>

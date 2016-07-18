@@ -6,6 +6,7 @@
 @import 'styles/base/elements';
 @import 'styles/base/modifiers';
 @import 'styles/base/mixins';
+@import 'styles/components/book';
 @import 'styles/components/badge';
 @import 'styles/components/roadmap';
 @import 'styles/components/post';

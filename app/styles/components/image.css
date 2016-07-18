@@ -6,9 +6,7 @@
 }
 
 .image-link {
-  transition: opacity 0.5s ease;
   &:hover {
-    opacity: 0.8;
     border-bottom: 0;
   }
 }

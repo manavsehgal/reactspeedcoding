@@ -50,7 +50,7 @@ export default class WorkflowEditor extends React.Component {
       login: '',
       password: '',
       loginError: '',
-      loginMessage: ''
+      loginMessage: 'You are already logged in.'
     };
     this.login = this.login.bind(this);
     this.loginChange = this.loginChange.bind(this);
