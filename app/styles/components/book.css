@@ -53,12 +53,12 @@
 }
 
 .csstransforms3d  .book::after {
-  width: 7%;
-  left: 99%;
+  width: 5%;
+  left: 100%;
   background-color: #efefef;
   box-shadow: inset 0 0 5px #aaa;
-  -moz-transform: rotateY(12deg);
-  -webkit-transform: perspective(100) rotateY(12deg);
+  -moz-transform: rotateY(8deg);
+  -webkit-transform: perspective(100) rotateY(8deg);
 }
 
 .call-to-action-ibooks {
