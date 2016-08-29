@@ -15,7 +15,7 @@ export default function FullPageHome() {
           <div className="books">
             <div className="book">
               <a className="image-link" href="https://leanpub.com/reactspeedcoding">
-                <img src="/img/ibook-cover-w300.jpg" alt="React Speed Book" />
+                <img src="/img/reactspeed-cover-leanpub-w300.jpg" alt="React Speed Book" />
               </a>
             </div>
           </div>
