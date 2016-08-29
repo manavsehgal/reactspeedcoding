@@ -27,7 +27,7 @@ This repo is archived as a demo of how ReactSpeed website has been built based o
 
 ## License information
 
-Code is [MIT][23] license.
+Code is MIT license.
 
 Copyright (c) 2016 Manav Sehgal.
 
