@@ -9,7 +9,7 @@
 
 ## Clone [New Code Along Edition Repo](https://github.com/manavsehgal/react-speed-book)
 
-Chapter-by-chapter code along branches with 50 new custom React components, lighter BEM and PostCSS based CSS styling, end-to-end Redux app with tests, and Firebase React integration code.
+Download chapter-by-chapter code along branches with 50 new custom React components, lighter BEM and PostCSS based CSS styling, end-to-end Redux app with tests, and Firebase React integration code.
 
 New book code will be updated in the Code Along Edition repo only.
 
