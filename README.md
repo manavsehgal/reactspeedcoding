@@ -19,9 +19,7 @@ Download and read ebook, PDF, mobile formats. Support this project.
 
 [![React Speed Coding Book](/app/public/img/reactspeed-cover-leanpub-w300.jpg)](https://leanpub.com/reactspeedcoding)
 
-[![ReactSpeed Book](https://linkmaker.itunes.apple.com/images/badges/en-us/badge_ibooks-lrg.svg)](https://geo.itunes.apple.com/us/book/react-speed-coding/id1123718637?mt=11)
-
-## Visit [ReactSpeed.com](https://reactspeed.com/)
+## New Code Along Edition
 
 This repo is archived as a demo of how ReactSpeed website has been built based on concepts discussed in the React Speed Coding book. **We are no longer updating this repo.** Visit the [New Code Along Edition Repo](https://github.com/manavsehgal/react-speed-book) for any issues/PR relating to React Speed Coding book.
 
